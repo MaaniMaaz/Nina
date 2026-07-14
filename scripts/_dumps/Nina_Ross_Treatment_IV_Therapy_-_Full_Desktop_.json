@@ -1,0 +1,548 @@
+{
+  "meta": {
+    "title": "IV Therapy in Atlanta | Dr. Nina Ross, ND PhD",
+    "description": "IV therapy in Atlanta, prescribed off your labs by Dr. Nina Ross, ND PhD so you actually feel the difference. Vitamin and hydration therapy as part of root-cause functional medicine. Start with a $99 consult.",
+    "canonical": "https://www.ninarossfm.com/treatments/iv-therapy",
+    "ogImage": "https://www.ninarossfm.com/og/iv-therapy-share.jpg"
+  },
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://www.ninarossfm.com/treatments/iv-therapy#webpage",
+        "url": "https://www.ninarossfm.com/treatments/iv-therapy",
+        "name": "IV Therapy in Atlanta | Dr. Nina Ross, ND PhD",
+        "description": "IV therapy in Atlanta, prescribed off your labs by Dr. Nina Ross, ND PhD, as part of root-cause functional medicine.",
+        "inLanguage": "en-US",
+        "about": {
+          "@id": "https://www.ninarossfm.com/treatments/iv-therapy#therapy"
+        },
+        "reviewedBy": {
+          "@id": "https://www.ninarossfm.com/#physician"
+        },
+        "lastReviewed": "2026-06-01"
+      },
+      {
+        "@type": "MedicalTherapy",
+        "@id": "https://www.ninarossfm.com/treatments/iv-therapy#therapy",
+        "name": "IV Therapy",
+        "alternateName": "Intravenous nutrient therapy",
+        "description": "Intravenous delivery of vitamins, minerals, amino acids, and hydration, dosed from advanced lab testing, used within a personalized functional medicine care plan.",
+        "howPerformed": "A physician-ordered blend is infused intravenously over roughly 30 to 45 minutes at the Atlanta clinic, matched to the patient's lab results.",
+        "relevantSpecialty": {
+          "@type": "MedicalSpecialty",
+          "name": "FunctionalMedicine"
+        },
+        "provider": {
+          "@id": "https://www.ninarossfm.com/#physician"
+        }
+      },
+      {
+        "@type": "Physician",
+        "@id": "https://www.ninarossfm.com/#physician",
+        "name": "Dr. Nina Ross, ND PhD",
+        "medicalSpecialty": "FunctionalMedicine",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "NPI",
+          "value": "1164884078"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "8735 Dunwoody Place, Ste. O",
+          "addressLocality": "Atlanta",
+          "addressRegion": "GA",
+          "postalCode": "30350",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Atlanta"
+          },
+          {
+            "@type": "State",
+            "name": "Georgia"
+          }
+        ],
+        "telephone": "+1-678-561-4522"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is IV therapy and how does it work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IV therapy delivers vitamins, minerals, amino acids, and fluids straight into your bloodstream, bypassing a digestive system that may not be absorbing them well. Because nothing is lost to digestion, your cells get close to full availability of what is infused, often felt within hours. At Nina Ross, the blend is ordered by a physician from your lab results, not chosen off a menu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is IV therapy worth it or is it just expensive hydration?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A random drip with no workup behind it usually is a waste. IV therapy is worth it when it is dosed off real deficiencies and used to correct something specific, like depleted nutrients or poor gut absorption, inside a plan that is also treating why you got depleted. That is how it is used here."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is in your IV blends?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Common ingredients include saline for hydration, B vitamins, vitamin C, magnesium, zinc, and amino acids, in combinations matched to your labs and goals. Dr. Nina Ross selects and doses each blend individually rather than offering a fixed off-the-shelf menu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is IV therapy safe?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When it is physician-ordered and given by trained clinicians after appropriate screening, IV nutrient therapy is generally well tolerated. Dr. Nina Ross reviews your history and labs first, which is exactly why care here starts with a consult rather than a walk-in drip."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often do I need IV therapy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It depends on what your labs show and what we are correcting. Some patients benefit from a short series, others from occasional support. Inside the membership care plan you use IV therapy as your plan calls for it, instead of paying per bag."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I just book a drip without becoming a patient?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IV therapy here is always part of physician-led care. You start with a $99 Symptom Consultation so it can be ordered safely and actually fit what your body needs."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ninarossfm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Treatments",
+            "item": "https://www.ninarossfm.com/treatments"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "IV Therapy",
+            "item": "https://www.ninarossfm.com/treatments/iv-therapy"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "label": "Nav",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Our Approach",
+          "href": "/approach"
+        },
+        {
+          "text": "Treatments",
+          "href": "/treatments"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Dr. Nina",
+          "href": "/about"
+        },
+        {
+          "text": "Start · $99",
+          "href": "/start"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Hero",
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "IV therapy in Atlanta, prescribed off your labs so you actually feel the difference."
+        }
+      ],
+      "eyebrowSpans": [
+        "IV Therapy in Atlanta"
+      ],
+      "paragraphs": [
+        "If you have been chasing energy through one more drip at the wellness bar and still crash by two in the afternoon, the problem was never the bag. It is that nobody read why you are running on empty in the first place.",
+        "I am Dr. Nina Ross, ND PhD. Here an IV is ordered from your actual labs and given as one move inside a plan that treats the reason you needed it. That is how you trade a short afternoon buzz for getting your energy genuinely back."
+      ],
+      "links": [
+        {
+          "text": "Home",
+          "href": "/"
+        },
+        {
+          "text": "Treatments",
+          "href": "/treatments"
+        },
+        {
+          "text": "Book the $99 Symptom Consultation",
+          "href": "/start"
+        },
+        {
+          "text": "See what we can put in the bag →",
+          "href": "#dispensary"
+        },
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "ivtD-byline-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "ivtD-hero",
+          "alt": "IV therapy at Dr. Nina Ross's functional medicine clinic in Atlanta",
+          "placeholder": "IV therapy photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "What it is",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Nutrients straight to your bloodstream, past a gut that may not absorb them."
+        }
+      ],
+      "eyebrowSpans": [
+        "What it actually is"
+      ],
+      "paragraphs": [
+        "IV therapy delivers vitamins, minerals, amino acids, and fluids directly into your veins, skipping the digestive system entirely. That is the whole mechanism, and it is real. The drip is a delivery method, so it works best when the blend is ordered from your labs and built into the plan that treats the cause.",
+        "Close to full availability of what is infused, because nothing is lost to digestion.",
+        "Hydration and nutrients reach your cells fast, which is why depletion lifts quickly.",
+        "The blend is built from what you are actually low on, so every nutrient earns its place."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Who it's for",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "IV therapy is right for some people. It is wrong for others."
+        }
+      ],
+      "eyebrowSpans": [
+        "Be honest with yourself",
+        "This is for you if",
+        "It is not for you if"
+      ],
+      "paragraphs": [
+        "If that second list stung a little, good. That honesty is exactly what you are paying for here."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "This is for you if",
+          "body": ""
+        },
+        {
+          "title": "·",
+          "body": "Your gut does not absorb nutrients well, from IBS, reflux, or after surgery"
+        },
+        {
+          "title": "·",
+          "body": "You are depleted, run-down, or recovering and oral supplements are not cutting it"
+        },
+        {
+          "title": "·",
+          "body": "Your labs show real deficiencies we can correct faster intravenously"
+        },
+        {
+          "title": "It is not for you if",
+          "body": ""
+        },
+        {
+          "title": "·",
+          "body": "You want a one-time buzz with no interest in why you are tired"
+        },
+        {
+          "title": "·",
+          "body": "You are hoping a drip can replace sleep, food, or a real workup"
+        },
+        {
+          "title": "·",
+          "body": "You expect it to fix a root cause it was never going to touch alone"
+        }
+      ]
+    },
+    {
+      "label": "Not a drip bar",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Every corner has an IV lounge now. This is not that."
+        }
+      ],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "At a drip lounge you pick a bag off a board, pay at the counter, and hope it does something. There is no chart, no labs, no one asking why you needed it. Here, an IV is a physician’s order written off your results, and it is one tool inside a plan that is treating the actual cause."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "ivtD-medspa-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Ordered off labs, not a menu",
+          "body": "Your blend follows your bloodwork, so you are correcting something real, not guessing."
+        },
+        {
+          "title": "One tool in a plan, not the answer",
+          "body": "The drip supports the work; the plan around it is what actually moves your health."
+        },
+        {
+          "title": "A physician in the room, not an upsell",
+          "body": "Screened, dosed, and watched by a doctor who knows your whole history."
+        }
+      ]
+    },
+    {
+      "label": "What to expect",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "From first consult to your drip, step by step"
+        }
+      ],
+      "eyebrowSpans": [
+        "What to expect"
+      ],
+      "paragraphs": [
+        "Your story and advanced labs tell us what you are actually depleted in, before a single drip.",
+        "Dr. Nina orders the exact mix and dose your results call for, built for your body.",
+        "You relax in the chair while the infusion runs. Most people feel the lift the same day.",
+        "We re-test as your plan moves, so the next infusion is dosed off where you are now."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "ivtD-expect",
+          "alt": "A calm IV therapy session at Dr. Nina Ross's Atlanta clinic",
+          "placeholder": "IV session photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Consult & labs",
+          "body": "We find out what is missing"
+        },
+        {
+          "title": "Your blend is built",
+          "body": "A formula written for you"
+        },
+        {
+          "title": "The drip",
+          "body": "Thirty to forty-five calm minutes"
+        },
+        {
+          "title": "Re-check & adjust",
+          "body": "We confirm it is working"
+        }
+      ]
+    },
+    {
+      "label": "The dispensary",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "A deep shelf to draw from, then one bag built for you"
+        }
+      ],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "Most drips chase a hangover or a workout. We build infusions for the deeper stuff, hormones, migraines, blood pressure, mood, and tune every bag to your labs. Pick a target and watch which nutrients it pulls from the same deep shelf.",
+        "{{ activeFor }}",
+        "Every blend is physician-ordered off your labs, never picked off a board."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "FAQ",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "IV therapy, answered plainly"
+        },
+        {
+          "tag": "h3",
+          "text": "What is IV therapy and how does it work?"
+        },
+        {
+          "tag": "h3",
+          "text": "Is IV therapy worth it, or just expensive hydration?"
+        },
+        {
+          "tag": "h3",
+          "text": "What is in your IV blends?"
+        },
+        {
+          "tag": "h3",
+          "text": "Is IV therapy safe?"
+        },
+        {
+          "tag": "h3",
+          "text": "How often do I need it?"
+        },
+        {
+          "tag": "h3",
+          "text": "Can I just book a drip without becoming a patient?"
+        }
+      ],
+      "eyebrowSpans": [
+        "Questions people ask us"
+      ],
+      "paragraphs": [],
+      "links": [],
+      "imageSlots": [],
+      "details": [
+        {
+          "q": "What is IV therapy and how does it work?",
+          "a": "It delivers vitamins, minerals, amino acids, and fluids straight into your bloodstream, bypassing a gut that may not be absorbing them well. Because nothing is lost to digestion, your cells get close to full availability of what is infused, often felt within hours. Here the blend is ordered by a physician from your labs, not chosen off a menu."
+        },
+        {
+          "q": "Is IV therapy worth it, or just expensive hydration?",
+          "a": "A random drip with no workup behind it usually is a waste. It is worth it when it is dosed off real deficiencies and used to correct something specific, inside a plan that is also treating why you got depleted. That is the only way we use it."
+        },
+        {
+          "q": "What is in your IV blends?",
+          "a": "Common ingredients include saline for hydration, B vitamins, vitamin C, magnesium, zinc, and amino acids, combined and dosed to your labs and goals. Dr. Nina builds each blend individually rather than offering a fixed off-the-shelf menu."
+        },
+        {
+          "q": "Is IV therapy safe?",
+          "a": "When it is physician-ordered and given by trained clinicians after appropriate screening, IV nutrient therapy is generally well tolerated. We review your history and labs first, which is exactly why care here starts with a consult, not a walk-in drip."
+        },
+        {
+          "q": "How often do I need it?",
+          "a": "It depends on what your labs show. Some patients benefit from a short series, others from occasional support. Inside the membership care plan you use IV therapy as your plan calls for it, instead of paying per bag."
+        },
+        {
+          "q": "Can I just book a drip without becoming a patient?",
+          "a": "IV therapy here is always part of physician-led care. You start with a $99 Symptom Consultation so it can be ordered safely and actually fit what your body needs."
+        }
+      ],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Start here",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "IV therapy, built into your care program."
+        }
+      ],
+      "eyebrowSpans": [
+        "Choose your path",
+        "In the studio",
+        "From anywhere",
+        "{{ doorLabel }}"
+      ],
+      "paragraphs": [
+        "IV therapy is one tool inside your care plan, so once you are in the program you use it as your labs call for it, included rather than billed by the bag.",
+        "No referral needed · HSA / FSA eligible"
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "ivtD-start-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "ivtD-door-clinic",
+          "alt": "Nina Ross Atlanta studio",
+          "placeholder": ""
+        },
+        {
+          "id": "ivtD-door-virtual",
+          "alt": "Virtual telehealth consult with Nina Ross",
+          "placeholder": ""
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Byline",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "This page is for education and is not a substitute for individual medical advice. IV therapy at Nina Ross is physician-ordered after appropriate screening and is provided alongside, not in place of, your primary and specialty care."
+      ],
+      "links": [
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "ivtD-review-av",
+          "alt": "",
+          "placeholder": "Dr. Nina"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    }
+  ]
+}

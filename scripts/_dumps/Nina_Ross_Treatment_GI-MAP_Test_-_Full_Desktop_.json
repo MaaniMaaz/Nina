@@ -1,0 +1,586 @@
+{
+  "meta": {
+    "title": "GI-MAP Stool Test in Atlanta (Gut Testing) | Dr. Nina Ross, ND PhD",
+    "description": "GI-MAP gut testing in Atlanta, ordered and interpreted by Dr. Nina Ross, ND PhD as part of root-cause functional medicine and turned into a gut-repair plan. Start with a $99 consult.",
+    "canonical": "https://www.ninarossfm.com/treatments/gi-map-test",
+    "ogImage": "https://www.ninarossfm.com/og/gi-map-test-share.jpg"
+  },
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://www.ninarossfm.com/treatments/gi-map-test#webpage",
+        "url": "https://www.ninarossfm.com/treatments/gi-map-test",
+        "name": "GI-MAP Stool Test in Atlanta (Gut Testing) | Dr. Nina Ross, ND PhD",
+        "description": "GI-MAP stool testing in Atlanta, ordered and interpreted by Dr. Nina Ross, ND PhD as part of root-cause functional medicine.",
+        "inLanguage": "en-US",
+        "about": {
+          "@id": "https://www.ninarossfm.com/treatments/gi-map-test#therapy"
+        },
+        "reviewedBy": {
+          "@id": "https://www.ninarossfm.com/#physician"
+        },
+        "lastReviewed": "2026-06-01"
+      },
+      {
+        "@type": "MedicalTherapy",
+        "@id": "https://www.ninarossfm.com/treatments/gi-map-test#therapy",
+        "name": "GI-MAP Stool Test",
+        "alternateName": "GI Microbial Assay Plus (comprehensive stool analysis)",
+        "description": "Comprehensive DNA-based stool analysis (GI-MAP) assessing gut bacteria, pathogens, parasites, yeast, and markers of inflammation and digestion, interpreted within a personalized functional medicine plan.",
+        "howPerformed": "After a clinical consult, an at-home stool collection kit is provided; the sample is analyzed by the lab and the results are interpreted by Dr. Nina Ross and built into a gut-repair plan.",
+        "relevantSpecialty": {
+          "@type": "MedicalSpecialty",
+          "name": "FunctionalMedicine"
+        },
+        "provider": {
+          "@id": "https://www.ninarossfm.com/#physician"
+        }
+      },
+      {
+        "@type": "Physician",
+        "@id": "https://www.ninarossfm.com/#physician",
+        "name": "Dr. Nina Ross, ND PhD",
+        "medicalSpecialty": "FunctionalMedicine",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "NPI",
+          "value": "1164884078"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "8735 Dunwoody Place, Ste. O",
+          "addressLocality": "Atlanta",
+          "addressRegion": "GA",
+          "postalCode": "30350",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Atlanta"
+          },
+          {
+            "@type": "State",
+            "name": "Georgia"
+          }
+        ],
+        "telephone": "+1-678-561-4522"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does the GI-MAP test measure?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It uses DNA to quantify your gut bacteria, potential pathogens, parasites, yeast, H. pylori, and markers of inflammation and digestion, from a single at-home stool sample. That gives a precise picture of what is actually driving gut symptoms."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is GI-MAP different from a regular stool test?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Standard stool tests look for a few obvious problems. GI-MAP uses DNA to quantify a wide range of organisms and digestive markers at once, which is far more sensitive for the subtle imbalances behind chronic gut issues."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I collect the GI-MAP at home?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. After your consult you receive an at-home kit, collect a single stool sample, and send it to the lab. Dr. Nina reviews the results with you afterward and builds the plan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the GI-MAP worth it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is worth it when gut symptoms are driving your health and the results will change your plan. Ordered for the right reason and interpreted by a clinician, it can save months of guesswork; run randomly with no one reading it, it is just a printout."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I order a GI-MAP without a doctor?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kits are sold online, but you are then left to interpret a dense report alone. Here it is ordered off your symptoms and read by a physician who turns it into an actual gut-repair plan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I just do the test without becoming a patient?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Testing here is always part of physician-led care. You start with a $99 Symptom Consultation so it is ordered for the right reason and the results are actually used."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ninarossfm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Treatments",
+            "item": "https://www.ninarossfm.com/treatments"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "GI-MAP Test",
+            "item": "https://www.ninarossfm.com/treatments/gi-map-test"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "label": "Nav",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Our Approach",
+          "href": "/approach"
+        },
+        {
+          "text": "Treatments",
+          "href": "/treatments"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Dr. Nina",
+          "href": "/about"
+        },
+        {
+          "text": "Start · $99",
+          "href": "/start"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Hero",
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "GI-MAP gut testing in Atlanta that finds the real reason behind the bloat and reflux."
+        }
+      ],
+      "eyebrowSpans": [
+        "GI-MAP Gut Testing in Atlanta"
+      ],
+      "paragraphs": [
+        "If you have lived with the bloat, the reflux, and the irregularity while every basic test comes back fine, the problem was never imaginary. It is that nobody has actually looked at what is living in your gut.",
+        "I am Dr. Nina Ross, ND PhD. The GI-MAP maps your gut bacteria, pathogens, and digestion markers by DNA, and I read it as one move inside a plan that repairs what it finds. That is how a scary printout becomes a real path forward."
+      ],
+      "links": [
+        {
+          "text": "Home",
+          "href": "/"
+        },
+        {
+          "text": "Treatments",
+          "href": "/treatments"
+        },
+        {
+          "text": "Book the $99 Symptom Consultation",
+          "href": "/start"
+        },
+        {
+          "text": "See the whole toolkit behind it →",
+          "href": "#toolkit"
+        },
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "gimD-byline-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "gimD-hero",
+          "alt": "GI-MAP gut testing care at Dr. Nina Ross's functional medicine clinic in Atlanta",
+          "placeholder": "GI-MAP testing photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "What it is",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "A DNA-level look at what is actually living in your gut."
+        }
+      ],
+      "eyebrowSpans": [
+        "What it actually is"
+      ],
+      "paragraphs": [
+        "The GI-MAP uses DNA to measure the bacteria, pathogens, parasites, yeast, and inflammation markers in your gut. That precision is real and genuinely useful, and it pays off when a clinician reads it against your symptoms and turns it into a repair plan.",
+        "It quantifies the good, the bad, and the opportunistic, so we are not guessing at what is off.",
+        "It flags parasites, H. pylori, and how well you are actually breaking food down and absorbing it.",
+        "Dr. Nina interprets it against your symptoms and history, so the results actually mean something."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Who it's for",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The GI-MAP is right for some people. It is wrong for others."
+        }
+      ],
+      "eyebrowSpans": [
+        "Be honest with yourself",
+        "This is for you if",
+        "It is not for you if"
+      ],
+      "paragraphs": [
+        "If that second list stung a little, good. That honesty is exactly what you are paying for here."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "This is for you if",
+          "body": ""
+        },
+        {
+          "title": "·",
+          "body": "You have ongoing bloat, reflux, irregularity, or food reactions with no clear cause"
+        },
+        {
+          "title": "·",
+          "body": "You suspect a gut driver behind fatigue, skin, mood, or autoimmune issues"
+        },
+        {
+          "title": "·",
+          "body": "You want a clinician to turn the results into a real gut-repair plan"
+        },
+        {
+          "title": "It is not for you if",
+          "body": ""
+        },
+        {
+          "title": "·",
+          "body": "You want raw numbers with no interest in what to do about them"
+        },
+        {
+          "title": "·",
+          "body": "You are hoping a test alone will fix a gut a test can only measure"
+        },
+        {
+          "title": "·",
+          "body": "You expect one panel to replace an ongoing relationship with a clinician"
+        }
+      ]
+    },
+    {
+      "label": "Not a mail-order kit",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Anyone can sell you a gut kit now. Reading it is the hard part."
+        }
+      ],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "Order a kit online and you get a tube, a dense printout, and a forum to panic in. No one connecting the findings to your symptoms, no plan when the results land. Here, the GI-MAP is ordered for a reason and interpreted by a physician, as one tool inside a plan that repairs what it finds."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "gimD-medspa-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Ordered for a reason, not a whim",
+          "body": "We test because your symptoms point somewhere, so the results actually answer a question."
+        },
+        {
+          "title": "Interpreted, not just delivered",
+          "body": "The findings are the start; what they mean for your gut is where the real work is."
+        },
+        {
+          "title": "A physician reading it, not an app",
+          "body": "Reviewed against your whole history by a doctor, then turned into next steps."
+        }
+      ]
+    },
+    {
+      "label": "What to expect",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "From first consult to a gut-repair plan, step by step"
+        }
+      ],
+      "eyebrowSpans": [
+        "What to expect"
+      ],
+      "paragraphs": [
+        "Your gut history tells us what matters, so the test is ordered to answer real questions.",
+        "A simple stool kit arrives with clear instructions, and you collect the sample at home.",
+        "Dr. Nina walks you through what your microbiome and markers actually mean for you.",
+        "Your results become a gut-repair plan, and we re-test later to see it working."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "gimD-expect",
+          "alt": "A GI-MAP results review at Dr. Nina Ross's Atlanta clinic",
+          "placeholder": "Consult photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Consult & symptoms",
+          "body": "We map what to look for"
+        },
+        {
+          "title": "Your kit is sent",
+          "body": "An easy at-home collection"
+        },
+        {
+          "title": "We read it together",
+          "body": "The results, interpreted"
+        },
+        {
+          "title": "Repair & re-test",
+          "body": "We act, then confirm"
+        }
+      ]
+    },
+    {
+      "label": "The care toolkit",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "One symptom. A whole toolkit behind it."
+        }
+      ],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "A GI-MAP test is one tool on a deep shelf. Tap what you are actually dealing with and watch which therapies we might reach for, because the right answer is almost never just one thing.",
+        "{{ toolkitFor }}",
+        "Every therapy here is physician-ordered off your labs, and matched to you, never sold off a menu."
+      ],
+      "links": [
+        {
+          "text": "{{ t.name }} {{ t.cat }} • You’re here",
+          "href": "{{ t.href }}"
+        },
+        {
+          "text": "{{ t.name }} {{ t.cat }} • You’re here",
+          "href": "{{ t.href }}"
+        },
+        {
+          "text": "{{ t.name }} {{ t.cat }} • You’re here",
+          "href": "{{ t.href }}"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "{{ t.name }}",
+          "body": ""
+        },
+        {
+          "title": "• You’re here",
+          "body": ""
+        },
+        {
+          "title": "{{ t.name }}",
+          "body": ""
+        },
+        {
+          "title": "• You’re here",
+          "body": ""
+        },
+        {
+          "title": "{{ t.name }}",
+          "body": ""
+        },
+        {
+          "title": "• You’re here",
+          "body": ""
+        }
+      ]
+    },
+    {
+      "label": "FAQ",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "GI-MAP gut testing, answered plainly"
+        },
+        {
+          "tag": "h3",
+          "text": "What does the GI-MAP test measure?"
+        },
+        {
+          "tag": "h3",
+          "text": "How is GI-MAP different from a regular stool test?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do I collect the GI-MAP at home?"
+        },
+        {
+          "tag": "h3",
+          "text": "Is the GI-MAP worth it?"
+        },
+        {
+          "tag": "h3",
+          "text": "Can I order a GI-MAP without a doctor?"
+        },
+        {
+          "tag": "h3",
+          "text": "Can I just do the test without becoming a patient?"
+        }
+      ],
+      "eyebrowSpans": [
+        "Questions people ask us"
+      ],
+      "paragraphs": [],
+      "links": [],
+      "imageSlots": [],
+      "details": [
+        {
+          "q": "What does the GI-MAP test measure?",
+          "a": "It uses DNA to quantify your gut bacteria, potential pathogens, parasites, yeast, H. pylori, and markers of inflammation and digestion, from a single at-home stool sample. That gives a precise picture of what is actually driving gut symptoms."
+        },
+        {
+          "q": "How is GI-MAP different from a regular stool test?",
+          "a": "Standard stool tests look for a few obvious problems. GI-MAP uses DNA to quantify a wide range of organisms and digestive markers at once, which is far more sensitive for the subtle imbalances behind chronic gut issues."
+        },
+        {
+          "q": "Do I collect the GI-MAP at home?",
+          "a": "Yes. After your consult you receive an at-home kit, collect a single stool sample, and send it to the lab. Dr. Nina reviews the results with you afterward and builds the plan."
+        },
+        {
+          "q": "Is the GI-MAP worth it?",
+          "a": "It is worth it when gut symptoms are driving your health and the results will change your plan. Ordered for the right reason and interpreted by a clinician, it can save months of guesswork; run randomly with no one reading it, it is just a printout."
+        },
+        {
+          "q": "Can I order a GI-MAP without a doctor?",
+          "a": "Kits are sold online, but you are then left to interpret a dense report alone. Here it is ordered off your symptoms and read by a physician who turns it into an actual gut-repair plan."
+        },
+        {
+          "q": "Can I just do the test without becoming a patient?",
+          "a": "Testing here is always part of physician-led care. You start with a $99 Symptom Consultation so it is ordered for the right reason and the results are actually used."
+        }
+      ],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Start here",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "A GI-MAP read by a physician."
+        }
+      ],
+      "eyebrowSpans": [
+        "Choose your path",
+        "In the studio",
+        "From anywhere",
+        "{{ doorLabel }}"
+      ],
+      "paragraphs": [
+        "The test is one tool inside your care plan, ordered for a reason and interpreted by Dr. Nina, so the results turn into a repair plan instead of panic.",
+        "No referral needed · HSA / FSA eligible"
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "gimD-start-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "gimD-door-clinic",
+          "alt": "Nina Ross Atlanta studio",
+          "placeholder": ""
+        },
+        {
+          "id": "gimD-door-virtual",
+          "alt": "Virtual telehealth consult with Nina Ross",
+          "placeholder": ""
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Byline",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "This page is for education and is not a substitute for individual medical advice. GI-MAP testing at Nina Ross is physician-ordered after appropriate screening and is provided alongside, not in place of, your primary and specialty care."
+      ],
+      "links": [
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "gimD-review-av",
+          "alt": "",
+          "placeholder": "Dr. Nina"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    }
+  ]
+}

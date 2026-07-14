@@ -1,0 +1,598 @@
+{
+  "meta": {
+    "title": "PCOS Specialist in Atlanta | Root-Cause Care – Nina Ross FM",
+    "description": "Struggling with PCOS? Dr. Nina Ross, a functional medicine PCOS specialist in Atlanta, treats the root cause — hormones, insulin, weight. Book a $99 consult.",
+    "canonical": "https://www.ninarossfm.com/conditions/pcos",
+    "ogImage": "https://www.ninarossfm.com/og/pcos-share.jpg"
+  },
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://www.ninarossfm.com/conditions/pcos#webpage",
+        "url": "https://www.ninarossfm.com/conditions/pcos",
+        "name": "PCOS Specialist in Atlanta | Root-Cause Care – Nina Ross FM",
+        "description": "Functional medicine PCOS care in Atlanta with Dr. Nina Ross — treating insulin resistance, androgens, and inflammation at the root.",
+        "inLanguage": "en-US",
+        "about": {
+          "@type": "MedicalCondition",
+          "name": "Polycystic Ovary Syndrome"
+        },
+        "reviewedBy": {
+          "@type": "Physician",
+          "name": "Dr. Nina Ross",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "NPI",
+            "value": "1164884078"
+          }
+        },
+        "lastReviewed": "2026-06-01"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can functional medicine help PCOS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Functional medicine treats PCOS by addressing what's driving it — insulin resistance, androgens, inflammation — rather than only masking symptoms. Most women see changes in cycles, energy, and weight as the root causes are corrected."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is a PCOS specialist different from my OB-GYN?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your OB-GYN manages the gynecologic side of PCOS. As a functional medicine PCOS specialist in Atlanta, Dr. Nina Ross maps the whole metabolic and hormonal loop and builds a personalized plan — labs, nutrition, and targeted treatments — to address the cause."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does PCOS cause weight gain, and can it be reversed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PCOS-related insulin resistance makes weight gain easier and loss harder. When we improve insulin sensitivity and hormone balance, weight often becomes responsive again. We may use nutrition, peptides, or GLP-1 support where appropriate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What lab testing do you run for PCOS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We go beyond a standard panel — fasting insulin and glucose, a full androgen and hormone panel, thyroid, inflammatory markers, and nutrient status — so the plan targets your specific root causes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I have to be on birth control to manage PCOS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Birth control can mask PCOS symptoms but doesn't address the cause. We offer root-cause options and will work alongside your existing care if you choose to stay on it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I still get pregnant with PCOS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Many women with PCOS conceive once ovulation and insulin resistance are addressed. We focus on restoring the conditions your body needs, and coordinate with your OB-GYN or fertility specialist."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer virtual PCOS care or only in person in Atlanta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ninarossfm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Conditions",
+            "item": "https://www.ninarossfm.com/conditions"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "PCOS",
+            "item": "https://www.ninarossfm.com/conditions/pcos"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "label": "Nav",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Our Approach",
+          "href": "/approach"
+        },
+        {
+          "text": "Advanced Testing",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Dr. Nina",
+          "href": "/about"
+        },
+        {
+          "text": "Start · $99",
+          "href": "/start"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Hero",
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Root-cause PCOS treatment in Atlanta that finally connects the dots."
+        }
+      ],
+      "eyebrowSpans": [
+        "PCOS Treatment in Atlanta"
+      ],
+      "paragraphs": [
+        "If your labs came back ‘normal’ but you still feel off, the irregular periods, the weight that holds on, the thinning hair, the acne, the bone deep exhaustion, you are not imagining it.",
+        "Your body is telling the truth, and it deserves someone who will listen to the whole story. At Nina Ross Functional Medicine, we treat PCOS at its root, here in Atlanta and virtually across Georgia. Dr. Nina Ross follows the whole loop until she finds what is really driving your PCOS, then builds the plan around your body and your life."
+      ],
+      "links": [
+        {
+          "text": "Home",
+          "href": "/"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Book the $99 Symptom Consultation",
+          "href": "/start"
+        },
+        {
+          "text": "See what standard labs may be missing →",
+          "href": "#root-cause"
+        },
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "pcosD-byline-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "pcosD-hero",
+          "alt": "Dr. Nina Ross reviewing PCOS lab results with a patient at her Atlanta functional medicine clinic",
+          "placeholder": "Hero image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Symptoms",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The PCOS signs we hear most often"
+        }
+      ],
+      "eyebrowSpans": [
+        "You might recognize this"
+      ],
+      "paragraphs": [
+        "If you nodded at three or more, your body is asking a deeper question."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Why conventional care misses it",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "You were told to lose weight and come back."
+        }
+      ],
+      "eyebrowSpans": [
+        "Why conventional care keeps missing it"
+      ],
+      "paragraphs": [
+        "A fifteen-minute visit rarely has room to look at the whole system. So PCOS gets managed one symptom at a time, and the thing connecting them goes unexamined."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "What you’re usually told",
+          "body": "“Take the pill, lose some weight, come back if you want to get pregnant.”"
+        },
+        {
+          "title": "What’s actually happening",
+          "body": "Insulin, androgens, and inflammation are feeding each other in a loop. Quiet the loop and the symptoms ease together."
+        }
+      ]
+    },
+    {
+      "label": "The functional medicine difference",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "We will not hand you birth control and call it a cure."
+        }
+      ],
+      "eyebrowSpans": [
+        "The functional medicine difference"
+      ],
+      "paragraphs": [
+        "Here is where we part ways with conventional care. The pill is the reflex answer for PCOS, and yes, it can quiet the surface. It can force a monthly bleed, calm the acne, slow the hair growth. But synthetic hormones do not treat PCOS. They switch off the conversation your body is trying to have with you, and the day you stop, the symptoms come back, often louder than before.",
+        "We would rather do the harder, more honest work. We find what is actually driving your PCOS and we treat that.",
+        "If birth control still has a place in your life, that should be your informed choice, made with the full picture in front of you, not a default handed to you in a fifteen minute visit."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "pcosD-fmd-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "It masks the signal, not the cause",
+          "body": "A monthly bleed on the pill is a withdrawal bleed, not your body ovulating on its own."
+        },
+        {
+          "title": "It can deepen insulin resistance",
+          "body": "The very engine sitting at the center of your PCOS can get worse on synthetic hormones."
+        },
+        {
+          "title": "It postpones the real question",
+          "body": "If you hope to conceive one day, the PCOS is still waiting for you the moment you come off it."
+        }
+      ]
+    },
+    {
+      "label": "The root-cause view",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "PCOS runs in a loop. We map the whole circle."
+        }
+      ],
+      "eyebrowSpans": [
+        "The root-cause view"
+      ],
+      "paragraphs": [
+        "Each driver pushes the next. That is why treating one in isolation rarely holds, and why mapping the full cycle changes everything.",
+        "When we investigate PCOS, we read the whole hormonal and metabolic picture rather than a single number, and connect each driver back to what you are feeling:"
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [
+        {
+          "label": "Insulin resistance",
+          "full": "Insulin resistance, the engine behind weight that won’t budge and afternoon energy crashes."
+        },
+        {
+          "label": "Elevated androgens & testosterone",
+          "full": "Elevated androgens & testosterone, behind acne, unwanted hair growth, and thinning hair."
+        },
+        {
+          "label": "Irregular ovulation",
+          "full": "Irregular ovulation, the missing or unpredictable cycles, and trouble trying to conceive."
+        },
+        {
+          "label": "Thyroid",
+          "full": "Thyroid, an underactive thyroid mimics and deepens PCOS symptoms."
+        },
+        {
+          "label": "Cortisol & stress",
+          "full": "Cortisol & stress, keeps the loop switched on and disrupts your cycle."
+        },
+        {
+          "label": "Chronic inflammation",
+          "full": "Chronic inflammation, the quiet thread linking insulin and hormones together."
+        },
+        {
+          "label": "Gut health",
+          "full": "Gut health, where hormone metabolism and inflammation so often begin."
+        }
+      ],
+      "boldPairs": []
+    },
+    {
+      "label": "Care plan",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Your PCOS care plan: four steps, built around your body"
+        }
+      ],
+      "eyebrowSpans": [
+        "The Care Plan Protocol, applied to PCOS"
+      ],
+      "paragraphs": [
+        "Fasting insulin, full androgen panel, thyroid, inflammation markers, the labs a rushed visit skips.",
+        "We map your results onto the loop so you finally see why the symptoms travel together.",
+        "Nutrition, targeted supplements, movement, and stress work, sequenced to your labs, not a template.",
+        "We adjust as your numbers move, so progress holds and cycles, energy, and skin keep improving."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Discover",
+          "body": "Test what’s really going on"
+        },
+        {
+          "title": "Connect",
+          "body": "See how the pieces relate"
+        },
+        {
+          "title": "Personalize",
+          "body": "Build the plan around you"
+        },
+        {
+          "title": "Nourish",
+          "body": "Steady support over time"
+        }
+      ]
+    },
+    {
+      "label": "Treatments",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Tools we reach for with PCOS"
+        }
+      ],
+      "eyebrowSpans": [
+        "Treatments we may use"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "GLP-1 & Weight LossMetabolic support when insulin resistance makes losing weight hard.",
+          "href": "/treatments/glp-1-weight-loss"
+        },
+        {
+          "text": "Hormone RestorationRebalancing androgens and hormones at the source.",
+          "href": "/treatments/hormone-restoration"
+        },
+        {
+          "text": "Advanced Lab TestingGoing beyond the standard panel for real clarity on your root causes.",
+          "href": "/treatments/advanced-lab-testing"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "pcosD-treat1",
+          "alt": "GLP-1 and weight loss support for PCOS",
+          "placeholder": "Image"
+        },
+        {
+          "id": "pcosD-treat2",
+          "alt": "Hormone restoration treatment for PCOS",
+          "placeholder": "Image"
+        },
+        {
+          "id": "pcosD-treat3",
+          "alt": "Advanced lab testing for PCOS",
+          "placeholder": "Image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Proof",
+      "headings": [],
+      "eyebrowSpans": [
+        "Women with PCOS, in their words"
+      ],
+      "paragraphs": [
+        "My cycle came back after seven years. For the first time someone explained why, and then actually fixed it."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "pcosD-test-photo",
+          "alt": "PCOS patient of Nina Ross Functional Medicine in Atlanta",
+          "placeholder": "Patient photo"
+        },
+        {
+          "id": "pcosD-test-av",
+          "alt": "",
+          "placeholder": "Photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Renata M.",
+          "body": "PCOS · Atlanta patient"
+        }
+      ]
+    },
+    {
+      "label": "FAQ",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "PCOS, answered plainly"
+        },
+        {
+          "tag": "h3",
+          "text": "Can functional medicine help PCOS?"
+        },
+        {
+          "tag": "h3",
+          "text": "How is a PCOS specialist different from my OB-GYN?"
+        },
+        {
+          "tag": "h3",
+          "text": "Does PCOS cause weight gain, and can it be reversed?"
+        },
+        {
+          "tag": "h3",
+          "text": "What lab testing do you run for PCOS?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do I have to be on birth control to manage PCOS?"
+        },
+        {
+          "tag": "h3",
+          "text": "Can I still get pregnant with PCOS?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you offer virtual PCOS care or only in person in Atlanta?"
+        }
+      ],
+      "eyebrowSpans": [
+        "Questions women ask us"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Related reading: Understanding PCOS & insulin resistance",
+          "href": "/blog"
+        }
+      ],
+      "imageSlots": [],
+      "details": [
+        {
+          "q": "Can functional medicine help PCOS?",
+          "a": "Yes. Functional medicine treats PCOS by addressing what is driving it, insulin resistance, androgens, inflammation, rather than only masking symptoms. Most women see changes in cycles, energy, and weight as the root causes are corrected."
+        },
+        {
+          "q": "How is a PCOS specialist different from my OB-GYN?",
+          "a": "Your OB-GYN manages the gynecologic side of PCOS. As a functional medicine PCOS specialist in Atlanta, Dr. Nina Ross maps the whole metabolic and hormonal loop and builds a personalized plan, labs, nutrition, and targeted treatments, to address the cause."
+        },
+        {
+          "q": "Does PCOS cause weight gain, and can it be reversed?",
+          "a": "PCOS-related insulin resistance makes weight gain easier and loss harder. When we improve insulin sensitivity and hormone balance, weight often becomes responsive again. We may use nutrition, peptides, or GLP-1 support where appropriate."
+        },
+        {
+          "q": "What lab testing do you run for PCOS?",
+          "a": "We go beyond a standard panel, fasting insulin and glucose, a full androgen and hormone panel, thyroid, inflammatory markers, and nutrient status, so the plan targets your specific root causes."
+        },
+        {
+          "q": "Do I have to be on birth control to manage PCOS?",
+          "a": "Birth control can mask PCOS symptoms but does not address the cause. We offer root-cause options and will work alongside your existing care if you choose to stay on it."
+        },
+        {
+          "q": "Can I still get pregnant with PCOS?",
+          "a": "Many women with PCOS conceive once ovulation and insulin resistance are addressed. We focus on restoring the conditions your body needs, and coordinate with your OB-GYN or fertility specialist."
+        },
+        {
+          "q": "Do you offer virtual PCOS care or only in person in Atlanta?",
+          "a": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+        }
+      ],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Start here",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The $99 Symptom Consultation"
+        }
+      ],
+      "eyebrowSpans": [
+        "Choose your path",
+        "In the studio",
+        "From anywhere",
+        "{{ doorLabel }}"
+      ],
+      "paragraphs": [
+        "A half hour with our team to look at your story and decide if root-cause care is your next step.",
+        "No referral needed · HSA / FSA eligible"
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "pcosD-start-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Byline",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "This page is for education and is not a substitute for individual medical advice. Functional medicine care at Nina Ross is provided alongside, not in place of, your primary and specialty care."
+      ],
+      "links": [
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "pcosD-review-av",
+          "alt": "",
+          "placeholder": "Dr. Nina"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    }
+  ]
+}

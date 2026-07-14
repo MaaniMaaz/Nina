@@ -1,0 +1,598 @@
+{
+  "meta": {
+    "title": "Gut Health Doctor in Atlanta | Root-Cause Care – Nina Ross FM",
+    "description": "Bloating, reflux, or IBS no one can explain? Dr. Nina Ross, a functional medicine gut health doctor in Atlanta, treats leaky gut and digestion at the root. Book a $99 consult.",
+    "canonical": "https://www.ninarossfm.com/conditions/gut-health",
+    "ogImage": "https://www.ninarossfm.com/og/gut-health-share.jpg"
+  },
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://www.ninarossfm.com/conditions/gut-health#webpage",
+        "url": "https://www.ninarossfm.com/conditions/gut-health",
+        "name": "Gut Health Doctor in Atlanta | Root-Cause Care – Nina Ross FM",
+        "description": "Functional medicine gut and digestive care in Atlanta with Dr. Nina Ross, treating leaky gut, the microbiome, and inflammation at the root.",
+        "inLanguage": "en-US",
+        "about": {
+          "@type": "MedicalCondition",
+          "name": "Gastrointestinal Disorder"
+        },
+        "reviewedBy": {
+          "@type": "Physician",
+          "name": "Dr. Nina Ross",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "NPI",
+            "value": "1164884078"
+          }
+        },
+        "lastReviewed": "2026-06-01"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can functional medicine help IBS and leaky gut?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We treat digestive symptoms by addressing what is driving them, the microbiome, the gut lining, and inflammation, rather than only muting them. Most people see bloating, regularity, and energy improve as the root causes are corrected."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is a functional gut workup different from my GI doctor?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your GI doctor rules out structural disease, and that matters. As a functional medicine gut health doctor in Atlanta, Dr. Nina Ross maps the whole digestive and immune picture and builds a personalized plan, testing, nutrition, and targeted repair, to address the cause."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What testing do you run for gut issues?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We go beyond a normal scope, with comprehensive stool and microbiome testing, food-reaction panels, inflammation markers, and nutrient status, so the plan targets your specific root causes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I have to give up gluten and dairy forever?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not necessarily. We use testing and a structured reintroduction to find your true triggers, so you end up with the widest, most comfortable diet your gut can handle, not a permanent list of fears."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is bloating really something you can fix?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Often, yes. Bloating usually points to the microbiome, digestion, or an inflamed gut. When we address the cause, most people notice flatter, calmer days within weeks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can my gut be behind my fatigue and mood?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Frequently. The gut is in constant conversation with your brain and immune system. Calm the gut at the root and energy, focus, and mood often lift alongside digestion."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer virtual gut care or only in person in Atlanta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ninarossfm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Conditions",
+            "item": "https://www.ninarossfm.com/conditions"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Gut Health",
+            "item": "https://www.ninarossfm.com/conditions/gut-health"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "label": "Nav",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Our Approach",
+          "href": "/approach"
+        },
+        {
+          "text": "Advanced Testing",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Dr. Nina",
+          "href": "/about"
+        },
+        {
+          "text": "Start · $99",
+          "href": "/start"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Hero",
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Root-cause gut and digestion care in Atlanta that finally settles your stomach."
+        }
+      ],
+      "eyebrowSpans": [
+        "Gut Health Treatment in Atlanta"
+      ],
+      "paragraphs": [
+        "If the bloating, the reflux, the unpredictable bathroom trips and the food list that keeps shrinking have become your normal, you are not imagining it.",
+        "Your gut has been trying to tell you something, and it deserves someone who will listen to the whole story. At Nina Ross Functional Medicine, we treat digestion at its root, here in Atlanta and virtually across Georgia. Dr. Nina Ross follows the whole picture, the microbiome, the gut lining, and the foods that inflame you, until she finds what is really driving your symptoms, then builds the plan around your body and your life."
+      ],
+      "links": [
+        {
+          "text": "Home",
+          "href": "/"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Book the $99 Symptom Consultation",
+          "href": "/start"
+        },
+        {
+          "text": "See what standard labs may be missing →",
+          "href": "#root-cause"
+        },
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "gutD-byline-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "gutD-hero",
+          "alt": "Dr. Nina Ross reviewing gut and digestive testing with a patient at her Atlanta functional medicine clinic",
+          "placeholder": "Hero image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Symptoms",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The gut signs we hear most often"
+        }
+      ],
+      "eyebrowSpans": [
+        "You might recognize this"
+      ],
+      "paragraphs": [
+        "If you nodded at three or more, your body is asking a deeper question."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Why conventional care misses it",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "You were handed an antacid and a shrug."
+        }
+      ],
+      "eyebrowSpans": [
+        "Why conventional care keeps missing it"
+      ],
+      "paragraphs": [
+        "A fifteen-minute visit rarely has room to look at the whole digestive system. So gut symptoms get silenced one at a time, and the thing connecting them goes unexamined."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "What you’re usually told",
+          "body": "“Your scope looked fine. It is probably just IBS, try to manage the stress.”"
+        },
+        {
+          "title": "What’s actually happening",
+          "body": "The microbiome, the gut lining, and inflammation are feeding each other in a loop. Calm the loop and digestion settles together."
+        }
+      ]
+    },
+    {
+      "label": "The functional medicine difference",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "We will not silence your gut and call it healed."
+        }
+      ],
+      "eyebrowSpans": [
+        "The functional medicine difference"
+      ],
+      "paragraphs": [
+        "Here is where we part ways with conventional care. The reflex answer for a struggling gut is a pill that turns down the signal, an antacid, a laxative, something to mute it. That can quiet the surface for a while. But muting a symptom does not heal a gut. The moment you stop, it returns, and the root cause has had more time to dig in.",
+        "We would rather do the harder, more honest work. We find what is actually irritating your gut and we treat that.",
+        "If a medication still has a place in your care, that should be your informed choice, made with the full picture in front of you, not a default handed to you in a fifteen minute visit."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "gutD-fmd-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "It mutes the signal, not the cause",
+          "body": "An antacid lowers the acid, it does not answer why your gut is inflamed in the first place."
+        },
+        {
+          "title": "It can starve your microbiome",
+          "body": "Long-term acid blockers and repeated antibiotics can thin the very ecosystem digestion depends on."
+        },
+        {
+          "title": "It postpones the real repair",
+          "body": "A gut left inflamed keeps leaking, and the food reactions and fatigue tend to widen over time."
+        }
+      ]
+    },
+    {
+      "label": "The root-cause view",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Gut trouble runs in a loop. We map the whole circle."
+        }
+      ],
+      "eyebrowSpans": [
+        "The root-cause view"
+      ],
+      "paragraphs": [
+        "Each driver pushes the next. That is why treating one in isolation rarely holds, and why mapping the full cycle changes everything.",
+        "When we investigate your gut, we read the whole digestive and immune picture rather than a single scope, and connect each driver back to what you’re feeling:"
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [
+        {
+          "label": "Microbiome imbalance",
+          "full": "Microbiome imbalance, the bloating, the gas, and the cravings that seem to run the show."
+        },
+        {
+          "label": "A leaky gut lining",
+          "full": "A leaky gut lining, where food particles slip through and the immune system starts reacting."
+        },
+        {
+          "label": "Chronic inflammation",
+          "full": "Chronic inflammation, the quiet thread linking your gut to your joints, skin, and mood."
+        },
+        {
+          "label": "Food sensitivities",
+          "full": "Food sensitivities, the meals that should be fine but leave you bloated and foggy."
+        },
+        {
+          "label": "Low stomach acid & enzymes",
+          "full": "Low stomach acid & enzymes, behind the reflux, the heaviness, and feeling full too fast."
+        },
+        {
+          "label": "Cortisol & stress",
+          "full": "Cortisol & stress, tightens digestion and keeps the gut on high alert."
+        },
+        {
+          "label": "The gut-brain axis",
+          "full": "The gut-brain axis, where poor digestion quietly turns into low mood and brain fog."
+        }
+      ],
+      "boldPairs": []
+    },
+    {
+      "label": "Care plan",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Your gut care plan: four steps, built around your body"
+        }
+      ],
+      "eyebrowSpans": [
+        "The Care Plan Protocol, applied to gut health"
+      ],
+      "paragraphs": [
+        "Comprehensive stool testing, food-reaction panels, inflammation and nutrient markers, the labs a rushed visit skips.",
+        "We map your results onto the loop so you finally see why the symptoms travel together.",
+        "A targeted way of eating, gut-repair support, and stress work, sequenced to your labs, not a template.",
+        "We adjust as your gut heals, so progress holds and digestion, energy, and mood keep improving."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Discover",
+          "body": "Test what’s really going on"
+        },
+        {
+          "title": "Connect",
+          "body": "See how the pieces relate"
+        },
+        {
+          "title": "Personalize",
+          "body": "Build the plan around you"
+        },
+        {
+          "title": "Nourish",
+          "body": "Steady support over time"
+        }
+      ]
+    },
+    {
+      "label": "Treatments",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Tools we reach for with gut health"
+        }
+      ],
+      "eyebrowSpans": [
+        "Treatments we may use"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Advanced Lab TestingStool, microbiome, and food-reaction testing for real clarity on your root causes.",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "IV TherapyReplenishing nutrients an inflamed gut struggles to absorb.",
+          "href": "/treatments/iv-therapy"
+        },
+        {
+          "text": "Peptide TherapyTargeted support for repairing and calming the gut lining.",
+          "href": "/treatments/peptide-therapy"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "gutD-treat1",
+          "alt": "Advanced Lab Testing",
+          "placeholder": "Image"
+        },
+        {
+          "id": "gutD-treat2",
+          "alt": "IV Therapy",
+          "placeholder": "Image"
+        },
+        {
+          "id": "gutD-treat3",
+          "alt": "Peptide Therapy",
+          "placeholder": "Image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Proof",
+      "headings": [],
+      "eyebrowSpans": [
+        "Gut patients, in their words"
+      ],
+      "paragraphs": [
+        "I spent years afraid of food. Six months in, I eat dinner out again without bracing for it."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "gutD-test-photo",
+          "alt": "Gut Health patient of Nina Ross Functional Medicine in Atlanta",
+          "placeholder": "Patient photo"
+        },
+        {
+          "id": "gutD-test-av",
+          "alt": "",
+          "placeholder": "Photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Tasha M.",
+          "body": "Gut & digestion · Atlanta patient"
+        }
+      ]
+    },
+    {
+      "label": "FAQ",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Gut health, answered plainly"
+        },
+        {
+          "tag": "h3",
+          "text": "Can functional medicine help IBS and leaky gut?"
+        },
+        {
+          "tag": "h3",
+          "text": "How is a functional gut workup different from my GI doctor?"
+        },
+        {
+          "tag": "h3",
+          "text": "What testing do you run for gut issues?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do I have to give up gluten and dairy forever?"
+        },
+        {
+          "tag": "h3",
+          "text": "Is bloating really something you can fix?"
+        },
+        {
+          "tag": "h3",
+          "text": "Can my gut be behind my fatigue and mood?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you offer virtual gut care or only in person in Atlanta?"
+        }
+      ],
+      "eyebrowSpans": [
+        "Questions patients ask us"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Related reading: Leaky gut and the microbiome, explained",
+          "href": "/blog"
+        }
+      ],
+      "imageSlots": [],
+      "details": [
+        {
+          "q": "Can functional medicine help IBS and leaky gut?",
+          "a": "Yes. We treat digestive symptoms by addressing what is driving them, the microbiome, the gut lining, and inflammation, rather than only muting them. Most people see bloating, regularity, and energy improve as the root causes are corrected."
+        },
+        {
+          "q": "How is a functional gut workup different from my GI doctor?",
+          "a": "Your GI doctor rules out structural disease, and that matters. As a functional medicine gut health doctor in Atlanta, Dr. Nina Ross maps the whole digestive and immune picture and builds a personalized plan, testing, nutrition, and targeted repair, to address the cause."
+        },
+        {
+          "q": "What testing do you run for gut issues?",
+          "a": "We go beyond a normal scope, with comprehensive stool and microbiome testing, food-reaction panels, inflammation markers, and nutrient status, so the plan targets your specific root causes."
+        },
+        {
+          "q": "Do I have to give up gluten and dairy forever?",
+          "a": "Not necessarily. We use testing and a structured reintroduction to find your true triggers, so you end up with the widest, most comfortable diet your gut can handle, not a permanent list of fears."
+        },
+        {
+          "q": "Is bloating really something you can fix?",
+          "a": "Often, yes. Bloating usually points to the microbiome, digestion, or an inflamed gut. When we address the cause, most people notice flatter, calmer days within weeks."
+        },
+        {
+          "q": "Can my gut be behind my fatigue and mood?",
+          "a": "Frequently. The gut is in constant conversation with your brain and immune system. Calm the gut at the root and energy, focus, and mood often lift alongside digestion."
+        },
+        {
+          "q": "Do you offer virtual gut care or only in person in Atlanta?",
+          "a": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+        }
+      ],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Start here",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The $99 Symptom Consultation"
+        }
+      ],
+      "eyebrowSpans": [
+        "Choose your path",
+        "In the studio",
+        "From anywhere",
+        "{{ doorLabel }}"
+      ],
+      "paragraphs": [
+        "A half hour with our team to look at your story and decide if root-cause care is your next step.",
+        "No referral needed · HSA / FSA eligible"
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "gutD-start-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Byline",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "This page is for education and is not a substitute for individual medical advice. Functional medicine care at Nina Ross is provided alongside, not in place of, your primary and specialty care."
+      ],
+      "links": [
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "gutD-review-av",
+          "alt": "",
+          "placeholder": "Dr. Nina"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    }
+  ]
+}

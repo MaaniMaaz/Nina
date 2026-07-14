@@ -1,0 +1,598 @@
+{
+  "meta": {
+    "title": "Menopause Treatment in Atlanta | Root-Cause Care – Nina Ross FM",
+    "description": "Hot flashes, weight, and sleepless nights? Dr. Nina Ross, a functional medicine doctor in Atlanta, treats perimenopause and menopause at the root. Book a $99 consult.",
+    "canonical": "https://www.ninarossfm.com/conditions/menopause",
+    "ogImage": "https://www.ninarossfm.com/og/menopause-share.jpg"
+  },
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://www.ninarossfm.com/conditions/menopause#webpage",
+        "url": "https://www.ninarossfm.com/conditions/menopause",
+        "name": "Menopause Treatment in Atlanta | Root-Cause Care – Nina Ross FM",
+        "description": "Functional medicine perimenopause and menopause care in Atlanta with Dr. Nina Ross, treating hormones, metabolism, and sleep at the root.",
+        "inLanguage": "en-US",
+        "about": {
+          "@type": "MedicalCondition",
+          "name": "Menopause"
+        },
+        "reviewedBy": {
+          "@type": "Physician",
+          "name": "Dr. Nina Ross",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "NPI",
+            "value": "1164884078"
+          }
+        },
+        "lastReviewed": "2026-06-01"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can functional medicine help menopause symptoms?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We treat perimenopause and menopause by supporting the whole transition, hormones, thyroid, metabolism, and sleep, rather than waiting it out. Most women feel flashes, sleep, and mood improve as we support the system."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What about perimenopause, before periods stop?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Perimenopause is often when symptoms are loudest. We test and support early, so you feel steadier through the years leading up to menopause instead of riding it out."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What testing do you run for menopause?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We go beyond a basic panel, with estrogen, progesterone, full thyroid, and metabolic and bone markers, so the plan targets your specific root causes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer hormone therapy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Where it is appropriate, yes. We use hormone therapy as one tool inside a full plan, alongside nutrition, sleep, and stress work, and always as your informed choice."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why have I gained weight around my middle?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Falling hormones shift how you store fat and how your metabolism responds. We address the hormonal and metabolic drivers so your efforts start working again."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it too late to start care if I am already postmenopausal?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Support helps at any stage, both for symptoms and for protecting your bone, heart, and metabolic health going forward."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer virtual menopause care or only in person in Atlanta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ninarossfm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Conditions",
+            "item": "https://www.ninarossfm.com/conditions"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Menopause",
+            "item": "https://www.ninarossfm.com/conditions/menopause"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "label": "Nav",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Our Approach",
+          "href": "/approach"
+        },
+        {
+          "text": "Advanced Testing",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Dr. Nina",
+          "href": "/about"
+        },
+        {
+          "text": "Start · $99",
+          "href": "/start"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Hero",
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Root-cause perimenopause and menopause care in Atlanta that helps you feel steady again."
+        }
+      ],
+      "eyebrowSpans": [
+        "Menopause Treatment in Atlanta"
+      ],
+      "paragraphs": [
+        "If the hot flashes, the broken sleep, the weight shift and the feeling that your body changed overnight have you off balance, you are not imagining it.",
+        "This transition is real, and it deserves someone who will listen to the whole story. At Nina Ross Functional Medicine, we treat perimenopause and menopause at the root, here in Atlanta and virtually across Georgia. Dr. Nina Ross follows the whole picture, estrogen and progesterone, thyroid, and metabolism, until she finds what is really driving your symptoms, then builds the plan around your body and your life."
+      ],
+      "links": [
+        {
+          "text": "Home",
+          "href": "/"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Book the $99 Symptom Consultation",
+          "href": "/start"
+        },
+        {
+          "text": "See what standard labs may be missing →",
+          "href": "#root-cause"
+        },
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "menoD-byline-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "menoD-hero",
+          "alt": "Dr. Nina Ross reviewing menopause hormone testing with a patient at her Atlanta functional medicine clinic",
+          "placeholder": "Hero image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Symptoms",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The menopause signs we hear most often"
+        }
+      ],
+      "eyebrowSpans": [
+        "You might recognize this"
+      ],
+      "paragraphs": [
+        "If you nodded at three or more, your body is asking a deeper question."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Why conventional care misses it",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "You were told this is just menopause."
+        }
+      ],
+      "eyebrowSpans": [
+        "Why conventional care keeps missing it"
+      ],
+      "paragraphs": [
+        "A fifteen-minute visit rarely has room to look at the whole transition. So symptoms get waved off as menopause, and the imbalance beneath them goes unexamined."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "What you’re usually told",
+          "body": "“This is just menopause. You will get through it, try to ride it out.”"
+        },
+        {
+          "title": "What’s actually happening",
+          "body": "Falling hormones, thyroid, and metabolism are shifting together in a loop. Support the loop and the symptoms ease together."
+        }
+      ]
+    },
+    {
+      "label": "The functional medicine difference",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "We will not tell you to ride it out."
+        }
+      ],
+      "eyebrowSpans": [
+        "The functional medicine difference"
+      ],
+      "paragraphs": [
+        "Here is where we part ways with conventional care. When menopause symptoms arrive, the reflex answer is to wait it out, or a single prescription handed over with little explanation. That can blunt one symptom. But the hormonal shift touches sleep, mood, metabolism, and bone, and treating one piece while ignoring the rest leaves most of the transition unsupported.",
+        "We would rather do the harder, more honest work. We find what is actually driving your symptoms and we treat that.",
+        "If hormone therapy still has a place in your plan, that should be your informed choice, made with the full picture in front of you, not a default handed to you in a fifteen minute visit."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "menoD-fmd-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Riding it out is not a plan",
+          "body": "You can support this transition, ease the symptoms, and protect your long-term health."
+        },
+        {
+          "title": "One prescription misses the system",
+          "body": "The shift affects sleep, metabolism, and mood together, so the plan should too."
+        },
+        {
+          "title": "It postpones long-term protection",
+          "body": "Waiting it out overlooks bone, heart, and metabolic health that deserve attention now."
+        }
+      ]
+    },
+    {
+      "label": "The root-cause view",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The transition runs in a loop. We map the whole circle."
+        }
+      ],
+      "eyebrowSpans": [
+        "The root-cause view"
+      ],
+      "paragraphs": [
+        "Each driver pushes the next. That is why treating one in isolation rarely holds, and why mapping the full cycle changes everything.",
+        "When we investigate your symptoms, we read the whole hormonal and metabolic picture rather than a single number, and connect each driver back to what you’re feeling:"
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [
+        {
+          "label": "Falling estrogen",
+          "full": "Falling estrogen, behind the hot flashes, the dryness, and the brain fog."
+        },
+        {
+          "label": "Low progesterone",
+          "full": "Low progesterone, that frays sleep and feeds anxiety and irritability."
+        },
+        {
+          "label": "Thyroid shifts",
+          "full": "Thyroid shifts, that deepen the fatigue, weight, and low mood."
+        },
+        {
+          "label": "Insulin & metabolism",
+          "full": "Insulin & metabolism, that move weight to the middle and resist your usual efforts."
+        },
+        {
+          "label": "Cortisol & stress",
+          "full": "Cortisol & stress, that worsen flashes, sleep, and the sense of overwhelm."
+        },
+        {
+          "label": "Bone & muscle loss",
+          "full": "Bone & muscle loss, the quiet changes that matter most for your long-term health."
+        },
+        {
+          "label": "Poor sleep",
+          "full": "Poor sleep, the broken nights that magnify every other symptom."
+        }
+      ],
+      "boldPairs": []
+    },
+    {
+      "label": "Care plan",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Your menopause care plan: four steps, built around your body"
+        }
+      ],
+      "eyebrowSpans": [
+        "The Care Plan Protocol, applied to menopause"
+      ],
+      "paragraphs": [
+        "Estrogen, progesterone, thyroid, and metabolic and bone markers, the labs a rushed visit skips.",
+        "We map your results onto the loop so you finally see why the symptoms travel together.",
+        "Nutrition, targeted support, hormone therapy where it fits, and sleep and stress work, sequenced to your labs, not a template.",
+        "We adjust as you stabilize, so progress holds and sleep, mood, and energy keep improving."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Discover",
+          "body": "Test what’s really going on"
+        },
+        {
+          "title": "Connect",
+          "body": "See how the pieces relate"
+        },
+        {
+          "title": "Personalize",
+          "body": "Build the plan around you"
+        },
+        {
+          "title": "Nourish",
+          "body": "Steady support over time"
+        }
+      ]
+    },
+    {
+      "label": "Treatments",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Tools we reach for with menopause"
+        }
+      ],
+      "eyebrowSpans": [
+        "Treatments we may use"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Hormone RestorationSupporting estrogen, progesterone, and thyroid through the transition.",
+          "href": "/treatments/hormone-restoration"
+        },
+        {
+          "text": "Advanced Lab TestingA full hormone and metabolic panel for real clarity on your root causes.",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "Peptide TherapyTargeted support for energy, recovery, and body composition.",
+          "href": "/treatments/peptide-therapy"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "menoD-treat1",
+          "alt": "Hormone Restoration",
+          "placeholder": "Image"
+        },
+        {
+          "id": "menoD-treat2",
+          "alt": "Advanced Lab Testing",
+          "placeholder": "Image"
+        },
+        {
+          "id": "menoD-treat3",
+          "alt": "Peptide Therapy",
+          "placeholder": "Image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Proof",
+      "headings": [],
+      "eyebrowSpans": [
+        "Menopause patients, in their words"
+      ],
+      "paragraphs": [
+        "The night sweats stopped, I sleep again, and I feel like myself for the first time in two years."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "menoD-test-photo",
+          "alt": "Menopause patient of Nina Ross Functional Medicine in Atlanta",
+          "placeholder": "Patient photo"
+        },
+        {
+          "id": "menoD-test-av",
+          "alt": "",
+          "placeholder": "Photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Sophia L.",
+          "body": "Menopause · Atlanta patient"
+        }
+      ]
+    },
+    {
+      "label": "FAQ",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Menopause, answered plainly"
+        },
+        {
+          "tag": "h3",
+          "text": "Can functional medicine help menopause symptoms?"
+        },
+        {
+          "tag": "h3",
+          "text": "What about perimenopause, before periods stop?"
+        },
+        {
+          "tag": "h3",
+          "text": "What testing do you run for menopause?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you offer hormone therapy?"
+        },
+        {
+          "tag": "h3",
+          "text": "Why have I gained weight around my middle?"
+        },
+        {
+          "tag": "h3",
+          "text": "Is it too late to start care if I am already postmenopausal?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you offer virtual menopause care or only in person in Atlanta?"
+        }
+      ],
+      "eyebrowSpans": [
+        "Questions patients ask us"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Related reading: Perimenopause and the shifts no one warns you about",
+          "href": "/blog"
+        }
+      ],
+      "imageSlots": [],
+      "details": [
+        {
+          "q": "Can functional medicine help menopause symptoms?",
+          "a": "Yes. We treat perimenopause and menopause by supporting the whole transition, hormones, thyroid, metabolism, and sleep, rather than waiting it out. Most women feel flashes, sleep, and mood improve as we support the system."
+        },
+        {
+          "q": "What about perimenopause, before periods stop?",
+          "a": "Perimenopause is often when symptoms are loudest. We test and support early, so you feel steadier through the years leading up to menopause instead of riding it out."
+        },
+        {
+          "q": "What testing do you run for menopause?",
+          "a": "We go beyond a basic panel, with estrogen, progesterone, full thyroid, and metabolic and bone markers, so the plan targets your specific root causes."
+        },
+        {
+          "q": "Do you offer hormone therapy?",
+          "a": "Where it is appropriate, yes. We use hormone therapy as one tool inside a full plan, alongside nutrition, sleep, and stress work, and always as your informed choice."
+        },
+        {
+          "q": "Why have I gained weight around my middle?",
+          "a": "Falling hormones shift how you store fat and how your metabolism responds. We address the hormonal and metabolic drivers so your efforts start working again."
+        },
+        {
+          "q": "Is it too late to start care if I am already postmenopausal?",
+          "a": "Support helps at any stage, both for symptoms and for protecting your bone, heart, and metabolic health going forward."
+        },
+        {
+          "q": "Do you offer virtual menopause care or only in person in Atlanta?",
+          "a": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+        }
+      ],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Start here",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The $99 Symptom Consultation"
+        }
+      ],
+      "eyebrowSpans": [
+        "Choose your path",
+        "In the studio",
+        "From anywhere",
+        "{{ doorLabel }}"
+      ],
+      "paragraphs": [
+        "A half hour with our team to look at your story and decide if root-cause care is your next step.",
+        "No referral needed · HSA / FSA eligible"
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "menoD-start-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Byline",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "This page is for education and is not a substitute for individual medical advice. Functional medicine care at Nina Ross is provided alongside, not in place of, your primary and specialty care."
+      ],
+      "links": [
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "menoD-review-av",
+          "alt": "",
+          "placeholder": "Dr. Nina"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    }
+  ]
+}

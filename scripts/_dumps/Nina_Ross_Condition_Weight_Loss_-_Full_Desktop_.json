@@ -1,0 +1,598 @@
+{
+  "meta": {
+    "title": "Weight Loss Clinic in Atlanta | Root-Cause Metabolism Care – Nina Ross FM",
+    "description": "Doing everything right and the weight still will not move? Dr. Nina Ross, a functional medicine weight loss doctor in Atlanta, treats metabolism at the root. Book a $99 consult.",
+    "canonical": "https://www.ninarossfm.com/conditions/weight-loss",
+    "ogImage": "https://www.ninarossfm.com/og/weight-loss-share.jpg"
+  },
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://www.ninarossfm.com/conditions/weight-loss#webpage",
+        "url": "https://www.ninarossfm.com/conditions/weight-loss",
+        "name": "Weight Loss Clinic in Atlanta | Root-Cause Metabolism Care – Nina Ross FM",
+        "description": "Functional medicine weight and metabolism care in Atlanta with Dr. Nina Ross, treating insulin, hormones, and metabolism at the root.",
+        "inLanguage": "en-US",
+        "about": {
+          "@type": "MedicalCondition",
+          "name": "Metabolic Disorder"
+        },
+        "reviewedBy": {
+          "@type": "Physician",
+          "name": "Dr. Nina Ross",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "NPI",
+            "value": "1164884078"
+          }
+        },
+        "lastReviewed": "2026-06-01"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can functional medicine help with stubborn weight?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We treat weight by addressing what is holding it on, insulin, thyroid, hormones, and stress, rather than blaming willpower. Most people find the scale responds again as the root causes are corrected."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer GLP-1 medications like semaglutide?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Where it is appropriate, yes. We use GLP-1 support as one tool inside a full plan, paired with nutrition and root-cause work so the results last beyond the medication."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What testing do you run for weight and metabolism?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We go beyond a basic panel, with in six months, A1c, full thyroid, hormones, and inflammation markers, so the plan targets your specific root causes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why can I not lose weight even when I eat well?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Often the issue is insulin resistance, thyroid, or hormones quietly telling your body to store rather than burn. When we correct those, eating well finally starts to work."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this another crash diet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Severe restriction slows metabolism. We build a sustainable plan around your labs so your body feels safe enough to let the weight go."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will the weight come back?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our goal is lasting change, so we treat the cause and adjust as your metabolism improves. That is what helps progress hold rather than rebound."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer virtual weight care or only in person in Atlanta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ninarossfm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Conditions",
+            "item": "https://www.ninarossfm.com/conditions"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Weight Loss",
+            "item": "https://www.ninarossfm.com/conditions/weight-loss"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "label": "Nav",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Our Approach",
+          "href": "/approach"
+        },
+        {
+          "text": "Advanced Testing",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Dr. Nina",
+          "href": "/about"
+        },
+        {
+          "text": "Start · $99",
+          "href": "/start"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Hero",
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Root-cause weight and metabolism care in Atlanta that finally makes your body respond."
+        }
+      ],
+      "eyebrowSpans": [
+        "Weight Loss Clinic in Atlanta"
+      ],
+      "paragraphs": [
+        "If you are eating well, moving more and the scale still will not move, or it climbs while you do everything right, you are not imagining it.",
+        "The struggle is real, and it deserves someone who will listen to the whole story. At Nina Ross Functional Medicine, we treat weight at its root, here in Atlanta and virtually across Georgia. Dr. Nina Ross follows the whole picture, insulin, thyroid, and the hormones behind a stalled metabolism, until she finds what is really holding your weight on, then builds the plan around your body and your life."
+      ],
+      "links": [
+        {
+          "text": "Home",
+          "href": "/"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Book the $99 Symptom Consultation",
+          "href": "/start"
+        },
+        {
+          "text": "See what standard labs may be missing →",
+          "href": "#root-cause"
+        },
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "weightD-byline-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "weightD-hero",
+          "alt": "Dr. Nina Ross reviewing metabolic and insulin testing with a patient at her Atlanta functional medicine clinic",
+          "placeholder": "Hero image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Symptoms",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The metabolism signs we hear most often"
+        }
+      ],
+      "eyebrowSpans": [
+        "You might recognize this"
+      ],
+      "paragraphs": [
+        "If you nodded at three or more, your body is asking a deeper question."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Why conventional care misses it",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "You were told to eat less and move more."
+        }
+      ],
+      "eyebrowSpans": [
+        "Why conventional care keeps missing it"
+      ],
+      "paragraphs": [
+        "A fifteen-minute visit rarely has room to look at the whole metabolism. So weight gets blamed on willpower, and the thing holding it on goes unexamined."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "What you’re usually told",
+          "body": "“Just eat less and move more. It really is that simple.”"
+        },
+        {
+          "title": "What’s actually happening",
+          "body": "Insulin, thyroid, and stress hormones are working against you in a loop. Correct the loop and your metabolism responds again."
+        }
+      ]
+    },
+    {
+      "label": "The functional medicine difference",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "We will not blame your willpower and call it a plan."
+        }
+      ],
+      "eyebrowSpans": [
+        "The functional medicine difference"
+      ],
+      "paragraphs": [
+        "Here is where we part ways with conventional care. When the weight will not move, the reflex answer is a stricter diet and more discipline, or a medication handed over with no map of why your metabolism stalled. A crash diet can drop a few pounds. But under-eating a stalled metabolism teaches your body to conserve, and the weight returns the moment real life resumes.",
+        "We would rather do the harder, more honest work. We find what is actually holding your weight on and we treat that.",
+        "If a medication like a GLP-1 still has a place in your plan, that should be your informed choice, made with the full picture in front of you, and paired with the work that makes it last."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "weightD-fmd-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "It blames effort, not biology",
+          "body": "Being told to try harder ignores the insulin and hormones quietly holding your weight on."
+        },
+        {
+          "title": "Crash diets can slow you further",
+          "body": "Severe restriction signals scarcity, and your body answers by burning less."
+        },
+        {
+          "title": "A pill alone postpones the fix",
+          "body": "Medication without a root-cause plan tends to fade the moment you stop taking it."
+        }
+      ]
+    },
+    {
+      "label": "The root-cause view",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Stubborn weight runs in a loop. We map the whole circle."
+        }
+      ],
+      "eyebrowSpans": [
+        "The root-cause view"
+      ],
+      "paragraphs": [
+        "Each driver pushes the next. That is why treating one in isolation rarely holds, and why mapping the full cycle changes everything.",
+        "When we investigate your metabolism, we read the whole hormonal and metabolic picture rather than a single number, and connect each driver back to what you’re feeling:"
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [
+        {
+          "label": "Insulin resistance",
+          "full": "Insulin resistance, the engine that stores fat and blocks the body from burning it."
+        },
+        {
+          "label": "An underactive thyroid",
+          "full": "An underactive thyroid, the slow metabolism, the cold hands, and the stalled scale."
+        },
+        {
+          "label": "Cortisol & stress",
+          "full": "Cortisol & stress, that parks weight around the middle and drives cravings."
+        },
+        {
+          "label": "Hormone shifts",
+          "full": "Hormone shifts, where perimenopause and low hormones change how you store weight."
+        },
+        {
+          "label": "Blood sugar swings",
+          "full": "Blood sugar swings, behind the hunger, the crashes, and the late-day snacking."
+        },
+        {
+          "label": "Poor sleep",
+          "full": "Poor sleep, that raises hunger hormones and lowers the will to move."
+        },
+        {
+          "label": "Chronic inflammation",
+          "full": "Chronic inflammation, the quiet driver that keeps metabolism stuck."
+        }
+      ],
+      "boldPairs": []
+    },
+    {
+      "label": "Care plan",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Your weight care plan: four steps, built around your body"
+        }
+      ],
+      "eyebrowSpans": [
+        "The Care Plan Protocol, applied to weight"
+      ],
+      "paragraphs": [
+        "Fasting insulin, A1c, full thyroid, hormones and inflammation markers, the labs a rushed visit skips.",
+        "We map your results onto the loop so you finally see why the weight will not move.",
+        "Nutrition, metabolic and GLP-1 support where it fits, movement and stress work, sequenced to your labs, not a template.",
+        "We adjust as your metabolism wakes up, so progress holds and energy, cravings, and the scale keep improving."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Discover",
+          "body": "Test what’s really going on"
+        },
+        {
+          "title": "Connect",
+          "body": "See how the pieces relate"
+        },
+        {
+          "title": "Personalize",
+          "body": "Build the plan around you"
+        },
+        {
+          "title": "Nourish",
+          "body": "Steady support over time"
+        }
+      ]
+    },
+    {
+      "label": "Treatments",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Tools we reach for with weight"
+        }
+      ],
+      "eyebrowSpans": [
+        "Treatments we may use"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "GLP-1 & Weight LossMetabolic support when insulin resistance makes losing weight hard.",
+          "href": "/treatments/glp-1-weight-loss"
+        },
+        {
+          "text": "Advanced Lab TestingInsulin, thyroid, and hormone testing for real clarity on your root causes.",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "Peptide TherapyTargeted support for metabolism, body composition, and recovery.",
+          "href": "/treatments/peptide-therapy"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "weightD-treat1",
+          "alt": "GLP-1 & Weight Loss",
+          "placeholder": "Image"
+        },
+        {
+          "id": "weightD-treat2",
+          "alt": "Advanced Lab Testing",
+          "placeholder": "Image"
+        },
+        {
+          "id": "weightD-treat3",
+          "alt": "Peptide Therapy",
+          "placeholder": "Image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Proof",
+      "headings": [],
+      "eyebrowSpans": [
+        "Weight patients, in their words"
+      ],
+      "paragraphs": [
+        "For the first time in a decade the scale is moving, and it finally feels like my body is on my side."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "weightD-test-photo",
+          "alt": "Weight Loss patient of Nina Ross Functional Medicine in Atlanta",
+          "placeholder": "Patient photo"
+        },
+        {
+          "id": "weightD-test-av",
+          "alt": "",
+          "placeholder": "Photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Marcus B.",
+          "body": "Weight & metabolism · Atlanta patient"
+        }
+      ]
+    },
+    {
+      "label": "FAQ",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Weight and metabolism, answered plainly"
+        },
+        {
+          "tag": "h3",
+          "text": "Can functional medicine help with stubborn weight?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you offer GLP-1 medications like semaglutide?"
+        },
+        {
+          "tag": "h3",
+          "text": "What testing do you run for weight and metabolism?"
+        },
+        {
+          "tag": "h3",
+          "text": "Why can I not lose weight even when I eat well?"
+        },
+        {
+          "tag": "h3",
+          "text": "Is this another crash diet?"
+        },
+        {
+          "tag": "h3",
+          "text": "Will the weight come back?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you offer virtual weight care or only in person in Atlanta?"
+        }
+      ],
+      "eyebrowSpans": [
+        "Questions patients ask us"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Related reading: Insulin resistance and stubborn weight",
+          "href": "/blog"
+        }
+      ],
+      "imageSlots": [],
+      "details": [
+        {
+          "q": "Can functional medicine help with stubborn weight?",
+          "a": "Yes. We treat weight by addressing what is holding it on, insulin, thyroid, hormones, and stress, rather than blaming willpower. Most people find the scale responds again as the root causes are corrected."
+        },
+        {
+          "q": "Do you offer GLP-1 medications like semaglutide?",
+          "a": "Where it is appropriate, yes. We use GLP-1 support as one tool inside a full plan, paired with nutrition and root-cause work so the results last beyond the medication."
+        },
+        {
+          "q": "What testing do you run for weight and metabolism?",
+          "a": "We go beyond a basic panel, with in six months, A1c, full thyroid, hormones, and inflammation markers, so the plan targets your specific root causes."
+        },
+        {
+          "q": "Why can I not lose weight even when I eat well?",
+          "a": "Often the issue is insulin resistance, thyroid, or hormones quietly telling your body to store rather than burn. When we correct those, eating well finally starts to work."
+        },
+        {
+          "q": "Is this another crash diet?",
+          "a": "Severe restriction slows metabolism. We build a sustainable plan around your labs so your body feels safe enough to let the weight go."
+        },
+        {
+          "q": "Will the weight come back?",
+          "a": "Our goal is lasting change, so we treat the cause and adjust as your metabolism improves. That is what helps progress hold rather than rebound."
+        },
+        {
+          "q": "Do you offer virtual weight care or only in person in Atlanta?",
+          "a": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+        }
+      ],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Start here",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The $99 Symptom Consultation"
+        }
+      ],
+      "eyebrowSpans": [
+        "Choose your path",
+        "In the studio",
+        "From anywhere",
+        "{{ doorLabel }}"
+      ],
+      "paragraphs": [
+        "A half hour with our team to look at your story and decide if root-cause care is your next step.",
+        "No referral needed · HSA / FSA eligible"
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "weightD-start-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Byline",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "This page is for education and is not a substitute for individual medical advice. Functional medicine care at Nina Ross is provided alongside, not in place of, your primary and specialty care."
+      ],
+      "links": [
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "weightD-review-av",
+          "alt": "",
+          "placeholder": "Dr. Nina"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    }
+  ]
+}

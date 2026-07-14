@@ -1,0 +1,634 @@
+{
+  "meta": {
+    "title": "Trichologist in Atlanta | Hair Loss Specialist | Dr. Nina Ross, ND PhD",
+    "description": "A board-certified trichologist and hair loss specialist in Atlanta. Dr. Nina Ross, ND PhD, finds what is really behind your thinning hair and treats the root cause, in Atlanta and virtually across Georgia. Book a $99 consult.",
+    "canonical": "https://www.ninarossfm.com/trichologist-atlanta",
+    "ogImage": "https://www.ninarossfm.com/og/trichologist-share.jpg"
+  },
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://www.ninarossfm.com/trichologist-atlanta#webpage",
+        "url": "https://www.ninarossfm.com/trichologist-atlanta",
+        "name": "Trichologist in Atlanta | Hair Loss Specialist | Dr. Nina Ross, ND PhD",
+        "description": "A board-certified trichologist and hair loss specialist in Atlanta, Dr. Nina Ross, ND PhD, treating the root cause of hair loss with functional medicine.",
+        "inLanguage": "en-US",
+        "about": {
+          "@id": "https://www.ninarossfm.com/#physician"
+        },
+        "reviewedBy": {
+          "@id": "https://www.ninarossfm.com/#physician"
+        },
+        "lastReviewed": "2026-06-01"
+      },
+      {
+        "@type": "Physician",
+        "@id": "https://www.ninarossfm.com/#physician",
+        "name": "Dr. Nina Ross, ND PhD",
+        "medicalSpecialty": "FunctionalMedicine",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "NPI",
+          "value": "1164884078"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Ph.D. in Functional Medicine"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Board Certified in Holistic Health (ANMCB)"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Board Certified Trichologist (WTS)"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "8735 Dunwoody Place, Ste. O",
+          "addressLocality": "Atlanta",
+          "addressRegion": "GA",
+          "postalCode": "30350",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Atlanta"
+          },
+          {
+            "@type": "State",
+            "name": "Georgia"
+          }
+        ],
+        "telephone": "+1-678-561-4522"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does a trichologist do?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A trichologist is a specialist in the hair and scalp. As a board-certified trichologist and functional medicine doctor, I diagnose the type and cause of your hair loss, then treat the root driver, whether that is thyroid, iron, hormones, or stress."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What causes hair loss, and can it be reversed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most hair loss is downstream of something systemic, thyroid, iron, hormones, or stress. When we find and treat the real driver, your hair often has the conditions it needs to recover."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is a trichologist different from a dermatologist?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A dermatologist focuses on the skin and scalp surface. As a trichologist paired with functional medicine, I also test what is happening inside, the thyroid, nutrients, and hormones behind the shedding, and treat that root cause."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What lab testing do you run for hair loss?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We go beyond a basic panel, thyroid, iron and ferritin, a full hormone panel, and inflammatory markers, because that is where most hair loss actually begins."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you work alongside my regular doctor or dermatologist?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Care here is provided alongside, not in place of, your primary, dermatology, and specialty care. We coordinate so the whole picture stays connected."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer virtual hair-loss visits or only in person in Atlanta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both. See me in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ninarossfm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Trichologist Atlanta",
+            "item": "https://www.ninarossfm.com/trichologist-atlanta"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "label": "Nav",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Our Approach",
+          "href": "/approach"
+        },
+        {
+          "text": "Advanced Testing",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Dr. Nina",
+          "href": "/about"
+        },
+        {
+          "text": "Start · $99",
+          "href": "/start"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Hero",
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "A trichologist in Atlanta who finds what is really behind your hair loss."
+        }
+      ],
+      "eyebrowSpans": [
+        "Board-Certified Trichologist in Atlanta"
+      ],
+      "paragraphs": [
+        "If your hair is thinning, shedding, or changing and no one has explained why, you deserve a specialist who investigates the cause, not just the scalp.",
+        "I am Dr. Nina Ross, ND PhD, a board-certified trichologist and functional medicine doctor. Thinning hair is usually a signal from somewhere deeper, thyroid, iron, hormones, or stress. I run advanced labs to find which one is driving yours, here in Atlanta and virtually across Georgia, then treat the root so your hair has what it needs to recover."
+      ],
+      "links": [
+        {
+          "text": "Home",
+          "href": "/"
+        },
+        {
+          "text": "Book the $99 Symptom Consultation",
+          "href": "/start"
+        },
+        {
+          "text": "What a trichologist actually does →",
+          "href": "#holistic"
+        },
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "triD-byline-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "triD-hero",
+          "alt": "Dr. Nina Ross, a trichologist in Atlanta, with a patient at her functional medicine clinic",
+          "placeholder": "Dr. Nina with patient"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "If this sounds familiar",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "You have been to doctors. You still do not feel heard."
+        }
+      ],
+      "eyebrowSpans": [
+        "If this sounds familiar"
+      ],
+      "paragraphs": [
+        "You are not difficult, and you are not imagining it. You have just never been given the time."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Meet Dr. Nina",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The doctor who looks closer and listens longer."
+        }
+      ],
+      "eyebrowSpans": [
+        "Meet Dr. Nina Ross"
+      ],
+      "paragraphs": [
+        "For years I watched people, so many of them women who looked like me, carry symptoms that no one would slow down to explain. So I built the practice I wished they could walk into. One where you are believed first, investigated thoroughly, and treated as a whole person with a life, not a fifteen minute slot.",
+        "When someone finally feels seen, the healing has already begun."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "triD-portrait",
+          "alt": "Portrait of Dr. Nina Ross, ND PhD, trichologist in Atlanta",
+          "placeholder": "Dr. Nina portrait"
+        }
+      ],
+      "details": [],
+      "strongBullets": [
+        {
+          "label": "Ph.D. in Functional Medicine",
+          "full": "Ph.D. in Functional Medicine"
+        },
+        {
+          "label": "Board Certified in Holistic Health",
+          "full": "Board Certified in Holistic Health, ANMCB"
+        },
+        {
+          "label": "Board Certified Trichologist",
+          "full": "Board Certified Trichologist, WTS"
+        },
+        {
+          "label": "#1164884078",
+          "full": "NPI #1164884078 · Atlanta, GA"
+        }
+      ],
+      "boldPairs": [
+        {
+          "title": "Credentials & training",
+          "body": "Ph.D. in Functional Medicine\n            Board Certified in Holistic Health, ANMCB\n            Board Certified Trichologist, WTS\n            NPI #1164884078 · Atlanta, GA"
+        }
+      ]
+    },
+    {
+      "label": "Why hair is a signal",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Hair loss is rarely just about your hair."
+        }
+      ],
+      "eyebrowSpans": [
+        "Why hair is a signal"
+      ],
+      "paragraphs": [
+        "Most hair loss is downstream of something systemic, your thyroid, your iron, your hormones, your stress. Treating the scalp alone misses it. As a trichologist and functional medicine doctor, I read the whole picture and treat what is actually driving the shedding.",
+        "Your hair is telling the truth about your health. We listen to it."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "triD-culture",
+          "alt": "Dr. Nina Ross, a trichologist in Atlanta, sitting with a patient",
+          "placeholder": "Warm patient moment"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "A real diagnosis first",
+          "body": "We identify the type and cause of your hair loss before treating, not after months of guesswork."
+        },
+        {
+          "title": "Labs, not just the scalp",
+          "body": "Thyroid, iron, hormones, and inflammation are tested, because that is where most hair loss begins."
+        },
+        {
+          "title": "Treat the root, regrow",
+          "body": "When we fix the driver, your hair finally has the conditions it needs to recover."
+        }
+      ]
+    },
+    {
+      "label": "What holistic means",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "A trichologist treats the cause of hair loss, not the cosmetics."
+        }
+      ],
+      "eyebrowSpans": [
+        "What a trichologist does"
+      ],
+      "paragraphs": [
+        "A trichologist is a specialist in the hair and scalp. Paired with functional medicine, that means I do not just look at your hair, I look at why it is changing, reading how your hormones, nutrients, and stress connect, then treating the root.",
+        "This is medicine that respects both your science and your story."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "triD-fmd-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "triD-holistic",
+          "alt": "Advanced functional medicine lab work at Dr. Nina Ross's Atlanta clinic",
+          "placeholder": "Clinical / lab photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Find the real driver",
+          "body": "Thyroid, iron, hormones, or stress, we test to see which one is behind your shedding."
+        },
+        {
+          "title": "The whole system, connected",
+          "body": "Hair, hormones, gut, and metabolism are mapped together so the cause cannot hide."
+        },
+        {
+          "title": "A plan you help build",
+          "body": "Targeted support, nutrition, and lifestyle, sequenced to your labs, with you deciding."
+        }
+      ]
+    },
+    {
+      "label": "Care Plan Protocol",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "How we work together: four steps, built around you"
+        }
+      ],
+      "eyebrowSpans": [
+        "The Care Plan Protocol"
+      ],
+      "paragraphs": [
+        "An unhurried first visit and advanced labs, so nothing about how you feel gets dismissed.",
+        "We map your results together so you finally understand why the symptoms travel as a set.",
+        "Nutrition, targeted support, and lifestyle, sequenced to your labs and your real life, not a template.",
+        "We adjust as your numbers move, so progress holds and you keep feeling more like yourself."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Discover",
+          "body": "Hear the whole story"
+        },
+        {
+          "title": "Connect",
+          "body": "See how the pieces relate"
+        },
+        {
+          "title": "Personalize",
+          "body": "Build the plan around you"
+        },
+        {
+          "title": "Nourish",
+          "body": "Steady support over time"
+        }
+      ]
+    },
+    {
+      "label": "Care Plan Toolkit",
+      "headings": [],
+      "eyebrowSpans": [
+        "The Care Plan toolkit",
+        "CarePlan",
+        "Hover or click a tool to explore"
+      ],
+      "paragraphs": [],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "toolDD-{{ t.numShort }}",
+          "alt": "",
+          "placeholder": "Wide photo for this tool"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "CarePlan",
+          "body": ""
+        }
+      ]
+    },
+    {
+      "label": "Who I help",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Where root-cause care makes the biggest difference"
+        },
+        {
+          "tag": "h3",
+          "text": "{{ activeCond.heading }}"
+        }
+      ],
+      "eyebrowSpans": [
+        "Who I help"
+      ],
+      "paragraphs": [
+        "{{ activeCond.blurb }}"
+      ],
+      "links": [
+        {
+          "text": "See all conditions we treat",
+          "href": "/conditions"
+        },
+        {
+          "text": "{{ activeCond.cta }}",
+          "href": "/start"
+        },
+        {
+          "text": "Read more",
+          "href": "{{ activeCond.href }}"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Proof",
+      "headings": [],
+      "eyebrowSpans": [
+        "In their words"
+      ],
+      "paragraphs": [
+        "My hair stopped falling out once she found my thyroid was the cause. No one else had even checked."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "triD-test-photo",
+          "alt": "Patient of Dr. Nina Ross, a trichologist in Atlanta",
+          "placeholder": "Patient photo"
+        },
+        {
+          "id": "triD-test-av",
+          "alt": "",
+          "placeholder": "Photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Yvonne D.",
+          "body": "Atlanta patient"
+        }
+      ]
+    },
+    {
+      "label": "FAQ",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Hair loss, answered plainly"
+        },
+        {
+          "tag": "h3",
+          "text": "What does a trichologist do?"
+        },
+        {
+          "tag": "h3",
+          "text": "What causes hair loss, and can it be reversed?"
+        },
+        {
+          "tag": "h3",
+          "text": "How is a trichologist different from a dermatologist?"
+        },
+        {
+          "tag": "h3",
+          "text": "What lab testing do you run for hair loss?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you work alongside my regular doctor or dermatologist?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you offer virtual hair-loss visits or only in person in Atlanta?"
+        }
+      ],
+      "eyebrowSpans": [
+        "Questions people ask us"
+      ],
+      "paragraphs": [],
+      "links": [],
+      "imageSlots": [],
+      "details": [
+        {
+          "q": "What does a trichologist do?",
+          "a": "A trichologist is a specialist in the hair and scalp. As a board-certified trichologist and functional medicine doctor, I diagnose the type and cause of your hair loss, then treat the root driver, whether that is thyroid, iron, hormones, or stress."
+        },
+        {
+          "q": "What causes hair loss, and can it be reversed?",
+          "a": "Most hair loss is downstream of something systemic, thyroid, iron, hormones, or stress. When we find and treat the real driver, your hair often has the conditions it needs to recover."
+        },
+        {
+          "q": "How is a trichologist different from a dermatologist?",
+          "a": "A dermatologist focuses on the skin and scalp surface. As a trichologist paired with functional medicine, I also test what is happening inside, the thyroid, nutrients, and hormones behind the shedding, and treat that root cause."
+        },
+        {
+          "q": "What lab testing do you run for hair loss?",
+          "a": "We go beyond a basic panel, thyroid, iron and ferritin, a full hormone panel, and inflammatory markers, because that is where most hair loss actually begins."
+        },
+        {
+          "q": "Do you work alongside my regular doctor or dermatologist?",
+          "a": "Yes. Care here is provided alongside, not in place of, your primary, dermatology, and specialty care. We coordinate so the whole picture stays connected."
+        },
+        {
+          "q": "Do you offer virtual hair-loss visits or only in person in Atlanta?",
+          "a": "Both. See me in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+        }
+      ],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Start here",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The $99 Symptom Consultation"
+        }
+      ],
+      "eyebrowSpans": [
+        "Choose your path",
+        "In the studio",
+        "From anywhere",
+        "{{ doorLabel }}"
+      ],
+      "paragraphs": [
+        "A half hour with me to hear your story and decide if root-cause care is your next step.",
+        "No referral needed · HSA / FSA eligible"
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "triD-start-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Byline",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "This page is for education and is not a substitute for individual medical advice. Functional medicine care at Nina Ross is provided alongside, not in place of, your primary and specialty care."
+      ],
+      "links": [
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "triD-review-av",
+          "alt": "",
+          "placeholder": "Dr. Nina"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    }
+  ]
+}

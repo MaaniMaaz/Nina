@@ -1,0 +1,586 @@
+{
+  "meta": {
+    "title": "Lymphatic Drainage in Atlanta | Dr. Nina Ross, ND PhD",
+    "description": "Lymphatic drainage in Atlanta, used for a clinical reason within a root-cause plan by Dr. Nina Ross, ND PhD to move puffiness and speed healing. Start with a $99 consult.",
+    "canonical": "https://www.ninarossfm.com/treatments/lymphatic-drainage",
+    "ogImage": "https://www.ninarossfm.com/og/lymphatic-drainage-share.jpg"
+  },
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://www.ninarossfm.com/treatments/lymphatic-drainage#webpage",
+        "url": "https://www.ninarossfm.com/treatments/lymphatic-drainage",
+        "name": "Lymphatic Drainage in Atlanta | Dr. Nina Ross, ND PhD",
+        "description": "Lymphatic drainage in Atlanta, used within a personalized functional medicine plan under the care of Dr. Nina Ross, ND PhD.",
+        "inLanguage": "en-US",
+        "about": {
+          "@id": "https://www.ninarossfm.com/treatments/lymphatic-drainage#therapy"
+        },
+        "reviewedBy": {
+          "@id": "https://www.ninarossfm.com/#physician"
+        },
+        "lastReviewed": "2026-06-01"
+      },
+      {
+        "@type": "MedicalTherapy",
+        "@id": "https://www.ninarossfm.com/treatments/lymphatic-drainage#therapy",
+        "name": "Lymphatic Drainage",
+        "alternateName": "Manual and assisted lymphatic drainage",
+        "description": "Lymphatic drainage therapy that supports the movement of lymph fluid to aid detoxification, reduce swelling, and support recovery, used within a personalized functional medicine plan.",
+        "howPerformed": "At the Atlanta clinic, gentle manual or assisted techniques are used to support lymphatic flow over a session, as part of the patient’s broader plan.",
+        "relevantSpecialty": {
+          "@type": "MedicalSpecialty",
+          "name": "FunctionalMedicine"
+        },
+        "provider": {
+          "@id": "https://www.ninarossfm.com/#physician"
+        }
+      },
+      {
+        "@type": "Physician",
+        "@id": "https://www.ninarossfm.com/#physician",
+        "name": "Dr. Nina Ross, ND PhD",
+        "medicalSpecialty": "FunctionalMedicine",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "NPI",
+          "value": "1164884078"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "8735 Dunwoody Place, Ste. O",
+          "addressLocality": "Atlanta",
+          "addressRegion": "GA",
+          "postalCode": "30350",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Atlanta"
+          },
+          {
+            "@type": "State",
+            "name": "Georgia"
+          }
+        ],
+        "telephone": "+1-678-561-4522"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is lymphatic drainage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It uses gentle, rhythmic techniques to support the movement of lymph fluid, which carries waste and supports immune function. It can help with puffiness, swelling, and recovery. Here it is used for a clinical reason inside your plan, not as a stand-alone spa service."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is lymphatic drainage safe?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For most people it is gentle and well tolerated. Certain conditions should be screened for first, which is why care here begins with a consult so it is used appropriately and for the right reason."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is lymphatic drainage good for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is commonly used to support swelling and puffiness, post-procedure recovery, and a feeling of lightness and sluggishness, as part of a broader plan. We use it when it fits your goals, not as a routine add-on."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many sessions do I need?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It depends on what we are supporting. Some goals call for a short series, others for occasional sessions. Inside the membership plan you use it as your plan calls for, instead of paying per session."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from a spa drainage session?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Here drainage is used for a clinical purpose inside a plan directed by a physician who is also treating the root cause of the congestion."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I just book a session without becoming a patient?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Drainage here is always part of physician-led care. You start with a $99 Symptom Consultation so it is used for the right reason and fits your plan."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ninarossfm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Treatments",
+            "item": "https://www.ninarossfm.com/treatments"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Lymphatic Drainage",
+            "item": "https://www.ninarossfm.com/treatments/lymphatic-drainage"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "label": "Nav",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Our Approach",
+          "href": "/approach"
+        },
+        {
+          "text": "Treatments",
+          "href": "/treatments"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Dr. Nina",
+          "href": "/about"
+        },
+        {
+          "text": "Start · $99",
+          "href": "/start"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Hero",
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Lymphatic drainage in Atlanta that moves the puffiness and helps you heal faster."
+        }
+      ],
+      "eyebrowSpans": [
+        "Lymphatic Drainage in Atlanta"
+      ],
+      "paragraphs": [
+        "If you carry puffiness, sluggishness, or post-surgery swelling and keep being offered a relaxing “drainage” session, the technique can genuinely help. The waste is doing it with no clinical reason and no plan around it.",
+        "I am Dr. Nina Ross, ND PhD. Here lymphatic drainage is used for a clinical reason inside a plan that addresses why your system is congested in the first place. That is how an hour of bodywork turns into real, lasting relief."
+      ],
+      "links": [
+        {
+          "text": "Home",
+          "href": "/"
+        },
+        {
+          "text": "Treatments",
+          "href": "/treatments"
+        },
+        {
+          "text": "Book the $99 Symptom Consultation",
+          "href": "/start"
+        },
+        {
+          "text": "See the whole toolkit behind it →",
+          "href": "#toolkit"
+        },
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "lymD-byline-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "lymD-hero",
+          "alt": "Lymphatic drainage care at Dr. Nina Ross's functional medicine clinic in Atlanta",
+          "placeholder": "Lymphatic drainage photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "What it is",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Helping your lymph move, so swelling, recovery, and sluggishness ease."
+        }
+      ],
+      "eyebrowSpans": [
+        "What it actually is"
+      ],
+      "paragraphs": [
+        "Lymphatic drainage uses gentle, rhythmic techniques to support the flow of lymph fluid, which carries waste and supports immune function. Done for the right reason it genuinely helps with swelling, recovery, and sluggishness, especially when it is paired with a plan that treats the cause of the congestion.",
+        "Gentle techniques encourage lymph to move, helping with puffiness, swelling, and sluggishness.",
+        "It is often used to support recovery, post-procedure swelling, and a feeling of lightness.",
+        "We use it when it fits your plan and goals, so each session does real work."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Who it's for",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Lymphatic drainage is right for some people. It is wrong for others."
+        }
+      ],
+      "eyebrowSpans": [
+        "Be honest with yourself",
+        "This is for you if",
+        "It is not for you if"
+      ],
+      "paragraphs": [
+        "If that second list stung a little, good. That honesty is exactly what you are paying for here."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "This is for you if",
+          "body": ""
+        },
+        {
+          "title": "·",
+          "body": "You have swelling, puffiness, or sluggishness with a cause worth addressing"
+        },
+        {
+          "title": "·",
+          "body": "You are recovering from a procedure and want supported, gentle drainage"
+        },
+        {
+          "title": "·",
+          "body": "You want it used for a clinical reason inside a real plan that does real work"
+        },
+        {
+          "title": "It is not for you if",
+          "body": ""
+        },
+        {
+          "title": "·",
+          "body": "You want a relaxing add-on with no interest in why you are congested"
+        },
+        {
+          "title": "·",
+          "body": "You are hoping a session alone will detox or fix a deeper issue"
+        },
+        {
+          "title": "·",
+          "body": "You expect it to replace a real workup or the rest of your plan"
+        }
+      ]
+    },
+    {
+      "label": "Not a spa add-on",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Every spa offers lymphatic drainage now. This is not that."
+        }
+      ],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "At a spa, drainage is sold as an hour of pampering you hope does something. No reason, no plan, no one asking why you are congested. Here, lymphatic drainage is used for a clinical reason inside a plan that addresses the cause behind the swelling or sluggishness."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "lymD-medspa-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Used for a reason, not a treat",
+          "body": "We use drainage when it fits your goals and plan, so the session actually counts."
+        },
+        {
+          "title": "One tool in a plan, not the answer",
+          "body": "The session supports the work; the plan around it is what actually moves your health."
+        },
+        {
+          "title": "Clinically directed, not an upsell",
+          "body": "Guided by a plan from a physician who knows your whole history."
+        }
+      ]
+    },
+    {
+      "label": "What to expect",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "From first consult to your session, step by step"
+        }
+      ],
+      "eyebrowSpans": [
+        "What to expect"
+      ],
+      "paragraphs": [
+        "Your story and goals show whether drainage fits and why, before anything is scheduled.",
+        "Dr. Nina decides how drainage fits your goals, with the rest of your plan around it.",
+        "You relax through gentle, rhythmic techniques that support your lymphatic flow.",
+        "We check how you respond as your plan moves, so each session is justified by where you are now."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "lymD-expect",
+          "alt": "A lymphatic drainage session at Dr. Nina Ross's Atlanta clinic",
+          "placeholder": "Consult photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Consult & labs",
+          "body": "We find the reason"
+        },
+        {
+          "title": "Your protocol is set",
+          "body": "A plan written for you"
+        },
+        {
+          "title": "The session",
+          "body": "A gentle, calming session"
+        },
+        {
+          "title": "Re-check & adjust",
+          "body": "We confirm it is helping"
+        }
+      ]
+    },
+    {
+      "label": "The care toolkit",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "One symptom. A whole toolkit behind it."
+        }
+      ],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "Lymphatic drainage is one tool on a deep shelf. Tap what you are actually dealing with and watch which therapies we might reach for, because the right answer is almost never just one thing.",
+        "{{ toolkitFor }}",
+        "Every therapy here is physician-ordered off your labs, and matched to you, never sold off a menu."
+      ],
+      "links": [
+        {
+          "text": "{{ t.name }} {{ t.cat }} • You’re here",
+          "href": "{{ t.href }}"
+        },
+        {
+          "text": "{{ t.name }} {{ t.cat }} • You’re here",
+          "href": "{{ t.href }}"
+        },
+        {
+          "text": "{{ t.name }} {{ t.cat }} • You’re here",
+          "href": "{{ t.href }}"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "{{ t.name }}",
+          "body": ""
+        },
+        {
+          "title": "• You’re here",
+          "body": ""
+        },
+        {
+          "title": "{{ t.name }}",
+          "body": ""
+        },
+        {
+          "title": "• You’re here",
+          "body": ""
+        },
+        {
+          "title": "{{ t.name }}",
+          "body": ""
+        },
+        {
+          "title": "• You’re here",
+          "body": ""
+        }
+      ]
+    },
+    {
+      "label": "FAQ",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Lymphatic drainage, answered plainly"
+        },
+        {
+          "tag": "h3",
+          "text": "What is lymphatic drainage?"
+        },
+        {
+          "tag": "h3",
+          "text": "Is lymphatic drainage safe?"
+        },
+        {
+          "tag": "h3",
+          "text": "What is lymphatic drainage good for?"
+        },
+        {
+          "tag": "h3",
+          "text": "How many sessions do I need?"
+        },
+        {
+          "tag": "h3",
+          "text": "How is this different from a spa drainage session?"
+        },
+        {
+          "tag": "h3",
+          "text": "Can I just book a session without becoming a patient?"
+        }
+      ],
+      "eyebrowSpans": [
+        "Questions people ask us"
+      ],
+      "paragraphs": [],
+      "links": [],
+      "imageSlots": [],
+      "details": [
+        {
+          "q": "What is lymphatic drainage?",
+          "a": "It uses gentle, rhythmic techniques to support the movement of lymph fluid, which carries waste and supports immune function. It can help with puffiness, swelling, and recovery. Here it is used for a clinical reason inside your plan, not as a stand-alone spa service."
+        },
+        {
+          "q": "Is lymphatic drainage safe?",
+          "a": "For most people it is gentle and well tolerated. Certain conditions should be screened for first, which is why care here begins with a consult so it is used appropriately and for the right reason."
+        },
+        {
+          "q": "What is lymphatic drainage good for?",
+          "a": "It is commonly used to support swelling and puffiness, post-procedure recovery, and a feeling of lightness and sluggishness, as part of a broader plan. We use it when it fits your goals, not as a routine add-on."
+        },
+        {
+          "q": "How many sessions do I need?",
+          "a": "It depends on what we are supporting. Some goals call for a short series, others for occasional sessions. Inside the membership plan you use it as your plan calls for, instead of paying per session."
+        },
+        {
+          "q": "How is this different from a spa drainage session?",
+          "a": "Here drainage is used for a clinical purpose inside a plan directed by a physician who is also treating the root cause of the congestion."
+        },
+        {
+          "q": "Can I just book a session without becoming a patient?",
+          "a": "Drainage here is always part of physician-led care. You start with a $99 Symptom Consultation so it is used for the right reason and fits your plan."
+        }
+      ],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Start here",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Lymphatic drainage, built into your care program."
+        }
+      ],
+      "eyebrowSpans": [
+        "Choose your path",
+        "In the studio",
+        "From anywhere",
+        "{{ doorLabel }}"
+      ],
+      "paragraphs": [
+        "Lymphatic drainage is one tool inside your care plan, used for a clinical reason, so each session supports real, lasting relief.",
+        "No referral needed · HSA / FSA eligible"
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "lymD-start-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "lymD-door-clinic",
+          "alt": "Nina Ross Atlanta studio",
+          "placeholder": ""
+        },
+        {
+          "id": "lymD-door-virtual",
+          "alt": "Virtual telehealth consult with Nina Ross",
+          "placeholder": ""
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Byline",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "This page is for education and is not a substitute for individual medical advice. Lymphatic drainage at Nina Ross is provided within a clinical plan after appropriate screening and is offered alongside, not in place of, your primary and specialty care."
+      ],
+      "links": [
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "lymD-review-av",
+          "alt": "",
+          "placeholder": "Dr. Nina"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    }
+  ]
+}

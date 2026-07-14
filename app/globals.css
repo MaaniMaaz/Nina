@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbf6ec;
+  --foreground: #2e211b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Nina Ross Functional Medicine design tokens */
+  --color-ink: #2e211b;
+  --color-ink-soft: #1f1610;
+  --color-cream: #fbf6ec;
+  --color-cream-deep: #f6eee1;
+  --color-sand: #ece3d2;
+  --color-sand-deep: #e3ddd2;
+  --color-terracotta: #b5572f;
+  --color-terracotta-hover: #c25f34;
+  --color-gold: #e9b45a;
+  --color-gold-hover: #efbf6c;
+  --color-gold-deep: #cfa85a;
+  --color-olive: #2f3a26;
+  --color-body: #5a4d43;
+  --color-body-soft: #6b5d52;
+  --color-muted: #8a7d6f;
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-hanken);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-chev {
+  transform: rotate(45deg);
+}
+.faq-chev {
+  transition: transform 0.22s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("/images/grain.png");
+  background-size: 220px;
+}
+
+.nr-rail::-webkit-scrollbar {
+  height: 0;
 }

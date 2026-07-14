@@ -1,0 +1,598 @@
+{
+  "meta": {
+    "title": "Hair Loss Treatment in Atlanta | Root-Cause Trichology – Nina Ross FM",
+    "description": "Watching your hair thin? Dr. Nina Ross, a board-certified trichologist in Atlanta, treats the root cause of hair loss. Book a $99 consult.",
+    "canonical": "https://www.ninarossfm.com/conditions/hair-loss",
+    "ogImage": "https://www.ninarossfm.com/og/hair-loss-share.jpg"
+  },
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://www.ninarossfm.com/conditions/hair-loss#webpage",
+        "url": "https://www.ninarossfm.com/conditions/hair-loss",
+        "name": "Hair Loss Treatment in Atlanta | Root-Cause Trichology – Nina Ross FM",
+        "description": "Functional medicine and trichology care for hair loss in Atlanta with Dr. Nina Ross, treating hormones, thyroid, and nutrients at the root.",
+        "inLanguage": "en-US",
+        "about": {
+          "@type": "MedicalCondition",
+          "name": "Hair Loss"
+        },
+        "reviewedBy": {
+          "@type": "Physician",
+          "name": "Dr. Nina Ross",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "NPI",
+            "value": "1164884078"
+          }
+        },
+        "lastReviewed": "2026-06-01"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can functional medicine help hair loss?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We treat hair loss by addressing what is starving the follicle, thyroid, hormones, iron, and nutrients, rather than coating the strand. Most people see shedding slow and regrowth begin as the root causes are corrected."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What makes Dr. Ross different for hair loss?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dr. Nina Ross is a board-certified trichologist as well as a functional medicine doctor, so she reads both the scalp and the internal causes and builds one plan that addresses the whole picture."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What testing do you run for hair loss?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We go beyond a basic panel, with full thyroid, iron and ferritin, hormones, and vitamin D, plus a scalp assessment, so the plan targets your specific root causes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my hair loss reversible?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Often, yes, especially when we catch it before the follicle goes dormant. The earlier we find and correct the cause, the more regrowth tends to be possible."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long until I see new growth?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hair grows slowly, so shedding usually settles first, within a couple of months, and visible regrowth follows over several. We track it with you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can stress and postpartum changes cause this?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Both can push many follicles into shedding at once. We confirm the trigger and support your body so the cycle recovers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer virtual hair loss care or only in person in Atlanta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ninarossfm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Conditions",
+            "item": "https://www.ninarossfm.com/conditions"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Hair Loss",
+            "item": "https://www.ninarossfm.com/conditions/hair-loss"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "label": "Nav",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Our Approach",
+          "href": "/approach"
+        },
+        {
+          "text": "Advanced Testing",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Dr. Nina",
+          "href": "/about"
+        },
+        {
+          "text": "Start · $99",
+          "href": "/start"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Hero",
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Root-cause hair loss care in Atlanta from a board-certified trichologist."
+        }
+      ],
+      "eyebrowSpans": [
+        "Hair Loss Treatment in Atlanta"
+      ],
+      "paragraphs": [
+        "If your part is widening, your ponytail is thinner and the strands on the shower floor have you worried, you are not imagining it.",
+        "Your hair is telling you something about your health, and it deserves someone who will listen to the whole story. At Nina Ross Functional Medicine, we treat hair loss at its root, here in Atlanta and virtually across Georgia. Dr. Nina Ross is a board-certified trichologist who follows the whole picture, thyroid, hormones, and iron, until she finds what is really thinning your hair, then builds the plan around your body and your life."
+      ],
+      "links": [
+        {
+          "text": "Home",
+          "href": "/"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Book the $99 Symptom Consultation",
+          "href": "/start"
+        },
+        {
+          "text": "See what standard labs may be missing →",
+          "href": "#root-cause"
+        },
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "hairD-byline-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "hairD-hero",
+          "alt": "Dr. Nina Ross, board-certified trichologist, examining a patient’s scalp at her Atlanta clinic",
+          "placeholder": "Hero image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Symptoms",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The hair loss signs we hear most often"
+        }
+      ],
+      "eyebrowSpans": [
+        "You might recognize this"
+      ],
+      "paragraphs": [
+        "If you nodded at three or more, your body is asking a deeper question."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Why conventional care misses it",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "You were told it is genetic, learn to live with it."
+        }
+      ],
+      "eyebrowSpans": [
+        "Why conventional care keeps missing it"
+      ],
+      "paragraphs": [
+        "A fifteen-minute visit rarely has room to investigate why hair thins. So hair loss gets called genetic or stress, and the cause beneath it goes unexamined."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "What you’re usually told",
+          "body": "“It is probably just genetic. Try this shampoo and see how it goes.”"
+        },
+        {
+          "title": "What’s actually happening",
+          "body": "Hormones, thyroid, and nutrient gaps are starving the follicle in a loop. Address the loop and the follicle can recover."
+        }
+      ]
+    },
+    {
+      "label": "The functional medicine difference",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "We will not hand you a shampoo and call it answered."
+        }
+      ],
+      "eyebrowSpans": [
+        "The functional medicine difference"
+      ],
+      "paragraphs": [
+        "Here is where we part ways with conventional care. When hair thins, the reflex answer is a topical or the verdict that it is simply genetic. A product can coat the strand for a while. But nothing growing from a starved follicle holds, because the cause sits inside the body, in your hormones, thyroid, and nutrient stores, not on the surface of your scalp.",
+        "We would rather do the harder, more honest work. We find what is actually thinning your hair and we treat that.",
+        "If a topical or medication still has a place in your plan, that should be your informed choice, made with the full picture in front of you, not a default handed to you in a fifteen minute visit."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "hairD-fmd-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "It treats the strand, not the follicle",
+          "body": "A topical works on the surface while the follicle is being starved from within."
+        },
+        {
+          "title": "Genetic is rarely the whole story",
+          "body": "Even with a genetic tendency, thyroid, iron, and hormones decide how much you actually lose."
+        },
+        {
+          "title": "It postpones the real regrowth",
+          "body": "A follicle left starved eventually goes dormant, and the window to recover it narrows."
+        }
+      ]
+    },
+    {
+      "label": "The root-cause view",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Hair loss runs in a loop. We map the whole circle."
+        }
+      ],
+      "eyebrowSpans": [
+        "The root-cause view"
+      ],
+      "paragraphs": [
+        "Each driver pushes the next. That is why treating one in isolation rarely holds, and why mapping the full cycle changes everything.",
+        "When we investigate your hair, we read the whole hormonal and nutritional picture rather than the scalp alone, and connect each driver back to what you’re seeing:"
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [
+        {
+          "label": "Thyroid function",
+          "full": "Thyroid function, an under or overactive thyroid behind sudden, diffuse shedding."
+        },
+        {
+          "label": "Hormone shifts",
+          "full": "Hormone shifts, where androgens, postpartum, and perimenopause thin the hair."
+        },
+        {
+          "label": "Low iron & ferritin",
+          "full": "Low iron & ferritin, one of the most common and missed causes of hair loss."
+        },
+        {
+          "label": "Nutrient gaps",
+          "full": "Nutrient gaps, vitamin D, zinc, and protein the follicle needs to grow."
+        },
+        {
+          "label": "Scalp inflammation",
+          "full": "Scalp inflammation, a tender or flaky scalp that disrupts healthy growth."
+        },
+        {
+          "label": "Cortisol & stress",
+          "full": "Cortisol & stress, that pushes follicles into shedding months later."
+        },
+        {
+          "label": "Blood sugar & insulin",
+          "full": "Blood sugar & insulin, that influence the androgens affecting your hair."
+        }
+      ],
+      "boldPairs": []
+    },
+    {
+      "label": "Care plan",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Your hair care plan: four steps, built around your body"
+        }
+      ],
+      "eyebrowSpans": [
+        "The Care Plan Protocol, applied to hair loss"
+      ],
+      "paragraphs": [
+        "Full thyroid, iron and ferritin, hormones, vitamin D and a scalp assessment, the workup a rushed visit skips.",
+        "We map your results onto the loop so you finally see why your hair is thinning.",
+        "Nutrition, targeted nutrients, scalp care and hormone support, sequenced to your labs, not a template.",
+        "We adjust as your follicles recover, so progress holds and density and regrowth keep improving."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Discover",
+          "body": "Test what’s really going on"
+        },
+        {
+          "title": "Connect",
+          "body": "See how the pieces relate"
+        },
+        {
+          "title": "Personalize",
+          "body": "Build the plan around you"
+        },
+        {
+          "title": "Nourish",
+          "body": "Steady support over time"
+        }
+      ]
+    },
+    {
+      "label": "Treatments",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Tools we reach for with hair loss"
+        }
+      ],
+      "eyebrowSpans": [
+        "Treatments we may use"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Advanced Lab TestingThyroid, iron, and hormone testing for real clarity on your root causes.",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "Hormone RestorationRebalancing the hormones that influence hair growth.",
+          "href": "/treatments/hormone-restoration"
+        },
+        {
+          "text": "Red Light TherapySupporting the scalp and follicle to encourage regrowth.",
+          "href": "/treatments/red-light-therapy"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "hairD-treat1",
+          "alt": "Advanced Lab Testing",
+          "placeholder": "Image"
+        },
+        {
+          "id": "hairD-treat2",
+          "alt": "Hormone Restoration",
+          "placeholder": "Image"
+        },
+        {
+          "id": "hairD-treat3",
+          "alt": "Red Light Therapy",
+          "placeholder": "Image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Proof",
+      "headings": [],
+      "eyebrowSpans": [
+        "Hair loss patients, in their words"
+      ],
+      "paragraphs": [
+        "My part stopped widening and the baby hairs came back. I stopped dreading the mirror."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "hairD-test-photo",
+          "alt": "Hair Loss patient of Nina Ross Functional Medicine in Atlanta",
+          "placeholder": "Patient photo"
+        },
+        {
+          "id": "hairD-test-av",
+          "alt": "",
+          "placeholder": "Photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Lauren T.",
+          "body": "Hair loss · Atlanta patient"
+        }
+      ]
+    },
+    {
+      "label": "FAQ",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Hair loss, answered plainly"
+        },
+        {
+          "tag": "h3",
+          "text": "Can functional medicine help hair loss?"
+        },
+        {
+          "tag": "h3",
+          "text": "What makes Dr. Ross different for hair loss?"
+        },
+        {
+          "tag": "h3",
+          "text": "What testing do you run for hair loss?"
+        },
+        {
+          "tag": "h3",
+          "text": "Is my hair loss reversible?"
+        },
+        {
+          "tag": "h3",
+          "text": "How long until I see new growth?"
+        },
+        {
+          "tag": "h3",
+          "text": "Can stress and postpartum changes cause this?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you offer virtual hair loss care or only in person in Atlanta?"
+        }
+      ],
+      "eyebrowSpans": [
+        "Questions patients ask us"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Related reading: Why thyroid and iron drive hair loss",
+          "href": "/blog"
+        }
+      ],
+      "imageSlots": [],
+      "details": [
+        {
+          "q": "Can functional medicine help hair loss?",
+          "a": "Yes. We treat hair loss by addressing what is starving the follicle, thyroid, hormones, iron, and nutrients, rather than coating the strand. Most people see shedding slow and regrowth begin as the root causes are corrected."
+        },
+        {
+          "q": "What makes Dr. Ross different for hair loss?",
+          "a": "Dr. Nina Ross is a board-certified trichologist as well as a functional medicine doctor, so she reads both the scalp and the internal causes and builds one plan that addresses the whole picture."
+        },
+        {
+          "q": "What testing do you run for hair loss?",
+          "a": "We go beyond a basic panel, with full thyroid, iron and ferritin, hormones, and vitamin D, plus a scalp assessment, so the plan targets your specific root causes."
+        },
+        {
+          "q": "Is my hair loss reversible?",
+          "a": "Often, yes, especially when we catch it before the follicle goes dormant. The earlier we find and correct the cause, the more regrowth tends to be possible."
+        },
+        {
+          "q": "How long until I see new growth?",
+          "a": "Hair grows slowly, so shedding usually settles first, within a couple of months, and visible regrowth follows over several. We track it with you."
+        },
+        {
+          "q": "Can stress and postpartum changes cause this?",
+          "a": "Yes. Both can push many follicles into shedding at once. We confirm the trigger and support your body so the cycle recovers."
+        },
+        {
+          "q": "Do you offer virtual hair loss care or only in person in Atlanta?",
+          "a": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+        }
+      ],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Start here",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The $99 Symptom Consultation"
+        }
+      ],
+      "eyebrowSpans": [
+        "Choose your path",
+        "In the studio",
+        "From anywhere",
+        "{{ doorLabel }}"
+      ],
+      "paragraphs": [
+        "A half hour with our team to look at your story and decide if root-cause care is your next step.",
+        "No referral needed · HSA / FSA eligible"
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "hairD-start-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Byline",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "This page is for education and is not a substitute for individual medical advice. Functional medicine care at Nina Ross is provided alongside, not in place of, your primary and specialty care."
+      ],
+      "links": [
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "hairD-review-av",
+          "alt": "",
+          "placeholder": "Dr. Nina"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    }
+  ]
+}

@@ -1,0 +1,598 @@
+{
+  "meta": {
+    "title": "Natural Anxiety & Mood Support in Atlanta | Root-Cause Care – Nina Ross FM",
+    "description": "Anxious, low, or not yourself? Dr. Nina Ross, a functional medicine doctor in Atlanta, looks at the root causes behind anxiety and mood. Book a $99 consult.",
+    "canonical": "https://www.ninarossfm.com/conditions/mood",
+    "ogImage": "https://www.ninarossfm.com/og/mood-share.jpg"
+  },
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://www.ninarossfm.com/conditions/mood#webpage",
+        "url": "https://www.ninarossfm.com/conditions/mood",
+        "name": "Natural Anxiety & Mood Support in Atlanta | Root-Cause Care – Nina Ross FM",
+        "description": "Functional medicine support for anxiety and mood in Atlanta with Dr. Nina Ross, looking at the gut, blood sugar, hormones, and nutrients behind how you feel.",
+        "inLanguage": "en-US",
+        "about": {
+          "@type": "MedicalCondition",
+          "name": "Mood Disorder"
+        },
+        "reviewedBy": {
+          "@type": "Physician",
+          "name": "Dr. Nina Ross",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "NPI",
+            "value": "1164884078"
+          }
+        },
+        "lastReviewed": "2026-06-01"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can functional medicine help anxiety and low mood?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We look at the physical drivers behind mood, the gut, blood sugar, thyroid, hormones, and nutrients, alongside your mental health care. Many people feel steadier as those root causes are addressed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you replace my therapist or psychiatrist?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We work alongside your mental health care. Our focus is the body side of mood, which is often overlooked."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What testing do you run for mood?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We go beyond a basic panel, with thyroid, blood sugar, key nutrients, hormones, and inflammation markers, so the plan targets your specific root causes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can a physical problem really affect my mood?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Thyroid imbalance, blood sugar swings, nutrient gaps, and gut inflammation can all look and feel like anxiety or depression. We find and address them."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will I have to stop my medication?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Any changes to medication are made with your prescriber. We focus on the root-cause work that supports how you feel."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How soon might I notice a difference?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Some people feel steadier within a few weeks as blood sugar and nutrients improve, while deeper change follows your body over time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer virtual mood care or only in person in Atlanta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.ninarossfm.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Conditions",
+            "item": "https://www.ninarossfm.com/conditions"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Mood",
+            "item": "https://www.ninarossfm.com/conditions/mood"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "label": "Nav",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Our Approach",
+          "href": "/approach"
+        },
+        {
+          "text": "Advanced Testing",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Dr. Nina",
+          "href": "/about"
+        },
+        {
+          "text": "Start · $99",
+          "href": "/start"
+        }
+      ],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Hero",
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Root-cause anxiety and mood care in Atlanta that looks at the whole you."
+        }
+      ],
+      "eyebrowSpans": [
+        "Anxiety & Mood Support in Atlanta"
+      ],
+      "paragraphs": [
+        "If the anxiety, the low mood, the edginess and the sense that you are not quite yourself have crept in without a clear reason, you are not imagining it.",
+        "How you feel is real, and it deserves someone who will look at the whole story, body included. At Nina Ross Functional Medicine, we look at the root causes behind mood, here in Atlanta and virtually across Georgia. Dr. Nina Ross follows the whole picture, the gut, blood sugar, and hormones, to understand what is shaping how you feel, working alongside your mental health care, then builds the plan around your body and your life."
+      ],
+      "links": [
+        {
+          "text": "Home",
+          "href": "/"
+        },
+        {
+          "text": "Conditions",
+          "href": "/conditions"
+        },
+        {
+          "text": "Book the $99 Symptom Consultation",
+          "href": "/start"
+        },
+        {
+          "text": "See what standard labs may be missing →",
+          "href": "#root-cause"
+        },
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "moodD-byline-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        },
+        {
+          "id": "moodD-hero",
+          "alt": "Dr. Nina Ross reviewing nutrient and hormone testing with a patient at her Atlanta functional medicine clinic",
+          "placeholder": "Hero image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Symptoms",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The signs we hear most often"
+        }
+      ],
+      "eyebrowSpans": [
+        "You might recognize this"
+      ],
+      "paragraphs": [
+        "If you nodded at three or more, your body is asking a deeper question."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Why conventional care misses it",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "You were offered a prescription and the door."
+        }
+      ],
+      "eyebrowSpans": [
+        "Why conventional care keeps missing it"
+      ],
+      "paragraphs": [
+        "A fifteen-minute visit rarely has room to ask what in the body might be shaping your mood. So how you feel gets met with a single prescription, and the physical drivers go unexamined."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "What you’re usually told",
+          "body": "“Let us try this medication and see how you feel in a few weeks.”"
+        },
+        {
+          "title": "What’s actually happening",
+          "body": "The gut, blood sugar, and hormones are influencing your brain in a loop. Steady the loop and mood often steadies with it."
+        }
+      ]
+    },
+    {
+      "label": "The functional medicine difference",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "We will not treat your mind and ignore your body."
+        }
+      ],
+      "eyebrowSpans": [
+        "The functional medicine difference"
+      ],
+      "paragraphs": [
+        "Here is where we part ways with conventional care. When mood suffers, the reflex answer is often a single prescription with little look at the body underneath. Medication helps many people, and it has its place. But the gut, blood sugar, thyroid, and nutrients all shape how you feel, and leaving them unexamined means a real driver can go unaddressed.",
+        "We would rather do the harder, more honest work. We look for what in your body is shaping how you feel and we address that, alongside your mental health care.",
+        "If medication and therapy have a place in your care, and for many people they do, that should be part of a full picture, with the body looked at too."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "moodD-fmd-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "It treats the mind, not the whole you",
+          "body": "Mood is shaped by the body too, so the gut, blood sugar, and hormones deserve a look."
+        },
+        {
+          "title": "A prescription can skip the cause",
+          "body": "Medication can ease symptoms while a nutrient or thyroid driver goes unfound."
+        },
+        {
+          "title": "It works best alongside the body work",
+          "body": "Addressing the physical drivers often makes everything else work better."
+        }
+      ]
+    },
+    {
+      "label": "The root-cause view",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Mood runs in a loop. We map the whole circle."
+        }
+      ],
+      "eyebrowSpans": [
+        "The root-cause view"
+      ],
+      "paragraphs": [
+        "Each driver pushes the next. That is why treating one in isolation rarely holds, and why mapping the full cycle changes everything.",
+        "When we look at your mood, we read the whole picture rather than symptoms alone, and connect each driver back to what you’re feeling:"
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [
+        {
+          "label": "The gut-brain axis",
+          "full": "The gut-brain axis, where an inflamed gut quietly shapes anxiety and low mood."
+        },
+        {
+          "label": "Blood sugar swings",
+          "full": "Blood sugar swings, behind the irritability, the shakiness, and the afternoon dip."
+        },
+        {
+          "label": "Thyroid function",
+          "full": "Thyroid function, an imbalance that can look exactly like depression or anxiety."
+        },
+        {
+          "label": "Sex hormones",
+          "full": "Sex hormones, the estrogen and progesterone shifts that move mood."
+        },
+        {
+          "label": "Nutrient gaps",
+          "full": "Nutrient gaps, low B vitamins, vitamin D, omega-3s, and iron the brain needs."
+        },
+        {
+          "label": "Cortisol & stress",
+          "full": "Cortisol & stress, a stress response stuck on that frays calm and sleep."
+        },
+        {
+          "label": "Chronic inflammation",
+          "full": "Chronic inflammation, the quiet driver increasingly linked to mood."
+        }
+      ],
+      "boldPairs": []
+    },
+    {
+      "label": "Care plan",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Your mood care plan: four steps, built around your body"
+        }
+      ],
+      "eyebrowSpans": [
+        "The Care Plan Protocol, applied to mood"
+      ],
+      "paragraphs": [
+        "Thyroid, blood sugar, key nutrients, hormones, and inflammation markers, the labs a rushed visit skips.",
+        "We map your results onto the loop so you finally see what may be shaping how you feel.",
+        "Nutrition, targeted nutrients, gut support, and stress work, sequenced to your labs, not a template.",
+        "We adjust over time alongside your mental health care, so progress holds and mood and focus keep improving."
+      ],
+      "links": [],
+      "imageSlots": [],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "Discover",
+          "body": "Test what’s really going on"
+        },
+        {
+          "title": "Connect",
+          "body": "See how the pieces relate"
+        },
+        {
+          "title": "Personalize",
+          "body": "Build the plan around you"
+        },
+        {
+          "title": "Nourish",
+          "body": "Steady support over time"
+        }
+      ]
+    },
+    {
+      "label": "Treatments",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Tools we reach for with mood"
+        }
+      ],
+      "eyebrowSpans": [
+        "Treatments we may use"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Advanced Lab TestingThyroid, nutrient, and hormone testing for real clarity on the root causes.",
+          "href": "/treatments/advanced-lab-testing"
+        },
+        {
+          "text": "IV TherapyReplenishing the nutrients your brain relies on to feel steady.",
+          "href": "/treatments/iv-therapy"
+        },
+        {
+          "text": "Vitamin InjectionsB vitamins and targeted nutrients that support mood and energy.",
+          "href": "/treatments/vitamin-injections"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "moodD-treat1",
+          "alt": "Advanced Lab Testing",
+          "placeholder": "Image"
+        },
+        {
+          "id": "moodD-treat2",
+          "alt": "IV Therapy",
+          "placeholder": "Image"
+        },
+        {
+          "id": "moodD-treat3",
+          "alt": "Vitamin Injections",
+          "placeholder": "Image"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Proof",
+      "headings": [],
+      "eyebrowSpans": [
+        "Patients, in their words"
+      ],
+      "paragraphs": [
+        "The constant edge is gone. Once my thyroid and nutrients were addressed, I finally felt steady again."
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "moodD-test-photo",
+          "alt": "Mood patient of Nina Ross Functional Medicine in Atlanta",
+          "placeholder": "Patient photo"
+        },
+        {
+          "id": "moodD-test-av",
+          "alt": "",
+          "placeholder": "Photo"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": [
+        {
+          "title": "James W.",
+          "body": "Mood & anxiety · Atlanta patient"
+        }
+      ]
+    },
+    {
+      "label": "FAQ",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Mood and anxiety, answered plainly"
+        },
+        {
+          "tag": "h3",
+          "text": "Can functional medicine help anxiety and low mood?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you replace my therapist or psychiatrist?"
+        },
+        {
+          "tag": "h3",
+          "text": "What testing do you run for mood?"
+        },
+        {
+          "tag": "h3",
+          "text": "Can a physical problem really affect my mood?"
+        },
+        {
+          "tag": "h3",
+          "text": "Will I have to stop my medication?"
+        },
+        {
+          "tag": "h3",
+          "text": "How soon might I notice a difference?"
+        },
+        {
+          "tag": "h3",
+          "text": "Do you offer virtual mood care or only in person in Atlanta?"
+        }
+      ],
+      "eyebrowSpans": [
+        "Questions patients ask us"
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Related reading: The gut-brain connection and mood",
+          "href": "/blog"
+        }
+      ],
+      "imageSlots": [],
+      "details": [
+        {
+          "q": "Can functional medicine help anxiety and low mood?",
+          "a": "Yes. We look at the physical drivers behind mood, the gut, blood sugar, thyroid, hormones, and nutrients, alongside your mental health care. Many people feel steadier as those root causes are addressed."
+        },
+        {
+          "q": "Do you replace my therapist or psychiatrist?",
+          "a": "We work alongside your mental health care. Our focus is the body side of mood, which is often overlooked."
+        },
+        {
+          "q": "What testing do you run for mood?",
+          "a": "We go beyond a basic panel, with thyroid, blood sugar, key nutrients, hormones, and inflammation markers, so the plan targets your specific root causes."
+        },
+        {
+          "q": "Can a physical problem really affect my mood?",
+          "a": "Yes. Thyroid imbalance, blood sugar swings, nutrient gaps, and gut inflammation can all look and feel like anxiety or depression. We find and address them."
+        },
+        {
+          "q": "Will I have to stop my medication?",
+          "a": "Any changes to medication are made with your prescriber. We focus on the root-cause work that supports how you feel."
+        },
+        {
+          "q": "How soon might I notice a difference?",
+          "a": "Some people feel steadier within a few weeks as blood sugar and nutrients improve, while deeper change follows your body over time."
+        },
+        {
+          "q": "Do you offer virtual mood care or only in person in Atlanta?",
+          "a": "Both. See Dr. Nina Ross in person at our Atlanta clinic, or virtually anywhere in Georgia. Your $99 Symptom Consultation can be booked either way."
+        }
+      ],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Start here",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The $99 Symptom Consultation"
+        }
+      ],
+      "eyebrowSpans": [
+        "Choose your path",
+        "In the studio",
+        "From anywhere",
+        "{{ doorLabel }}"
+      ],
+      "paragraphs": [
+        "A half hour with our team to look at your story and decide if root-cause care is your next step.",
+        "No referral needed · HSA / FSA eligible"
+      ],
+      "links": [],
+      "imageSlots": [
+        {
+          "id": "moodD-start-av",
+          "alt": "Dr. Nina Ross, ND PhD",
+          "placeholder": "Dr"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    },
+    {
+      "label": "Byline",
+      "headings": [],
+      "eyebrowSpans": [],
+      "paragraphs": [
+        "This page is for education and is not a substitute for individual medical advice. Functional medicine care at Nina Ross is provided alongside, not in place of, your primary and specialty care."
+      ],
+      "links": [
+        {
+          "text": "Dr. Nina Ross, ND PhD",
+          "href": "/about"
+        }
+      ],
+      "imageSlots": [
+        {
+          "id": "moodD-review-av",
+          "alt": "",
+          "placeholder": "Dr. Nina"
+        }
+      ],
+      "details": [],
+      "strongBullets": [],
+      "boldPairs": []
+    }
+  ]
+}
