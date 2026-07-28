@@ -12,8 +12,8 @@ interface BioBlockProps {
 
 export default function BioBlock({ number, eyebrow, heading, paragraphs, credentials, imageSlotId }: BioBlockProps) {
   return (
-    <section className="bg-cream px-6 py-16 sm:px-10 sm:py-24 md:py-28">
-      <div className="mx-auto grid max-w-5xl items-center gap-10 sm:grid-cols-2 md:gap-16">
+    <section className="bg-cream px-6 py-14 md:px-10 md:py-28">
+      <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-16">
         <ImageSlot
           id={imageSlotId}
           alt={heading}

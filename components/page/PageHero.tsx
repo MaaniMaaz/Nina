@@ -2,26 +2,35 @@ import Link from "next/link";
 import ImageSlot from "@/components/ui/ImageSlot";
 import type { HeroContent } from "@/content/types";
 
+/**
+ * Pixel-matched to Condition/Treatment/Positioning Full (Mobile) + Desktop dumps.
+ * Mobile order: eyebrow → H1 → lead → image → body → byline → CTA → stats.
+ * Desktop: two-column text | image+stats.
+ */
 export default function PageHero({ hero }: { hero: HeroContent }) {
+  const [lead, ...rest] = hero.paragraphs;
+
   return (
-    <section className="px-6 pb-14 pt-10 sm:px-10 sm:pb-22 sm:pt-16 md:pt-16">
+    <section className="bg-cream px-6 pb-7 pt-6 md:px-10 md:pb-22 md:pt-16">
       <div className="mx-auto max-w-6xl">
-        <nav aria-label="Breadcrumb" className="mb-7 text-xs text-muted">
+        <nav aria-label="Breadcrumb" className="mb-3 text-[11px] text-muted md:mb-7 md:text-xs">
           <Link href="/" className="text-muted no-underline hover:text-body">
             Home
           </Link>
           {hero.breadcrumbParentHref && hero.breadcrumbParentLabel && (
             <>
-              <span className="mx-2">/</span>
+              <span className="mx-1.5">/</span>
               <Link href={hero.breadcrumbParentHref} className="text-muted no-underline hover:text-body">
                 {hero.breadcrumbParentLabel}
               </Link>
             </>
           )}
-          <span className="mx-2">/</span>
+          <span className="mx-1.5">/</span>
           <span className="text-body">{hero.breadcrumbLabel}</span>
         </nav>
-        <div className="grid items-center gap-9 sm:grid-cols-[1.05fr_0.95fr] md:gap-16">
+
+        {/* Desktop two-column */}
+        <div className="hidden items-center gap-16 md:grid md:grid-cols-[1.05fr_0.95fr]">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-cream-deep px-4 py-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#5a7d4f]" />
@@ -29,13 +38,13 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
                 {hero.eyebrow}
               </span>
             </div>
-            <h1 className="mt-5.5 font-display text-[40px] font-medium leading-[1.02] tracking-tight text-ink sm:text-[52px] md:text-[62px]">
+            <h1 className="mt-5.5 font-display text-[62px] font-medium leading-[1.02] tracking-tight text-ink">
               {hero.heading}
             </h1>
             {hero.paragraphs.map((p, i) => (
               <p
                 key={p}
-                className={`mt-5 max-w-[33em] text-[16px] leading-relaxed sm:text-[17px] ${
+                className={`mt-5 max-w-[33em] text-[17px] leading-relaxed ${
                   i === 0 ? "text-body" : "text-body-soft"
                 }`}
               >
@@ -75,7 +84,7 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
                 id={hero.imageSlotId}
                 alt={hero.imageAlt ?? hero.heading}
                 placeholder="Hero image"
-                className="h-[400px] w-full sm:h-[540px]"
+                className="h-[540px] w-full"
                 priority
               />
               <div className="absolute bottom-4.5 left-4.5 inline-flex items-center gap-2 rounded-full bg-[#0d0b0a]/62 px-4 py-2.5 backdrop-blur-sm">
@@ -98,6 +107,77 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
                 <div className="font-display text-2xl text-ink">Self-pay</div>
                 <div className="text-[10px] tracking-wide text-muted">No referral</div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile stacked — exact dump order */}
+        <div className="md:hidden">
+          <div className="inline-flex items-center gap-[7px] rounded-full border border-ink/10 bg-[#EFE7D7] px-[13px] py-[7px]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#5a7d4f]" />
+            <span className="text-[10.5px] font-semibold uppercase tracking-[0.08em] text-[#4a6340]">
+              {hero.eyebrow}
+            </span>
+          </div>
+          <h1 className="mt-4 font-display text-[33px] font-medium leading-[1.05] tracking-[-0.02em] text-ink">
+            {hero.heading}
+          </h1>
+          {lead && <p className="mt-[13px] text-sm leading-[1.58] text-body">{lead}</p>}
+
+          <div className="relative mt-[18px] overflow-hidden rounded-2xl shadow-[0_16px_34px_rgba(46,33,27,0.16)]">
+            <ImageSlot
+              id={hero.imageSlotId}
+              alt={hero.imageAlt ?? hero.heading}
+              placeholder="Hero image"
+              className="h-[200px] w-full"
+              priority
+            />
+            <div className="absolute bottom-3 left-3.5 inline-flex items-center gap-[7px] rounded-full bg-[#0d0b0a]/62 px-3 py-[7px] backdrop-blur-[6px]">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+              <span className="text-[10.5px] font-semibold tracking-wide text-cream-deep">
+                Real care, in Atlanta &amp; virtual
+              </span>
+            </div>
+          </div>
+
+          {rest.map((p) => (
+            <p key={p} className="mt-[18px] text-sm leading-[1.58] text-body">
+              {p}
+            </p>
+          ))}
+
+          <div className="mt-4 flex items-center gap-[9px] rounded-[11px] bg-[#F3ECDD] px-[13px] py-[11px]">
+            <ImageSlot id={hero.bylineAvatarSlotId} alt="Dr. Nina Ross, ND PhD" shape="circle" className="h-9 w-9 flex-none" />
+            <span className="text-[11px] leading-[1.42] text-body-soft">
+              Medically reviewed by{" "}
+              <Link href="/about" className="font-bold text-ink no-underline">
+                Dr. Nina Ross, ND PhD
+              </Link>{" "}
+              · Board-Certified in Holistic Health &amp; Trichology · Reviewed {hero.reviewedDate ?? "Jun 2026"}
+            </span>
+          </div>
+
+          <Link
+            href="/start"
+            className="mt-[18px] block rounded-lg bg-gold py-[15px] text-center text-sm font-semibold text-ink no-underline"
+          >
+            {hero.ctaLabel ?? "Book the $99 Symptom Consultation"}
+          </Link>
+
+          <div className="mt-[22px] flex items-stretch border-y border-ink/10 py-3.5">
+            <div className="flex-1 text-center">
+              <div className="font-display text-[21px] text-ink">4.9★</div>
+              <div className="text-[9.5px] tracking-wide text-muted">300+ patients</div>
+            </div>
+            <div className="w-px bg-ink/10" />
+            <div className="flex-1 text-center">
+              <div className="font-display text-[21px] text-ink">ND·PhD</div>
+              <div className="text-[9.5px] tracking-wide text-muted">Dr. Nina Ross</div>
+            </div>
+            <div className="w-px bg-ink/10" />
+            <div className="flex-1 text-center">
+              <div className="font-display text-[21px] text-ink">Self-pay</div>
+              <div className="text-[9.5px] tracking-wide text-muted">No referral</div>
             </div>
           </div>
         </div>

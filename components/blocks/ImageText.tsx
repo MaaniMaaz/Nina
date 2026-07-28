@@ -21,9 +21,9 @@ export default function ImageText({
   reverse,
 }: ImageTextProps) {
   return (
-    <section className="bg-cream px-6 py-16 sm:px-10 sm:py-24 md:py-28">
+    <section className="bg-cream px-6 py-14 md:px-10 md:py-28">
       <div
-        className={`mx-auto grid max-w-5xl items-center gap-10 sm:grid-cols-2 md:gap-16 ${
+        className={`mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-16 ${
           reverse ? "[&>*:first-child]:sm:order-2" : ""
         }`}
       >

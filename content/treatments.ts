@@ -1,6 +1,12 @@
 import type { CalloutItem, ContentBlock, FaqItem, LongformPageContent, StepItem } from "./types";
 import { buildPositioning } from "./positioning";
-import { treatmentCardImage } from "./treatment-images";
+import {
+  CARE_TOOLKIT_FOOTNOTE,
+  SLUG_TO_TOOLKIT_KEY,
+  TOOLKIT_INTRO_LEAD,
+  TOOLKIT_INTRO_TAIL,
+} from "./care-toolkit";
+import { DISPENSARY_FOOTNOTE, DISPENSARY_INTRO } from "./dispensary";
 
 interface TreatmentInput {
   slug: string;
@@ -113,18 +119,28 @@ function buildTreatment(input: TreatmentInput): LongformPageContent {
       heading: input.whatToExpect.heading,
       steps: stepItems,
     },
-    {
-      type: "cardLinks",
+  ];
+
+  const isIv = input.slug === "iv-therapy";
+  if (isIv) {
+    blocks.push({
+      type: "dispensary",
+      eyebrow: "The dispensary",
+      heading: "A deep shelf to draw from, then one bag built for you",
+      intro: DISPENSARY_INTRO,
+      footnote: DISPENSARY_FOOTNOTE,
+    });
+  } else {
+    const lead = TOOLKIT_INTRO_LEAD[input.slug] ?? TREATMENT_NAMES[input.slug] ?? "This therapy";
+    blocks.push({
+      type: "careToolkit",
       eyebrow: "The care toolkit",
       heading: "One symptom. A whole toolkit behind it.",
-      cards: input.related.map((r) => ({
-        href: `/treatments/${r.slug}`,
-        title: TREATMENT_NAMES[r.slug] ?? r.slug,
-        desc: r.desc,
-        imageSlotId: treatmentCardImage(r.slug),
-      })),
-    },
-  ];
+      intro: `${lead}${TOOLKIT_INTRO_TAIL}`,
+      currentKey: SLUG_TO_TOOLKIT_KEY[input.slug] ?? input.slug,
+      footnote: CARE_TOOLKIT_FOOTNOTE,
+    });
+  }
 
   return {
     slug: input.slug,
@@ -137,7 +153,7 @@ function buildTreatment(input: TreatmentInput): LongformPageContent {
       paragraphs: input.hero.paragraphs,
       ctaLabel: "Book the $99 Symptom Consultation",
       secondaryLabel: input.hero.secondaryLabel,
-      secondaryHref: "#toolkit",
+      secondaryHref: isIv ? "#dispensary" : "#toolkit",
       imageSlotId: `${input.slotPrefix}-hero`,
       bylineAvatarSlotId: `${input.slotPrefix}-byline-av`,
       breadcrumbLabel: input.breadcrumbLabel,

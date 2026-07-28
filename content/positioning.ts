@@ -1,4 +1,5 @@
 import type { ContentBlock, FaqItem, LongformPageContent } from "./types";
+import { FAMILIAR_CARDS, WHO_I_HELP_CONDITIONS } from "./positioning-shared";
 
 const CARE_STEP_LABELS = ["Discover", "Connect", "Personalize", "Nourish"] as const;
 const CARE_STEP_TITLES: Record<(typeof CARE_STEP_LABELS)[number], string> = {
@@ -70,10 +71,11 @@ export function buildPositioning(input: PositioningInput): LongformPageContent {
 
   const blocks: ContentBlock[] = [
     {
-      type: "textBand",
+      type: "iconCardGrid",
       eyebrow: "If this sounds familiar",
       heading: "You have been to doctors. You still do not feel heard.",
-      paragraphs: SOUNDS_FAMILIAR_PARAGRAPHS,
+      cards: FAMILIAR_CARDS,
+      footnote: SOUNDS_FAMILIAR_PARAGRAPHS[0],
     },
     {
       type: "bioBlock",
@@ -110,14 +112,18 @@ export function buildPositioning(input: PositioningInput): LongformPageContent {
       })),
     },
     {
-      type: "cardLinks",
+      type: "carePlanToolkit",
+      eyebrow: "The Care Plan toolkit",
+      heading: "Labs are just the beginning.",
+      intro: "Here, your results are where the real work begins. Your labs open a whole program.",
+    },
+    {
+      type: "conditionExplorer",
       eyebrow: "Who I help",
       heading: "Where root-cause care makes the biggest difference",
-      cards: input.whoIHelp.map((c) => ({
-        href: `/conditions/${c.slug}`,
-        title: c.title,
-        desc: c.desc,
-      })),
+      pageContextLabel: `${input.name} in Atlanta`,
+      conditions: WHO_I_HELP_CONDITIONS,
+      footerLink: { href: "/conditions", label: "See all conditions we treat" },
     },
     {
       type: "testimonialBlock",

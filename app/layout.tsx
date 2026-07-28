@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Hanken_Grotesk } from "next/font/google";
+import { Caveat, Fraunces, Hanken_Grotesk } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
@@ -13,6 +13,12 @@ const fraunces = Fraunces({
 
 const hanken = Hanken_Grotesk({
   variable: "--font-hanken",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -33,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${hanken.variable}`}>
-      <body className="min-h-full flex flex-col font-sans antialiased">
+    <html lang="en" className={`${fraunces.variable} ${hanken.variable} ${caveat.variable}`}>
+      <body className="flex min-h-full flex-col bg-cream font-sans antialiased text-ink">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

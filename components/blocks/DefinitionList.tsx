@@ -10,7 +10,7 @@ interface DefinitionListProps {
 
 export default function DefinitionList({ number, eyebrow, heading, intro, points }: DefinitionListProps) {
   return (
-    <section className="bg-sand px-6 py-16 sm:px-10 sm:py-24 md:py-28">
+    <section className="bg-sand px-6 py-14 md:px-10 md:py-28">
       <div className="mx-auto max-w-3xl">
         <Eyebrow number={number} label={eyebrow} />
         <h2 className="mt-3.5 font-display text-[28px] font-medium leading-tight text-ink sm:text-[36px] md:text-[40px]">

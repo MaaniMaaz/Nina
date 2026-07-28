@@ -122,6 +122,49 @@ export type ContentBlock =
       heading: string;
       intro: string;
       points: string[];
+    }
+  | {
+      type: "careToolkit";
+      eyebrow: string;
+      heading: string;
+      intro: string;
+      currentKey: string;
+      footnote?: string;
+    }
+  | {
+      type: "dispensary";
+      eyebrow?: string;
+      heading?: string;
+      intro?: string;
+      footnote?: string;
+    }
+  | {
+      type: "iconCardGrid";
+      eyebrow: string;
+      heading: string;
+      cards: { icon: "slash" | "clock" | "x" | "pencil" | "chart" | "heart"; title: string }[];
+      footnote?: string;
+    }
+  | {
+      type: "conditionExplorer";
+      eyebrow: string;
+      heading: string;
+      pageContextLabel: string;
+      conditions: {
+        key: string;
+        label: string;
+        href: string;
+        cta: string;
+        heading: string;
+        blurb: string;
+      }[];
+      footerLink?: { href: string; label: string };
+    }
+  | {
+      type: "carePlanToolkit";
+      eyebrow?: string;
+      heading?: string;
+      intro?: string;
     };
 
 export interface HeroContent {

@@ -28,7 +28,7 @@ export default function LoopDiagram({
   const nodes = drivers.slice(0, 4);
 
   return (
-    <section className="relative overflow-hidden bg-olive px-6 py-17 sm:px-10 sm:py-24 md:py-28">
+    <section className="relative overflow-hidden bg-olive px-6 py-17 md:px-10 md:py-28">
       <div className="grain-overlay opacity-25 mix-blend-overlay" />
       <div className="relative z-10 mx-auto max-w-5xl">
         <div className="flex flex-col items-center text-center">
@@ -42,7 +42,7 @@ export default function LoopDiagram({
             </p>
           ))}
         </div>
-        <div className="mt-12 grid items-center gap-10 sm:grid-cols-[0.9fr_1.1fr] md:gap-16">
+        <div className="mt-12 grid items-center gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
           <svg viewBox="0 0 340 320" className="mx-auto block h-auto w-full max-w-[380px]">
             <defs>
               <marker id="loop-arrow" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">

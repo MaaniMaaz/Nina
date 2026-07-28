@@ -9,7 +9,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Nina Ross Functional Medicine design tokens */
+  /* Nina Ross Functional Medicine design tokens — exact dump hex */
   --color-ink: #2e211b;
   --color-ink-soft: #1f1610;
   --color-cream: #fbf6ec;
@@ -28,6 +28,7 @@
 
   --font-display: var(--font-fraunces);
   --font-sans: var(--font-hanken);
+  --font-hand: var(--font-caveat);
 }
 
 body {
@@ -60,4 +61,8 @@ details[open] .faq-chev {
 
 .nr-rail::-webkit-scrollbar {
   height: 0;
+}
+
+.font-hand {
+  font-family: var(--font-hand), cursive;
 }

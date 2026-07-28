@@ -11,28 +11,30 @@ const COPY = {
   inperson: {
     label: "In the studio",
     title: "In-Person",
-    desc: "Our Atlanta studio at 8735 Dunwoody Place. Sit down with us face to face and walk out with a plan.",
+    descMobile: "Our Atlanta studio, 8735 Dunwoody Place. Sit down with us face to face.",
+    descDesktop: "Our Atlanta studio at 8735 Dunwoody Place. Sit down with us face to face and walk out with a plan.",
     bg: "/images/clinic-bg.png",
     opacity: "opacity-85",
   },
   virtual: {
     label: "From anywhere",
     title: "Virtual",
-    desc: "Secure video from anywhere in the country. The same half hour, the same care, from your couch.",
+    descMobile: "Secure video from anywhere in the country. Same care, your couch.",
+    descDesktop: "Secure video from anywhere in the country. The same half hour, the same care, from your couch.",
     bg: "/images/virtual-bg.png",
     opacity: "opacity-95",
   },
 } as const;
 
 /**
- * The shared in-person / virtual booking choice card. Per project convention,
- * every screen that presents this choice reuses this exact treatment.
+ * Shared In-Person / Virtual booking card.
+ * Specs from Nina sent CLAUDE.md + Booking Chosen Mobile/Desktop dumps.
  */
 export default function BookingDoorCard({
   kind,
   selected,
   onSelect,
-  mediaHeightClassName = "h-[180px] sm:h-[220px]",
+  mediaHeightClassName = "h-[110px] md:h-[220px]",
 }: BookingDoorCardProps) {
   const copy = COPY[kind];
 
@@ -40,23 +42,35 @@ export default function BookingDoorCard({
     <button
       type="button"
       onClick={onSelect}
-      className={`overflow-hidden rounded-[20px] bg-cream text-left shadow-[0_20px_44px_rgba(46,33,27,0.12)] transition-colors ${
-        selected ? "border-2 border-terracotta" : "border-2 border-ink/[0.08] hover:border-terracotta/40"
+      className={`w-full overflow-hidden rounded-[16px] bg-cream text-left shadow-[0_14px_32px_rgba(46,33,27,0.1)] transition-colors md:rounded-[20px] md:shadow-[0_20px_44px_rgba(46,33,27,0.12)] ${
+        selected
+          ? "border-2 border-terracotta"
+          : "border border-ink/[0.08] md:border-2 hover:border-terracotta/40"
       }`}
     >
       <div className={`relative bg-ink ${mediaHeightClassName}`}>
         <Image src={copy.bg} alt="" fill className={`object-cover ${copy.opacity}`} />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/5 to-ink/50" />
-        <span className="absolute bottom-4.5 left-5.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold">
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(180deg, rgba(46,33,27,0.1), rgba(46,33,27,0.55))",
+          }}
+        />
+        <span className="absolute bottom-3 left-3.5 text-[9.5px] font-semibold uppercase tracking-[0.16em] text-gold md:bottom-[18px] md:left-[22px] md:text-[10px] md:tracking-[0.18em]">
           {copy.label}
         </span>
       </div>
-      <div className="p-6 pb-6.5">
-        <div className="flex items-baseline justify-between">
-          <div className="font-display text-[26px] font-medium text-ink">{copy.title}</div>
-          <span className="text-sm font-semibold text-terracotta">{selected ? "Selected ✓" : "Choose →"}</span>
+      <div className="px-[18px] pb-[17px] pt-[15px] md:px-[26px] md:pb-[26px] md:pt-6">
+        <div className="flex items-baseline justify-between gap-2">
+          <div className="font-display text-[20px] font-medium text-ink md:text-[28px]">{copy.title}</div>
+          <span className="flex-none text-[12.5px] font-semibold text-terracotta md:text-sm">
+            {selected ? "Selected ✓" : "Choose →"}
+          </span>
         </div>
-        <div className="mt-1.5 text-[14px] leading-relaxed text-body-soft">{copy.desc}</div>
+        <div className="mt-1 text-[12.5px] leading-[1.5] text-body-soft md:mt-[7px] md:text-[14.5px] md:leading-[1.55]">
+          <span className="md:hidden">{copy.descMobile}</span>
+          <span className="hidden md:inline">{copy.descDesktop}</span>
+        </div>
       </div>
     </button>
   );

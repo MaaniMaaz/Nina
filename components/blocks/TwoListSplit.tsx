@@ -22,7 +22,7 @@ export default function TwoListSplit({
   rightItems,
 }: TwoListSplitProps) {
   return (
-    <section className="bg-cream px-6 py-16 sm:px-10 sm:py-24 md:py-28">
+    <section className="bg-cream px-6 py-14 md:px-10 md:py-28">
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-col items-center text-center">
           <Eyebrow number={number} label={eyebrow} align="center" />
@@ -30,23 +30,23 @@ export default function TwoListSplit({
             {heading}
           </h2>
         </div>
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
-          <div className="rounded-2xl border border-[#5a7d4f]/25 bg-[#EAF0E2] p-6">
+        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
+          <div className="rounded-2xl border border-[#5a7d4f]/25 bg-[#EAF0E2] p-5 md:p-6">
             <div className="font-display text-lg text-[#3f5a35]">{leftTitle}</div>
             <ul className="mt-4 flex flex-col gap-3">
               {leftItems.map((item) => (
-                <li key={item} className="flex gap-2.5 text-[14.5px] leading-relaxed text-[#3f5a35]">
+                <li key={item} className="flex gap-2.5 text-[14px] leading-relaxed text-[#3f5a35] md:text-[14.5px]">
                   <span aria-hidden>·</span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl border border-ink/10 bg-cream-deep p-6">
+          <div className="rounded-2xl border border-ink/10 bg-cream-deep p-5 md:p-6">
             <div className="font-display text-lg text-ink">{rightTitle}</div>
             <ul className="mt-4 flex flex-col gap-3">
               {rightItems.map((item) => (
-                <li key={item} className="flex gap-2.5 text-[14.5px] leading-relaxed text-body-soft">
+                <li key={item} className="flex gap-2.5 text-[14px] leading-relaxed text-body-soft md:text-[14.5px]">
                   <span aria-hidden>·</span>
                   <span>{item}</span>
                 </li>

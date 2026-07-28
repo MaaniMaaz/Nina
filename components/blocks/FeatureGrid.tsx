@@ -9,29 +9,38 @@ interface FeatureGridProps {
   footnote?: string;
 }
 
+/** Matches Condition Mobile “You might recognize this” 2-col cream cards on sand. */
 export default function FeatureGrid({ number, eyebrow, heading, items, footnote }: FeatureGridProps) {
   return (
-    <section className="bg-sand px-6 py-16 sm:px-10 sm:py-24 md:py-28">
+    <section className="bg-sand px-6 py-[34px] md:px-10 md:py-28">
       <div className="mx-auto max-w-5xl">
-        <div className="flex flex-col items-center text-center">
-          <Eyebrow number={number} label={eyebrow} align="center" />
-          <h2 className="mt-3.5 font-display text-[28px] font-medium leading-tight text-ink sm:text-[36px] md:text-[40px]">
+        <div className="md:text-center">
+          <div className="md:flex md:justify-center">
+            <Eyebrow number={number} label={eyebrow} />
+          </div>
+          <h2 className="mt-[9px] font-display text-[25px] font-medium leading-[1.1] text-ink md:mt-3.5 md:text-[40px]">
             {heading}
           </h2>
         </div>
-        <div className="mt-11 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-[18px] grid grid-cols-2 gap-[11px] md:mt-11 md:grid-cols-3 md:gap-4">
           {items.map((item) => (
             <div
               key={item.label}
-              className="rounded-2xl border border-ink/[0.07] bg-cream p-6"
+              className="rounded-[14px] border border-ink/[0.07] bg-cream px-[14px] py-[15px] md:rounded-2xl md:p-6"
             >
-              <div className="font-display text-lg text-ink">{item.label}</div>
-              <div className="mt-1.5 text-[13.5px] leading-relaxed text-body-soft">{item.text}</div>
+              <div className="text-[13px] font-semibold leading-[1.38] text-ink md:font-display md:text-lg md:font-medium">
+                {item.label}
+              </div>
+              {item.text ? (
+                <div className="mt-1.5 hidden text-[13.5px] leading-relaxed text-body-soft md:block">{item.text}</div>
+              ) : null}
             </div>
           ))}
         </div>
         {footnote && (
-          <p className="mt-8 text-center text-[15px] leading-relaxed text-body-soft">{footnote}</p>
+          <p className="mt-[18px] text-center text-[13px] leading-[1.5] text-body-soft md:mt-8 md:text-[15px]">
+            {footnote}
+          </p>
         )}
       </div>
     </section>

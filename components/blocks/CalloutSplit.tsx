@@ -13,8 +13,8 @@ interface CalloutSplitProps {
 
 export default function CalloutSplit({ number, eyebrow, heading, paragraphs, callouts, imageSlotId }: CalloutSplitProps) {
   return (
-    <section className="bg-cream px-6 py-16 sm:px-10 sm:py-24 md:py-28">
-      <div className="mx-auto grid max-w-5xl items-center gap-9 sm:grid-cols-2 md:gap-16">
+    <section className="bg-cream px-6 py-14 md:px-10 md:py-28">
+      <div className="mx-auto grid max-w-5xl items-center gap-9 md:grid-cols-2 md:gap-16">
         <div>
           <Eyebrow number={number} label={eyebrow} />
           <h2 className="mt-4 font-display text-[28px] font-medium leading-tight text-ink sm:text-[36px] md:text-[40px]">

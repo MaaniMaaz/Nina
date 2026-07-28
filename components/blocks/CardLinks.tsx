@@ -12,13 +12,13 @@ interface CardLinksProps {
 
 export default function CardLinks({ number, eyebrow, heading, cards }: CardLinksProps) {
   return (
-    <section className="bg-sand px-6 py-16 sm:px-10 sm:py-24 md:py-28">
+    <section className="bg-sand px-6 py-14 md:px-10 md:py-28">
       <div className="mx-auto max-w-5xl">
         <Eyebrow number={number} label={eyebrow} />
         <h2 className="mt-3.5 font-display text-[28px] font-medium leading-tight text-ink sm:text-[36px] md:text-[40px]">
           {heading}
         </h2>
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
           {cards.map((card) => (
             <Link
               key={card.href}

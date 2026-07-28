@@ -2,16 +2,107 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { PROCESS_STEPS } from "@/content/home";
 
+/**
+ * Mobile = dump §03: featured step card + 6 number circles.
+ * Desktop = editorial index + sticky detail panel.
+ */
 export default function ProcessSteps() {
   const [selected, setSelected] = useState(0);
   const step = PROCESS_STEPS[selected];
 
   return (
-    <section className="relative overflow-hidden bg-sand-deep px-6 py-21 sm:px-10 sm:py-26 md:px-[clamp(40px,6vw,120px)] md:py-39">
-      <div className="grain-overlay opacity-40 mix-blend-multiply" />
-      <div className="relative z-[1] mx-auto grid max-w-[1180px] items-start gap-10 md:grid-cols-2 md:gap-19">
+    <section id="process" className="relative overflow-hidden bg-cream-deep px-6 py-[26px] md:bg-sand-deep md:px-[clamp(40px,6vw,120px)] md:py-39">
+      <div className="grain-overlay opacity-45 mix-blend-multiply" style={{ backgroundSize: "180px" }} />
+      <div
+        className="pointer-events-none absolute -top-[120px] left-1/2 h-[360px] w-[460px] -translate-x-1/2 rounded-full md:hidden"
+        style={{ background: "radial-gradient(circle, rgba(176,138,62,0.16), rgba(176,138,62,0) 68%)" }}
+      />
+
+      {/* ─── MOBILE (dump §03) ─── */}
+      <div className="relative z-[1] md:hidden">
+        <div className="flex items-center gap-2.5">
+          <span className="font-display text-[13px] italic text-[#B08A3E]">03</span>
+          <span className="h-px w-7 bg-[#B08A3E]/70" />
+          <span className="text-[9.5px] font-semibold uppercase tracking-[0.22em] text-terracotta">
+            How we find your why
+          </span>
+        </div>
+        <h2 className="mt-4 font-display text-[32px] font-medium leading-[1.05] tracking-[-0.02em] text-ink">
+          Six steps to <span className="italic text-terracotta">your why.</span>
+        </h2>
+        <p className="mt-3 text-[13.5px] leading-[1.58] text-[#5f5346]">
+          A real, repeatable method with a purpose behind every step, the same one behind every patient who finally
+          felt like themselves again. Tap a step.
+        </p>
+
+        {/* Active step card */}
+        <div className="mt-6 overflow-hidden rounded-[14px] border border-ink/[0.08] bg-cream shadow-[0_6px_18px_rgba(46,33,27,0.1)]">
+          <div className="relative h-[188px] border-t-[3px] border-t-terracotta bg-[#E7DCC9]">
+            {step.img && <Image src={step.img} alt={step.title} fill className="object-cover" />}
+            <div className="absolute left-3.5 top-3.5 flex h-11 w-11 items-center justify-center rounded-full bg-ink shadow-[0_6px_16px_rgba(46,33,27,0.3)]">
+              <span className="font-display text-xl font-medium text-gold-deep">{Number(step.num)}</span>
+            </div>
+          </div>
+          <div className="px-5 pb-5 pt-[18px]">
+            <div className="flex items-baseline justify-between gap-2.5">
+              <h3 className="font-display text-[22px] font-medium leading-[1.12] text-ink">{step.title}</h3>
+              <span className="flex-none text-[9px] font-semibold uppercase tracking-[0.16em] text-terracotta">
+                {step.kicker}
+              </span>
+            </div>
+            <p className="mt-[11px] text-[13.5px] leading-[1.56] text-body">{step.detail}</p>
+            <div className="mt-4 flex items-center gap-[9px]">
+              <div className="relative h-[30px] w-[30px] overflow-hidden rounded-full border border-[rgba(176,138,62,0.5)]">
+                <Image src="/images/dr-nina.jpg" alt="" fill className="object-cover object-[50%_18%]" />
+              </div>
+              <span className="font-hand text-[19px] text-terracotta">Dr. Nina Ross</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Number picker */}
+        <div className="mt-[26px]">
+          <div className="mb-[13px] text-center text-[9.5px] font-semibold uppercase tracking-[0.2em] text-[#9a8b7a]">
+            Tap a step
+          </div>
+          <div className="flex justify-center gap-2.5">
+            {PROCESS_STEPS.map((s, i) => (
+              <button
+                key={s.num}
+                type="button"
+                onClick={() => setSelected(i)}
+                aria-label={`Step ${Number(s.num)}: ${s.title}`}
+                className={`flex h-11 w-11 items-center justify-center rounded-full ${
+                  i === selected
+                    ? "bg-terracotta shadow-[0_8px_18px_rgba(181,87,47,0.4)]"
+                    : "border-[1.5px] border-[rgba(176,138,62,0.55)] bg-cream"
+                }`}
+              >
+                <span
+                  className={`font-display text-[19px] font-medium ${
+                    i === selected ? "text-cream" : "text-[#B08A3E]"
+                  }`}
+                >
+                  {Number(s.num)}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <Link
+          href="/start"
+          className="mt-6 flex w-full items-center justify-center rounded-lg bg-terracotta py-[15px] text-[15px] font-semibold text-cream no-underline shadow-[0_10px_24px_rgba(181,87,47,0.4)]"
+        >
+          Start with the $99 consultation →
+        </Link>
+      </div>
+
+      {/* ─── DESKTOP ─── */}
+      <div className="relative z-[1] mx-auto hidden max-w-[1180px] grid-cols-2 items-start gap-19 md:grid">
         <div>
           <div className="flex items-center gap-3.25">
             <span className="h-px w-9 bg-gold-deep" />
@@ -19,10 +110,10 @@ export default function ProcessSteps() {
               How we find your why
             </span>
           </div>
-          <h2 className="mt-5 font-display text-[38px] font-medium leading-tight tracking-tight text-ink sm:text-[48px] md:text-[56px]">
+          <h2 className="mt-5 font-display text-[56px] font-medium leading-tight tracking-tight text-ink">
             Six steps to <span className="italic text-terracotta">your why.</span>
           </h2>
-          <p className="mt-4 max-w-[42ch] text-[15px] leading-relaxed text-body-soft sm:text-[17px]">
+          <p className="mt-4 max-w-[42ch] text-[17px] leading-relaxed text-body-soft">
             A real, repeatable method with a purpose behind every step, the same one behind every patient who
             finally felt like themselves again. Tap through it.
           </p>
@@ -34,13 +125,13 @@ export default function ProcessSteps() {
                 type="button"
                 onClick={() => setSelected(i)}
                 className={`relative flex w-full items-baseline gap-4.5 border-t border-ink/[0.14] py-4.5 pl-6.5 pr-4 text-left ${
-                  i === selected ? "before:absolute before:left-0 before:top-3.5 before:bottom-3.5 before:w-1 before:rounded-r-[3px] before:bg-terracotta" : ""
+                  i === selected
+                    ? "before:absolute before:left-0 before:top-3.5 before:bottom-3.5 before:w-1 before:rounded-r-[3px] before:bg-terracotta"
+                    : ""
                 }`}
               >
                 <span className="min-w-7 font-display text-lg font-medium text-gold-deep">{s.num}</span>
-                <span className="flex-1 font-display text-[20px] font-medium leading-tight text-ink sm:text-[24px]">
-                  {s.title}
-                </span>
+                <span className="flex-1 font-display text-[24px] font-medium leading-tight text-ink">{s.title}</span>
                 <span className="self-center text-[11px] text-muted">{s.kicker}</span>
               </button>
             ))}
@@ -52,15 +143,11 @@ export default function ProcessSteps() {
           <div className="relative h-70 w-full overflow-hidden rounded-lg bg-sand-deep">
             {step.img && <Image src={step.img} alt={step.title} fill className="object-cover" />}
             <div className="absolute left-4 top-4 flex h-12 w-12 items-center justify-center rounded-full bg-ink shadow-[0_6px_16px_rgba(46,33,27,0.3)]">
-              <span className="font-display text-[22px] font-medium text-gold-deep">
-                {Number(step.num)}
-              </span>
+              <span className="font-display text-[22px] font-medium text-gold-deep">{Number(step.num)}</span>
             </div>
           </div>
           <div className="mt-7 flex items-baseline justify-between">
-            <h3 className="font-display text-[28px] font-medium leading-tight tracking-tight text-ink sm:text-[36px]">
-              {step.title}
-            </h3>
+            <h3 className="font-display text-[36px] font-medium leading-tight tracking-tight text-ink">{step.title}</h3>
             <span className="ml-3.5 whitespace-nowrap text-[11px] font-semibold tracking-[0.18em] uppercase text-terracotta">
               {step.kicker}
             </span>
@@ -70,7 +157,7 @@ export default function ProcessSteps() {
             <div className="relative h-9 w-9 overflow-hidden rounded-full border border-gold-deep/50">
               <Image src="/images/dr-nina.jpg" alt="" fill className="object-cover object-[50%_18%]" />
             </div>
-            <span className="font-[Caveat,cursive] text-[22px] text-terracotta">Dr. Nina Ross</span>
+            <span className="font-hand text-[22px] text-terracotta">Dr. Nina Ross</span>
           </div>
         </div>
       </div>
