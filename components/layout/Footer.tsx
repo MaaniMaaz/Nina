@@ -44,7 +44,8 @@ export default function Footer({ variant }: { variant?: "home" | "shell" } = {})
   const isHome = variant === "home";
 
   // Layout footer stays off `/` until HomeInteractive mounts the home variant after unlock.
-  if (pathname === "/" && !isHome) return null;
+  // Exact `/blog` owns the handoff page footer.
+  if ((pathname === "/" && !isHome) || pathname === "/blog") return null;
 
   const companyLinks = isHome ? HOME_EXPLORE : SHELL_COMPANY;
   const startedLinks = isHome ? HOME_VISIT : SHELL_STARTED;
@@ -151,6 +152,12 @@ export default function Footer({ variant }: { variant?: "home" | "shell" } = {})
             <Link href="/privacy" className="text-[11.5px] text-[#8d7e6e] no-underline hover:text-[#d8cab8]">
               Privacy
             </Link>
+            <Link
+              href="/notice-of-privacy-practices"
+              className="text-[11.5px] text-[#8d7e6e] no-underline hover:text-[#d8cab8]"
+            >
+              Notice of Privacy Practices
+            </Link>
             <span className="mt-1.5 w-full text-[11px] text-[#6f6253]">
               © 2026 Nina Ross Functional Medicine · NPI 1164884078
             </span>
@@ -247,12 +254,18 @@ export default function Footer({ variant }: { variant?: "home" | "shell" } = {})
               © 2026 Nina Ross Functional Medicine · NPI 1164884078. This site is for educational purposes and is not a
               substitute for medical advice.
             </p>
-            <div className="flex gap-[22px]">
+            <div className="flex flex-wrap gap-x-[22px] gap-y-2">
               <Link href="/terms" className="text-[12.5px] text-[#9a8b7a] no-underline hover:text-[#d8cab8]">
                 Terms
               </Link>
               <Link href="/privacy" className="text-[12.5px] text-[#9a8b7a] no-underline hover:text-[#d8cab8]">
                 Privacy
+              </Link>
+              <Link
+                href="/notice-of-privacy-practices"
+                className="text-[12.5px] text-[#9a8b7a] no-underline hover:text-[#d8cab8]"
+              >
+                Notice of Privacy Practices
               </Link>
               <Link href="/accessibility" className="text-[12.5px] text-[#9a8b7a] no-underline hover:text-[#d8cab8]">
                 Accessibility
