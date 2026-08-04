@@ -66,3 +66,19 @@ details[open] .faq-chev {
 .font-hand {
   font-family: var(--font-hand), cursive;
 }
+
+/* Care Plan toolkit image swap — dump `nrImg` */
+@keyframes nrImg {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-nr-img {
+  animation: nrImg 0.4s ease;
+}
