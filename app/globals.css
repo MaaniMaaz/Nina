@@ -29,6 +29,7 @@
   --font-display: var(--font-fraunces);
   --font-sans: var(--font-hanken);
   --font-hand: var(--font-caveat);
+  --font-newsreader: var(--font-newsreader-face);
 }
 
 body {

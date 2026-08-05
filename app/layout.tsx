@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, Fraunces, Hanken_Grotesk } from "next/font/google";
+import { Caveat, Fraunces, Hanken_Grotesk, Newsreader } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
@@ -23,6 +23,13 @@ const caveat = Caveat({
   weight: ["400", "500", "600", "700"],
 });
 
+const newsreader = Newsreader({
+  variable: "--font-newsreader-face",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: ["400", "500"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ninarossfm.com"),
   title: {
@@ -39,7 +46,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${hanken.variable} ${caveat.variable}`}>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${hanken.variable} ${caveat.variable} ${newsreader.variable}`}
+    >
       <body className="flex min-h-full flex-col bg-cream font-sans antialiased text-ink">
         <Header />
         <main className="flex-1">{children}</main>
