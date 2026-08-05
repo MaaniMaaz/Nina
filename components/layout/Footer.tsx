@@ -36,18 +36,27 @@ const HOME_VISIT = [
 ];
 
 /**
- * Global Shell footer on interior pages; Homepage dump IA on `/`.
+ * Shell footer on interior pages.
+ * Homepage: hidden until unlocked — pass `variant="home"` from HomeInteractive after a prompt.
  */
-export default function Footer() {
+export default function Footer({ variant }: { variant?: "home" | "shell" } = {}) {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isHome = variant === "home";
+
+  // Layout footer stays off `/` until HomeInteractive mounts the home variant after unlock.
+  // Exact `/blog` owns the handoff page footer.
+  if ((pathname === "/" && !isHome) || pathname === "/blog") return null;
+
+  const companyLinks = isHome ? HOME_EXPLORE : SHELL_COMPANY;
+  const startedLinks = isHome ? HOME_VISIT : SHELL_STARTED;
+  const companyLabel = isHome ? "Explore" : "The Company";
+  const startedLabel = isHome ? "Visit" : "Getting Started";
+  const tagline = isHome ? "Find your why. Feel like yourself again." : "Your symptoms are telling a deeper story.";
+  const ctaLabel = isHome ? "Book your $99 consultation" : "Book the $99 Symptom Consult";
+  const contactLabel = isHome ? "Get in touch" : "Visit & contact";
 
   return (
-    <footer
-      className={`relative overflow-hidden bg-ink px-6 md:px-[clamp(40px,6vw,92px)] ${
-        isHome ? "py-10 md:pb-12 md:pt-16" : "px-7 py-10 md:px-14 md:pb-[30px] md:pt-16"
-      }`}
-    >
+    <footer className="relative overflow-hidden bg-ink px-7 py-10 md:px-14 md:pb-[30px] md:pt-16">
       <div className="grain-overlay opacity-45 mix-blend-overlay" style={{ backgroundSize: "220px" }} />
       <div
         className="pointer-events-none absolute -right-[120px] -top-[180px] h-[520px] w-[760px] rounded-full"
@@ -64,22 +73,22 @@ export default function Footer() {
             className="h-8 w-auto"
           />
           <p className="mt-4 max-w-[18ch] font-display text-[22px] italic leading-[1.22] text-cream-deep">
-            {isHome ? "Find your why. Feel like yourself again." : "Your symptoms are telling a deeper story."}
+            {tagline}
           </p>
           <Link
             href="/start"
             className="mt-5 flex items-center justify-center gap-2 rounded-[10px] bg-gold px-4 py-3.5 text-sm font-semibold text-ink no-underline hover:bg-gold-hover"
           >
-            {isHome ? "Book your $99 consultation" : "Book the $99 Symptom Consult"} <span aria-hidden>→</span>
+            {ctaLabel} <span aria-hidden>→</span>
           </Link>
 
           <div className="mt-[30px] grid grid-cols-2 gap-x-[18px] gap-y-6">
             <div>
               <div className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-deep">
-                {isHome ? "Explore" : "The Company"}
+                {companyLabel}
               </div>
               <div className="flex flex-col gap-2.5">
-                {(isHome ? HOME_EXPLORE : SHELL_COMPANY).slice(0, 3).map((link) => (
+                {companyLinks.slice(0, 3).map((link) => (
                   <Link key={link.label} href={link.href} className="text-sm text-[#d8cab8] no-underline hover:text-cream-deep">
                     {link.label}
                   </Link>
@@ -88,10 +97,10 @@ export default function Footer() {
             </div>
             <div>
               <div className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-deep">
-                {isHome ? "Visit" : "Getting Started"}
+                {startedLabel}
               </div>
               <div className="flex flex-col gap-2.5">
-                {(isHome ? HOME_VISIT : SHELL_STARTED).map((link) => (
+                {startedLinks.map((link) => (
                   <Link key={link.label} href={link.href} className="text-sm text-[#d8cab8] no-underline hover:text-cream-deep">
                     {link.label}
                   </Link>
@@ -143,6 +152,12 @@ export default function Footer() {
             <Link href="/privacy" className="text-[11.5px] text-[#8d7e6e] no-underline hover:text-[#d8cab8]">
               Privacy
             </Link>
+            <Link
+              href="/notice-of-privacy-practices"
+              className="text-[11.5px] text-[#8d7e6e] no-underline hover:text-[#d8cab8]"
+            >
+              Notice of Privacy Practices
+            </Link>
             <span className="mt-1.5 w-full text-[11px] text-[#6f6253]">
               © 2026 Nina Ross Functional Medicine · NPI 1164884078
             </span>
@@ -151,7 +166,7 @@ export default function Footer() {
 
         {/* Desktop */}
         <div className="hidden md:block">
-          <div className={`grid gap-14 ${isHome ? "grid-cols-[1.35fr_1fr_1fr_1fr]" : "grid-cols-[1.4fr_1fr_1fr_1.1fr]"}`}>
+          <div className="grid grid-cols-[1.4fr_1fr_1fr_1.1fr] gap-14">
             <div>
               <Image
                 src="/images/nina-ross-logo-cream.png"
@@ -161,22 +176,22 @@ export default function Footer() {
                 className="h-[54px] w-auto"
               />
               <p className="mt-[22px] max-w-[18ch] font-display text-[26px] italic leading-[1.22] text-cream-deep">
-                {isHome ? "Find your why. Feel like yourself again." : "Your symptoms are telling a deeper story."}
+                {tagline}
               </p>
               <Link
                 href="/start"
                 className="mt-6 inline-flex items-center gap-2.5 rounded-md bg-gold px-[26px] py-[15px] text-[15px] font-semibold text-ink no-underline hover:bg-gold-hover"
               >
-                {isHome ? "Book your $99 consultation" : "Book the $99 Symptom Consult"} <span aria-hidden>→</span>
+                {ctaLabel} <span aria-hidden>→</span>
               </Link>
             </div>
 
             <div>
               <div className="mb-[18px] text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-deep">
-                {isHome ? "Explore" : "The Company"}
+                {companyLabel}
               </div>
               <div className="flex flex-col gap-[13px]">
-                {(isHome ? HOME_EXPLORE : SHELL_COMPANY).map((link) => (
+                {companyLinks.map((link) => (
                   <Link key={link.label} href={link.href} className="text-[15px] text-[#d8cab8] no-underline hover:text-cream-deep">
                     {link.label}
                   </Link>
@@ -186,10 +201,10 @@ export default function Footer() {
 
             <div>
               <div className="mb-[18px] text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-deep">
-                {isHome ? "Visit" : "Getting Started"}
+                {startedLabel}
               </div>
               <div className="flex flex-col gap-[13px]">
-                {(isHome ? HOME_VISIT : SHELL_STARTED).map((link) => (
+                {startedLinks.map((link) => (
                   <Link key={link.label} href={link.href} className="text-[15px] text-[#d8cab8] no-underline hover:text-cream-deep">
                     {link.label}
                   </Link>
@@ -199,7 +214,7 @@ export default function Footer() {
 
             <div>
               <div className="mb-[18px] text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-deep">
-                {isHome ? "Get in touch" : "Visit & contact"}
+                {contactLabel}
               </div>
               <address className="text-[14.5px] leading-[1.75] text-[#b6a796] not-italic">
                 {isHome ? (
@@ -239,12 +254,18 @@ export default function Footer() {
               © 2026 Nina Ross Functional Medicine · NPI 1164884078. This site is for educational purposes and is not a
               substitute for medical advice.
             </p>
-            <div className="flex gap-[22px]">
+            <div className="flex flex-wrap gap-x-[22px] gap-y-2">
               <Link href="/terms" className="text-[12.5px] text-[#9a8b7a] no-underline hover:text-[#d8cab8]">
                 Terms
               </Link>
               <Link href="/privacy" className="text-[12.5px] text-[#9a8b7a] no-underline hover:text-[#d8cab8]">
                 Privacy
+              </Link>
+              <Link
+                href="/notice-of-privacy-practices"
+                className="text-[12.5px] text-[#9a8b7a] no-underline hover:text-[#d8cab8]"
+              >
+                Notice of Privacy Practices
               </Link>
               <Link href="/accessibility" className="text-[12.5px] text-[#9a8b7a] no-underline hover:text-[#d8cab8]">
                 Accessibility

@@ -11,6 +11,7 @@ import ProgramSection from "./ProgramSection";
 import PatientStories from "./PatientStories";
 import Consultation from "./Consultation";
 import LearnSection from "./LearnSection";
+import Footer from "@/components/layout/Footer";
 
 /**
  * Owns the journal entry text that gates the rest of the homepage, mirroring
@@ -65,23 +66,31 @@ export default function HomeInteractive() {
                 {hasEntry ? clean : "\u2026"}
               </span>
               <br />
-              <span className="text-terracotta">Now I can&rsquo;t.</span>
+              Now I can&rsquo;t.
             </div>
 
             <div className="relative mt-[22px] flex flex-wrap items-center justify-center gap-[7px]">
               <span className="mb-0.5 w-full text-center text-[9.5px] font-semibold uppercase tracking-[0.14em] text-[#9a8b7a]">
                 Tap one to view more
               </span>
-              {JOURNAL_PROMPTS.map((p) => (
-                <button
-                  key={p.label}
-                  type="button"
-                  onClick={() => setEntry(p.label)}
-                  className="rounded-full border border-ink/[0.14] bg-cream-deep px-3 py-1.5 text-xs text-body hover:border-terracotta hover:text-terracotta"
-                >
-                  {p.label}
-                </button>
-              ))}
+              {JOURNAL_PROMPTS.map((p) => {
+                const isSelected = hasEntry && clean === p.label;
+                return (
+                  <button
+                    key={p.label}
+                    type="button"
+                    onClick={() => setEntry(p.label)}
+                    aria-pressed={isSelected}
+                    className={`rounded-full border px-3 py-1.5 text-xs transition-colors ${
+                      isSelected
+                        ? "border-terracotta bg-terracotta text-cream shadow-[0_8px_18px_rgba(181,87,47,0.28)]"
+                        : "border-ink/[0.14] bg-cream-deep text-body hover:border-terracotta hover:text-terracotta"
+                    }`}
+                  >
+                    {p.label}
+                  </button>
+                );
+              })}
             </div>
 
             {!hasEntry && (
@@ -184,6 +193,7 @@ export default function HomeInteractive() {
           <PatientStories />
           <Consultation />
           <LearnSection nodPhrase={clean} nodTopic={mappedTopic} />
+          <Footer variant="home" />
         </>
       )}
     </>

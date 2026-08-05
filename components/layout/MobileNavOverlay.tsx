@@ -217,12 +217,15 @@ export default function MobileNavOverlay({
           ))}
         </div>
 
-        <div className="mt-6 flex gap-6 border-t border-cream-deep/12 pt-[18px]">
+        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 border-t border-cream-deep/12 pt-[18px]">
           <Link href="/about" onClick={onClose} className="text-sm font-medium text-[#d8cab8] no-underline">
             About
           </Link>
           <Link href="/approach" onClick={onClose} className="text-sm font-medium text-[#d8cab8] no-underline">
             Approach
+          </Link>
+          <Link href="/blog" onClick={onClose} className="text-sm font-medium text-[#d8cab8] no-underline">
+            Blog
           </Link>
           <a href="tel:+16785614522" className="text-sm font-medium text-[#d8cab8] no-underline">
             Contact
