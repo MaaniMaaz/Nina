@@ -15,6 +15,10 @@ export default function Toolkit() {
   return (
     <section id="toolkit" className="relative overflow-hidden bg-[#E8E4D6] md:px-[clamp(40px,6vw,120px)] md:py-39">
       <div className="grain-overlay hidden opacity-40 mix-blend-multiply md:block" />
+      <div
+        className="pointer-events-none absolute -top-[180px] left-1/2 hidden h-[560px] w-[900px] -translate-x-1/2 rounded-full md:block"
+        style={{ background: "radial-gradient(circle, rgba(176,138,62,0.12), rgba(176,138,62,0) 68%)" }}
+      />
 
       {/* ─── MOBILE (dump §04 fixed chrome) ─── */}
       <div className="relative h-[100svh] min-h-[720px] md:hidden">
@@ -52,14 +56,18 @@ export default function Toolkit() {
           </div>
 
           <div className="relative h-[268px] overflow-hidden bg-[#E7DCC9]">
-            {active.image && <Image src={active.image} alt={active.name} fill className="object-cover" />}
+            {active.imageMobile && (
+              <div key={active.num} className="absolute inset-0 animate-nr-img">
+                <Image src={active.imageMobile} alt={active.name} fill className="object-cover" sizes="100vw" />
+              </div>
+            )}
             <div
               className="pointer-events-none absolute inset-0"
               style={{ background: "linear-gradient(180deg, rgba(46,33,27,0) 36%, rgba(46,33,27,0.9))" }}
             />
             <div className="absolute inset-x-[22px] bottom-5">
               <div className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gold-deep">
-                Now viewing · {active.num} / 10 · {active.dose}
+                Now viewing · {active.num} / {TOOLKIT_ITEMS.length} · {active.dose}
               </div>
               <div className="mt-1 font-display text-[27px] font-medium leading-[1.08] text-cream-deep">{active.name}</div>
               <div className="mt-[7px] text-[12.5px] leading-[1.45] text-[#f0e7da]">{active.desc}</div>
@@ -146,10 +154,20 @@ export default function Toolkit() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2">
-            <div className="border-r border-dashed border-ink/[0.18] bg-[#F2EBDD] p-10">
-              <div className="relative min-h-95 flex-1 overflow-hidden rounded-xl bg-sand-deep shadow-[0_18px_40px_rgba(46,33,27,0.14)]">
-                {active.image && <Image src={active.image} alt={active.name} fill className="object-cover" />}
+          <div className="grid grid-cols-2 items-stretch">
+            <div className="flex flex-col border-r border-dashed border-ink/[0.18] bg-[#F2EBDD] p-10">
+              <div className="relative min-h-[380px] w-full flex-1 overflow-hidden rounded-xl bg-sand-deep shadow-[0_18px_40px_rgba(46,33,27,0.14)]">
+                {active.imageDesktop && (
+                  <div key={active.num} className="absolute inset-0 animate-nr-img">
+                    <Image
+                      src={active.imageDesktop}
+                      alt={active.name}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 768px) 40vw, 100vw"
+                    />
+                  </div>
+                )}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent from-46% to-ink" />
                 <div className="pointer-events-none absolute bottom-5 left-5.5 right-5.5">
                   <div className="text-[10px] font-semibold tracking-[0.18em] uppercase text-gold-deep">

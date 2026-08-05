@@ -28,6 +28,10 @@ export default function CarePlanToolkit({
   return (
     <section id="care-plan-toolkit" className="relative overflow-hidden bg-[#E8E4D6]">
       <div className="grain-overlay opacity-40 mix-blend-multiply" style={{ backgroundSize: "180px" }} />
+      <div
+        className="pointer-events-none absolute -top-[180px] left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(176,138,62,0.12), rgba(176,138,62,0) 68%)" }}
+      />
 
       {/* Mobile: fixed chrome + scroll list */}
       <div className="relative h-[100svh] min-h-[640px] md:hidden">
@@ -60,14 +64,18 @@ export default function CarePlanToolkit({
             <div className="mt-1.5 text-xs leading-[1.45] text-body-soft">{intro}</div>
           </div>
           <div className="relative h-[220px] overflow-hidden bg-[#E7DCC9]">
-            {active.image && <Image src={active.image} alt={active.name} fill className="object-cover" />}
+            {active.imageMobile && (
+              <div key={active.num} className="absolute inset-0 animate-nr-img">
+                <Image src={active.imageMobile} alt={active.name} fill className="object-cover" sizes="100vw" />
+              </div>
+            )}
             <div
               className="pointer-events-none absolute inset-0"
               style={{ background: "linear-gradient(180deg, rgba(46,33,27,0) 36%, rgba(46,33,27,0.9))" }}
             />
             <div className="absolute inset-x-[22px] bottom-4">
               <div className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gold-deep">
-                Now viewing · {active.num} / 10 · {active.dose}
+                Now viewing · {active.num} / {TOOLKIT_ITEMS.length} · {active.dose}
               </div>
               <div className="mt-1 font-display text-[24px] font-medium leading-[1.08] text-cream-deep">{active.name}</div>
               <div className="mt-1 text-xs leading-[1.45] text-[#f0e7da]">{active.desc}</div>
@@ -113,12 +121,22 @@ export default function CarePlanToolkit({
         </div>
         <div className="grid grid-cols-[1.05fr_0.95fr] items-start gap-12">
           <div className="sticky top-24">
-            <div className="relative aspect-[4/3.4] overflow-hidden rounded-xl bg-[#E7DCC9] shadow-[0_18px_40px_rgba(46,33,27,0.14)]">
-              {active.image && <Image src={active.image} alt={active.name} fill className="object-cover" />}
+            <div className="relative aspect-[4/5] min-h-[380px] w-full overflow-hidden rounded-xl bg-[#E7DCC9] shadow-[0_18px_40px_rgba(46,33,27,0.14)]">
+              {active.imageDesktop && (
+                <div key={active.num} className="absolute inset-0 animate-nr-img">
+                  <Image
+                    src={active.imageDesktop}
+                    alt={active.name}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 768px) 45vw, 100vw"
+                  />
+                </div>
+              )}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent from-46% to-ink" />
               <div className="absolute inset-x-5 bottom-5">
                 <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-deep">
-                  Now viewing · {active.num} / 10 · {active.dose}
+                  Now viewing · {active.num} / {TOOLKIT_ITEMS.length} · {active.dose}
                 </div>
                 <div className="mt-1 font-display text-[32px] font-medium leading-tight text-cream-deep">{active.name}</div>
                 <div className="mt-2 text-[15px] leading-relaxed text-[#f0e7da]">{active.desc}</div>

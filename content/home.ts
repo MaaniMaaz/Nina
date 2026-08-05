@@ -39,6 +39,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     kicker: "The first visit",
     detail:
       "Your first visit is an unhurried half hour where you finally feel heard. Every symptom, every \u201Cnormal\u201D lab, every time you were told you\u2019re fine but knew you weren\u2019t. We map it all before a single test.",
+    img: "/images/process-listen.png",
   },
   {
     num: "02",
@@ -46,6 +47,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     kicker: "Advanced panels",
     detail:
       "We run the advanced panels most offices skip: full thyroid, stress and sex hormones, metabolic, inflammatory, and nutrients. The markers that finally explain how you feel.",
+    img: "/images/process-test.png",
   },
   {
     num: "03",
@@ -53,6 +55,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     kicker: "Optimal ranges",
     detail:
       "There is a wide gap between \u201Cnormal\u201D and actually feeling well. We read every result against where you truly thrive, the levels where your body hums.",
+    img: "/images/process-optimal.png",
   },
   {
     num: "04",
@@ -60,6 +63,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     kicker: "In plain language",
     detail:
       "We sit down together and walk through what is driving what, in plain language, until your whole picture finally makes sense to you.",
+    img: "/images/process-connect.png",
   },
   {
     num: "05",
@@ -75,6 +79,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     kicker: "Re-test & track",
     detail:
       "We re-test and track over time, so your progress shows up in black and white, real proof on the page you can point to.",
+    img: "/images/process-score.png",
   },
 ];
 
@@ -83,20 +88,85 @@ export interface ToolkitItem {
   name: string;
   dose: string;
   desc: string;
-  image?: string;
+  /** Landscape crop for the mobile preview card. */
+  imageMobile?: string;
+  /** Portrait crop for the desktop preview card. */
+  imageDesktop?: string;
 }
 
 export const TOOLKIT_ITEMS: ToolkitItem[] = [
-  { num: "01", name: "Deep-dive panel", dose: "150+ markers", desc: "Finally see the full story behind how you feel, so nothing keeps getting missed.", image: "/images/home-media/toolDV-1.webp" },
-  { num: "02", name: "IV therapy", dose: "as indicated", desc: "Feel the lift sooner, with nutrients sent straight to where your body needs them." },
-  { num: "03", name: "Injectables", dose: "targeted", desc: "A quick, targeted boost for the days you need your energy and focus back." },
-  { num: "04", name: "Hormone restoration", dose: "to optimal", desc: "Feel like yourself again as your body settles into its real balance." },
-  { num: "05", name: "Supplementation", dose: "lab-matched", desc: "Only what your body is actually missing, so every dose earns its place." },
-  { num: "06", name: "Nutrition", dose: "daily", desc: "Eat in a way that fits your life and finally gives you steady energy." },
-  { num: "07", name: "Lifestyle", dose: "ongoing", desc: "Small, doable changes that help you sleep deeper and carry less stress." },
-  { num: "08", name: "Nutraceuticals", dose: "clinical", desc: "Clinical-strength support you can trust to actually move the needle." },
-  { num: "09", name: "Coaching", dose: "continuous", desc: "Someone in your corner every week, so you never figure it out alone." },
-  { num: "10", name: "Re-testing", dose: "scheduled", desc: "Watch your progress in black and white, proof that you\u2019re truly getting better." },
+  {
+    num: "01",
+    name: "Deep-dive panel",
+    dose: "150+ markers",
+    desc: "Finally see the full story behind how you feel, so nothing keeps getting missed.",
+    imageMobile: "/images/toolkit/mobile/deep-dive-panel.png",
+    imageDesktop: "/images/toolkit/desktop/deep-dive-panel.png",
+  },
+  {
+    num: "02",
+    name: "IV therapy",
+    dose: "as indicated",
+    desc: "Feel the lift sooner, with nutrients sent straight to where your body needs them.",
+    imageMobile: "/images/toolkit/mobile/iv-therapy.png",
+    imageDesktop: "/images/toolkit/desktop/iv-therapy.png",
+  },
+  {
+    num: "03",
+    name: "Injectables",
+    dose: "targeted",
+    desc: "A quick, targeted boost for the days you need your energy and focus back.",
+    imageMobile: "/images/toolkit/mobile/injectables.png",
+    imageDesktop: "/images/toolkit/desktop/injectables.png",
+  },
+  {
+    num: "04",
+    name: "Hormone restoration",
+    dose: "to optimal",
+    desc: "Feel like yourself again as your body settles into its real balance.",
+    imageMobile: "/images/toolkit/mobile/hormone-restoration.png",
+    imageDesktop: "/images/toolkit/desktop/hormone-restoration.png",
+  },
+  {
+    num: "05",
+    name: "Supplementation",
+    dose: "lab-matched",
+    desc: "Only what your body is actually missing, so every dose earns its place.",
+    imageMobile: "/images/toolkit/mobile/supplementation.png",
+    imageDesktop: "/images/toolkit/desktop/supplementation.png",
+  },
+  {
+    num: "06",
+    name: "Nutrition",
+    dose: "daily",
+    desc: "Eat in a way that fits your life and finally gives you steady energy.",
+    imageMobile: "/images/toolkit/mobile/nutrition.png",
+    imageDesktop: "/images/toolkit/desktop/nutrition.png",
+  },
+  {
+    num: "07",
+    name: "Lifestyle",
+    dose: "ongoing",
+    desc: "Small, doable changes that help you sleep deeper and carry less stress.",
+    imageMobile: "/images/toolkit/mobile/lifestyle.png",
+    imageDesktop: "/images/toolkit/desktop/lifestyle.png",
+  },
+  {
+    num: "08",
+    name: "Coaching",
+    dose: "continuous",
+    desc: "Someone in your corner every week, so you never figure it out alone.",
+    imageMobile: "/images/toolkit/mobile/coaching.png",
+    imageDesktop: "/images/toolkit/desktop/coaching.png",
+  },
+  {
+    num: "09",
+    name: "Re-testing",
+    dose: "scheduled",
+    desc: "Watch your progress in black and white, proof that you\u2019re truly getting better.",
+    imageMobile: "/images/toolkit/mobile/re-testing.png",
+    imageDesktop: "/images/toolkit/desktop/re-testing.png",
+  },
 ];
 
 export interface PlanLength {
