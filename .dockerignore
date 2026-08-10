@@ -1,0 +1,15 @@
+node_modules
+.next
+.git
+.gitignore
+*.md
+.env*
+!.env.example
+DISK-FREE.md
+scripts/free-*.ps1
+scripts/free-*.bat
+scripts/scan-*.ps1
+scripts/_dumps
+.DS_Store
+*.log
+.git/COMMIT_MSG_CMS.txt
