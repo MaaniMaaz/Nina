@@ -1,5 +1,9 @@
+"use client";
+
 import Eyebrow from "@/components/ui/Eyebrow";
 import ImageSlot from "@/components/ui/ImageSlot";
+import EditableImage from "@/components/admin/EditableImage";
+import { useEdit } from "@/components/admin/EditContext";
 import type { CalloutItem } from "@/content/types";
 
 interface CalloutSplitProps {
@@ -9,9 +13,24 @@ interface CalloutSplitProps {
   paragraphs: string[];
   callouts: CalloutItem[];
   imageSlotId?: string;
+  imageUrl?: string;
+  blockIndex?: number;
 }
 
-export default function CalloutSplit({ number, eyebrow, heading, paragraphs, callouts, imageSlotId }: CalloutSplitProps) {
+export default function CalloutSplit({
+  number,
+  eyebrow,
+  heading,
+  paragraphs,
+  callouts,
+  imageSlotId,
+  imageUrl,
+  blockIndex = 0,
+}: CalloutSplitProps) {
+  const edit = useEdit();
+  const showImage = edit?.enabled || imageSlotId || imageUrl;
+  const imageClass = "h-[160px] w-full rounded-2xl";
+
   return (
     <section className="bg-cream px-6 py-14 md:px-10 md:py-28">
       <div className="mx-auto grid max-w-5xl items-center gap-9 md:grid-cols-2 md:gap-16">
@@ -27,9 +46,18 @@ export default function CalloutSplit({ number, eyebrow, heading, paragraphs, cal
           ))}
         </div>
         <div className="flex flex-col gap-4">
-          {imageSlotId && (
-            <ImageSlot id={imageSlotId} alt={heading} placeholder="Photo" className="h-[160px] w-full rounded-2xl" />
-          )}
+          {showImage &&
+            (edit?.enabled ? (
+              <EditableImage
+                slotId={imageSlotId}
+                urlPath={`blocks.${blockIndex}.imageUrl`}
+                alt={heading}
+                placeholder="Photo"
+                className={imageClass}
+              />
+            ) : (
+              <ImageSlot id={imageSlotId} src={imageUrl} alt={heading} placeholder="Photo" className={imageClass} />
+            ))}
           {callouts.map((c, i) => (
             <div
               key={c.title}

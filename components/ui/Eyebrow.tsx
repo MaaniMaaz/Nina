@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 interface EyebrowProps {
   number?: string;
-  label: string;
+  label: ReactNode;
   tone?: "light" | "dark" | "onTerracotta";
   align?: "left" | "center";
 }

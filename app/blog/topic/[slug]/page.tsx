@@ -2,23 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  BLOG_ARTICLES,
-  getArticlesByTopicSlug,
-  getTopicLabelBySlug,
-  blogTopicSlug,
-} from "@/content/blog";
+import { blogTopicSlug } from "@/content/blog";
+import { resolveBlogCards } from "@/lib/cms/resolve";
+
+export const dynamic = "force-dynamic";
 
 type Props = { params: Promise<{ slug: string }> };
 
-export async function generateStaticParams() {
-  const cats = Array.from(new Set(BLOG_ARTICLES.map((a) => a.cat)));
-  return cats.map((c) => ({ slug: blogTopicSlug(c) }));
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const label = getTopicLabelBySlug(slug);
+  const cards = await resolveBlogCards();
+  const label = cards.find((a) => blogTopicSlug(a.cat) === slug)?.cat ?? null;
   if (!label) return { title: "Topic" };
   return {
     title: `${label} | The Journal`,
@@ -29,9 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogTopicPage({ params }: Props) {
   const { slug } = await params;
-  const label = getTopicLabelBySlug(slug);
+  const cards = await resolveBlogCards();
+  const label = cards.find((a) => blogTopicSlug(a.cat) === slug)?.cat ?? null;
   if (!label) notFound();
-  const items = getArticlesByTopicSlug(slug);
+  const items = cards.filter((a) => blogTopicSlug(a.cat) === slug);
 
   return (
     <div className="min-h-screen bg-cream-deep font-sans">

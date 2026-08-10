@@ -18,13 +18,14 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [mega, setMega] = useState<MegaKey | null>(null);
   const isHome = pathname === "/";
+  const isAdmin = pathname.startsWith("/nina/admin");
 
   useEffect(() => {
     setOpen(false);
     setMega(null);
   }, [pathname]);
 
-  if (isHome) return null;
+  if (isHome || isAdmin) return null;
 
   return (
     <header className={`sticky top-0 z-50 ${mega ? "bg-[#f3ebde]" : "bg-ink"}`}>

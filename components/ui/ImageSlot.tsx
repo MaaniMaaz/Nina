@@ -3,6 +3,8 @@ import { getSlotImage } from "@/lib/slot-images";
 
 interface ImageSlotProps {
   id?: string;
+  /** Absolute / Cloudinary URL wins over slot id when set */
+  src?: string;
   alt: string;
   placeholder?: string;
   className?: string;
@@ -17,13 +19,14 @@ interface ImageSlotProps {
  */
 export default function ImageSlot({
   id,
+  src: srcProp,
   alt,
   placeholder = "Photo",
   className = "",
   shape = "rect",
   priority = false,
 }: ImageSlotProps) {
-  const src = getSlotImage(id);
+  const src = srcProp || getSlotImage(id);
   const radius = shape === "circle" ? "rounded-full" : "";
 
   if (!src) {
@@ -38,7 +41,14 @@ export default function ImageSlot({
 
   return (
     <div className={`relative overflow-hidden ${radius} ${className}`}>
-      <Image src={src} alt={alt} fill priority={priority} className="object-cover" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        className="object-cover"
+        unoptimized={src.startsWith("http")}
+      />
     </div>
   );
 }

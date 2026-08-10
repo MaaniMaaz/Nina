@@ -393,9 +393,9 @@ export function getTopicLabelBySlug(slug: string) {
   return found?.cat ?? null;
 }
 
-export function buildBlogTopics() {
+export function buildBlogTopics(pool: BlogArticle[] = BLOG_ARTICLES) {
   const counts: Record<string, number> = {};
-  BLOG_ARTICLES.forEach((a) => {
+  pool.forEach((a) => {
     counts[a.cat] = (counts[a.cat] || 0) + 1;
   });
   return Object.keys(counts)
@@ -407,8 +407,12 @@ export function buildBlogTopics() {
     }));
 }
 
-export function filterBlogArticles(fmt: "All" | BlogFormat, q: string) {
-  let pool = fmt === "All" ? BLOG_ARTICLES : BLOG_ARTICLES.filter((a) => a.fmt === fmt);
+export function filterBlogArticles(
+  fmt: "All" | BlogFormat,
+  q: string,
+  source: BlogArticle[] = BLOG_ARTICLES,
+) {
+  let pool = fmt === "All" ? source : source.filter((a) => a.fmt === fmt);
   const query = q.trim().toLowerCase();
   if (query) {
     pool = pool.filter((a) =>

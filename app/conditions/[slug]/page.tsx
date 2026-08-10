@@ -1,35 +1,99 @@
-import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { CONDITIONS, getConditionBySlug } from "@/content/conditions";
+import { notFound } from "next/navigation";
 import LongformPage from "@/components/templates/LongformPage";
 import JsonLd from "@/components/seo/JsonLd";
+import { resolveLongformPage, resolveAllSlugs } from "@/lib/cms/resolve";
+import { getPageByTypeSlug, longformFromCms } from "@/lib/cms/pages";
+import { isAdminAuthenticated } from "@/lib/admin-auth";
 
-export function generateStaticParams() {
-  return CONDITIONS.map((c) => ({ slug: c.slug }));
+export const dynamic = "force-dynamic";
+
+export async function generateStaticParams() {
+  const slugs = await resolveAllSlugs("condition");
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ preview?: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const content = getConditionBySlug(slug);
+  const sp = await searchParams;
+  const preview = sp.preview === "1" && (await isAdminAuthenticated());
+
+  if (preview) {
+    const draft = await getPageByTypeSlug("condition", slug);
+    if (draft) {
+      return {
+        title: draft.metaTitle,
+        description: draft.metaDescription,
+        robots: { index: false, follow: false },
+        openGraph: {
+          title: draft.metaTitle,
+          description: draft.metaDescription,
+          url: `https://www.ninarossfm.com/conditions/${slug}`,
+          type: "article",
+        },
+      };
+    }
+  }
+
+  const page = await getPageByTypeSlug("condition", slug);
+  if (page?.status === "published") {
+    const image =
+      page.index.coverImageUrl ||
+      (longformFromCms(page)?.hero.imageUrl);
+    return {
+      title: page.metaTitle,
+      description: page.metaDescription,
+      alternates: { canonical: `https://www.ninarossfm.com/conditions/${slug}` },
+      openGraph: {
+        title: page.metaTitle,
+        description: page.metaDescription,
+        url: `https://www.ninarossfm.com/conditions/${slug}`,
+        type: "article",
+        ...(image ? { images: [{ url: image }] } : {}),
+      },
+    };
+  }
+
+  const content = await resolveLongformPage("condition", slug);
   if (!content) return {};
   return {
-    title: content.title.replace(/\s*[\u2013-]\s*Nina Ross FM$/, ""),
+    title: content.title,
     description: content.description,
     alternates: { canonical: content.canonical },
+    openGraph: {
+      title: content.title,
+      description: content.description,
+      url: content.canonical,
+      type: "article",
+    },
   };
 }
 
 export default async function ConditionPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ preview?: string }>;
 }) {
   const { slug } = await params;
-  const content = getConditionBySlug(slug);
+  const sp = await searchParams;
+  const preview = sp.preview === "1" && (await isAdminAuthenticated());
+
+  let content = null;
+  if (preview) {
+    const draft = await getPageByTypeSlug("condition", slug);
+    content = draft ? longformFromCms(draft) : null;
+  }
+  if (!content) {
+    content = await resolveLongformPage("condition", slug);
+  }
   if (!content) notFound();
 
   return (

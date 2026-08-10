@@ -1,5 +1,9 @@
+"use client";
+
 import Eyebrow from "@/components/ui/Eyebrow";
 import ImageSlot from "@/components/ui/ImageSlot";
+import EditableImage from "@/components/admin/EditableImage";
+import { useEdit } from "@/components/admin/EditContext";
 import type { CalloutItem } from "@/content/types";
 
 interface BandStatementProps {
@@ -9,6 +13,8 @@ interface BandStatementProps {
   paragraphs: string[];
   callouts: CalloutItem[];
   imageSlotId?: string;
+  imageUrl?: string;
+  blockIndex?: number;
 }
 
 export default function BandStatement({
@@ -18,7 +24,12 @@ export default function BandStatement({
   paragraphs,
   callouts,
   imageSlotId,
+  imageUrl,
+  blockIndex = 0,
 }: BandStatementProps) {
+  const edit = useEdit();
+  const showImage = edit?.enabled || imageSlotId || imageUrl;
+
   return (
     <section className="relative overflow-hidden bg-terracotta px-6 py-10 md:px-10 md:py-28">
       <div className="grain-overlay opacity-22 mix-blend-overlay" style={{ backgroundSize: "150px" }} />
@@ -40,9 +51,19 @@ export default function BandStatement({
               {p}
             </p>
           ))}
-          {imageSlotId && (
+          {showImage && (
             <div className="mt-[18px] flex items-center gap-[9px] border-t border-[#FBF3E6]/22 pt-4 md:mt-6 md:gap-3 md:pt-5">
-              <ImageSlot id={imageSlotId} alt="Dr. Nina Ross, ND PhD" shape="circle" className="h-[34px] w-[34px] md:h-10 md:w-10" />
+              {edit?.enabled ? (
+                <EditableImage
+                  slotId={imageSlotId}
+                  urlPath={`blocks.${blockIndex}.imageUrl`}
+                  alt="Dr. Nina Ross, ND PhD"
+                  shape="circle"
+                  className="h-[34px] w-[34px] md:h-10 md:w-10"
+                />
+              ) : (
+                <ImageSlot id={imageSlotId} src={imageUrl} alt="Dr. Nina Ross, ND PhD" shape="circle" className="h-[34px] w-[34px] md:h-10 md:w-10" />
+              )}
               <span className="font-display text-[13px] italic text-[#FBF3E6] md:text-[15px]">Dr. Nina Ross, ND PhD</span>
             </div>
           )}

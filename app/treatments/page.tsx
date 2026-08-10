@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Eyebrow from "@/components/ui/Eyebrow";
 import ImageSlot from "@/components/ui/ImageSlot";
-import { TREATMENTS_INDEX } from "@/content/treatments";
+import { resolveIndex } from "@/lib/cms/resolve";
 import { treatmentCardImage } from "@/content/treatment-images";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Treatments We Use",
@@ -12,7 +14,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/treatments" },
 };
 
-export default function TreatmentsIndexPage() {
+export default async function TreatmentsIndexPage() {
+  const items = await resolveIndex("treatment");
+
   return (
     <>
       <section className="px-6 pb-8 pt-10 md:px-[clamp(40px,6vw,100px)] md:pb-14 md:pt-20">
@@ -30,7 +34,7 @@ export default function TreatmentsIndexPage() {
 
       <section className="bg-sand px-6 pb-14 md:px-[clamp(40px,6vw,100px)] md:pb-28">
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
-          {TREATMENTS_INDEX.map((t) => (
+          {items.map((t) => (
             <Link
               key={t.slug}
               href={`/treatments/${t.slug}`}
@@ -38,6 +42,7 @@ export default function TreatmentsIndexPage() {
             >
               <ImageSlot
                 id={treatmentCardImage(t.slug)}
+                src={t.coverImageUrl}
                 alt={t.name}
                 placeholder="Photo"
                 className="h-[120px] w-full md:h-[180px]"

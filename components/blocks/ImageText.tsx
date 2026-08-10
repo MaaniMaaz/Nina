@@ -1,5 +1,9 @@
+"use client";
+
 import Eyebrow from "@/components/ui/Eyebrow";
 import ImageSlot from "@/components/ui/ImageSlot";
+import EditableImage from "@/components/admin/EditableImage";
+import { useEdit } from "@/components/admin/EditContext";
 
 interface ImageTextProps {
   number: string;
@@ -7,8 +11,10 @@ interface ImageTextProps {
   heading: string;
   paragraphs: string[];
   imageSlotId?: string;
+  imageUrl?: string;
   imageAlt?: string;
   reverse?: boolean;
+  blockIndex?: number;
 }
 
 export default function ImageText({
@@ -17,9 +23,14 @@ export default function ImageText({
   heading,
   paragraphs,
   imageSlotId,
+  imageUrl,
   imageAlt,
   reverse,
+  blockIndex = 0,
 }: ImageTextProps) {
+  const edit = useEdit();
+  const imageClass = "h-[280px] w-full rounded-[22px] sm:h-[340px]";
+
   return (
     <section className="bg-cream px-6 py-14 md:px-10 md:py-28">
       <div
@@ -38,12 +49,23 @@ export default function ImageText({
             </p>
           ))}
         </div>
-        <ImageSlot
-          id={imageSlotId}
-          alt={imageAlt ?? heading}
-          placeholder="Photo"
-          className="h-[280px] w-full rounded-[22px] sm:h-[340px]"
-        />
+        {edit?.enabled ? (
+          <EditableImage
+            slotId={imageSlotId}
+            urlPath={`blocks.${blockIndex}.imageUrl`}
+            alt={imageAlt ?? heading}
+            placeholder="Photo"
+            className={imageClass}
+          />
+        ) : (
+          <ImageSlot
+            id={imageSlotId}
+            src={imageUrl}
+            alt={imageAlt ?? heading}
+            placeholder="Photo"
+            className={imageClass}
+          />
+        )}
       </div>
     </section>
   );

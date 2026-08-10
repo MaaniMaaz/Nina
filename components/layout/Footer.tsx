@@ -44,8 +44,9 @@ export default function Footer({ variant }: { variant?: "home" | "shell" } = {})
   const isHome = variant === "home";
 
   // Layout footer stays off `/` until HomeInteractive mounts the home variant after unlock.
-  // Exact `/blog` owns the handoff page footer.
-  if ((pathname === "/" && !isHome) || pathname === "/blog") return null;
+  // Exact `/blog` owns the handoff page footer. Admin CMS renders its own chrome.
+  if ((pathname === "/" && !isHome) || pathname === "/blog" || pathname.startsWith("/nina/admin"))
+    return null;
 
   const companyLinks = isHome ? HOME_EXPLORE : SHELL_COMPANY;
   const startedLinks = isHome ? HOME_VISIT : SHELL_STARTED;

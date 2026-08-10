@@ -63,11 +63,11 @@ function ArticleThumb({
  * The Journal — Blog Home from handoff Full Desktop + Full Mobile (Direction 1b).
  * Shell Header stays global; this owns masthead through page footer.
  */
-export default function BlogHome() {
+export default function BlogHome({ articles = BLOG_ARTICLES }: { articles?: BlogArticle[] }) {
   const [fmt, setFmt] = useState<"All" | BlogFormat>("All");
   const [q, setQ] = useState("");
 
-  const pool = useMemo(() => filterBlogArticles(fmt, q), [fmt, q]);
+  const pool = useMemo(() => filterBlogArticles(fmt, q, articles), [fmt, q, articles]);
   const feat = pool[0] ?? null;
   const rail = pool.slice(1, 4);
   const shelves = useMemo(
@@ -83,7 +83,7 @@ export default function BlogHome() {
       }).filter((s) => s.items.length > 0),
     [pool],
   );
-  const topics = useMemo(() => buildBlogTopics(), []);
+  const topics = useMemo(() => buildBlogTopics(articles), [articles]);
   const countLabel = `${pool.length} ${pool.length === 1 ? "piece" : "pieces"}`;
   const isEmpty = pool.length === 0;
 
@@ -143,7 +143,7 @@ export default function BlogHome() {
                   type="search"
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
-                  placeholder="Search 24 articles, videos, and audio"
+                  placeholder={`Search ${articles.length} articles, videos, and audio`}
                   aria-label="Search the library"
                   className="hidden min-w-0 flex-1 bg-transparent text-base text-cream-deep outline-none placeholder:text-[#9a8870] md:block"
                 />
@@ -187,7 +187,7 @@ export default function BlogHome() {
             Nothing matches that yet.
           </div>
           <p className="mx-auto mt-3 max-w-[48ch] text-base leading-[1.62] text-body">
-            Try a broader word, or clear the filter to see all {BLOG_ARTICLES.length} pieces.
+            Try a broader word, or clear the filter to see all {articles.length} pieces.
           </p>
           <button
             type="button"

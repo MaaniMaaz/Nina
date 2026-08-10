@@ -17,30 +17,38 @@ import IconCardGrid from "./IconCardGrid";
 import ConditionExplorer from "./ConditionExplorer";
 import CarePlanToolkit from "./CarePlanToolkit";
 
-export default function BlockRenderer({ block, number }: { block: ContentBlock; number: string }) {
+export default function BlockRenderer({
+  block,
+  number,
+  blockIndex = 0,
+}: {
+  block: ContentBlock;
+  number: string;
+  blockIndex?: number;
+}) {
   switch (block.type) {
     case "featureGrid":
-      return <FeatureGrid number={number} {...block} />;
+      return <FeatureGrid number={number} blockIndex={blockIndex} {...block} />;
     case "calloutSplit":
-      return <CalloutSplit number={number} {...block} />;
+      return <CalloutSplit number={number} blockIndex={blockIndex} {...block} />;
     case "bandStatement":
-      return <BandStatement number={number} {...block} />;
+      return <BandStatement number={number} blockIndex={blockIndex} {...block} />;
     case "loopDiagram":
       return <LoopDiagram number={number} {...block} />;
     case "steps":
       return <Steps number={number} {...block} />;
     case "cardLinks":
-      return <CardLinks number={number} {...block} />;
+      return <CardLinks number={number} blockIndex={blockIndex} {...block} />;
     case "imageText":
-      return <ImageText number={number} {...block} />;
+      return <ImageText number={number} blockIndex={blockIndex} {...block} />;
     case "twoListSplit":
       return <TwoListSplit number={number} {...block} />;
     case "testimonialBlock":
-      return <TestimonialBlock number={number} {...block} />;
+      return <TestimonialBlock number={number} blockIndex={blockIndex} {...block} />;
     case "textBand":
       return <TextBand number={number} {...block} />;
     case "bioBlock":
-      return <BioBlock number={number} {...block} />;
+      return <BioBlock number={number} blockIndex={blockIndex} {...block} />;
     case "definitionList":
       return <DefinitionList number={number} {...block} />;
     case "careToolkit":

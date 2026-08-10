@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import BlogHome from "@/components/blog/BlogHome";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildBlogJsonLd } from "@/content/blog";
+import { resolveBlogCards } from "@/lib/cms/resolve";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: {
@@ -20,11 +23,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const articles = await resolveBlogCards();
   return (
     <>
       <JsonLd schema={buildBlogJsonLd()} />
-      <BlogHome />
+      <BlogHome articles={articles} />
     </>
   );
 }

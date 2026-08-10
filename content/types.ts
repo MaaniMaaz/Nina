@@ -29,6 +29,8 @@ export interface CardLinkItem {
   title: string;
   desc: string;
   imageSlotId?: string;
+  /** CMS Cloudinary (or absolute) URL override for the card image */
+  imageUrl?: string;
 }
 
 export type ContentBlock =
@@ -46,6 +48,8 @@ export type ContentBlock =
       paragraphs: string[];
       callouts: CalloutItem[];
       imageSlotId?: string;
+      /** CMS Cloudinary (or absolute) URL override */
+      imageUrl?: string;
     }
   | {
       type: "bandStatement";
@@ -54,6 +58,8 @@ export type ContentBlock =
       paragraphs: string[];
       callouts: CalloutItem[];
       imageSlotId?: string;
+      /** CMS Cloudinary (or absolute) URL override */
+      imageUrl?: string;
     }
   | {
       type: "loopDiagram";
@@ -80,6 +86,8 @@ export type ContentBlock =
       heading: string;
       paragraphs: string[];
       imageSlotId?: string;
+      /** CMS Cloudinary (or absolute) URL override */
+      imageUrl?: string;
       imageAlt?: string;
       reverse?: boolean;
     }
@@ -101,6 +109,9 @@ export type ContentBlock =
       meta: string;
       avatarSlotId?: string;
       photoSlotId?: string;
+      /** CMS Cloudinary (or absolute) URL overrides */
+      avatarUrl?: string;
+      photoUrl?: string;
     }
   | {
       type: "textBand";
@@ -115,6 +126,8 @@ export type ContentBlock =
       paragraphs: string[];
       credentials: string[];
       imageSlotId?: string;
+      /** CMS Cloudinary (or absolute) URL override */
+      imageUrl?: string;
     }
   | {
       type: "definitionList";
@@ -175,8 +188,11 @@ export interface HeroContent {
   secondaryLabel?: string;
   secondaryHref?: string;
   imageSlotId?: string;
+  /** CMS Cloudinary (or absolute) URL override for hero image */
+  imageUrl?: string;
   imageAlt?: string;
   bylineAvatarSlotId?: string;
+  bylineAvatarUrl?: string;
   reviewedDate?: string;
   breadcrumbLabel: string;
   breadcrumbParentLabel?: string;

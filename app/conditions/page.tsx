@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Eyebrow from "@/components/ui/Eyebrow";
 import ImageSlot from "@/components/ui/ImageSlot";
-import { CONDITIONS_INDEX } from "@/content/conditions";
+import { resolveIndex } from "@/lib/cms/resolve";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Conditions We Treat",
@@ -11,7 +13,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/conditions" },
 };
 
-export default function ConditionsIndexPage() {
+export default async function ConditionsIndexPage() {
+  const items = await resolveIndex("condition");
+
   return (
     <>
       <section className="px-6 pb-8 pt-10 md:px-[clamp(40px,6vw,100px)] md:pb-14 md:pt-20">
@@ -29,13 +33,18 @@ export default function ConditionsIndexPage() {
 
       <section className="bg-sand px-6 pb-14 md:px-[clamp(40px,6vw,100px)] md:pb-28">
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
-          {CONDITIONS_INDEX.map((c) => (
+          {items.map((c) => (
             <Link
               key={c.slug}
               href={`/conditions/${c.slug}`}
               className="block overflow-hidden rounded-[16px] bg-cream shadow-[0_12px_28px_rgba(46,33,27,0.08)] transition-shadow hover:shadow-[0_20px_40px_rgba(46,33,27,0.14)] md:rounded-[20px]"
             >
-              <ImageSlot alt={c.name} placeholder="Photo" className="h-[120px] w-full md:h-[180px]" />
+              <ImageSlot
+                src={c.coverImageUrl}
+                alt={c.name}
+                placeholder="Photo"
+                className="h-[120px] w-full md:h-[180px]"
+              />
               <div className="p-3.5 pb-4 md:p-5.5 md:pb-6.5">
                 <div className="font-display text-[16px] text-ink md:text-[20px]">{c.name}</div>
                 <div className="mt-1 text-[12px] leading-relaxed text-muted md:mt-1.5 md:text-[13.5px]">{c.teaser}</div>

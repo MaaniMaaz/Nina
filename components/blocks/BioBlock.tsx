@@ -1,5 +1,9 @@
+"use client";
+
 import Eyebrow from "@/components/ui/Eyebrow";
 import ImageSlot from "@/components/ui/ImageSlot";
+import EditableImage from "@/components/admin/EditableImage";
+import { useEdit } from "@/components/admin/EditContext";
 
 interface BioBlockProps {
   number: string;
@@ -8,18 +12,43 @@ interface BioBlockProps {
   paragraphs: string[];
   credentials: string[];
   imageSlotId?: string;
+  imageUrl?: string;
+  blockIndex?: number;
 }
 
-export default function BioBlock({ number, eyebrow, heading, paragraphs, credentials, imageSlotId }: BioBlockProps) {
+export default function BioBlock({
+  number,
+  eyebrow,
+  heading,
+  paragraphs,
+  credentials,
+  imageSlotId,
+  imageUrl,
+  blockIndex = 0,
+}: BioBlockProps) {
+  const edit = useEdit();
+  const imageClass = "h-[320px] w-full rounded-[22px] shadow-[0_24px_50px_rgba(46,33,27,0.14)] sm:h-[400px]";
+
   return (
     <section className="bg-cream px-6 py-14 md:px-10 md:py-28">
       <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-16">
-        <ImageSlot
-          id={imageSlotId}
-          alt={heading}
-          placeholder="Dr. Nina portrait"
-          className="h-[320px] w-full rounded-[22px] shadow-[0_24px_50px_rgba(46,33,27,0.14)] sm:h-[400px]"
-        />
+        {edit?.enabled ? (
+          <EditableImage
+            slotId={imageSlotId}
+            urlPath={`blocks.${blockIndex}.imageUrl`}
+            alt={heading}
+            placeholder="Dr. Nina portrait"
+            className={imageClass}
+          />
+        ) : (
+          <ImageSlot
+            id={imageSlotId}
+            src={imageUrl}
+            alt={heading}
+            placeholder="Dr. Nina portrait"
+            className={imageClass}
+          />
+        )}
         <div>
           <Eyebrow number={number} label={eyebrow} />
           <h2 className="mt-3.5 font-display text-[28px] font-medium leading-tight text-ink sm:text-[34px] md:text-[38px]">

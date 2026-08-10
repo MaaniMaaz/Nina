@@ -1,14 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import ImageSlot from "@/components/ui/ImageSlot";
+import EditableText from "@/components/admin/EditableText";
+import EditableImage from "@/components/admin/EditableImage";
+import { useEdit } from "@/components/admin/EditContext";
 import type { HeroContent } from "@/content/types";
 
 /**
  * Pixel-matched to Condition/Treatment/Positioning Full (Mobile) + Desktop dumps.
- * Mobile order: eyebrow → H1 → lead → image → body → byline → CTA → stats.
- * Desktop: two-column text | image+stats.
+ * Supports CMS edit mode via EditableText / EditableImage when EditProvider is active.
  */
 export default function PageHero({ hero }: { hero: HeroContent }) {
+  const edit = useEdit();
   const [lead, ...rest] = hero.paragraphs;
+  const E = edit?.enabled;
 
   return (
     <section className="bg-cream px-6 pb-7 pt-6 md:px-10 md:pb-22 md:pt-16">
@@ -26,29 +32,42 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
             </>
           )}
           <span className="mx-1.5">/</span>
-          <span className="text-body">{hero.breadcrumbLabel}</span>
+          <span className="text-body">
+            {E ? (
+              <EditableText path="hero.breadcrumbLabel" value={hero.breadcrumbLabel} />
+            ) : (
+              hero.breadcrumbLabel
+            )}
+          </span>
         </nav>
 
-        {/* Desktop two-column */}
         <div className="hidden items-center gap-16 md:grid md:grid-cols-[1.05fr_0.95fr]">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-cream-deep px-4 py-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#5a7d4f]" />
               <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#4a6340]">
-                {hero.eyebrow}
+                {E ? <EditableText path="hero.eyebrow" value={hero.eyebrow} /> : hero.eyebrow}
               </span>
             </div>
             <h1 className="mt-5.5 font-display text-[62px] font-medium leading-[1.02] tracking-tight text-ink">
-              {hero.heading}
+              {E ? (
+                <EditableText path="hero.heading" value={hero.heading} as="span" multiline />
+              ) : (
+                hero.heading
+              )}
             </h1>
             {hero.paragraphs.map((p, i) => (
               <p
-                key={p}
+                key={i}
                 className={`mt-5 max-w-[33em] text-[17px] leading-relaxed ${
                   i === 0 ? "text-body" : "text-body-soft"
                 }`}
               >
-                {p}
+                {E ? (
+                  <EditableText path={`hero.paragraphs.${i}`} value={p} multiline />
+                ) : (
+                  p
+                )}
               </p>
             ))}
             <div className="mt-7.5 flex flex-wrap items-center gap-4">
@@ -56,40 +75,87 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
                 href="/start"
                 className="rounded-md bg-gold px-7 py-4 text-[15px] font-semibold text-ink shadow-[0_12px_28px_rgba(233,180,90,0.36)] no-underline transition-colors hover:bg-gold-hover"
               >
-                {hero.ctaLabel ?? "Book the $99 Symptom Consultation"}
+                {E ? (
+                  <EditableText
+                    path="hero.ctaLabel"
+                    value={hero.ctaLabel ?? "Book the $99 Symptom Consultation"}
+                  />
+                ) : (
+                  hero.ctaLabel ?? "Book the $99 Symptom Consultation"
+                )}
               </Link>
               {hero.secondaryLabel && hero.secondaryHref && (
                 <Link
                   href={hero.secondaryHref}
                   className="border-b-[1.5px] border-body/30 pb-0.5 text-sm font-medium text-body no-underline hover:border-terracotta hover:text-ink"
                 >
-                  {hero.secondaryLabel}
+                  {E ? (
+                    <EditableText path="hero.secondaryLabel" value={hero.secondaryLabel} />
+                  ) : (
+                    hero.secondaryLabel
+                  )}
                 </Link>
               )}
             </div>
             <div className="mt-6.5 flex max-w-[33em] items-center gap-2.5 rounded-xl bg-cream-deep px-4 py-3.5">
-              <ImageSlot id={hero.bylineAvatarSlotId} alt="Dr. Nina Ross, ND PhD" shape="circle" className="h-10 w-10 flex-none" />
+              {E ? (
+                <EditableImage
+                  slotId={hero.bylineAvatarSlotId}
+                  urlPath="hero.bylineAvatarUrl"
+                  alt="Dr. Nina Ross, ND PhD"
+                  shape="circle"
+                  className="h-10 w-10 flex-none"
+                />
+              ) : (
+                <ImageSlot
+                  id={hero.bylineAvatarSlotId}
+                  alt="Dr. Nina Ross, ND PhD"
+                  shape="circle"
+                  className="h-10 w-10 flex-none"
+                />
+              )}
               <span className="text-xs leading-snug text-body-soft">
                 Medically reviewed by{" "}
                 <Link href="/about" className="font-bold text-ink no-underline">
                   Dr. Nina Ross, ND PhD
                 </Link>{" "}
-                · Board-Certified in Holistic Health &amp; Trichology · Reviewed {hero.reviewedDate ?? "Jun 2026"}
+                · Board-Certified in Holistic Health &amp; Trichology · Reviewed{" "}
+                {E ? (
+                  <EditableText
+                    path="hero.reviewedDate"
+                    value={hero.reviewedDate ?? "Jun 2026"}
+                  />
+                ) : (
+                  hero.reviewedDate ?? "Jun 2026"
+                )}
               </span>
             </div>
           </div>
           <div>
             <div className="relative overflow-hidden rounded-[22px] shadow-[0_30px_60px_rgba(46,33,27,0.2)]">
-              <ImageSlot
-                id={hero.imageSlotId}
-                alt={hero.imageAlt ?? hero.heading}
-                placeholder="Hero image"
-                className="h-[540px] w-full"
-                priority
-              />
+              {E ? (
+                <EditableImage
+                  slotId={hero.imageSlotId}
+                  urlPath="hero.imageUrl"
+                  alt={hero.imageAlt ?? hero.heading}
+                  placeholder="Hero image"
+                  className="h-[540px] w-full"
+                />
+              ) : (
+                <ImageSlot
+                  id={hero.imageSlotId}
+                  src={hero.imageUrl}
+                  alt={hero.imageAlt ?? hero.heading}
+                  placeholder="Hero image"
+                  className="h-[540px] w-full"
+                  priority
+                />
+              )}
               <div className="absolute bottom-4.5 left-4.5 inline-flex items-center gap-2 rounded-full bg-[#0d0b0a]/62 px-4 py-2.5 backdrop-blur-sm">
                 <span className="h-[7px] w-[7px] rounded-full bg-gold" />
-                <span className="text-[11.5px] font-semibold text-cream-deep">Real care, in Atlanta &amp; virtual</span>
+                <span className="text-[11.5px] font-semibold text-cream-deep">
+                  Real care, in Atlanta &amp; virtual
+                </span>
               </div>
             </div>
             <div className="mt-4 flex items-stretch rounded-[14px] border border-ink/10 bg-cream py-4">
@@ -111,51 +177,59 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
           </div>
         </div>
 
-        {/* Mobile stacked — exact dump order */}
         <div className="md:hidden">
           <div className="inline-flex items-center gap-[7px] rounded-full border border-ink/10 bg-[#EFE7D7] px-[13px] py-[7px]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#5a7d4f]" />
             <span className="text-[10.5px] font-semibold uppercase tracking-[0.08em] text-[#4a6340]">
-              {hero.eyebrow}
+              {E ? <EditableText path="hero.eyebrow" value={hero.eyebrow} /> : hero.eyebrow}
             </span>
           </div>
           <h1 className="mt-4 font-display text-[33px] font-medium leading-[1.05] tracking-[-0.02em] text-ink">
-            {hero.heading}
+            {E ? (
+              <EditableText path="hero.heading" value={hero.heading} multiline />
+            ) : (
+              hero.heading
+            )}
           </h1>
-          {lead && <p className="mt-[13px] text-sm leading-[1.58] text-body">{lead}</p>}
+          {lead && (
+            <p className="mt-[13px] text-sm leading-[1.58] text-body">
+              {E ? (
+                <EditableText path="hero.paragraphs.0" value={lead} multiline />
+              ) : (
+                lead
+              )}
+            </p>
+          )}
 
           <div className="relative mt-[18px] overflow-hidden rounded-2xl shadow-[0_16px_34px_rgba(46,33,27,0.16)]">
-            <ImageSlot
-              id={hero.imageSlotId}
-              alt={hero.imageAlt ?? hero.heading}
-              placeholder="Hero image"
-              className="h-[200px] w-full"
-              priority
-            />
-            <div className="absolute bottom-3 left-3.5 inline-flex items-center gap-[7px] rounded-full bg-[#0d0b0a]/62 px-3 py-[7px] backdrop-blur-[6px]">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-              <span className="text-[10.5px] font-semibold tracking-wide text-cream-deep">
-                Real care, in Atlanta &amp; virtual
-              </span>
-            </div>
+            {E ? (
+              <EditableImage
+                slotId={hero.imageSlotId}
+                urlPath="hero.imageUrl"
+                alt={hero.imageAlt ?? hero.heading}
+                placeholder="Hero image"
+                className="h-[200px] w-full"
+              />
+            ) : (
+              <ImageSlot
+                id={hero.imageSlotId}
+                alt={hero.imageAlt ?? hero.heading}
+                placeholder="Hero image"
+                className="h-[200px] w-full"
+                priority
+              />
+            )}
           </div>
 
-          {rest.map((p) => (
-            <p key={p} className="mt-[18px] text-sm leading-[1.58] text-body">
-              {p}
+          {rest.map((p, i) => (
+            <p key={i} className="mt-[18px] text-sm leading-[1.58] text-body">
+              {E ? (
+                <EditableText path={`hero.paragraphs.${i + 1}`} value={p} multiline />
+              ) : (
+                p
+              )}
             </p>
           ))}
-
-          <div className="mt-4 flex items-center gap-[9px] rounded-[11px] bg-[#F3ECDD] px-[13px] py-[11px]">
-            <ImageSlot id={hero.bylineAvatarSlotId} alt="Dr. Nina Ross, ND PhD" shape="circle" className="h-9 w-9 flex-none" />
-            <span className="text-[11px] leading-[1.42] text-body-soft">
-              Medically reviewed by{" "}
-              <Link href="/about" className="font-bold text-ink no-underline">
-                Dr. Nina Ross, ND PhD
-              </Link>{" "}
-              · Board-Certified in Holistic Health &amp; Trichology · Reviewed {hero.reviewedDate ?? "Jun 2026"}
-            </span>
-          </div>
 
           <Link
             href="/start"
@@ -163,23 +237,6 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
           >
             {hero.ctaLabel ?? "Book the $99 Symptom Consultation"}
           </Link>
-
-          <div className="mt-[22px] flex items-stretch border-y border-ink/10 py-3.5">
-            <div className="flex-1 text-center">
-              <div className="font-display text-[21px] text-ink">4.9★</div>
-              <div className="text-[9.5px] tracking-wide text-muted">300+ patients</div>
-            </div>
-            <div className="w-px bg-ink/10" />
-            <div className="flex-1 text-center">
-              <div className="font-display text-[21px] text-ink">ND·PhD</div>
-              <div className="text-[9.5px] tracking-wide text-muted">Dr. Nina Ross</div>
-            </div>
-            <div className="w-px bg-ink/10" />
-            <div className="flex-1 text-center">
-              <div className="font-display text-[21px] text-ink">Self-pay</div>
-              <div className="text-[9.5px] tracking-wide text-muted">No referral</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
