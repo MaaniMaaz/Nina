@@ -75,6 +75,13 @@ export default function EditableImage({
     </div>
   );
 
+  function deleteImage() {
+    if (!edit || !urlPath) return;
+    const confirmed = window.confirm("Remove this image from the page?");
+    if (!confirmed) return;
+    edit.patchPath(urlPath, "");
+  }
+
   if (!edit?.enabled || !urlPath) return media;
 
   return (
@@ -89,6 +96,16 @@ export default function EditableImage({
         >
           {uploading ? "…" : "Upload"}
         </button>
+        {urlFromContent ? (
+          <button
+            type="button"
+            disabled={uploading}
+            onClick={deleteImage}
+            className="rounded bg-red-700/90 px-2 py-1 text-[10px] font-semibold text-cream"
+          >
+            Delete
+          </button>
+        ) : null}
       </div>
       <input
         ref={inputRef}
