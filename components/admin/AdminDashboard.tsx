@@ -19,6 +19,7 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
   const [listError, setListError] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
   const [duplicatingId, setDuplicatingId] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
   const [newTitle, setNewTitle] = useState("");
 
   async function load() {
@@ -118,6 +119,24 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
       setError(err instanceof Error ? err.message : "Duplicate failed");
     } finally {
       setDuplicatingId(null);
+    }
+  }
+
+  async function deletePage(id: string) {
+    const ok = window.confirm("Delete this page? This cannot be undone.");
+    if (!ok) return;
+    setDeletingId(id);
+    setError(null);
+    try {
+      const res = await fetch(`/api/admin/pages/${id}`, { method: "DELETE" });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Delete failed");
+      // reload list
+      await load();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Delete failed");
+    } finally {
+      setDeletingId(null);
     }
   }
 
@@ -240,7 +259,7 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
                 >
                   <PageThumbnail src={`${publicPathLabel(p)}?preview=1`} />
                 </Link>
-                <div className="p-3.5">
+                <div className="pt-6 px-3.5 pb-3.5">
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
                       <div className="truncate text-[14px] font-semibold text-ink" title={p.title}>
@@ -280,6 +299,14 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
                       className="rounded border border-ink/20 px-3 py-1.5 text-[12px] font-semibold disabled:opacity-50"
                     >
                       {duplicatingId === p.id ? "Copying…" : "Duplicate"}
+                    </button>
+                    <button
+                      type="button"
+                      disabled={deletingId === p.id}
+                      onClick={() => void deletePage(p.id)}
+                      className="rounded border border-red-200 bg-red-50 px-3 py-1.5 text-[12px] font-semibold text-red-700 disabled:opacity-50"
+                    >
+                      {deletingId === p.id ? "Deleting…" : "Delete"}
                     </button>
                   </div>
                 </div>

@@ -132,6 +132,13 @@ export async function updatePage(
   return doc ? toCmsPage(doc) : null;
 }
 
+export async function deletePage(id: string): Promise<boolean> {
+  if (!ObjectId.isValid(id)) return false;
+  const col = await pagesCollection();
+  const res = await col.deleteOne({ _id: new ObjectId(id) });
+  return res.deletedCount === 1;
+}
+
 export async function setPageStatus(
   id: string,
   status: PageStatus,

@@ -8,6 +8,7 @@ import AdminStringFields from "./AdminStringFields";
 import BlogMetaFields from "./BlogMetaFields";
 import BlogEditable from "./BlogEditable";
 import DevicePreview, { type DeviceMode } from "./DevicePreview";
+import InlinePreview from "./InlinePreview";
 import LongformPage from "@/components/templates/LongformPage";
 import type { CmsPage } from "@/lib/cms/pages";
 import { isLongformContent, isBlogContent } from "@/lib/cms/types";
@@ -283,11 +284,14 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
         <div className="p-3 sm:p-4">
           {dirty ? (
             <p className="mb-3 rounded-lg border border-gold/40 bg-gold/20 px-3 py-2 text-[13px]">
-              Showing the <strong>last saved</strong> version. Save to refresh this preview with
-              your latest edits.
+              Showing live edits. Uploads and inline changes appear immediately below.
             </p>
           ) : null}
-          <DevicePreview src={previewSrc} mode={device} />
+          {dirty ? (
+            <InlinePreview mode={device} pageType={initial.type} previewHref={previewSrc} />
+          ) : (
+            <DevicePreview src={previewSrc} mode={device} />
+          )}
         </div>
       ) : (
         <div className="grid gap-4 p-3 sm:p-4 lg:grid-cols-[minmax(280px,340px)_1fr]">

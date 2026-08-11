@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { getPageById, updatePage, getPageByTypeSlug } from "@/lib/cms/pages";
+import { getPageById, updatePage, getPageByTypeSlug, deletePage } from "@/lib/cms/pages";
 import { isMongoConfigured } from "@/lib/mongodb";
 import { revalidatePath } from "next/cache";
 import { publicPath } from "@/lib/cms/slug";
@@ -138,4 +138,24 @@ export async function PATCH(request: Request, ctx: Ctx) {
   }
 
   return NextResponse.json({ page });
+}
+
+export async function DELETE(_request: Request, ctx: Ctx) {
+  if (!(await isAdminAuthenticated())) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  if (!isMongoConfigured()) {
+    return NextResponse.json({ error: "MongoDB not configured" }, { status: 503 });
+  }
+  const { id } = await ctx.params;
+  const existing = await getPageById(id);
+  if (!existing) return NextResponse.json({ error: "Not found" }, { status: 404 });
+
+  const ok = await deletePage(id);
+  if (!ok) return NextResponse.json({ error: "Delete failed" }, { status: 500 });
+
+  // Revalidate affected paths
+  revalidateManaged(existing.type, existing.slug);
+
+  return NextResponse.json({ ok: true });
 }
