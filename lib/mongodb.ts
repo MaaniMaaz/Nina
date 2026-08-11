@@ -14,7 +14,14 @@ function createClient(): MongoClient {
   if (!uri) {
     throw new Error("MONGODB_URI is not set");
   }
-  return new MongoClient(uri);
+  return new MongoClient(uri, {
+    // Serverless: give up quickly so an unreachable cluster degrades to the
+    // static fallback instead of hanging the request for the default 30s.
+    serverSelectionTimeoutMS: 5000,
+    connectTimeoutMS: 5000,
+    socketTimeoutMS: 10000,
+    maxPoolSize: 10,
+  });
 }
 
 export function isMongoConfigured(): boolean {
@@ -25,13 +32,17 @@ export async function getMongoClient(): Promise<MongoClient> {
   if (!isMongoConfigured()) {
     throw new Error("MONGODB_URI is not set");
   }
-  if (process.env.NODE_ENV === "development") {
-    if (!global._mongoClientPromise) {
-      global._mongoClientPromise = createClient().connect();
-    }
-    return global._mongoClientPromise;
+  // Reuse one client across invocations that share a warm lambda; a new client
+  // per request re-runs the TLS + replica-set handshake on every page view.
+  if (!global._mongoClientPromise) {
+    global._mongoClientPromise = createClient()
+      .connect()
+      .catch((err) => {
+        global._mongoClientPromise = undefined;
+        throw err;
+      });
   }
-  return createClient().connect();
+  return global._mongoClientPromise;
 }
 
 export async function getDb(): Promise<Db> {

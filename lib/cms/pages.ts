@@ -29,35 +29,30 @@ export async function listPublishedIndex(type: PageType): Promise<
   Array<{ slug: string; name: string; teaser: string; coverImageUrl?: string }>
 > {
   if (!isMongoConfigured()) return [];
-  try {
-    const col = await pagesCollection();
-    const docs = await col
-      .find({ type, status: "published" })
-      .sort({ title: 1 })
-      .toArray();
-    return docs.map((d) => ({
-      slug: d.slug,
-      name: d.index.name,
-      teaser: d.index.teaser,
-      coverImageUrl: d.index.coverImageUrl,
-    }));
-  } catch {
-    return [];
-  }
+  // Errors intentionally propagate: an unreachable cluster must be
+  // distinguishable from "nothing is published" so callers can fall back to
+  // the bundled content instead of rendering an empty index.
+  const col = await pagesCollection();
+  const docs = await col
+    .find({ type, status: "published" })
+    .sort({ title: 1 })
+    .toArray();
+  return docs.map((d) => ({
+    slug: d.slug,
+    name: d.index.name,
+    teaser: d.index.teaser,
+    coverImageUrl: d.index.coverImageUrl,
+  }));
 }
 
 export async function listPublishedPages(type: PageType): Promise<CmsPage[]> {
   if (!isMongoConfigured()) return [];
-  try {
-    const col = await pagesCollection();
-    const docs = await col
-      .find({ type, status: "published" })
-      .sort({ updatedAt: -1 })
-      .toArray();
-    return docs.map(toCmsPage);
-  } catch {
-    return [];
-  }
+  const col = await pagesCollection();
+  const docs = await col
+    .find({ type, status: "published" })
+    .sort({ updatedAt: -1 })
+    .toArray();
+  return docs.map(toCmsPage);
 }
 
 export async function getPageById(id: string): Promise<CmsPage | null> {
