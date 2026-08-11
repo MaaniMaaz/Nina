@@ -5,6 +5,14 @@
   --foreground: #2e211b;
 }
 
+/* Define font-family CSS variables to match the fonts loaded via Google Fonts */
+:root {
+  --font-fraunces: "Fraunces", serif;
+  --font-hanken: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-caveat: "Caveat", cursive;
+  --font-newsreader-face: "Newsreader", serif;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
