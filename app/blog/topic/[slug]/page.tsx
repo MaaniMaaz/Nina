@@ -5,7 +5,9 @@ import { notFound } from "next/navigation";
 import { blogTopicSlug } from "@/content/blog";
 import { resolveBlogCards } from "@/lib/cms/resolve";
 
-export const dynamic = "force-dynamic";
+// Cached between visits; publishing revalidates /blog/topic/[slug], so edits
+// still appear immediately without querying Mongo on every request.
+export const revalidate = 300;
 
 type Props = { params: Promise<{ slug: string }> };
 

@@ -5,7 +5,9 @@ import ImageSlot from "@/components/ui/ImageSlot";
 import { resolveIndex } from "@/lib/cms/resolve";
 import { treatmentCardImage } from "@/content/treatment-images";
 
-export const dynamic = "force-dynamic";
+// Cached between visits; publishing calls revalidatePath("/treatments"), so
+// edits still appear immediately without querying Mongo on every request.
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Treatments We Use",

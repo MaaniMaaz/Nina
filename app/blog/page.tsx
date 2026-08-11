@@ -4,7 +4,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildBlogJsonLd } from "@/content/blog";
 import { resolveBlogCards } from "@/lib/cms/resolve";
 
-export const dynamic = "force-dynamic";
+// Cached between visits; publishing calls revalidatePath("/blog"), so edits
+// still appear immediately without querying Mongo on every request.
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: {

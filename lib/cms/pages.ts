@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { ObjectId, type WithId } from "mongodb";
 import { pagesCollection, isMongoConfigured } from "@/lib/mongodb";
 import type {
@@ -62,7 +63,12 @@ export async function getPageById(id: string): Promise<CmsPage | null> {
   return doc ? toCmsPage(doc) : null;
 }
 
-export async function getPageByTypeSlug(
+/**
+ * Deduped per request: rendering a detail page asks for the same document from
+ * generateMetadata and from the page body, which would otherwise be two or
+ * three identical round trips against the shared cluster's op budget.
+ */
+export const getPageByTypeSlug = cache(async function getPageByTypeSlug(
   type: PageType,
   slug: string,
 ): Promise<CmsPage | null> {
@@ -74,7 +80,7 @@ export async function getPageByTypeSlug(
   } catch {
     return null;
   }
-}
+});
 
 export async function getPublishedPage(
   type: PageType,

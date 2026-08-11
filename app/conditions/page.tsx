@@ -4,7 +4,9 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import ImageSlot from "@/components/ui/ImageSlot";
 import { resolveIndex } from "@/lib/cms/resolve";
 
-export const dynamic = "force-dynamic";
+// Cached between visits; publishing calls revalidatePath("/conditions"), so
+// edits still appear immediately without querying Mongo on every request.
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Conditions We Treat",

@@ -6,8 +6,6 @@ const uri = process.env.MONGODB_URI;
 declare global {
   // eslint-disable-next-line no-var
   var _mongoClientPromise: Promise<MongoClient> | undefined;
-  // eslint-disable-next-line no-var
-  var _mongoIndexesReady: Promise<void> | undefined;
 }
 
 function createClient(): MongoClient {
@@ -20,7 +18,13 @@ function createClient(): MongoClient {
     serverSelectionTimeoutMS: 5000,
     connectTimeoutMS: 5000,
     socketTimeoutMS: 10000,
-    maxPoolSize: 10,
+    // Every warm lambda holds its own pool, so the cluster-wide socket count is
+    // maxPoolSize x concurrent instances. Keep it small and let idle sockets go
+    // to stay under the shared-tier connection cap.
+    maxPoolSize: 5,
+    minPoolSize: 0,
+    maxIdleTimeMS: 15000,
+    waitQueueTimeoutMS: 5000,
   });
 }
 
@@ -50,24 +54,11 @@ export async function getDb(): Promise<Db> {
   return client.db(process.env.MONGODB_DB || "nina");
 }
 
-async function ensurePageIndexes(col: Collection<CmsPageDocument>) {
-  await col.createIndex({ type: 1, slug: 1 }, { unique: true });
-  await col.createIndex({ type: 1, status: 1 });
-}
-
+/**
+ * Indexes are created by `npm run seed`, not here: doing it on the request path
+ * spent two extra operations on every cold start against a rate-limited tier.
+ */
 export async function pagesCollection(): Promise<Collection<CmsPageDocument>> {
   const db = await getDb();
-  const col = db.collection<CmsPageDocument>("pages");
-  if (!global._mongoIndexesReady) {
-    global._mongoIndexesReady = ensurePageIndexes(col).catch((err) => {
-      console.error("Failed to ensure MongoDB page indexes", err);
-      global._mongoIndexesReady = undefined;
-    });
-  }
-  try {
-    await global._mongoIndexesReady;
-  } catch {
-    // Indexes are best-effort; collection is still usable.
-  }
-  return col;
+  return db.collection<CmsPageDocument>("pages");
 }
