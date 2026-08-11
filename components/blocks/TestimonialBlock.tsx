@@ -3,6 +3,7 @@
 import Eyebrow from "@/components/ui/Eyebrow";
 import ImageSlot from "@/components/ui/ImageSlot";
 import EditableImage from "@/components/admin/EditableImage";
+import EditableText from "@/components/admin/EditableText";
 import { useEdit } from "@/components/admin/EditContext";
 
 interface TestimonialBlockProps {
@@ -31,13 +32,15 @@ export default function TestimonialBlock({
   blockIndex = 0,
 }: TestimonialBlockProps) {
   const edit = useEdit();
+  const E = edit?.enabled;
+  const base = `blocks.${blockIndex}`;
   const photoClass = "h-[300px] w-full rounded-[22px] shadow-[0_24px_50px_rgba(46,33,27,0.18)] sm:h-[420px]";
   const avatarClass = "h-[52px] w-[52px] flex-none";
 
   return (
     <section className="bg-cream px-6 py-14 md:px-10 md:py-28">
       <div className="mx-auto grid max-w-5xl items-center gap-9 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
-        {edit?.enabled ? (
+        {E ? (
           <EditableImage
             slotId={photoSlotId}
             urlPath={`blocks.${blockIndex}.photoUrl`}
@@ -55,15 +58,22 @@ export default function TestimonialBlock({
           />
         )}
         <div>
-          <Eyebrow number={number} label={eyebrow} />
+          <Eyebrow
+            number={number}
+            label={E ? <EditableText path={`${base}.eyebrow`} value={eyebrow} /> : eyebrow}
+          />
           <svg width="34" height="26" viewBox="0 0 26 20" fill="#E9B45A" className="mt-6 opacity-85">
             <path d="M0 20V11C0 4.9 3.7 0.8 9.6 0L10.6 2.7C7 3.7 5.4 5.6 5.4 8.4H10V20H0ZM15 20V11C15 4.9 18.7 0.8 24.6 0L25.6 2.7C22 3.7 20.4 5.6 20.4 8.4H25V20H15Z" />
           </svg>
           <p className="mt-4 font-display text-[24px] italic leading-snug text-ink sm:text-[30px]">
-            {quote}
+            {E ? (
+              <EditableText path={`${base}.quote`} value={quote} multiline />
+            ) : (
+              quote
+            )}
           </p>
           <div className="mt-6 flex items-center gap-3.5">
-            {edit?.enabled ? (
+            {E ? (
               <EditableImage
                 slotId={avatarSlotId}
                 urlPath={`blocks.${blockIndex}.avatarUrl`}
@@ -75,8 +85,12 @@ export default function TestimonialBlock({
               <ImageSlot id={avatarSlotId} src={avatarUrl} alt={name} shape="circle" className={avatarClass} />
             )}
             <div>
-              <div className="text-[15px] font-bold text-ink">{name}</div>
-              <div className="text-[13px] text-muted">{meta}</div>
+              <div className="text-[15px] font-bold text-ink">
+                {E ? <EditableText path={`${base}.name`} value={name} /> : name}
+              </div>
+              <div className="text-[13px] text-muted">
+                {E ? <EditableText path={`${base}.meta`} value={meta} /> : meta}
+              </div>
             </div>
           </div>
         </div>

@@ -4,17 +4,35 @@ import Link from "next/link";
 import ImageSlot from "@/components/ui/ImageSlot";
 import EditableText from "@/components/admin/EditableText";
 import EditableImage from "@/components/admin/EditableImage";
-import { useEdit } from "@/components/admin/EditContext";
+import EditableLink from "@/components/admin/EditableLink";
+import { getByPath, useEdit } from "@/components/admin/EditContext";
 import type { HeroContent } from "@/content/types";
 
 /**
  * Pixel-matched to Condition/Treatment/Positioning Full (Mobile) + Desktop dumps.
- * Supports CMS edit mode via EditableText / EditableImage when EditProvider is active.
+ * Supports CMS edit mode via EditableText / EditableImage / EditableLink.
  */
 export default function PageHero({ hero }: { hero: HeroContent }) {
   const edit = useEdit();
   const [lead, ...rest] = hero.paragraphs;
   const E = edit?.enabled;
+  const ctaHref =
+    E && edit.content
+      ? String(getByPath(edit.content, "hero.ctaHref") ?? hero.ctaHref ?? "/start")
+      : (hero.ctaHref ?? "/start");
+  const secondaryHref =
+    E && edit.content
+      ? String(getByPath(edit.content, "hero.secondaryHref") ?? hero.secondaryHref ?? "")
+      : (hero.secondaryHref ?? "");
+  const parentHref =
+    E && edit.content
+      ? String(
+          getByPath(edit.content, "hero.breadcrumbParentHref") ??
+            hero.breadcrumbParentHref ??
+            "",
+        )
+      : (hero.breadcrumbParentHref ?? "");
+  const ctaLabel = hero.ctaLabel ?? "Book the $99 Symptom Consultation";
 
   return (
     <section className="bg-cream px-6 pb-7 pt-6 md:px-10 md:pb-22 md:pt-16">
@@ -23,12 +41,35 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
           <Link href="/" className="text-muted no-underline hover:text-body">
             Home
           </Link>
-          {hero.breadcrumbParentHref && hero.breadcrumbParentLabel && (
+          {(parentHref || hero.breadcrumbParentLabel || E) && (
             <>
               <span className="mx-1.5">/</span>
-              <Link href={hero.breadcrumbParentHref} className="text-muted no-underline hover:text-body">
-                {hero.breadcrumbParentLabel}
-              </Link>
+              {parentHref && hero.breadcrumbParentLabel ? (
+                <Link href={parentHref} className="text-muted no-underline hover:text-body">
+                  {E ? (
+                    <EditableText
+                      path="hero.breadcrumbParentLabel"
+                      value={hero.breadcrumbParentLabel}
+                    />
+                  ) : (
+                    hero.breadcrumbParentLabel
+                  )}
+                </Link>
+              ) : E ? (
+                <span className="text-muted">
+                  <EditableText
+                    path="hero.breadcrumbParentLabel"
+                    value={hero.breadcrumbParentLabel ?? "Parent"}
+                  />
+                </span>
+              ) : null}
+              {E ? (
+                <EditableLink
+                  path="hero.breadcrumbParentHref"
+                  value={parentHref || "/conditions"}
+                  label="Breadcrumb parent URL"
+                />
+              ) : null}
             </>
           )}
           <span className="mx-1.5">/</span>
@@ -71,30 +112,55 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
               </p>
             ))}
             <div className="mt-7.5 flex flex-wrap items-center gap-4">
-              <Link
-                href="/start"
-                className="rounded-md bg-gold px-7 py-4 text-[15px] font-semibold text-ink shadow-[0_12px_28px_rgba(233,180,90,0.36)] no-underline transition-colors hover:bg-gold-hover"
-              >
-                {E ? (
-                  <EditableText
-                    path="hero.ctaLabel"
-                    value={hero.ctaLabel ?? "Book the $99 Symptom Consultation"}
-                  />
-                ) : (
-                  hero.ctaLabel ?? "Book the $99 Symptom Consultation"
-                )}
-              </Link>
-              {hero.secondaryLabel && hero.secondaryHref && (
+              <span className="inline-flex flex-col items-start gap-1">
                 <Link
-                  href={hero.secondaryHref}
-                  className="border-b-[1.5px] border-body/30 pb-0.5 text-sm font-medium text-body no-underline hover:border-terracotta hover:text-ink"
+                  href={ctaHref || "/start"}
+                  className="rounded-md bg-gold px-7 py-4 text-[15px] font-semibold text-ink shadow-[0_12px_28px_rgba(233,180,90,0.36)] no-underline transition-colors hover:bg-gold-hover"
+                  onClick={E ? (e) => e.preventDefault() : undefined}
                 >
                   {E ? (
-                    <EditableText path="hero.secondaryLabel" value={hero.secondaryLabel} />
+                    <EditableText path="hero.ctaLabel" value={ctaLabel} />
                   ) : (
-                    hero.secondaryLabel
+                    ctaLabel
                   )}
                 </Link>
+                {E ? (
+                  <EditableLink path="hero.ctaHref" value={ctaHref || "/start"} label="Primary button URL" />
+                ) : null}
+              </span>
+              {(hero.secondaryLabel || E) && (
+                <span className="inline-flex flex-col items-start gap-1">
+                  {secondaryHref || !E ? (
+                    <Link
+                      href={secondaryHref || "#"}
+                      className="border-b-[1.5px] border-body/30 pb-0.5 text-sm font-medium text-body no-underline hover:border-terracotta hover:text-ink"
+                      onClick={E ? (e) => e.preventDefault() : undefined}
+                    >
+                      {E ? (
+                        <EditableText
+                          path="hero.secondaryLabel"
+                          value={hero.secondaryLabel ?? "Secondary link"}
+                        />
+                      ) : (
+                        hero.secondaryLabel
+                      )}
+                    </Link>
+                  ) : (
+                    <span className="border-b-[1.5px] border-body/30 pb-0.5 text-sm font-medium text-body">
+                      <EditableText
+                        path="hero.secondaryLabel"
+                        value={hero.secondaryLabel ?? "Secondary link"}
+                      />
+                    </span>
+                  )}
+                  {E ? (
+                    <EditableLink
+                      path="hero.secondaryHref"
+                      value={secondaryHref || "/approach"}
+                      label="Secondary link URL"
+                    />
+                  ) : null}
+                </span>
               )}
             </div>
             <div className="mt-6.5 flex max-w-[33em] items-center gap-2.5 rounded-xl bg-cream-deep px-4 py-3.5">
@@ -231,12 +297,18 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
             </p>
           ))}
 
-          <Link
-            href="/start"
-            className="mt-[18px] block rounded-lg bg-gold py-[15px] text-center text-sm font-semibold text-ink no-underline"
-          >
-            {hero.ctaLabel ?? "Book the $99 Symptom Consultation"}
-          </Link>
+          <span className="mt-[18px] block">
+            <Link
+              href={ctaHref || "/start"}
+              className="block rounded-lg bg-gold py-[15px] text-center text-sm font-semibold text-ink no-underline"
+              onClick={E ? (e) => e.preventDefault() : undefined}
+            >
+              {E ? <EditableText path="hero.ctaLabel" value={ctaLabel} /> : ctaLabel}
+            </Link>
+            {E ? (
+              <EditableLink path="hero.ctaHref" value={ctaHref || "/start"} label="Primary button URL" />
+            ) : null}
+          </span>
         </div>
       </div>
     </section>

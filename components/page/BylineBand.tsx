@@ -1,10 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import ImageSlot from "@/components/ui/ImageSlot";
+import EditableText from "@/components/admin/EditableText";
+import { useEdit } from "@/components/admin/EditContext";
 
 /**
  * E-E-A-T byline — matches Condition/Treatment dump §10.
  */
 export default function BylineBand({ note, avatarSlotId }: { note: string; avatarSlotId?: string }) {
+  const edit = useEdit();
+  const E = edit?.enabled;
+
   return (
     <section className="bg-[#1f1610] px-6 py-[26px] md:px-[clamp(40px,6vw,100px)] md:py-[34px] md:pb-11">
       <div className="mx-auto max-w-[1100px]">
@@ -22,7 +29,9 @@ export default function BylineBand({ note, avatarSlotId }: { note: string; avata
             </div>
           </div>
         </div>
-        <p className="mt-[18px] max-w-[60em] text-[11.5px] leading-[1.55] text-[#6f6353]">{note}</p>
+        <p className="mt-[18px] max-w-[60em] text-[11.5px] leading-[1.55] text-[#6f6353]">
+          {E ? <EditableText path="bylineNote" value={note} multiline /> : note}
+        </p>
       </div>
     </section>
   );

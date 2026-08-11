@@ -1,3 +1,8 @@
+"use client";
+
+import EditableText from "@/components/admin/EditableText";
+import { useEdit } from "@/components/admin/EditContext";
+
 const ICONS = {
   slash: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B5572F" strokeWidth="1.6">
@@ -38,13 +43,19 @@ export default function IconCardGrid({
   heading,
   cards,
   footnote,
+  blockIndex = 0,
 }: {
   number?: string;
   eyebrow: string;
   heading: string;
   cards: { icon: keyof typeof ICONS; title: string }[];
   footnote?: string;
+  blockIndex?: number;
 }) {
+  const edit = useEdit();
+  const E = edit?.enabled;
+  const base = `blocks.${blockIndex}`;
+
   return (
     <section className="bg-[#ECE3D2] px-6 py-14 md:px-[clamp(40px,6vw,100px)] md:py-[clamp(64px,7vw,104px)]">
       <div className="mx-auto max-w-[1100px]">
@@ -52,27 +63,45 @@ export default function IconCardGrid({
           <div className="flex items-center gap-[13px]">
             {number && <span className="font-display text-sm italic text-terracotta">{number}</span>}
             <span className="h-px w-[38px] bg-terracotta/60" />
-            <span className="text-[11.5px] uppercase tracking-[0.22em] text-[#9a7b54]">{eyebrow}</span>
+            <span className="text-[11.5px] uppercase tracking-[0.22em] text-[#9a7b54]">
+              {E ? <EditableText path={`${base}.eyebrow`} value={eyebrow} /> : eyebrow}
+            </span>
           </div>
           <h2 className="mt-3.5 max-w-[18em] font-display text-[28px] font-medium leading-[1.08] text-ink md:text-[clamp(28px,3vw,40px)]">
-            {heading}
+            {E ? (
+              <EditableText path={`${base}.heading`} value={heading} multiline />
+            ) : (
+              heading
+            )}
           </h2>
         </div>
         <div className="mt-8 grid grid-cols-2 gap-3 md:mt-11 md:grid-cols-3 md:gap-[18px]">
-          {cards.map((c) => (
+          {cards.map((c, i) => (
             <div
-              key={c.title}
+              key={i}
               className="rounded-[18px] border border-ink/[0.07] bg-cream px-4 py-5 md:px-6 md:py-[26px]"
             >
               <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-[#EFE7D7] md:mb-4">
                 {ICONS[c.icon]}
               </div>
-              <div className="font-display text-[15px] leading-[1.2] text-ink md:text-[19px]">{c.title}</div>
+              <div className="font-display text-[15px] leading-[1.2] text-ink md:text-[19px]">
+                {E ? (
+                  <EditableText path={`${base}.cards.${i}.title`} value={c.title} />
+                ) : (
+                  c.title
+                )}
+              </div>
             </div>
           ))}
         </div>
         {footnote && (
-          <p className="mt-6 text-center text-[15px] leading-[1.5] text-body-soft md:mt-8">{footnote}</p>
+          <p className="mt-6 text-center text-[15px] leading-[1.5] text-body-soft md:mt-8">
+            {E ? (
+              <EditableText path={`${base}.footnote`} value={footnote} multiline />
+            ) : (
+              footnote
+            )}
+          </p>
         )}
       </div>
     </section>

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import ImageSlot from "@/components/ui/ImageSlot";
 import BookingDoorCard from "./BookingDoorCard";
+import EditableText from "@/components/admin/EditableText";
+import { useEdit } from "@/components/admin/EditContext";
 
 type Door = "inperson" | "virtual" | null;
 
@@ -25,6 +27,8 @@ interface InlineBookingCTAProps {
 /** Compact booking CTA at end of longform pages — doors match CLAUDE.md / Booking dumps. */
 export default function InlineBookingCTA({ heading, intro, avatarSlotId }: InlineBookingCTAProps) {
   const [door, setDoor] = useState<Door>(null);
+  const edit = useEdit();
+  const E = edit?.enabled;
 
   return (
     <section className="relative overflow-hidden bg-ink px-6 py-[34px] md:px-10 md:py-30">
@@ -38,9 +42,19 @@ export default function InlineBookingCTA({ heading, intro, avatarSlotId }: Inlin
         />
         <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold md:text-[11px]">Start here</div>
         <h2 className="mt-2.5 font-display text-[26px] font-medium leading-tight text-cream-deep md:mt-3 md:text-[42px]">
-          {heading}
+          {E ? (
+            <EditableText path="startHere.heading" value={heading} multiline />
+          ) : (
+            heading
+          )}
         </h2>
-        <p className="mx-auto mt-2 max-w-[30em] text-[14px] leading-relaxed text-[#d8cdbe] md:text-[16px]">{intro}</p>
+        <p className="mx-auto mt-2 max-w-[30em] text-[14px] leading-relaxed text-[#d8cdbe] md:text-[16px]">
+          {E ? (
+            <EditableText path="startHere.intro" value={intro} multiline />
+          ) : (
+            intro
+          )}
+        </p>
 
         {!door && (
           <>

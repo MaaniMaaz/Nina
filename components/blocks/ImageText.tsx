@@ -3,6 +3,7 @@
 import Eyebrow from "@/components/ui/Eyebrow";
 import ImageSlot from "@/components/ui/ImageSlot";
 import EditableImage from "@/components/admin/EditableImage";
+import EditableText from "@/components/admin/EditableText";
 import { useEdit } from "@/components/admin/EditContext";
 
 interface ImageTextProps {
@@ -29,6 +30,8 @@ export default function ImageText({
   blockIndex = 0,
 }: ImageTextProps) {
   const edit = useEdit();
+  const E = edit?.enabled;
+  const base = `blocks.${blockIndex}`;
   const imageClass = "h-[280px] w-full rounded-[22px] sm:h-[340px]";
 
   return (
@@ -39,17 +42,36 @@ export default function ImageText({
         }`}
       >
         <div>
-          {eyebrow && <Eyebrow number={number} label={eyebrow} />}
+          {(eyebrow || E) && (
+            <Eyebrow
+              number={number}
+              label={
+                E ? (
+                  <EditableText path={`${base}.eyebrow`} value={eyebrow ?? ""} />
+                ) : (
+                  eyebrow!
+                )
+              }
+            />
+          )}
           <h2 className="mt-3.5 font-display text-[26px] font-medium leading-tight text-ink sm:text-[32px] md:text-[36px]">
-            {heading}
+            {E ? (
+              <EditableText path={`${base}.heading`} value={heading} multiline />
+            ) : (
+              heading
+            )}
           </h2>
-          {paragraphs.map((p) => (
-            <p key={p} className="mt-4 text-[15.5px] leading-relaxed text-body">
-              {p}
+          {paragraphs.map((p, i) => (
+            <p key={i} className="mt-4 text-[15.5px] leading-relaxed text-body">
+              {E ? (
+                <EditableText path={`${base}.paragraphs.${i}`} value={p} multiline />
+              ) : (
+                p
+              )}
             </p>
           ))}
         </div>
-        {edit?.enabled ? (
+        {E ? (
           <EditableImage
             slotId={imageSlotId}
             urlPath={`blocks.${blockIndex}.imageUrl`}

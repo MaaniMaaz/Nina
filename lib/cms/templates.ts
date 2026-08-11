@@ -17,6 +17,7 @@ export function asConditionTemplate(source: LongformPageContent): LongformPageCo
   c.hero.heading = "Root-cause care that finally connects the dots.";
   c.hero.paragraphs = [PLACEHOLDER_PARAGRAPH, PLACEHOLDER_PARAGRAPH];
   c.hero.breadcrumbLabel = "New Condition";
+  c.hero.ctaHref = c.hero.ctaHref ?? "/start";
   return c;
 }
 
@@ -30,6 +31,7 @@ export function asTreatmentTemplate(source: LongformPageContent): LongformPageCo
   c.hero.heading = "A tool we use when the root cause calls for it.";
   c.hero.paragraphs = [PLACEHOLDER_PARAGRAPH, PLACEHOLDER_PARAGRAPH];
   c.hero.breadcrumbLabel = "New Treatment";
+  c.hero.ctaHref = c.hero.ctaHref ?? "/start";
   return c;
 }
 

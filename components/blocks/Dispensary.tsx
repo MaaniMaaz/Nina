@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import EditableText from "@/components/admin/EditableText";
+import { useEdit } from "@/components/admin/EditContext";
 import {
   DISPENSARY_FOOTNOTE,
   DISPENSARY_INTRO,
@@ -21,13 +23,18 @@ export default function Dispensary({
   heading = "A deep shelf to draw from, then one bag built for you",
   intro = DISPENSARY_INTRO,
   footnote = DISPENSARY_FOOTNOTE,
+  blockIndex = 0,
 }: {
   number?: string;
   eyebrow?: string;
   heading?: string;
   intro?: string;
   footnote?: string;
+  blockIndex?: number;
 }) {
+  const edit = useEdit();
+  const E = edit?.enabled;
+  const base = `blocks.${blockIndex}`;
   const [blend, setBlend] = useState("all");
   const active = IV_BLENDS.find((b) => b.key === blend) ?? IV_BLENDS[0];
   const allMode = active.key === "all";
@@ -39,11 +46,23 @@ export default function Dispensary({
       <div className="relative z-[2] mx-auto max-w-[1240px]">
         <div className="grid items-start gap-10 md:grid-cols-[0.82fr_1.18fr] md:gap-[clamp(40px,5vw,72px)]">
           <div className="md:sticky md:top-[90px]">
-            <div className="text-[11.5px] font-semibold uppercase tracking-[0.2em] text-[#E9B45A]">{eyebrow}</div>
+            <div className="text-[11.5px] font-semibold uppercase tracking-[0.2em] text-[#E9B45A]">
+              {E ? <EditableText path={`${base}.eyebrow`} value={eyebrow} /> : eyebrow}
+            </div>
             <h2 className="mt-3.5 font-display text-[28px] font-medium leading-[1.08] text-[#FBF3E6] md:text-[clamp(28px,3vw,42px)]">
-              {heading}
+              {E ? (
+                <EditableText path={`${base}.heading`} value={heading} multiline />
+              ) : (
+                heading
+              )}
             </h2>
-            <p className="mt-[18px] text-[15.5px] leading-[1.6] text-[#cdd6c0]">{intro}</p>
+            <p className="mt-[18px] text-[15.5px] leading-[1.6] text-[#cdd6c0]">
+              {E ? (
+                <EditableText path={`${base}.intro`} value={intro} multiline />
+              ) : (
+                intro
+              )}
+            </p>
             <div className="mt-7 flex items-stretch border-y border-[rgba(246,238,225,0.14)] py-[18px]">
               {DISPENSARY_STATS.map((s, i) => (
                 <div key={s.label} className="flex flex-1 items-stretch">
@@ -63,7 +82,13 @@ export default function Dispensary({
               </svg>
               <p className="m-0 font-display text-[17px] italic leading-[1.4] text-[#f0e7d6]">{active.for}</p>
             </div>
-            <p className="mt-[18px] text-[12.5px] leading-[1.5] text-[#8c9a7d]">{footnote}</p>
+            <p className="mt-[18px] text-[12.5px] leading-[1.5] text-[#8c9a7d]">
+              {E ? (
+                <EditableText path={`${base}.footnote`} value={footnote} multiline />
+              ) : (
+                footnote
+              )}
+            </p>
           </div>
 
           <div>

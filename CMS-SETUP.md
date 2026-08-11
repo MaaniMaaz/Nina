@@ -29,6 +29,9 @@ npm run dev
 ## What's editable in `/nina/admin`
 - **Conditions / Treatments**: hero + every block's text (inline pencil ✎ or the sidebar
   "All text fields" list) and every image slot (hover an image → **Upload** → Cloudinary).
+- **Button & link URLs**: primary hero button destination (`ctaHref`), secondary link,
+  breadcrumb parent, card links, and condition explorer CTAs — edit inline with 🔗 or in
+  the sidebar **"Button & link URLs"** panel.
 - **Blogs**: title, dek, and section text edit in place; cover and section images upload to
   Cloudinary; format / category / read-time / date / cover alt in the sidebar panel.
 - **SEO**: meta title, meta description, and slug per page (slug defaults from the title under

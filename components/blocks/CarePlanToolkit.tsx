@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import EditableText from "@/components/admin/EditableText";
+import { useEdit } from "@/components/admin/EditContext";
 import { TOOLKIT_ITEMS } from "@/content/home";
 
 /**
@@ -13,12 +15,17 @@ export default function CarePlanToolkit({
   eyebrow = "The Care Plan toolkit",
   heading = "Labs are just the beginning.",
   intro = "Here, your results are where the real work begins. Your labs open a whole program.",
+  blockIndex = 0,
 }: {
   number?: string;
   eyebrow?: string;
   heading?: string;
   intro?: string;
+  blockIndex?: number;
 }) {
+  const edit = useEdit();
+  const E = edit?.enabled;
+  const base = `blocks.${blockIndex}`;
   const [selected, setSelected] = useState(0);
   const active = TOOLKIT_ITEMS[selected];
   const [lead, em] = heading.includes("beginning")
@@ -55,13 +62,27 @@ export default function CarePlanToolkit({
             <div className="flex items-center gap-2.5">
               {number && <span className="font-display text-[13px] italic text-[#B08A3E]">{number}</span>}
               <span className="h-px w-7 bg-[#B08A3E]/70" />
-              <span className="text-[9.5px] font-semibold uppercase tracking-[0.22em] text-terracotta">{eyebrow}</span>
+              <span className="text-[9.5px] font-semibold uppercase tracking-[0.22em] text-terracotta">
+                {E ? <EditableText path={`${base}.eyebrow`} value={eyebrow} /> : eyebrow}
+              </span>
             </div>
             <div className="mt-2 font-display text-2xl font-medium leading-[1.1] text-ink">
-              {lead}
-              {em && <span className="italic text-terracotta">{em}</span>}
+              {E ? (
+                <EditableText path={`${base}.heading`} value={heading} multiline />
+              ) : (
+                <>
+                  {lead}
+                  {em && <span className="italic text-terracotta">{em}</span>}
+                </>
+              )}
             </div>
-            <div className="mt-1.5 text-xs leading-[1.45] text-body-soft">{intro}</div>
+            <div className="mt-1.5 text-xs leading-[1.45] text-body-soft">
+              {E ? (
+                <EditableText path={`${base}.intro`} value={intro} multiline />
+              ) : (
+                intro
+              )}
+            </div>
           </div>
           <div className="relative h-[220px] overflow-hidden bg-[#E7DCC9]">
             {active.imageMobile && (
@@ -117,7 +138,9 @@ export default function CarePlanToolkit({
         <div className="mb-10 flex items-center gap-3">
           {number && <span className="font-display text-sm italic text-terracotta">{number}</span>}
           <span className="h-px w-9 bg-gold-deep" />
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">{eyebrow}</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">
+            {E ? <EditableText path={`${base}.eyebrow`} value={eyebrow} /> : eyebrow}
+          </span>
         </div>
         <div className="grid grid-cols-[1.05fr_0.95fr] items-start gap-12">
           <div className="sticky top-24">
@@ -159,11 +182,22 @@ export default function CarePlanToolkit({
           </div>
           <div>
             <h2 className="font-display text-[42px] font-medium leading-[1.04] tracking-tight text-ink">
-              {lead}
-              {em && <span className="italic text-terracotta">{em}</span>}
+              {E ? (
+                <EditableText path={`${base}.heading`} value={heading} multiline />
+              ) : (
+                <>
+                  {lead}
+                  {em && <span className="italic text-terracotta">{em}</span>}
+                </>
+              )}
             </h2>
             <p className="mt-3.5 max-w-[42ch] text-sm leading-relaxed text-body-soft">
-              {intro} It works like a membership — join for 3, 6, or 12 months and the whole toolkit is yours.
+              {E ? (
+                <EditableText path={`${base}.intro`} value={intro} multiline />
+              ) : (
+                intro
+              )}{" "}
+              It works like a membership — join for 3, 6, or 12 months and the whole toolkit is yours.
             </p>
             <div className="mt-6">
               {TOOLKIT_ITEMS.map((t, i) => (

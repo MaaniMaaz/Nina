@@ -2,11 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import EditableLink from "@/components/admin/EditableLink";
+import EditableText from "@/components/admin/EditableText";
+import { useEdit } from "@/components/admin/EditContext";
 import {
   CARE_TOOLKIT_FOOTNOTE,
   CARE_TOOLKIT_STATS,
   TOOLKIT_CONCERNS,
   TOOLKIT_TREATMENTS,
+  type ToolkitTreatment,
 } from "@/content/care-toolkit";
 
 interface CareToolkitProps {
@@ -16,6 +20,8 @@ interface CareToolkitProps {
   intro: string;
   currentKey: string;
   footnote?: string;
+  treatments?: ToolkitTreatment[];
+  blockIndex?: number;
 }
 
 export default function CareToolkit({
@@ -24,7 +30,12 @@ export default function CareToolkit({
   intro,
   currentKey,
   footnote = CARE_TOOLKIT_FOOTNOTE,
+  treatments = TOOLKIT_TREATMENTS,
+  blockIndex = 0,
 }: CareToolkitProps) {
+  const edit = useEdit();
+  const E = edit?.enabled;
+  const base = `blocks.${blockIndex}`;
   const [concern, setConcern] = useState("all");
   const active = TOOLKIT_CONCERNS.find((c) => c.key === concern) ?? TOOLKIT_CONCERNS[0];
   const allMode = active.key === "all";
@@ -35,11 +46,23 @@ export default function CareToolkit({
       <div className="relative z-[2] mx-auto max-w-[1240px]">
         <div className="grid items-start gap-10 md:grid-cols-[0.82fr_1.18fr] md:gap-[clamp(40px,5vw,72px)]">
           <div className="md:sticky md:top-[90px]">
-            <div className="text-[11.5px] font-semibold uppercase tracking-[0.2em] text-[#E9B45A]">{eyebrow}</div>
+            <div className="text-[11.5px] font-semibold uppercase tracking-[0.2em] text-[#E9B45A]">
+              {E ? <EditableText path={`${base}.eyebrow`} value={eyebrow} /> : eyebrow}
+            </div>
             <h2 className="mt-3.5 font-display text-[28px] font-medium leading-[1.08] text-[#FBF3E6] md:text-[clamp(28px,3vw,42px)]">
-              {heading}
+              {E ? (
+                <EditableText path={`${base}.heading`} value={heading} multiline />
+              ) : (
+                heading
+              )}
             </h2>
-            <p className="mt-[18px] text-[15.5px] leading-[1.6] text-[#cdd6c0]">{intro}</p>
+            <p className="mt-[18px] text-[15.5px] leading-[1.6] text-[#cdd6c0]">
+              {E ? (
+                <EditableText path={`${base}.intro`} value={intro} multiline />
+              ) : (
+                intro
+              )}
+            </p>
             <div className="mt-7 flex items-stretch border-y border-[rgba(246,238,225,0.14)] py-[18px]">
               {CARE_TOOLKIT_STATS.map((s, i) => (
                 <div key={s.label} className="flex flex-1 items-stretch">
@@ -59,7 +82,13 @@ export default function CareToolkit({
               </svg>
               <p className="m-0 font-display text-[17px] italic leading-[1.4] text-[#f0e7d6]">{active.for}</p>
             </div>
-            <p className="mt-[18px] text-[12.5px] leading-[1.5] text-[#8c9a7d]">{footnote}</p>
+            <p className="mt-[18px] text-[12.5px] leading-[1.5] text-[#8c9a7d]">
+              {E ? (
+                <EditableText path={`${base}.footnote`} value={footnote} multiline />
+              ) : (
+                footnote
+              )}
+            </p>
           </div>
 
           <div>
@@ -84,22 +113,12 @@ export default function CareToolkit({
             </div>
             <div className="mb-[22px] h-px bg-[rgba(246,238,225,0.14)]" />
             <div className="grid grid-cols-2 gap-[11px] md:grid-cols-3">
-              {TOOLKIT_TREATMENTS.map((t) => {
+              {treatments.map((t, i) => {
                 const on = !allMode && !!active.tx?.includes(t.key);
                 const dim = !allMode && !on;
                 const here = t.key === currentKey;
-                return (
-                  <Link
-                    key={t.key}
-                    href={t.href}
-                    className={`block min-w-0 rounded-[15px] border p-4 no-underline transition-all duration-300 ${
-                      on
-                        ? "border-[rgba(233,180,90,0.6)] bg-[rgba(233,180,90,0.18)] opacity-100 hover:bg-[rgba(233,180,90,0.26)]"
-                        : dim
-                          ? "border-[rgba(246,238,225,0.07)] bg-[rgba(246,238,225,0.03)] opacity-[0.34]"
-                          : "border-[rgba(246,238,225,0.14)] bg-[rgba(246,238,225,0.06)] opacity-100 hover:bg-[rgba(246,238,225,0.1)]"
-                    }`}
-                  >
+                const body = (
+                  <>
                     <div className="flex items-center gap-[7px]">
                       <span
                         className={`h-[7px] w-[7px] flex-none rounded-full ${on ? "bg-[#E9B45A]" : "bg-[#6f7d5f]"}`}
@@ -107,7 +126,11 @@ export default function CareToolkit({
                       <span
                         className={`text-[15px] font-bold leading-[1.15] ${on ? "text-[#FBF3E6]" : "text-[#F2EAD9]"}`}
                       >
-                        {t.name}
+                        {E ? (
+                          <EditableText path={`${base}.treatments.${i}.name`} value={t.name} />
+                        ) : (
+                          t.name
+                        )}
                       </span>
                     </div>
                     <div
@@ -115,13 +138,44 @@ export default function CareToolkit({
                         on ? "text-[#c7b07f]" : "text-[#94a07f]"
                       }`}
                     >
-                      {t.cat}
+                      {E ? (
+                        <EditableText path={`${base}.treatments.${i}.cat`} value={t.cat} />
+                      ) : (
+                        t.cat
+                      )}
                     </div>
+                    {E ? (
+                      <EditableLink
+                        path={`${base}.treatments.${i}.href`}
+                        value={t.href}
+                        label={`${t.name} URL`}
+                      />
+                    ) : null}
                     {here && (
                       <div className="mt-2 text-[9.5px] font-bold uppercase tracking-[0.1em] text-[#E9B45A]">
                         • You&rsquo;re here
                       </div>
                     )}
+                  </>
+                );
+                const cardClass = `block min-w-0 rounded-[15px] border p-4 no-underline transition-all duration-300 ${
+                  on
+                    ? "border-[rgba(233,180,90,0.6)] bg-[rgba(233,180,90,0.18)] opacity-100 hover:bg-[rgba(233,180,90,0.26)]"
+                    : dim
+                      ? "border-[rgba(246,238,225,0.07)] bg-[rgba(246,238,225,0.03)] opacity-[0.34]"
+                      : "border-[rgba(246,238,225,0.14)] bg-[rgba(246,238,225,0.06)] opacity-100 hover:bg-[rgba(246,238,225,0.1)]"
+                }`;
+                return E ? (
+                  <div key={t.key} className={cardClass}>
+                    {body}
+                  </div>
+                ) : (
+                  <Link
+                    key={t.key}
+                    href={t.href}
+                    className={cardClass}
+                  >
+                    {body}
                   </Link>
                 );
               })}

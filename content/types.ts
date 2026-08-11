@@ -143,6 +143,12 @@ export type ContentBlock =
       intro: string;
       currentKey: string;
       footnote?: string;
+      treatments?: {
+        key: string;
+        name: string;
+        cat: string;
+        href: string;
+      }[];
     }
   | {
       type: "dispensary";
@@ -168,6 +174,8 @@ export type ContentBlock =
         label: string;
         href: string;
         cta: string;
+        /** Where the gold CTA button goes (default /start). */
+        ctaHref?: string;
         heading: string;
         blurb: string;
       }[];
@@ -185,6 +193,8 @@ export interface HeroContent {
   heading: string;
   paragraphs: string[];
   ctaLabel?: string;
+  /** Where the primary hero button goes (default /start). */
+  ctaHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
   imageSlotId?: string;

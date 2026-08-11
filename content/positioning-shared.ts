@@ -3,6 +3,8 @@ export interface WhoIHelpCondition {
   label: string;
   href: string;
   cta: string;
+  /** Where the gold CTA button goes (default /start). */
+  ctaHref?: string;
   heading: string;
   blurb: string;
 }

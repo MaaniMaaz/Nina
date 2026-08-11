@@ -34,33 +34,33 @@ export default function BlockRenderer({
     case "bandStatement":
       return <BandStatement number={number} blockIndex={blockIndex} {...block} />;
     case "loopDiagram":
-      return <LoopDiagram number={number} {...block} />;
+      return <LoopDiagram number={number} blockIndex={blockIndex} {...block} />;
     case "steps":
-      return <Steps number={number} {...block} />;
+      return <Steps number={number} blockIndex={blockIndex} {...block} />;
     case "cardLinks":
       return <CardLinks number={number} blockIndex={blockIndex} {...block} />;
     case "imageText":
       return <ImageText number={number} blockIndex={blockIndex} {...block} />;
     case "twoListSplit":
-      return <TwoListSplit number={number} {...block} />;
+      return <TwoListSplit number={number} blockIndex={blockIndex} {...block} />;
     case "testimonialBlock":
       return <TestimonialBlock number={number} blockIndex={blockIndex} {...block} />;
     case "textBand":
-      return <TextBand number={number} {...block} />;
+      return <TextBand number={number} blockIndex={blockIndex} {...block} />;
     case "bioBlock":
       return <BioBlock number={number} blockIndex={blockIndex} {...block} />;
     case "definitionList":
-      return <DefinitionList number={number} {...block} />;
+      return <DefinitionList number={number} blockIndex={blockIndex} {...block} />;
     case "careToolkit":
-      return <CareToolkit number={number} {...block} />;
+      return <CareToolkit number={number} blockIndex={blockIndex} {...block} />;
     case "dispensary":
-      return <Dispensary number={number} {...block} />;
+      return <Dispensary number={number} blockIndex={blockIndex} {...block} />;
     case "iconCardGrid":
-      return <IconCardGrid number={number} {...block} />;
+      return <IconCardGrid number={number} blockIndex={blockIndex} {...block} />;
     case "conditionExplorer":
-      return <ConditionExplorer number={number} {...block} />;
+      return <ConditionExplorer number={number} blockIndex={blockIndex} {...block} />;
     case "carePlanToolkit":
-      return <CarePlanToolkit number={number} {...block} />;
+      return <CarePlanToolkit number={number} blockIndex={blockIndex} {...block} />;
     default:
       return null;
   }

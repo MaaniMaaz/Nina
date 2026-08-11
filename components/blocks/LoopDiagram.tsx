@@ -1,4 +1,8 @@
+"use client";
+
 import Eyebrow from "@/components/ui/Eyebrow";
+import EditableText from "@/components/admin/EditableText";
+import { useEdit } from "@/components/admin/EditContext";
 import type { BulletItem } from "@/content/types";
 
 interface LoopDiagramProps {
@@ -8,6 +12,7 @@ interface LoopDiagramProps {
   paragraphs: string[];
   drivers: BulletItem[];
   centerLabel?: string;
+  blockIndex?: number;
 }
 
 const nodePositions = [
@@ -24,7 +29,11 @@ export default function LoopDiagram({
   paragraphs,
   drivers,
   centerLabel = "THE LOOP",
+  blockIndex = 0,
 }: LoopDiagramProps) {
+  const edit = useEdit();
+  const E = edit?.enabled;
+  const base = `blocks.${blockIndex}`;
   const nodes = drivers.slice(0, 4);
 
   return (
@@ -32,15 +41,33 @@ export default function LoopDiagram({
       <div className="grain-overlay opacity-25 mix-blend-overlay" />
       <div className="relative z-10 mx-auto max-w-5xl">
         <div className="flex flex-col items-center text-center">
-          <Eyebrow number={number} label={eyebrow} tone="dark" align="center" />
+          <Eyebrow
+            number={number}
+            label={E ? <EditableText path={`${base}.eyebrow`} value={eyebrow} /> : eyebrow}
+            tone="dark"
+            align="center"
+          />
           <h2 className="mt-3.5 font-display text-[30px] font-medium leading-tight text-cream-deep sm:text-[36px] md:text-[44px]">
-            {heading}
+            {E ? (
+              <EditableText path={`${base}.heading`} value={heading} multiline />
+            ) : (
+              heading
+            )}
           </h2>
-          {paragraphs.slice(0, 1).map((p) => (
-            <p key={p} className="mt-4 max-w-xl text-[15.5px] leading-relaxed text-[#d3dcc6]">
-              {p}
+          {paragraphs.slice(0, 1).map((p, i) => (
+            <p key={i} className="mt-4 max-w-xl text-[15.5px] leading-relaxed text-[#d3dcc6]">
+              {E ? (
+                <EditableText path={`${base}.paragraphs.${i}`} value={p} multiline />
+              ) : (
+                p
+              )}
             </p>
           ))}
+          {E ? (
+            <p className="mt-2 text-[12px] text-[#9fb08c]">
+              Center: <EditableText path={`${base}.centerLabel`} value={centerLabel} />
+            </p>
+          ) : null}
         </div>
         <div className="mt-12 grid items-center gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
           <svg viewBox="0 0 340 320" className="mx-auto block h-auto w-full max-w-[380px]">
@@ -96,7 +123,7 @@ export default function LoopDiagram({
               const pos = nodePositions[i];
               const lines = node.label.split(" & ");
               return (
-                <g key={node.label}>
+                <g key={i}>
                   <circle cx={pos.cx} cy={pos.cy} r="44" fill="#3c4a30" stroke="#E9B45A" strokeWidth="1.4" />
                   {lines.length > 1 ? (
                     <>
@@ -117,17 +144,33 @@ export default function LoopDiagram({
             })}
           </svg>
           <div>
-            {paragraphs.slice(1).map((p) => (
-              <p key={p} className="mb-5 text-[14.5px] leading-relaxed text-[#d3dcc6]">
-                {p}
+            {paragraphs.slice(1).map((p, i) => (
+              <p key={i + 1} className="mb-5 text-[14.5px] leading-relaxed text-[#d3dcc6]">
+                {E ? (
+                  <EditableText path={`${base}.paragraphs.${i + 1}`} value={p} multiline />
+                ) : (
+                  p
+                )}
               </p>
             ))}
             <div className="flex flex-col gap-4">
-              {drivers.map((d) => (
-                <div key={d.label} className="flex items-start gap-3">
+              {drivers.map((d, i) => (
+                <div key={i} className="flex items-start gap-3">
                   <span className="mt-1.5 h-[7px] w-[7px] flex-none rounded-full bg-gold" />
                   <span className="text-sm leading-relaxed text-[#e6ecdb]">
-                    <strong className="text-cream-deep">{d.label}</strong>, {d.text}
+                    <strong className="text-cream-deep">
+                      {E ? (
+                        <EditableText path={`${base}.drivers.${i}.label`} value={d.label} />
+                      ) : (
+                        d.label
+                      )}
+                    </strong>
+                    ,{" "}
+                    {E ? (
+                      <EditableText path={`${base}.drivers.${i}.text`} value={d.text} multiline />
+                    ) : (
+                      d.text
+                    )}
                   </span>
                 </div>
               ))}
