@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# Source patient media (portraits are copied into /public; videos live on Wistia)
+/imagesandvideos
+
 # debug
 npm-debug.log*
 yarn-debug.log*

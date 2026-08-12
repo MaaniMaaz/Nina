@@ -9,12 +9,14 @@ const TAB_LABELS = ["The story", "Our read", "What we did", "Hear from them"];
 export default function PatientStories() {
   const [storyIndex, setStoryIndex] = useState(0);
   const [tab, setTab] = useState(0);
+  const [playing, setPlaying] = useState(false);
   const n = PATIENT_CASES.length;
   const story = PATIENT_CASES[storyIndex];
 
   function go(i: number) {
     setStoryIndex(((i % n) + n) % n);
     setTab(0);
+    setPlaying(false);
   }
 
   return (
@@ -64,7 +66,7 @@ export default function PatientStories() {
               <div className="mt-[11px] flex items-center gap-2.5 md:mt-3.5 md:gap-3">
                 <span className="text-xs font-semibold text-cream-deep md:text-sm">{story.name}</span>
                 <span className="h-1 w-1 rounded-full bg-cream-deep/50" />
-                <span className="font-display text-sm italic text-gold md:text-[16px]">{story.timeframe} to optimal</span>
+                <span className="font-display text-sm italic text-gold md:text-[16px]">{story.timeframe}</span>
               </div>
             </div>
           </div>
@@ -75,7 +77,10 @@ export default function PatientStories() {
                 <button
                   key={label}
                   type="button"
-                  onClick={() => setTab(i)}
+                  onClick={() => {
+                    setTab(i);
+                    setPlaying(false);
+                  }}
                   className={`-mb-px flex-1 border-b-2 px-0.5 pb-[11px] pt-2 text-center md:flex-none md:px-5 md:pb-4 md:pt-3 ${
                     i === tab ? "border-terracotta" : "border-transparent"
                   }`}
@@ -238,26 +243,42 @@ export default function PatientStories() {
                 {tab === 3 && (
                   <div className="grid items-center gap-4 md:grid-cols-[auto_1fr] md:gap-7.5">
                     <div className="relative mx-auto aspect-[9/16] w-[200px] overflow-hidden rounded-2xl bg-[#2a3322] shadow-[0_14px_32px_rgba(46,33,27,0.2)] md:mx-0 md:w-56 md:rounded-[18px]">
-                      <Image src={story.src} alt={story.name} fill className="object-cover" />
-                      <div
-                        className="pointer-events-none absolute inset-0"
-                        style={{
-                          background:
-                            "linear-gradient(180deg, rgba(20,12,7,0.18) 0%, rgba(20,12,7,0.02) 30%, rgba(20,12,7,0.7))",
-                        }}
-                      />
-                      <div className="absolute left-3 top-3 flex items-center gap-1.25 rounded-full bg-gold px-2.25 py-1 text-[9px] font-bold tracking-[0.1em] uppercase text-ink">
-                        ▶ Video
-                      </div>
-                      <div className="absolute right-3 top-3 rounded-full bg-[rgba(20,12,7,0.55)] px-2.5 py-1 text-[10px] font-semibold text-cream-deep">
-                        {story.videoLen}
-                      </div>
-                      <div className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-terracotta/94 shadow-[0_12px_28px_rgba(20,12,7,0.42)]">
-                        <span className="ml-1 border-y-[11px] border-l-[18px] border-y-transparent border-l-cream" />
-                      </div>
-                      <div className="absolute inset-x-3.5 bottom-3 text-center text-[11px] font-semibold text-cream-deep md:hidden">
-                        ▶ Watch {story.first}&rsquo;s 2-min story
-                      </div>
+                      {playing && story.wistia ? (
+                        <iframe
+                          src={`https://fast.wistia.net/embed/iframe/${story.wistia}?autoPlay=true&playerColor=41633b&fitStrategy=cover&seo=false`}
+                          title={`${story.first} video testimonial`}
+                          allow="autoplay; fullscreen"
+                          className="absolute inset-0 h-full w-full border-0"
+                        />
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setPlaying(true)}
+                          aria-label={`Play ${story.first}'s story`}
+                          className="absolute inset-0"
+                        >
+                          <Image src={story.src} alt={story.name} fill className="object-cover" />
+                          <div
+                            className="pointer-events-none absolute inset-0"
+                            style={{
+                              background:
+                                "linear-gradient(180deg, rgba(20,12,7,0.18) 0%, rgba(20,12,7,0.02) 30%, rgba(20,12,7,0.7))",
+                            }}
+                          />
+                          <div className="absolute left-3 top-3 flex items-center gap-1.25 rounded-full bg-gold px-2.25 py-1 text-[9px] font-bold tracking-[0.1em] uppercase text-ink">
+                            ▶ Video
+                          </div>
+                          <div className="absolute right-3 top-3 rounded-full bg-[rgba(20,12,7,0.55)] px-2.5 py-1 text-[10px] font-semibold text-cream-deep">
+                            {story.videoLen}
+                          </div>
+                          <div className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-terracotta/94 shadow-[0_12px_28px_rgba(20,12,7,0.42)]">
+                            <span className="ml-1 border-y-[11px] border-l-[18px] border-y-transparent border-l-cream" />
+                          </div>
+                          <div className="absolute inset-x-3.5 bottom-3 text-center text-[11px] font-semibold text-cream-deep md:hidden">
+                            ▶ Watch {story.first}&rsquo;s story
+                          </div>
+                        </button>
+                      )}
                     </div>
                     <div className="text-center md:text-left">
                       <span className="font-display text-[44px] leading-[0.4] text-gold-deep/45 md:text-[60px]">&ldquo;</span>
@@ -265,9 +286,13 @@ export default function PatientStories() {
                         {story.quote}
                       </p>
                       <div className="mt-2 font-hand text-[23px] text-terracotta md:text-[27px]">— {story.first}</div>
-                      <div className="mt-1 hidden text-xs text-muted md:block">
-                        ▶ Watch {story.first}&rsquo;s full 2-minute story
-                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setPlaying(true)}
+                        className="mt-1 hidden text-xs text-muted md:block"
+                      >
+                        ▶ Watch {story.first}&rsquo;s story
+                      </button>
                     </div>
                   </div>
                 )}
