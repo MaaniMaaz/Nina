@@ -7,10 +7,20 @@ import type {
   PageStatus,
   PageType,
 } from "@/lib/cms/types";
-import { isBlogContent, isLongformContent } from "@/lib/cms/types";
+import { isBlogContent, isHomeContent, isJournalContent, isLongformContent } from "@/lib/cms/types";
 import { publicPath } from "@/lib/cms/slug";
 import type { LongformPageContent } from "@/content/types";
 import type { BlogPageContent } from "@/lib/cms/types";
+import {
+  DEFAULT_HOME_CONTENT,
+  type HomePageContent,
+} from "@/content/home-page";
+import {
+  JOURNAL_ARTICLES,
+  asCmsJournal,
+  type JournalArticle,
+} from "@/content/journal";
+import { journalToBlogCard } from "@/content/journal";
 
 export type CmsPage = Omit<CmsPageDocument, "_id"> & { id: string };
 
@@ -38,12 +48,32 @@ export async function listPublishedIndex(type: PageType): Promise<
     .find({ type, status: "published" })
     .sort({ title: 1 })
     .toArray();
-  return docs.map((d) => ({
-    slug: d.slug,
-    name: d.index.name,
-    teaser: d.index.teaser,
-    coverImageUrl: d.index.coverImageUrl,
-  }));
+  return docs.map((d) => {
+    const heroUrl = coverFromContent(d.content);
+    return {
+      slug: d.slug,
+      name: d.index.name,
+      teaser: d.index.teaser,
+      coverImageUrl: d.index.coverImageUrl || heroUrl,
+    };
+  });
+}
+
+/** Longform uses hero.imageUrl; journal articles use hero.src. */
+function coverFromContent(content: unknown): string | undefined {
+  if (!content || typeof content !== "object") return undefined;
+  if (isJournalContent(content)) {
+    return content.hero?.src || undefined;
+  }
+  if (
+    "hero" in content &&
+    content.hero &&
+    typeof content.hero === "object" &&
+    "imageUrl" in content.hero
+  ) {
+    return (content.hero as { imageUrl?: string }).imageUrl || undefined;
+  }
+  return undefined;
 }
 
 export async function listPublishedPages(type: PageType): Promise<CmsPage[]> {
@@ -132,13 +162,6 @@ export async function updatePage(
   return doc ? toCmsPage(doc) : null;
 }
 
-export async function deletePage(id: string): Promise<boolean> {
-  if (!ObjectId.isValid(id)) return false;
-  const col = await pagesCollection();
-  const res = await col.deleteOne({ _id: new ObjectId(id) });
-  return res.deletedCount === 1;
-}
-
 export async function setPageStatus(
   id: string,
   status: PageStatus,
@@ -177,6 +200,15 @@ export function cloneContentForNewPage(
     return cloned;
   }
 
+  if (isJournalContent(cloned)) {
+    cloned.slug = opts.slug;
+    cloned.title = opts.title;
+    cloned.description = opts.metaDescription;
+    cloned.dek = opts.metaDescription;
+    cloned.kind = "journal";
+    return cloned;
+  }
+
   return cloned;
 }
 
@@ -198,4 +230,109 @@ export function blogFromCms(page: CmsPage): BlogPageContent | null {
   c.description = page.metaDescription;
   c.canonical = `https://www.ninarossfm.com${publicPath("blog", page.slug)}`;
   return c;
+}
+
+export function journalFromCms(page: CmsPage): JournalArticle | null {
+  if (!isJournalContent(page.content)) return null;
+  const c = asCmsJournal(page.content);
+  c.slug = page.slug;
+  c.title = page.title || c.title;
+  if (page.metaDescription) c.description = page.metaDescription;
+  return c;
+}
+
+export function homeFromCms(page: CmsPage): HomePageContent | null {
+  if (!isHomeContent(page.content)) return null;
+  return structuredClone(page.content);
+}
+
+/** Ensure the single homepage CMS document exists (published, from TS defaults). */
+export async function ensureHomePage(): Promise<CmsPage> {
+  const existing = await getPageByTypeSlug("home", "home");
+  if (existing) return existing;
+
+  return createPage({
+    type: "home",
+    slug: "home",
+    status: "published",
+    title: "Homepage",
+    metaTitle: "Nina Ross Functional Medicine, Atlanta",
+    metaDescription:
+      "Physician-led functional medicine in Atlanta and virtual care nationwide. Root-cause care with Dr. Nina Ross, ND PhD. Start with the $99 Symptom Consultation.",
+    index: {
+      name: "Homepage",
+      teaser:
+        "Physician-led functional medicine in Atlanta and virtual care nationwide.",
+    },
+    content: structuredClone(DEFAULT_HOME_CONTENT),
+    publishedAt: new Date(),
+  });
+}
+
+/**
+ * Ensure all 17 journal articles exist as full journal CMS docs.
+ * - Creates missing pages (published, from bundled content).
+ * - Upgrades legacy thin blog stubs for the same slugs (does not overwrite
+ *   pages that already have journal-shaped content).
+ */
+export async function ensureJournalPages(): Promise<CmsPage[]> {
+  if (!isMongoConfigured()) return [];
+  const col = await pagesCollection();
+  const slugs = JOURNAL_ARTICLES.map((a) => a.slug);
+  const existingDocs = await col
+    .find({ type: "blog", slug: { $in: slugs } })
+    .toArray();
+  const bySlug = new Map(existingDocs.map((d) => [d.slug, d]));
+  const out: CmsPage[] = [];
+  const now = new Date();
+
+  for (const article of JOURNAL_ARTICLES) {
+    const content = asCmsJournal(article);
+    const card = journalToBlogCard(article);
+    const index = {
+      name: article.title,
+      teaser: article.dek.slice(0, 160),
+      coverImageUrl: card.img,
+    };
+    const existing = bySlug.get(article.slug);
+
+    if (!existing) {
+      const page = await createPage({
+        type: "blog",
+        slug: article.slug,
+        status: "published",
+        title: article.title,
+        metaTitle: article.title,
+        metaDescription: article.description || article.dek,
+        index,
+        content,
+        publishedAt: now,
+      });
+      out.push(page);
+      continue;
+    }
+
+    if (!isJournalContent(existing.content)) {
+      const updated = await col.findOneAndUpdate(
+        { _id: existing._id },
+        {
+          $set: {
+            title: article.title,
+            metaTitle: article.title,
+            metaDescription: article.description || article.dek,
+            index: { ...existing.index, ...index },
+            content,
+            updatedAt: now,
+          },
+        },
+        { returnDocument: "after" },
+      );
+      out.push(updated ? toCmsPage(updated) : toCmsPage(existing));
+      continue;
+    }
+
+    out.push(toCmsPage(existing));
+  }
+
+  return out;
 }

@@ -27,8 +27,12 @@ npm run dev
 - Admin: http://localhost:3000/nina/admin
 
 ## What's editable in `/nina/admin`
+- **Home & media**: shared photography for the homepage, booking backgrounds, patient
+  portraits, toolkit/process/turn images, and patient Wistia IDs. Upload to Cloudinary;
+  clearing a key restores the bundled `/public` fallback. Logos and grain stay static.
 - **Conditions / Treatments**: hero + every block's text (inline pencil ✎ or the sidebar
   "All text fields" list) and every image slot (hover an image → **Upload** → Cloudinary).
+  Index card covers are editable in the sidebar (or auto-sync from the hero image on save).
 - **Button & link URLs**: primary hero button destination (`ctaHref`), secondary link,
   breadcrumb parent, card links, and condition explorer CTAs — edit inline with 🔗 or in
   the sidebar **"Button & link URLs"** panel.

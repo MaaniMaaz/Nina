@@ -1,7 +1,7 @@
 "use client";
 
 import { useEdit } from "./EditContext";
-import type { BlogPageContent } from "@/lib/cms/types";
+import { isJournalContent, type BlogPageContent } from "@/lib/cms/types";
 import type { BlogFormat } from "@/content/blog";
 
 const FORMATS: BlogFormat[] = ["Read", "Watch", "Listen", "Protocol", "Guide"];
@@ -10,7 +10,7 @@ const FORMATS: BlogFormat[] = ["Read", "Watch", "Listen", "Protocol", "Guide"];
 export default function BlogMetaFields() {
   const edit = useEdit();
   const content = edit?.content as BlogPageContent | undefined;
-  if (!edit?.enabled || !content) return null;
+  if (!edit?.enabled || !content || isJournalContent(content)) return null;
 
   const labelCls = "text-[11px] font-semibold uppercase tracking-wide text-muted";
   const inputCls = "mt-1 w-full rounded border border-ink/15 px-3 py-2 text-[14px]";

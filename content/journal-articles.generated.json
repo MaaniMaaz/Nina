@@ -1,0 +1,4022 @@
+[
+  {
+    "sourceFile": "3pm Crash",
+    "slug": "3pm-crash-cause",
+    "format": "Read",
+    "title": "The 3pm crash has a cause, and it is findable",
+    "dek": "Cortisol, blood sugar, and iron all show up in the afternoon. Here is how to tell which is yours.",
+    "description": "The afternoon energy crash has three common causes that need different treatments. Dr. Nina Ross, ND PhD in Atlanta explains how to tell blood sugar, cortisol, and iron apart.",
+    "datePublished": "2026-06-23",
+    "dateLabel": "June 23, 2026",
+    "articleSection": "Energy",
+    "topicHref": "/blog/topic/energy",
+    "topicLabel": "Energy",
+    "timeRequired": "PT6M",
+    "wordCount": 1180,
+    "readTime": "6 min read",
+    "hero": {
+      "src": "/images/turn-3pm.png",
+      "alt": "A woman working steadily through the middle of her afternoon",
+      "caption": "The afternoon is where most people first notice something has changed."
+    },
+    "shortAnswer": "An afternoon crash is usually blood sugar, cortisol, or iron. All three feel similar and need different fixes, so the useful question is which one, rather than how much more coffee.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "It arrives somewhere between two and four. The screen stops making sense, your eyes get heavy, and the only plan available is caffeine or something sweet. An hour later you feel worse than before."
+      },
+      {
+        "type": "paragraph",
+        "text": "Most people file this under being busy. It deserves more than that, because an afternoon that falls apart on schedule is one of the most reliable signals your body sends, and it points at three things we can measure."
+      },
+      {
+        "type": "heading",
+        "text": "Blood sugar, and the shape of your morning"
+      },
+      {
+        "type": "paragraph",
+        "text": "The most common version is a glucose curve with too much amplitude. A breakfast that was mostly carbohydrate takes you up quickly, insulin overcorrects, and the floor of that dip lands squarely in your afternoon."
+      },
+      {
+        "type": "paragraph",
+        "text": "The tell is timing tied to meals rather than the clock. You fade ninety minutes after eating, whenever you eat, and protein at breakfast changes the entire shape of the day. That is the cheapest experiment in this article."
+      },
+      {
+        "type": "pullQuote",
+        "text": "An afternoon that falls apart on schedule is not a character flaw. It is a pattern, and patterns have causes."
+      },
+      {
+        "type": "paragraph",
+        "text": "An afternoon that falls apart on schedule is not a character flaw. It is a pattern, and patterns have causes."
+      },
+      {
+        "type": "heading",
+        "text": "The six numbers we read"
+      },
+      {
+        "type": "paragraph",
+        "text": "When someone tells me their afternoon disappears, we look at these together:"
+      },
+      {
+        "type": "panelList"
+      },
+      {
+        "type": "paragraph",
+        "text": "Read together, these six numbers explain nearly every afternoon crash we see, and each one has a different first move."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/toolDV-1.webp",
+        "alt": "A metabolic and iron panel laid out for review",
+        "caption": "Glucose, insulin, cortisol, and ferritin on one page, read against each other."
+      },
+      {
+        "type": "heading",
+        "text": "Cortisol, and why the curve beats the number"
+      },
+      {
+        "type": "paragraph",
+        "text": "Cortisol is supposed to peak in the morning and taper across the day. When that curve flattens or shifts, mornings feel like wading through water and the drop arrives early in the afternoon instead of at bedtime."
+      },
+      {
+        "type": "paragraph",
+        "text": "A single morning cortisol misses this entirely, because the shape is the finding rather than the value. We read it at four points, and where the pattern stays unclear we move to a full cortisol panel that maps the whole day at once.",
+        "html": "A single morning cortisol misses this entirely, because the shape is the finding rather than the value. We read it at four points, and where the pattern stays unclear we move to a <a href=\"/blog/cortisol-curves-afternoon\">full cortisol panel</a> that maps the whole day at once."
+      },
+      {
+        "type": "heading",
+        "text": "Iron sits underneath both"
+      },
+      {
+        "type": "paragraph",
+        "text": "Iron is the quiet one. Ferritin below about thirty will produce afternoon fatigue, breathlessness on stairs, and hair in the shower long before a standard blood count looks abnormal."
+      },
+      {
+        "type": "paragraph",
+        "text": "This gets missed constantly, because the complete blood count comes back normal and the conversation stops there. Ferritin is a separate request, and rebuilding it takes months rather than weeks."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-empty.png",
+        "alt": "A steady morning routine that holds the afternoon together",
+        "caption": "Most of the fix for the meal-linked version happens before nine in the morning."
+      },
+      {
+        "type": "heading",
+        "text": "What changes when we read it this way"
+      },
+      {
+        "type": "paragraph",
+        "text": "Naming which of the three you are dealing with turns a vague complaint into something you can start on this week. Blood sugar responds in days. Cortisol takes a few weeks. Iron takes a season."
+      },
+      {
+        "type": "paragraph",
+        "text": "We retest at ninety days so the improvement is something you can see rather than something you are trying to remember, which matters most in the iron cases where the change is genuinely slow."
+      },
+      {
+        "type": "heading",
+        "text": "Where to start"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before your consult, write down what you ate and when you faded for four days. That alone separates the meal-linked pattern from the clock-linked one, and it costs nothing but a notes app."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then we sit down for half an hour, put those four days beside your labs, and decide which of the three we are chasing first."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "Fasting glucose and fasting insulin",
+        "why": "Read as a pair. Insulin moves years before glucose does and explains the size of the dip."
+      },
+      {
+        "name": "Hemoglobin A1c",
+        "why": "A three month average. Useful for confirming a pattern rather than catching it early."
+      },
+      {
+        "name": "Four point cortisol",
+        "why": "The shape across a day. A flattened curve is the finding, and one morning draw hides it."
+      },
+      {
+        "name": "Ferritin",
+        "why": "Under about thirty will produce afternoon fatigue on its own, with a perfectly normal blood count."
+      },
+      {
+        "name": "Full thyroid panel",
+        "why": "A slow thyroid produces the same afternoon, so it gets ruled in or out early."
+      },
+      {
+        "name": "Vitamin D and B12",
+        "why": "Both common, both inexpensive to correct, and both worth knowing before we go further."
+      }
+    ],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/feed-v3.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "Fading ninety minutes after eating points at blood sugar. Fading on the clock points at cortisol."
+      },
+      {
+        "n": "02",
+        "text": "Cortisol has to be read as a curve across the day. One morning number hides the pattern."
+      },
+      {
+        "n": "03",
+        "text": "Ferritin under thirty causes afternoon fatigue while a standard blood count still reads normal."
+      },
+      {
+        "n": "04",
+        "text": "Protein at breakfast is the cheapest test here. Give it five days before you judge it."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Chronic fatigue",
+        "href": "/conditions/chronic-fatigue",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Metabolic health",
+        "href": "/conditions/metabolic-health",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Advanced lab testing",
+        "href": "/treatments/advanced-lab-testing",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "IV therapy",
+        "href": "/treatments/iv-therapy",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "A morning protocol for steady energy",
+        "href": "/blog/morning-protocol-steady-energy",
+        "fmt": "Protocol",
+        "meta": "4 min",
+        "img": "/images/turn-empty.png",
+        "fmtColor": "#2E211B"
+      },
+      {
+        "title": "Reading ferritin the way we read it",
+        "href": "/blog/reading-ferritin",
+        "fmt": "Read",
+        "meta": "5 min",
+        "img": "/images/home-media/toolDV-1.webp",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "Dr. Nina explains insulin resistance in six minutes",
+        "href": "/blog/insulin-resistance-explained",
+        "fmt": "Watch",
+        "meta": "6 min",
+        "img": "/images/home-media/feed-v3.webp",
+        "fmtColor": "#4a6340"
+      }
+    ],
+    "cta": {
+      "title": "Find out which one is yours",
+      "body": "Bring four days of notes and whatever labs you already have. Half an hour is usually enough to name it.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "90 Day Retest",
+    "slug": "why-we-retest-every-90-days",
+    "format": "Listen",
+    "title": "Why we retest every 90 days",
+    "dek": "Ninety days is long enough for the numbers to tell the truth and short enough to change course.",
+    "description": "Ninety days is how long it takes for a red blood cell to turn over and a plan to prove itself. Dr. Nina Ross, ND PhD in Atlanta explains what we retest and why the timing matters.",
+    "datePublished": "2026-04-21",
+    "dateLabel": "April 21, 2026",
+    "articleSection": "The program",
+    "topicHref": "",
+    "topicLabel": "The program",
+    "timeRequired": "PT7M",
+    "wordCount": null,
+    "readTime": "",
+    "hero": {
+      "src": "/images/clinic-bg.png",
+      "alt": "The Nina Ross Functional Medicine studio in Atlanta",
+      "caption": "Ninety days is long enough for a plan to prove itself and short enough to correct."
+    },
+    "shortAnswer": "Ninety days is not arbitrary. It is roughly how long a red blood cell lives, how long a follicle takes to develop, and how long a real change needs before the numbers can honestly reflect it.",
+    "body": [
+      {
+        "type": "heading",
+        "text": "What Dr. Nina covers"
+      },
+      {
+        "type": "paragraph",
+        "text": "Almost everyone wants to retest at six weeks, and I understand why. You have changed a lot, you feel different, and you want the paper to say so."
+      },
+      {
+        "type": "paragraph",
+        "text": "In this one Dr. Nina explains why ninety days is the honest interval, what actually moves in that window, what does not, and how retesting changes a plan rather than just grading it."
+      },
+      {
+        "type": "pullQuote",
+        "text": "Ninety days is long enough for the numbers to tell the truth and short enough to change course."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ninety days is long enough for the numbers to tell the truth and short enough to change course."
+      },
+      {
+        "type": "figure",
+        "src": "/images/clinic-bg.png",
+        "alt": "The Nina Ross Functional Medicine studio in Atlanta",
+        "caption": "Ninety days is long enough for a plan to prove itself and short enough to correct."
+      },
+      {
+        "type": "paragraph",
+        "text": ",the first consult sets the baseline everything gets measured against.",
+        "html": ",<a href=\"/blog/what-a-first-consult-sounds-like\">the first consult</a> sets the baseline everything gets measured against."
+      }
+    ],
+    "panelItems": [],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [
+      {
+        "start": 0,
+        "time": "0:00",
+        "label": "Why everyone wants to retest at six weeks"
+      },
+      {
+        "start": 78,
+        "time": "1:18",
+        "label": "What ninety days actually matches"
+      },
+      {
+        "start": 168,
+        "time": "2:48",
+        "label": "What moves fast and what does not"
+      },
+      {
+        "start": 276,
+        "time": "4:36",
+        "label": "How a retest changes the plan"
+      },
+      {
+        "start": 372,
+        "time": "6:12",
+        "label": "What we do if nothing moved"
+      }
+    ],
+    "youtubeId": "",
+    "mediaPoster": "/images/clinic-bg.png",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "Ninety days matches red cell turnover, follicle development, and thyroid settling time."
+      },
+      {
+        "n": "02",
+        "text": "A six week ferritin usually shows very little and discourages people for no reason."
+      },
+      {
+        "n": "03",
+        "text": "Symptoms move before labs do, so we track both rather than waiting on paper."
+      },
+      {
+        "n": "04",
+        "text": "Retesting tells us which part of the plan did the work, which is how the next one gets shorter."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Chronic fatigue",
+        "href": "/conditions/chronic-fatigue",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Thyroid problems",
+        "href": "/conditions/thyroid",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Advanced lab testing",
+        "href": "/treatments/advanced-lab-testing",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Hormone restoration",
+        "href": "/treatments/hormone-restoration",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [],
+    "cta": {
+      "title": "Find out which one is yours",
+      "body": "A half hour with our team, and we will know which of the four we are testing for first.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": false
+  },
+  {
+    "sourceFile": "Cortisol Curves",
+    "slug": "cortisol-curves-afternoon",
+    "format": "Read",
+    "title": "Cortisol curves and why your afternoon matters",
+    "dek": "One number at 8am hides the whole story. The curve is where the answer lives.",
+    "description": "A single morning cortisol tells you almost nothing. Dr. Nina Ross, ND PhD in Atlanta explains how we read the cortisol curve across a day and what each shape means for your energy.",
+    "datePublished": "2026-03-10",
+    "dateLabel": "March 10, 2026",
+    "articleSection": "Hormones",
+    "topicHref": "/blog/topic/hormones",
+    "topicLabel": "Hormones",
+    "timeRequired": "PT7M",
+    "wordCount": 1280,
+    "readTime": "7 min read",
+    "hero": {
+      "src": "/images/turn-anxiety.png",
+      "alt": "A woman finding calm after cortisol testing",
+      "caption": "Cortisol is a rhythm. Reading it once is like hearing one note."
+    },
+    "shortAnswer": "Cortisol is supposed to rise sharply on waking and taper all day. The shape of that curve explains your energy far better than any single value, and one morning draw cannot see a shape.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Cortisol has a bad reputation it partly deserves and mostly does not. It is the hormone that gets you out of bed, holds your blood pressure up, and keeps your blood sugar available. You would be in serious trouble without it."
+      },
+      {
+        "type": "paragraph",
+        "text": "The problem is never really the amount. It is the timing. Cortisol is meant to arrive in a particular pattern, and when that pattern shifts, you feel it in ways that look like a dozen unrelated complaints."
+      },
+      {
+        "type": "heading",
+        "text": "What cortisol is actually for"
+      },
+      {
+        "type": "paragraph",
+        "text": "A healthy curve spikes within thirty minutes of waking, stays useful through the morning, drifts down across the afternoon, and reaches its floor around midnight so melatonin can do its job."
+      },
+      {
+        "type": "paragraph",
+        "text": "That morning spike is the part people lose first. Without it, waking feels like climbing out of wet sand no matter how long you slept, and the day never quite starts properly."
+      },
+      {
+        "type": "pullQuote",
+        "text": "One cortisol at 8am is a single frame of a film. The plot is in the rest of the day."
+      },
+      {
+        "type": "paragraph",
+        "text": "One cortisol at 8am is a single frame of a film. The plot is in the rest of the day."
+      },
+      {
+        "type": "heading",
+        "text": "What we read to see the curve"
+      },
+      {
+        "type": "paragraph",
+        "text": "To see a shape rather than a moment, we collect these:"
+      },
+      {
+        "type": "panelList"
+      },
+      {
+        "type": "paragraph",
+        "text": "Read together, these tell us the shape of your day rather than one moment in it."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/feed-a4.webp",
+        "alt": "A four point cortisol panel being reviewed with a patient",
+        "caption": "Four collections across one day, which is the only way a shape becomes visible."
+      },
+      {
+        "type": "heading",
+        "text": "The flat curve and the reversed one"
+      },
+      {
+        "type": "paragraph",
+        "text": "The flattened curve is the most common pattern we see, and it is the one that produces the afternoon most people describe: a fog that arrives around two and lifts around six."
+      },
+      {
+        "type": "paragraph",
+        "text": "The reversed curve is harder to live with. Low in the morning, climbing in the evening, which is the physiology behind being exhausted all day and wide awake at eleven. Where sleep is the main complaint, the three in the morning pattern is worth reading alongside this.",
+        "html": "The reversed curve is harder to live with. Low in the morning, climbing in the evening, which is the physiology behind being exhausted all day and wide awake at eleven. Where sleep is the main complaint, the <a href=\"/blog/sleep-that-holds\">three in the morning pattern</a> is worth reading alongside this."
+      },
+      {
+        "type": "heading",
+        "text": "Why the curve went sideways"
+      },
+      {
+        "type": "paragraph",
+        "text": "None of this happens without a reason. Years of short nights, restriction, over-training, unmanaged inflammation, or a genuinely hard stretch of life all show up in this curve."
+      },
+      {
+        "type": "paragraph",
+        "text": "That is why we treat the reason alongside the pattern. Supplements aimed at cortisol while the cause continues will produce a few good weeks and then the same curve again."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-empty.png",
+        "alt": "A calm morning routine that helps restore a healthy cortisol curve",
+        "caption": "For a flattened curve, most of the repair happens in the first hour of the day."
+      },
+      {
+        "type": "heading",
+        "text": "What changes when we read the shape"
+      },
+      {
+        "type": "paragraph",
+        "text": "Knowing which shape you have changes the plan immediately. The flat curve needs morning light, protein, and a training load that is not adding to the problem. The reversed one needs the evening handled first."
+      },
+      {
+        "type": "paragraph",
+        "text": "We retest at ninety days with the same four-point collection, and watching the curve steepen is one of the more satisfying things to show someone."
+      },
+      {
+        "type": "heading",
+        "text": "Where to start"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before your consult, note what time you wake, when you crash, when you get a second wind, and how you feel in the first thirty minutes of the day. That sketch usually predicts the result."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then we sit down for half an hour, decide whether we need the panel or whether your pattern is already clear enough to start working on."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "Four point cortisol",
+        "why": "Waking, midday, late afternoon, and bedtime. The shape across those four is the finding."
+      },
+      {
+        "name": "Cortisol awakening response",
+        "why": "Two collections thirty minutes apart on waking. The steepness here explains your mornings."
+      },
+      {
+        "name": "DHEA-S",
+        "why": "Read next to cortisol. The ratio tells us how long this pattern has been running."
+      },
+      {
+        "name": "Full thyroid panel",
+        "why": "A slow thyroid produces an almost identical day and has to be ruled in or out."
+      },
+      {
+        "name": "Fasting glucose and insulin",
+        "why": "Cortisol and blood sugar move together. Neither one gets read alone."
+      },
+      {
+        "name": "Inflammation markers",
+        "why": "Ongoing inflammation keeps the curve disrupted no matter what else we do."
+      }
+    ],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/feed-a4.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "Cortisol is a rhythm. The shape across a day matters more than any single value."
+      },
+      {
+        "n": "02",
+        "text": "A missing morning spike is why waking feels like wet sand regardless of hours slept."
+      },
+      {
+        "n": "03",
+        "text": "Flat curves crash in the afternoon. Reversed curves are tired all day and awake at eleven."
+      },
+      {
+        "n": "04",
+        "text": "Treat the reason alongside the pattern, or the same curve returns in two months."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Chronic fatigue",
+        "href": "/conditions/chronic-fatigue",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Anxiety and mood",
+        "href": "/conditions/mood",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "DUTCH hormone testing",
+        "href": "/treatments/dutch-test",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Advanced lab testing",
+        "href": "/treatments/advanced-lab-testing",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "Sleep that finally holds through the night",
+        "href": "/blog/sleep-that-holds",
+        "fmt": "Read",
+        "meta": "6 min",
+        "img": "/images/turn-sleep.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "The 3pm crash has a cause, and it is findable",
+        "href": "/blog/3pm-crash-cause",
+        "fmt": "Read",
+        "meta": "6 min",
+        "img": "/images/turn-3pm.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "A morning protocol for steady energy",
+        "href": "/blog/morning-protocol-steady-energy",
+        "fmt": "Protocol",
+        "meta": "4 min",
+        "img": "/images/turn-empty.png",
+        "fmtColor": "#2E211B"
+      }
+    ],
+    "cta": {
+      "title": "Read your own curve with us",
+      "body": "Bring a sketch of your day, when you wake and when you fade. Half an hour is usually enough to see the shape.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "DUTCH Test",
+    "slug": "inside-a-dutch-test-result",
+    "format": "Watch",
+    "title": "Inside a DUTCH test result",
+    "dek": "Dr. Nina reads a real hormone panel out loud, line by line.",
+    "description": "A DUTCH test maps a full month of hormones and their metabolites. Dr. Nina Ross, ND PhD in Atlanta reads a real result on camera and explains what each pattern changes.",
+    "datePublished": "2026-05-19",
+    "dateLabel": "May 19, 2026",
+    "articleSection": "Labs",
+    "topicHref": "",
+    "topicLabel": "Labs",
+    "timeRequired": "",
+    "wordCount": null,
+    "readTime": "11 min watch · Labs",
+    "hero": null,
+    "shortAnswer": "A DUTCH test reads hormones in urine across a full day, which shows both the hormone and what your body did with it afterward. That second half is what a blood draw cannot show you.",
+    "body": [
+      {
+        "type": "heading",
+        "text": "What the video covers"
+      },
+      {
+        "type": "paragraph",
+        "text": "Hormone results are where most people give up on understanding their own health. Pages of unfamiliar names, arrows, and reference ranges that mean nothing without context."
+      },
+      {
+        "type": "paragraph",
+        "text": "So in this one Dr. Nina puts a real result on the table and reads it out loud, in order, explaining what each section is for and which lines actually changed the plan for that patient."
+      },
+      {
+        "type": "pullQuote",
+        "text": "Blood tells you how much hormone you have. This tells you what your body did with it."
+      },
+      {
+        "type": "paragraph",
+        "text": "Blood tells you how much hormone you have. This tells you what your body did with it."
+      },
+      {
+        "type": "heading",
+        "text": "What the panel actually shows"
+      },
+      {
+        "type": "markerList"
+      },
+      {
+        "type": "paragraph",
+        "text": ",timed blood panel is the simpler starting point.",
+        "html": ",<a href=\"/blog/four-hormones-we-test-cycle\">timed blood panel</a> is the simpler starting point."
+      }
+    ],
+    "panelItems": [],
+    "markers": [
+      {
+        "name": "The cortisol curve",
+        "why": "Four collections across a day. The shape explains mornings and afternoons better than any single value."
+      },
+      {
+        "name": "Estrogen metabolites",
+        "why": "Which pathway your body clears estrogen down. Some routes are gentler than others and this is actionable."
+      },
+      {
+        "name": "Progesterone metabolites",
+        "why": "A fuller read on the second half of your cycle than a single timed blood draw gives."
+      },
+      {
+        "name": "Androgens and their conversion",
+        "why": "How quickly testosterone becomes the more potent form, which matters for hair and skin."
+      },
+      {
+        "name": "Melatonin and oxidative stress",
+        "why": "Included on the same panel, and often the line that explains sleep."
+      },
+      {
+        "name": "B vitamin and methylation markers",
+        "why": "Clearance depends on these. Low here explains why hormones are backing up."
+      }
+    ],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [
+      {
+        "time": "0:00",
+        "text": "This is a real panel, with the name taken off, and she gave me permission to read it. I want to do this because hormone results are where most people decide their own health is above their pay grade."
+      },
+      {
+        "time": "1:36",
+        "text": "We start at cortisol, because it is at the front of the report and because it sets up everything after it. Look at the shape here. Low in the morning, still climbing at bedtime. That is her sleep complaint, right there on paper."
+      },
+      {
+        "time": "4:04",
+        "text": "Now estrogen. This number on its own is unremarkable. But look down here at how she is clearing it. She is running most of it down a pathway I would rather she used less of, and that is something we can actually change."
+      },
+      {
+        "time": "6:36",
+        "text": "Progesterone in the second half is low, which fits everything she told me about the week before her period. On a blood draw we caught this once and it looked borderline. Across a full day it is clear."
+      },
+      {
+        "time": "8:48",
+        "text": "So three lines changed her plan. The cortisol shape, the estrogen pathway, and the low luteal progesterone. Everything else on these twelve pages was context."
+      }
+    ],
+    "videoChapters": [
+      {
+        "start": 0,
+        "time": "0:00",
+        "label": "What a urine panel adds over blood"
+      },
+      {
+        "start": 96,
+        "time": "1:36",
+        "label": "The cortisol curve section"
+      },
+      {
+        "start": 244,
+        "time": "4:04",
+        "label": "Estrogen and how it is cleared"
+      },
+      {
+        "start": 396,
+        "time": "6:36",
+        "label": "Progesterone and the luteal picture"
+      },
+      {
+        "start": 528,
+        "time": "8:48",
+        "label": "The three lines that changed her plan"
+      }
+    ],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/feed-a4.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "A urine panel shows the hormone and what your body did with it. Blood shows only the first part."
+      },
+      {
+        "n": "02",
+        "text": "Estrogen clearance pathways are actionable, which is why this panel changes plans."
+      },
+      {
+        "n": "03",
+        "text": "The cortisol curve on the same page is often what explains the sleep complaint."
+      },
+      {
+        "n": "04",
+        "text": "For an irregular cycle, a timed blood panel is the cheaper and simpler place to start."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Hormonal problems",
+        "href": "/conditions/hormones",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Menopause and perimenopause",
+        "href": "/conditions/menopause",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "DUTCH hormone testing",
+        "href": "/treatments/dutch-test",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Hormone restoration",
+        "href": "/treatments/hormone-restoration",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "The four hormones we test when your cycle goes sideways",
+        "href": "/blog/four-hormones-we-test-cycle",
+        "fmt": "Read",
+        "meta": "7 min",
+        "img": "/images/turn-perimenopause.png",
+        "fmtColor": "#B5572F",
+        "isPlay": false
+      },
+      {
+        "title": "Cortisol curves and why your afternoon matters",
+        "href": "/blog/cortisol-curves-afternoon",
+        "fmt": "Read",
+        "meta": "7 min",
+        "img": "/images/turn-anxiety.png",
+        "fmtColor": "#B5572F",
+        "isPlay": false
+      },
+      {
+        "title": "Hormone restoration, titrated to you",
+        "href": "/blog/hormone-restoration-titrated",
+        "fmt": "Read",
+        "meta": "8 min",
+        "img": "/images/turn-worry.png",
+        "fmtColor": "#B5572F",
+        "isPlay": false
+      }
+    ],
+    "cta": {
+      "title": "Have your own panel read",
+      "body": "Bring a DUTCH result you already had run, even an old one. In half an hour we will go through it together.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 664,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "Ferritin",
+    "slug": "reading-ferritin",
+    "format": "Read",
+    "title": "Reading ferritin the way we read it",
+    "dek": "The number your doctor called fine is often the number behind your hair loss.",
+    "description": "A ferritin of 18 gets called normal and still causes hair loss and fatigue. Dr. Nina Ross, ND PhD in Atlanta explains how we read iron stores and what it takes to rebuild them.",
+    "datePublished": "2026-06-16",
+    "dateLabel": "June 16, 2026",
+    "articleSection": "Labs",
+    "topicHref": "/blog/topic/labs",
+    "topicLabel": "Labs",
+    "timeRequired": "PT5M",
+    "wordCount": 1120,
+    "readTime": "5 min read",
+    "hero": {
+      "src": "/images/home-media/toolDV-1.webp",
+      "alt": "An iron panel laid out on a desk for review",
+      "caption": "One line on a panel, and one of the most useful lines we have."
+    },
+    "shortAnswer": "Ferritin is stored iron, and the lab range for it was built to catch anemia rather than to keep your hair. A reading in the teens is technically normal and functionally too low.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Ferritin is the number I get asked about least and think about most. It is your iron savings account, and almost everything your body treats as optional gets defunded when the balance runs down."
+      },
+      {
+        "type": "paragraph",
+        "text": "Hair is first in that queue. So is the energy you were counting on at four in the afternoon. Both of them go before a blood count shows anything at all, which is why so many people are told they are fine."
+      },
+      {
+        "type": "heading",
+        "text": "What ferritin actually measures"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most labs flag ferritin below about thirteen or fifteen. That threshold exists to catch iron deficiency anemia, which is a different and later problem than the one bringing you in."
+      },
+      {
+        "type": "paragraph",
+        "text": "A range built to catch disease is not the same as a range built for you to feel well. For hair specifically, the research and the clinic both point considerably higher than the bottom of that range."
+      },
+      {
+        "type": "pullQuote",
+        "text": "Your body defunds your hair long before it lets your blood count slip. That order is the whole point."
+      },
+      {
+        "type": "paragraph",
+        "text": "Your body defunds your hair long before it lets your blood count slip. That order is the whole point."
+      },
+      {
+        "type": "heading",
+        "text": "What we read next to it"
+      },
+      {
+        "type": "paragraph",
+        "text": "When ferritin comes back low, or suspiciously mid-range, we read these alongside it:"
+      },
+      {
+        "type": "panelList"
+      },
+      {
+        "type": "paragraph",
+        "text": "Read together, these tell us whether you are low, why you are low, and whether your body can absorb what we give you."
+      },
+      {
+        "type": "figure",
+        "src": "/images/patients/tasha.png",
+        "alt": "A patient whose shedding resolved once her iron stores were rebuilt",
+        "caption": "Regrowth follows iron, but it follows on iron time rather than ours."
+      },
+      {
+        "type": "heading",
+        "text": "Why the lab range is not the target"
+      },
+      {
+        "type": "paragraph",
+        "text": "Iron does not exist on its own. Absorbing it needs stomach acid, and using it needs copper, vitamin A, and B12 in the picture. Inflammation quietly raises ferritin at the same time, which can mask a real deficiency."
+      },
+      {
+        "type": "paragraph",
+        "text": "That is why a single number gets read alongside the rest rather than acted on by itself, and why we look at inflammation markers in the same draw. If your gut is part of the reason, the gut panel usually explains it.",
+        "html": "That is why a single number gets read alongside the rest rather than acted on by itself, and why we look at inflammation markers in the same draw. If your gut is part of the reason, the <a href=\"/blog/your-gut-map-marker-by-marker\">gut panel</a> usually explains it."
+      },
+      {
+        "type": "heading",
+        "text": "Finding out why you are low"
+      },
+      {
+        "type": "paragraph",
+        "text": "The other half of this is why. Heavy cycles, a vegetarian diet, low stomach acid, a gut that is not absorbing, or blood loss nobody has looked for. Iron deficiency is a symptom too."
+      },
+      {
+        "type": "paragraph",
+        "text": "Repleting without answering that question means doing it again in a year. We spend part of the consult on the cause, not just the correction."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/procA-6.webp",
+        "alt": "An intravenous iron session at the Atlanta studio",
+        "caption": "Where absorption is the problem, we stop asking the gut to do the job."
+      },
+      {
+        "type": "heading",
+        "text": "What changes when we read it this way"
+      },
+      {
+        "type": "paragraph",
+        "text": "When ferritin comes up, the order things return in is fairly consistent. Energy first, usually within weeks. Then the shedding slows. Then, months later, the regrowth you were actually hoping for."
+      },
+      {
+        "type": "paragraph",
+        "text": "That lag is worth knowing in advance, because month two feels like nothing is happening. Retesting at ninety days is what gets people through it, since the number moves before the mirror does."
+      },
+      {
+        "type": "heading",
+        "text": "Where to start"
+      },
+      {
+        "type": "paragraph",
+        "text": "Ask for ferritin by name, and bring any old results you have. Three years of a slowly falling number tells us more than one reading in isolation ever could."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then we sit down for half an hour, look at where you are and why, and decide whether this is oral iron, an IV, or a gut problem wearing an iron costume."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "Ferritin",
+        "why": "Stored iron, and the number that tracks hair and afternoon energy most closely."
+      },
+      {
+        "name": "Serum iron and transferrin saturation",
+        "why": "What is circulating right now and how well it is being carried around."
+      },
+      {
+        "name": "Total iron binding capacity",
+        "why": "Rises when stores are genuinely low, which helps confirm what ferritin is telling us."
+      },
+      {
+        "name": "C-reactive protein",
+        "why": "Inflammation lifts ferritin artificially. Without this, a low result can hide inside a normal one."
+      },
+      {
+        "name": "Complete blood count",
+        "why": "Tells us whether this has reached anemia or is still upstream of it."
+      },
+      {
+        "name": "B12, folate, copper, vitamin A",
+        "why": "Iron cannot be used without these. Repleting iron alone often stalls for this reason."
+      }
+    ],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/procA-6.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "The lab range for ferritin was built to catch anemia, not to keep your hair."
+      },
+      {
+        "n": "02",
+        "text": "Inflammation raises ferritin, so it always gets read next to an inflammation marker."
+      },
+      {
+        "n": "03",
+        "text": "Ask why you are low. Repleting without an answer means doing it again next year."
+      },
+      {
+        "n": "04",
+        "text": "Energy returns in weeks, shedding slows in months, regrowth takes closer to a year."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Hair loss and shedding",
+        "href": "/conditions/hair-loss",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Chronic fatigue",
+        "href": "/conditions/chronic-fatigue",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Advanced lab testing",
+        "href": "/treatments/advanced-lab-testing",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "IV therapy",
+        "href": "/treatments/iv-therapy",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "Hair shedding, and the labs we run first",
+        "href": "/blog/hair-shedding-labs-first",
+        "fmt": "Guide",
+        "meta": "10 min",
+        "img": "/images/patients/tasha.png",
+        "fmtColor": "#8a6a3a"
+      },
+      {
+        "title": "Why your thyroid panel came back normal",
+        "href": "/blog/thyroid-panel-normal-but-symptoms",
+        "fmt": "Read",
+        "meta": "8 min",
+        "img": "/images/turn-myself.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "The 3pm crash has a cause, and it is findable",
+        "href": "/blog/3pm-crash-cause",
+        "fmt": "Read",
+        "meta": "6 min",
+        "img": "/images/turn-3pm.png",
+        "fmtColor": "#B5572F"
+      }
+    ],
+    "cta": {
+      "title": "Get your ferritin read properly",
+      "body": "Bring any old panels you have. Three years of a falling number is a finding, and half an hour is enough to see it.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "First Consult",
+    "slug": "what-a-first-consult-sounds-like",
+    "format": "Listen",
+    "title": "What a first consult actually sounds like",
+    "dek": "Most of the first half hour is you talking. That is not politeness, it is where the diagnosis usually is.",
+    "description": "What happens in a $99 first consult with Nina Ross Functional Medicine in Atlanta: the questions we ask, what we do with your old labs, and what you leave with.",
+    "datePublished": "2026-03-17",
+    "dateLabel": "March 17, 2026",
+    "articleSection": "The program",
+    "topicHref": "",
+    "topicLabel": "The program",
+    "timeRequired": "PT8M",
+    "wordCount": null,
+    "readTime": "",
+    "hero": {
+      "src": "/images/virtual-bg.png",
+      "alt": "A virtual consult with the Nina Ross Functional Medicine team",
+      "caption": "In person in Atlanta or on a call from anywhere in Georgia."
+    },
+    "shortAnswer": "Half an hour, no white coat, and no rush. You talk, we ask, and we read whatever labs you brought out loud. You leave with our honest read and a picture of what working together would look like.",
+    "body": [
+      {
+        "type": "heading",
+        "text": "What Dr. Nina covers"
+      },
+      {
+        "type": "paragraph",
+        "text": "People arrive at a first consult braced for something. Ten minutes, a hand on the doorknob, and a suggestion that this might be stress. That expectation is earned, and it is not what happens here."
+      },
+      {
+        "type": "paragraph",
+        "text": "In this one Dr. Nina walks through the half hour end to end: what she asks first, what she does with the results you bring, what she will and will not promise, and what you actually leave holding."
+      },
+      {
+        "type": "pullQuote",
+        "text": "Most of the first half hour is you talking. That is not politeness, it is where the diagnosis usually is."
+      },
+      {
+        "type": "paragraph",
+        "text": "Most of the first half hour is you talking. That is not politeness, it is where the diagnosis usually is."
+      },
+      {
+        "type": "figure",
+        "src": "/images/virtual-bg.png",
+        "alt": "A virtual consult with the Nina Ross Functional Medicine team",
+        "caption": "In person in Atlanta or on a call from anywhere in Georgia."
+      },
+      {
+        "type": "paragraph",
+        "text": ",why we retest at ninety days explains what happens after.",
+        "html": ",<a href=\"/blog/why-we-retest-every-90-days\">why we retest at ninety days</a> explains what happens after."
+      }
+    ],
+    "panelItems": [],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [
+      {
+        "start": 0,
+        "time": "0:00",
+        "label": "What people expect walking in"
+      },
+      {
+        "start": 84,
+        "time": "1:24",
+        "label": "The first question, and the silence after it"
+      },
+      {
+        "start": 196,
+        "time": "3:16",
+        "label": "Reading your old labs out loud"
+      },
+      {
+        "start": 312,
+        "time": "5:12",
+        "label": "The honest first read"
+      },
+      {
+        "start": 424,
+        "time": "7:04",
+        "label": "What you leave holding"
+      }
+    ],
+    "youtubeId": "",
+    "mediaPoster": "/images/clinic-bg.png",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "It is half an hour, and most of it is you talking rather than being talked at."
+      },
+      {
+        "n": "02",
+        "text": "Bring every old lab, especially the ones you were told to stop worrying about."
+      },
+      {
+        "n": "03",
+        "text": "You leave with an honest first read, including the parts we are still unsure about."
+      },
+      {
+        "n": "04",
+        "text": "Nothing gets decided in the room. You see the plan and the cost before committing."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Undiagnosed but unwell",
+        "href": "/conditions/undiagnosed-but-unwell",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Chronic fatigue",
+        "href": "/conditions/chronic-fatigue",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Advanced lab testing",
+        "href": "/treatments/advanced-lab-testing",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Book a $99 consult",
+        "href": "/book",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [],
+    "cta": {
+      "title": "Find out which one is yours",
+      "body": "A half hour with our team, and we will know which of the four we are testing for first.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": false
+  },
+  {
+    "sourceFile": "Four Hormones",
+    "slug": "four-hormones-we-test-cycle",
+    "format": "Read",
+    "title": "The four hormones we test when your cycle goes sideways",
+    "dek": "Estrogen alone tells you very little. These four, read together, show the pattern.",
+    "description": "Estrogen alone explains almost nothing. Dr. Nina Ross, ND PhD in Atlanta walks through the four hormones we read together when a cycle becomes unpredictable, heavy, or painful.",
+    "datePublished": "2026-07-21",
+    "dateLabel": "July 21, 2026",
+    "articleSection": "Hormones",
+    "topicHref": "/blog/topic/hormones",
+    "topicLabel": "Hormones",
+    "timeRequired": "PT7M",
+    "wordCount": 1240,
+    "readTime": "7 min read",
+    "hero": {
+      "src": "/images/turn-perimenopause.png",
+      "alt": "A woman tracking her cycle at home in a notebook",
+      "caption": "A cycle that changed has a reason, and the reason is usually measurable."
+    },
+    "shortAnswer": "A single estrogen reading pulled on a random day tells you almost nothing. We read estrogen, progesterone, and their two upstream signals across a timed window, because the ratio between them is what explains how you feel.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Your cycle used to be something you barely thought about. Now it arrives four days early or eleven days late, the first two days flatten you, and the week before it you do not recognise your own patience."
+      },
+      {
+        "type": "paragraph",
+        "text": "Somebody probably drew a single hormone level and told you it was fine. On a random Tuesday, in a system that changes every day of the month, one number was never going to answer this."
+      },
+      {
+        "type": "heading",
+        "text": "What one estrogen reading can tell you"
+      },
+      {
+        "type": "paragraph",
+        "text": "Estrogen and progesterone move in a choreography, and the whole point is the relationship between them. Estrogen builds in the first half. Progesterone should rise and hold in the second half, after ovulation actually happens."
+      },
+      {
+        "type": "paragraph",
+        "text": "When progesterone comes in low or late, estrogen is unopposed for too long. That is the pattern behind heavy bleeding, breast tenderness, and the short fuse that arrives seven days before anything else does."
+      },
+      {
+        "type": "pullQuote",
+        "text": "Hormones only make sense as a ratio. One number on one day is a snapshot of a moving thing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Hormones only make sense as a ratio. One number on one day is a snapshot of a moving thing."
+      },
+      {
+        "type": "heading",
+        "text": "The four we read together"
+      },
+      {
+        "type": "paragraph",
+        "text": "When a cycle becomes unpredictable, heavy, or painful, we read these as one picture:"
+      },
+      {
+        "type": "panelList"
+      },
+      {
+        "type": "paragraph",
+        "text": "Read together, and read on the right day, these four turn an unpredictable month into something with a shape you can work with."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/feed-a4.webp",
+        "alt": "A timed hormone panel being reviewed with a patient",
+        "caption": "A timed panel next to a random draw. Same patient, entirely different answer."
+      },
+      {
+        "type": "heading",
+        "text": "Why the day you test decides the answer"
+      },
+      {
+        "type": "paragraph",
+        "text": "Timing is most of the accuracy here. Progesterone drawn on day three tells you nothing, because it has not happened yet. We aim for roughly seven days after ovulation, which for a lot of people is not day twenty-one at all."
+      },
+      {
+        "type": "paragraph",
+        "text": "That single correction changes results more often than any supplement. Before we treat anything, we make sure we tested when your body had something to show us, and where cycles are too irregular to time we use a urine panel instead that reads a whole month at once.",
+        "html": "That single correction changes results more often than any supplement. Before we treat anything, we make sure we tested when your body had something to show us, and where cycles are too irregular to time we use a <a href=\"/blog/inside-a-dutch-test-result\">urine panel instead</a> that reads a whole month at once."
+      },
+      {
+        "type": "heading",
+        "text": "What sits underneath a cycle"
+      },
+      {
+        "type": "paragraph",
+        "text": "A cycle that has changed is information rather than a verdict. Thyroid, iron, insulin, and cortisol all reach into it, which is why we run them alongside rather than after."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chasing hormones on their own while a thyroid runs slow or ferritin sits at fifteen tends to produce a year of adjustments that never quite hold. Settling the surroundings often settles the cycle with very little else."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-anxiety.png",
+        "alt": "A woman feeling steady in the week before her period",
+        "caption": "The week before is usually the first week patients say felt different."
+      },
+      {
+        "type": "heading",
+        "text": "What changes when we read it this way"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most people leave with two or three specific findings rather than a label. Low progesterone in the second half. Estrogen clearing slowly through a sluggish gut. Cortisol high enough to be stealing the raw material."
+      },
+      {
+        "type": "paragraph",
+        "text": "From there the plan is concrete, and we retest across a full cycle at ninety days so you can watch the second half fill in rather than guessing from how one week felt."
+      },
+      {
+        "type": "heading",
+        "text": "Where to start"
+      },
+      {
+        "type": "paragraph",
+        "text": "Track two cycles before your consult if you can, even roughly. Start day, how heavy, how you slept, when your mood turned. That timeline is genuinely diagnostic, and nobody else is going to ask you for it."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then we sit down for half an hour, put your symptoms next to your dates, and decide which day of which week we are drawing blood."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "Estradiol",
+        "why": "The build in the first half of your cycle. Useful mainly next to progesterone rather than alone."
+      },
+      {
+        "name": "Progesterone",
+        "why": "Drawn about seven days after ovulation. This is the number that explains heavy bleeding and the short fuse."
+      },
+      {
+        "name": "LH and FSH",
+        "why": "The upstream signals. Their ratio tells us whether ovulation is happening at all."
+      },
+      {
+        "name": "Testosterone and DHEA-S",
+        "why": "Raised androgens change the whole picture and point us toward PCOS rather than a luteal problem."
+      },
+      {
+        "name": "Full thyroid panel and ferritin",
+        "why": "Both reach directly into your cycle. Neither gets treated as a separate errand."
+      },
+      {
+        "name": "Fasting insulin",
+        "why": "Insulin drives androgens. While it is high, hormones will not settle no matter what else we do."
+      }
+    ],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/feed-a4.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "One estrogen reading on a random day answers almost nothing. The ratio is the finding."
+      },
+      {
+        "n": "02",
+        "text": "Progesterone has to be drawn about seven days after ovulation, which is often not day twenty-one."
+      },
+      {
+        "n": "03",
+        "text": "Thyroid, ferritin, and insulin all reach into your cycle and get read alongside it."
+      },
+      {
+        "n": "04",
+        "text": "Two months of rough dates before your consult is genuinely diagnostic. Bring them."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Hormonal problems",
+        "href": "/conditions/hormones",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "PCOS",
+        "href": "/conditions/pcos",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "DUTCH hormone testing",
+        "href": "/treatments/dutch-test",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Hormone restoration",
+        "href": "/treatments/hormone-restoration",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "Inside a DUTCH test result",
+        "href": "/blog/inside-a-dutch-test-result",
+        "fmt": "Watch",
+        "meta": "11 min",
+        "img": "/images/home-media/feed-a4.webp",
+        "fmtColor": "#4a6340"
+      },
+      {
+        "title": "Cortisol curves and why your afternoon matters",
+        "href": "/blog/cortisol-curves-afternoon",
+        "fmt": "Read",
+        "meta": "7 min",
+        "img": "/images/turn-anxiety.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "Perimenopause, and what changes when you treat it early",
+        "href": "/blog/perimenopause-treated-early",
+        "fmt": "Guide",
+        "meta": "11 min",
+        "img": "/images/turn-perimenopause.png",
+        "fmtColor": "#8a6a3a"
+      }
+    ],
+    "cta": {
+      "title": "Read your own cycle with us",
+      "body": "Bring two months of dates and whatever labs you have. In half an hour we will know which day we are testing and what we are testing for.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "GLP-1 Muscle",
+    "slug": "glp-1-with-muscle-in-mind",
+    "format": "Read",
+    "title": "GLP-1 done with your muscle in mind",
+    "dek": "How we protect strength while the weight comes down, and why that decides whether it stays off.",
+    "description": "A GLP-1 works, and what you lose alongside the fat decides whether it stays off. Dr. Nina Ross, ND PhD in Atlanta explains how we protect muscle through a weight loss program.",
+    "datePublished": "2026-03-31",
+    "dateLabel": "March 31, 2026",
+    "articleSection": "Weight",
+    "topicHref": "/blog/topic/weight",
+    "topicLabel": "Weight",
+    "timeRequired": "PT7M",
+    "wordCount": 1310,
+    "readTime": "7 min read",
+    "hero": {
+      "src": "/images/turn-weight.png",
+      "alt": "Strength training alongside a GLP-1 program",
+      "caption": "The gym part is not optional here. It is the part that decides the ending."
+    },
+    "shortAnswer": "A GLP-1 lowers appetite, and appetite is not selective. Without enough protein and enough resistance work, a quarter of what you lose can be muscle, and muscle is what keeps it off.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "These medications work. That part is settled, and pretending otherwise is not useful to anyone sitting in front of me hoping for help."
+      },
+      {
+        "type": "paragraph",
+        "text": "What is not settled is how they get used. Mailed as a vial with a titration schedule and no other conversation, they produce weight loss that is partly muscle and rebounds the moment the prescription stops."
+      },
+      {
+        "type": "heading",
+        "text": "What these medications actually do"
+      },
+      {
+        "type": "paragraph",
+        "text": "When you eat much less, your body takes some of what it needs from lean tissue. Studies of rapid loss without resistance training put that share somewhere around a quarter of total weight lost."
+      },
+      {
+        "type": "paragraph",
+        "text": "Muscle is where you burn glucose and where your resting metabolism largely lives. Losing it makes you smaller and slower at the same time, which is exactly the setup for regain."
+      },
+      {
+        "type": "pullQuote",
+        "text": "Appetite suppression is not selective. Your body will take the muscle unless you give it a reason not to."
+      },
+      {
+        "type": "paragraph",
+        "text": "Appetite suppression is not selective. Your body will take the muscle unless you give it a reason not to."
+      },
+      {
+        "type": "heading",
+        "text": "What we read before prescribing"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before a GLP-1 goes on a prescription pad, we want these in front of us:"
+      },
+      {
+        "type": "panelList"
+      },
+      {
+        "type": "paragraph",
+        "text": "Read together, these tell us whether a GLP-1 is appropriate and what we need to protect while you are on it."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/toolDV-1.webp",
+        "alt": "A metabolic panel reviewed before starting a GLP-1",
+        "caption": "Fasting insulin, A1c, and thyroid before the first dose, not after."
+      },
+      {
+        "type": "heading",
+        "text": "Protein first, and more than you think"
+      },
+      {
+        "type": "paragraph",
+        "text": "So protein comes first, and the number is higher than most people expect: roughly a gram per pound of goal bodyweight, which is hard when a medication has removed your interest in food."
+      },
+      {
+        "type": "paragraph",
+        "text": "That difficulty is the actual work of the program, and it is why we plan meals rather than hope. Where insulin resistance is the driver underneath, the insulin picture is worth understanding first.",
+        "html": "That difficulty is the actual work of the program, and it is why we plan meals rather than hope. Where insulin resistance is the driver underneath, the <a href=\"/blog/insulin-resistance-explained\">insulin picture</a> is worth understanding first."
+      },
+      {
+        "type": "heading",
+        "text": "Load is the signal that saves muscle"
+      },
+      {
+        "type": "paragraph",
+        "text": "Resistance training twice a week is the other half, and it does not need to be complicated or long. It needs to be heavy enough to give your body a reason to keep the tissue."
+      },
+      {
+        "type": "paragraph",
+        "text": "Walking is good for you and does not accomplish this. The signal that preserves muscle is load, and thirty minutes twice a week is enough to send it."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-eat.png",
+        "alt": "A high protein meal planned around a GLP-1 program",
+        "caption": "Hitting protein on a suppressed appetite takes planning rather than willpower."
+      },
+      {
+        "type": "heading",
+        "text": "What changes when we work this way"
+      },
+      {
+        "type": "paragraph",
+        "text": "Done this way, the weight that comes off is mostly fat, the scale moves more slowly, and what you keep afterwards is a body that still burns properly."
+      },
+      {
+        "type": "paragraph",
+        "text": "We retest at ninety days and track more than weight. Waist, strength, and body composition tell us whether the loss is the kind you want, and we adjust dose against that rather than against the scale alone."
+      },
+      {
+        "type": "heading",
+        "text": "Where to start"
+      },
+      {
+        "type": "paragraph",
+        "text": "Bring your labs, especially fasting insulin and A1c, and be honest about what you are eating now. The protein target is the hardest part and I would rather plan for that than discover it in month two."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then we sit down for half an hour, look at whether a GLP-1 fits, and write the protein and training plan that goes with it before anything gets prescribed."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "Fasting insulin and A1c",
+        "why": "Establishes whether insulin resistance is the driver and gives us a baseline to move."
+      },
+      {
+        "name": "Full thyroid panel",
+        "why": "A slow thyroid will blunt results and needs correcting alongside rather than after."
+      },
+      {
+        "name": "Comprehensive metabolic panel",
+        "why": "Kidney and liver function decide dose safety and how quickly we titrate."
+      },
+      {
+        "name": "Body composition",
+        "why": "The measurement that separates useful loss from the kind that comes back."
+      },
+      {
+        "name": "Ferritin, B12 and vitamin D",
+        "why": "Eating much less means absorbing less. These get watched throughout."
+      },
+      {
+        "name": "Protein intake and training history",
+        "why": "Not labs, but they decide the outcome more than the dose does."
+      }
+    ],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/feed-v3.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "Rapid loss without resistance work can be roughly a quarter muscle. That is the regain mechanism."
+      },
+      {
+        "n": "02",
+        "text": "Aim for about a gram of protein per pound of goal bodyweight, and plan it rather than hope."
+      },
+      {
+        "n": "03",
+        "text": "Load twice a week is the signal that preserves muscle. Walking does not replace it."
+      },
+      {
+        "n": "04",
+        "text": "Track waist, strength, and composition alongside weight, and adjust dose against all four."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Weight that will not move",
+        "href": "/conditions/weight-loss",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Metabolic health",
+        "href": "/conditions/metabolic-health",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "GLP-1 weight loss injections",
+        "href": "/treatments/glp-1-weight-loss",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Holistic nutrition",
+        "href": "/treatments/holistic-nutrition",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "Weight that will not move, and the six things we check",
+        "href": "/blog/weight-will-not-move-six-checks",
+        "fmt": "Read",
+        "meta": "9 min",
+        "img": "/images/turn-weight.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "Dr. Nina explains insulin resistance in six minutes",
+        "href": "/blog/insulin-resistance-explained",
+        "fmt": "Watch",
+        "meta": "6 min",
+        "img": "/images/home-media/feed-v3.webp",
+        "fmtColor": "#4a6340"
+      },
+      {
+        "title": "A batch-cook Sunday for a busy week",
+        "href": "/blog/batch-cook-sunday",
+        "fmt": "Protocol",
+        "meta": "4 min",
+        "img": "/images/turn-eat.png",
+        "fmtColor": "#2E211B"
+      }
+    ],
+    "cta": {
+      "title": "Do this with your muscle protected",
+      "body": "Bring your fasting insulin and A1c if you have them. In half an hour we will know whether a GLP-1 fits and what goes around it.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "Gut Map Guide",
+    "slug": "your-gut-map-marker-by-marker",
+    "format": "Guide",
+    "title": "Your gut map, one marker at a time",
+    "dek": "A plain-language tour of a stool panel and what each finding changes.",
+    "description": "A GI-MAP result is intimidating until someone walks you through it. Dr. Nina Ross, ND PhD in Atlanta explains each marker in plain language and what each one changes about your plan.",
+    "datePublished": "2026-03-03",
+    "dateLabel": "March 3, 2026",
+    "articleSection": "Gut",
+    "topicHref": "",
+    "topicLabel": "Gut",
+    "timeRequired": "PT13M",
+    "wordCount": 2180,
+    "readTime": "13 min read · Six chapters · Gut",
+    "hero": {
+      "src": "/images/home-media/toolDV-1.webp",
+      "alt": "A GI-MAP stool panel result laid out for review",
+      "caption": "Twelve pages of markers, and about six of them decide the plan."
+    },
+    "shortAnswer": "A gut panel looks intimidating and mostly is not. Six markers do the heavy lifting: digestive capacity, inflammation, the immune layer, the good bacteria, the opportunists, and the enzyme that recycles your estrogen.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "A stool panel arrives as twelve pages of unfamiliar names and coloured bars, and almost everyone reacts the same way. They scan for anything in red, decide they are full of parasites, and arrive genuinely worried."
+      },
+      {
+        "type": "heading",
+        "text": "What a gut panel actually measures",
+        "id": "what",
+        "chapterLabel": "Chapter one"
+      },
+      {
+        "type": "paragraph",
+        "text": "These panels use PCR to count the DNA of what lives in your gut, alongside markers for how well you digest, how inflamed you are, and how your immune layer is holding up."
+      },
+      {
+        "type": "paragraph",
+        "text": "The counting part is impressive and also the part people over-read. A named organism at a low level is usually a normal resident rather than an invader, and treating every red bar is how people end up worse."
+      },
+      {
+        "type": "pullQuote",
+        "text": "The value is in the interpretation, not the panel. The same twelve pages produce very different plans."
+      },
+      {
+        "type": "paragraph",
+        "text": "The value is in the interpretation, not the panel. The same twelve pages produce very different plans."
+      },
+      {
+        "type": "heading",
+        "text": "The six markers that decide the plan",
+        "id": "markers",
+        "chapterLabel": "Chapter two"
+      },
+      {
+        "type": "paragraph",
+        "text": "Of everything on the report, six markers change what we actually do. The rest is context, useful for confirming a picture rather than driving a decision."
+      },
+      {
+        "type": "paragraph",
+        "text": "This is the part I wish more people knew before they pay for one of these: the value is in interpretation rather than in the panel. The same twelve pages produce very different plans depending on who reads them."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-eat.png",
+        "alt": "A meal chosen to support digestion during gut repair",
+        "caption": "Digestive capacity gets addressed before anything aimed at bacteria."
+      },
+      {
+        "type": "heading",
+        "text": "Digestive capacity comes before anything else",
+        "id": "digestion",
+        "chapterLabel": "Chapter three"
+      },
+      {
+        "type": "paragraph",
+        "text": "Pancreatic elastase tells us whether you are producing enough enzyme to break food down. When it is low, nothing downstream is going to work properly, and that becomes the first target."
+      },
+      {
+        "type": "paragraph",
+        "text": "Steatocrit tells us about fat digestion, which points at bile. Both of these come before anything aimed at bacteria, because feeding undigested food to a disturbed population makes the population worse. This is the bloating conversation in audio if you prefer.",
+        "html": "Steatocrit tells us about fat digestion, which points at bile. Both of these come before anything aimed at bacteria, because feeding undigested food to a disturbed population makes the population worse. This is the <a href=\"/blog/what-bloating-is-telling-you\">bloating conversation</a> in audio if you prefer."
+      },
+      {
+        "type": "heading",
+        "text": "Inflammation and the immune layer",
+        "id": "immune",
+        "chapterLabel": "Chapter four"
+      },
+      {
+        "type": "paragraph",
+        "text": "Calprotectin measures inflammation in the gut wall directly, and it is the marker that decides whether we need to involve a gastroenterologist rather than proceeding alone."
+      },
+      {
+        "type": "paragraph",
+        "text": "Secretory IgA is your gut immune layer. Low means your defences are worn down, often after a long stressful stretch, and high means they are actively fighting something. Both change the order of treatment."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-perimenopause.png",
+        "alt": "A woman whose cycle settled once her gut was treated",
+        "caption": "The estrogen recycling marker is where gut work and hormone work meet."
+      },
+      {
+        "type": "heading",
+        "text": "The estrogen recycling marker",
+        "id": "estrogen",
+        "chapterLabel": "Chapter five"
+      },
+      {
+        "type": "paragraph",
+        "text": "Beta-glucuronidase is the one nobody expects on a gut panel. It is the enzyme that unpackages estrogen your liver has already prepared for removal, sending it back into circulation."
+      },
+      {
+        "type": "paragraph",
+        "text": "High readings genuinely explain heavy cycles and breast tenderness, and they are invisible on a blood hormone panel. This is where gut work and hormone work turn out to be the same work."
+      },
+      {
+        "type": "heading",
+        "text": "What the first six months look like",
+        "id": "timeline",
+        "chapterLabel": "Chapter six"
+      },
+      {
+        "type": "paragraph",
+        "text": "The first six months follow a fairly consistent order: digestion first, then inflammation, then rebalancing the population, then rebuilding the lining, then a retest to see what actually moved."
+      },
+      {
+        "type": "timeline"
+      },
+      {
+        "type": "paragraph",
+        "text": "We retest at ninety days for the markers we targeted, and the panel we compare against is your own previous one rather than a textbook, because your baseline is the only fair comparison."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "Pancreatic elastase",
+        "why": "Enzyme output. Low here means nothing downstream works, so it becomes the first target."
+      },
+      {
+        "name": "Steatocrit",
+        "why": "Fat digestion, which points at bile flow. Often explains feeling heavy after rich meals."
+      },
+      {
+        "name": "Calprotectin",
+        "why": "Inflammation at the gut wall, and the marker that decides whether we refer out."
+      },
+      {
+        "name": "Secretory IgA",
+        "why": "Your gut immune layer. Low means worn down, high means actively fighting."
+      },
+      {
+        "name": "Commensal bacteria levels",
+        "why": "The residents doing useful work. Low diversity guides what we feed rather than what we kill."
+      },
+      {
+        "name": "Beta-glucuronidase",
+        "why": "Recycles estrogen back into circulation. Invisible on a blood panel and often the missing link."
+      }
+    ],
+    "markers": [],
+    "timeline": [
+      {
+        "when": "Weeks 1 to 4",
+        "what": "Digestion first. Enzymes, bile support, and how you eat before anything else."
+      },
+      {
+        "when": "Months 1 to 2",
+        "what": "Inflammation calmed and the immune layer supported, in that order."
+      },
+      {
+        "when": "Months 2 to 4",
+        "what": "Rebalancing the population, which is where antimicrobials belong if they belong at all."
+      },
+      {
+        "when": "Months 4 to 6",
+        "what": "Rebuilding the lining, then a retest against your own earlier panel."
+      }
+    ],
+    "chapters": [
+      {
+        "n": "01",
+        "label": "What a gut panel actually measures",
+        "href": "#what"
+      },
+      {
+        "n": "02",
+        "label": "The six markers that decide the plan",
+        "href": "#markers"
+      },
+      {
+        "n": "03",
+        "label": "Digestive capacity comes before anything else",
+        "href": "#digestion"
+      },
+      {
+        "n": "04",
+        "label": "Inflammation and the immune layer",
+        "href": "#immune"
+      },
+      {
+        "n": "05",
+        "label": "The estrogen recycling marker",
+        "href": "#estrogen"
+      },
+      {
+        "n": "06",
+        "label": "What the first six months look like",
+        "href": "#timeline"
+      }
+    ],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/toolDV-1.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "A named organism at a low level is usually a resident. Treating every red bar makes people worse."
+      },
+      {
+        "n": "02",
+        "text": "Six markers decide the plan. The rest of the report is context."
+      },
+      {
+        "n": "03",
+        "text": "Digestive capacity gets fixed before anything aimed at bacteria."
+      },
+      {
+        "n": "04",
+        "text": "Beta-glucuronidase links gut work to heavy cycles, and blood panels cannot see it."
+      },
+      {
+        "n": "05",
+        "text": "Retest against your own previous panel rather than against a textbook range."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Gut health and digestion",
+        "href": "/conditions/gut-digestion",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Hormonal problems",
+        "href": "/conditions/hormones",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "GI-MAP stool testing",
+        "href": "/treatments/gi-map-test",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Holistic nutrition",
+        "href": "/treatments/holistic-nutrition",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [],
+    "cta": {
+      "title": "Have your panel read properly",
+      "body": "Bring a panel you already had run, even an old one. In half an hour we will know which markers matter for you.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 232,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "Gut Work First",
+    "slug": "gut-work-comes-first",
+    "format": "Read",
+    "title": "The gut work that comes before everything else",
+    "dek": "Hormones and energy both run through your gut. That is where most plans begin.",
+    "description": "Hormones, thyroid, and energy all depend on your gut working. Dr. Nina Ross, ND PhD in Atlanta explains why gut repair comes first and what the first six weeks look like.",
+    "datePublished": "2026-05-05",
+    "dateLabel": "May 5, 2026",
+    "articleSection": "Gut",
+    "topicHref": "/blog/topic/gut-digestion",
+    "topicLabel": "Gut",
+    "timeRequired": "PT8M",
+    "wordCount": 1330,
+    "readTime": "8 min read",
+    "hero": {
+      "src": "/images/turn-eat.png",
+      "alt": "A meal being prepared at home with digestion in mind",
+      "caption": "Almost every plan we write starts within a few feet of the kitchen."
+    },
+    "shortAnswer": "Your gut absorbs the nutrients your thyroid needs, clears the estrogen your cycle depends on, and makes most of your serotonin. When it is struggling, everything downstream of it struggles too.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "People come in to talk about their hormones, their hair, or their energy. We usually end up talking about their gut within the first ten minutes, and it is not a deflection."
+      },
+      {
+        "type": "paragraph",
+        "text": "Almost everything else in the body is downstream of digestion. Nutrients get absorbed there, hormones get cleared there, and a surprising share of your mood chemistry is manufactured there."
+      },
+      {
+        "type": "heading",
+        "text": "Why we start here"
+      },
+      {
+        "type": "paragraph",
+        "text": "Thyroid hormone needs selenium, zinc, and iron to convert into its active form. Every one of those has to make it across your intestinal wall first, which is not guaranteed."
+      },
+      {
+        "type": "paragraph",
+        "text": "This is why thyroid plans stall. The prescription is right, the dose is right, and the raw material is not arriving. Fixing absorption often does more than adjusting the dose again."
+      },
+      {
+        "type": "pullQuote",
+        "text": "Your thyroid prescription is only as good as the gut that has to deliver the raw material."
+      },
+      {
+        "type": "paragraph",
+        "text": "Your thyroid prescription is only as good as the gut that has to deliver the raw material."
+      },
+      {
+        "type": "heading",
+        "text": "What we read to see inside it"
+      },
+      {
+        "type": "paragraph",
+        "text": "To see what is actually happening rather than guessing, we read these:"
+      },
+      {
+        "type": "panelList"
+      },
+      {
+        "type": "paragraph",
+        "text": "Read together, these show us what your gut is doing rather than what it feels like it is doing."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/toolDV-1.webp",
+        "alt": "A GI-MAP stool panel being reviewed with a patient",
+        "caption": "A gut panel turns a vague complaint into named organisms and named markers."
+      },
+      {
+        "type": "heading",
+        "text": "The estrogen loop nobody mentions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Estrogen gets used, then packaged by your liver, then carried out through your gut. Certain bacteria can unpackage it on the way and send it back into circulation."
+      },
+      {
+        "type": "paragraph",
+        "text": "That recycling is a real mechanism behind heavy cycles and tender breasts, and it is invisible on a blood hormone panel. If your cycle is the main complaint, the DUTCH panel shows this clearly.",
+        "html": "That recycling is a real mechanism behind heavy cycles and tender breasts, and it is invisible on a blood hormone panel. If your cycle is the main complaint, the <a href=\"/blog/inside-a-dutch-test-result\">DUTCH panel</a> shows this clearly."
+      },
+      {
+        "type": "heading",
+        "text": "What the first six weeks look like"
+      },
+      {
+        "type": "paragraph",
+        "text": "The first six weeks rarely involve much that comes in a bottle. It is how you eat, how quickly, whether you are eating in the car, and whether your nervous system has left the office yet."
+      },
+      {
+        "type": "paragraph",
+        "text": "Digestion runs on the calm branch of your nervous system. Eating in a hurry means asking for stomach acid and enzymes at exactly the moment your body has decided they are not a priority."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-3pm.png",
+        "alt": "A woman with steady energy through her afternoon",
+        "caption": "Fewer afternoon crashes is usually the first sign the gut is settling."
+      },
+      {
+        "type": "heading",
+        "text": "What changes when the gut settles"
+      },
+      {
+        "type": "paragraph",
+        "text": "When the gut settles, the reports are consistent and quick: fewer afternoon crashes, calmer skin, a cycle that hurts less, and supplements that finally seem to do something."
+      },
+      {
+        "type": "paragraph",
+        "text": "That last one matters most. A working gut makes every other part of the plan cheaper and faster, which is why we spend the early weeks here rather than adding more."
+      },
+      {
+        "type": "heading",
+        "text": "Where to start"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before your consult, track four days of food, timing, and symptoms, and note how long after eating things happen. Ninety minutes versus six hours points at completely different causes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then we sit down for half an hour, look at where digestion is breaking down, and decide whether we are testing or simply changing how you eat first."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "A comprehensive stool panel",
+        "why": "Names the organisms, the inflammation, and the digestive capacity instead of guessing at all three."
+      },
+      {
+        "name": "Beta-glucuronidase",
+        "why": "The enzyme behind estrogen recycling. High readings explain a lot about heavy cycles."
+      },
+      {
+        "name": "Pancreatic elastase",
+        "why": "Tells us whether you are producing enough enzyme to break food down at all."
+      },
+      {
+        "name": "Calprotectin and secretory IgA",
+        "why": "Inflammation and immune activity at the gut wall, which change the order of treatment."
+      },
+      {
+        "name": "A breath test where indicated",
+        "why": "For bacterial overgrowth in the small intestine, which needs the opposite of a probiotic."
+      },
+      {
+        "name": "Ferritin, B12, zinc and vitamin D",
+        "why": "The absorption readout. Low across several is a gut finding rather than a diet one."
+      }
+    ],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/toolDV-1.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "Thyroid conversion needs nutrients your gut has to absorb first. That is why plans stall."
+      },
+      {
+        "n": "02",
+        "text": "Certain gut bacteria recycle estrogen back into circulation, and blood panels cannot see it."
+      },
+      {
+        "n": "03",
+        "text": "The first six weeks are mostly how and when you eat rather than what you swallow."
+      },
+      {
+        "n": "04",
+        "text": "Timing matters. Ninety minutes after eating and six hours after eating mean different things."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Gut health and digestion",
+        "href": "/conditions/gut-digestion",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Hormonal problems",
+        "href": "/conditions/hormones",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "GI-MAP stool testing",
+        "href": "/treatments/gi-map-test",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Holistic nutrition",
+        "href": "/treatments/holistic-nutrition",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "What bloating is actually telling you",
+        "href": "/blog/what-bloating-is-telling-you",
+        "fmt": "Listen",
+        "meta": "9 min",
+        "img": "/images/turn-eat.png",
+        "fmtColor": "#B08A3E"
+      },
+      {
+        "title": "Your gut map, one marker at a time",
+        "href": "/blog/your-gut-map-marker-by-marker",
+        "fmt": "Guide",
+        "meta": "13 min",
+        "img": "/images/home-media/toolDV-1.webp",
+        "fmtColor": "#8a6a3a"
+      },
+      {
+        "title": "Reading ferritin the way we read it",
+        "href": "/blog/reading-ferritin",
+        "fmt": "Read",
+        "meta": "5 min",
+        "img": "/images/home-media/toolDV-1.webp",
+        "fmtColor": "#B5572F"
+      }
+    ],
+    "cta": {
+      "title": "Start with your gut",
+      "body": "Bring four days of food and symptom notes. In half an hour we will know whether to test or simply change how you eat first.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "Hormone Restoration",
+    "slug": "hormone-restoration-titrated",
+    "format": "Read",
+    "title": "Hormone restoration, titrated to you",
+    "dek": "Why the dose that works for someone else is rarely the dose that works for you.",
+    "description": "Hormone therapy works when the dose fits the person. Dr. Nina Ross, ND PhD in Atlanta explains how we test, titrate, and monitor hormone restoration rather than starting everyone the same.",
+    "datePublished": "2026-02-17",
+    "dateLabel": "February 17, 2026",
+    "articleSection": "Hormones",
+    "topicHref": "/blog/topic/hormones",
+    "topicLabel": "Hormones",
+    "timeRequired": "PT8M",
+    "wordCount": 1360,
+    "readTime": "8 min read",
+    "hero": {
+      "src": "/images/turn-worry.png",
+      "alt": "A patient reviewing her hormone restoration plan",
+      "caption": "The right dose is found rather than chosen, and finding it takes a few months."
+    },
+    "shortAnswer": "Hormone therapy works when the dose fits the person. That means testing before you start, adjusting on how you feel and what your labs say, and accepting that the first dose is a starting point rather than an answer.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Two women the same age with the same symptoms can need doses that differ by a factor of three. That is not imprecision, it is biology, and it is the entire reason this has to be titrated."
+      },
+      {
+        "type": "paragraph",
+        "text": "How much you make, how fast you clear it, what your receptors do with it, and what else is going on all vary. A protocol that starts everyone in the same place will be wrong for most of them."
+      },
+      {
+        "type": "heading",
+        "text": "Why one dose does not fit"
+      },
+      {
+        "type": "paragraph",
+        "text": "A pellet mill can only really offer one thing, so it offers that. Insert, wait months, repeat. If the dose was too high there is no taking it back, and if it was too low you wait."
+      },
+      {
+        "type": "paragraph",
+        "text": "That model exists because it is efficient, not because it is precise. What it removes is the ability to adjust, which is the part that actually makes hormone therapy work."
+      },
+      {
+        "type": "pullQuote",
+        "text": "The first dose is a hypothesis. What makes this work is being willing to change it."
+      },
+      {
+        "type": "paragraph",
+        "text": "The first dose is a hypothesis. What makes this work is being willing to change it."
+      },
+      {
+        "type": "heading",
+        "text": "What we test before starting"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before anything is prescribed, we want these in front of us:"
+      },
+      {
+        "type": "panelList"
+      },
+      {
+        "type": "paragraph",
+        "text": "Read together, these give us a starting point rather than a guess."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/feed-a4.webp",
+        "alt": "A comprehensive hormone panel being reviewed before treatment",
+        "caption": "A full panel first, then a conservative start, then six weeks of watching."
+      },
+      {
+        "type": "heading",
+        "text": "The pellet problem"
+      },
+      {
+        "type": "paragraph",
+        "text": "Estrogen alone is only half the conversation. Unopposed estrogen is a real problem, so progesterone comes with it for anyone with a uterus, and it does useful work on sleep and anxiety besides."
+      },
+      {
+        "type": "paragraph",
+        "text": "Testosterone belongs in this conversation for women too, at doses far smaller than most people assume, and it is often the piece that returns energy and libido. Where the whole picture needs mapping, the urine hormone panel gives us the fullest view.",
+        "html": "Testosterone belongs in this conversation for women too, at doses far smaller than most people assume, and it is often the piece that returns energy and libido. Where the whole picture needs mapping, the <a href=\"/blog/inside-a-dutch-test-result\">urine hormone panel</a> gives us the fullest view."
+      },
+      {
+        "type": "heading",
+        "text": "Titration is the actual treatment"
+      },
+      {
+        "type": "paragraph",
+        "text": "Then it is a conversation over months rather than a prescription. We start conservatively, wait six weeks, retest, and adjust against both the numbers and how you actually feel."
+      },
+      {
+        "type": "paragraph",
+        "text": "Feeling well at a lower dose beats a textbook number every time. The labs keep us safe and honest, and your experience decides whether we have arrived."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-perimenopause.png",
+        "alt": "A woman feeling steady through perimenopause on a titrated dose",
+        "caption": "Steady is the goal, which is different from a number on a page."
+      },
+      {
+        "type": "heading",
+        "text": "What changes when we work this way"
+      },
+      {
+        "type": "paragraph",
+        "text": "Done this way, most people land somewhere they did not expect, and they stay there comfortably rather than riding a cycle of highs and crashes between appointments."
+      },
+      {
+        "type": "paragraph",
+        "text": "We monitor at ninety days indefinitely, because bodies keep changing and a dose that was right two years ago may not be right now."
+      },
+      {
+        "type": "heading",
+        "text": "Where to start"
+      },
+      {
+        "type": "paragraph",
+        "text": "Bring any hormone labs you have, a list of what you have tried, and what specifically you want back. Sleep, energy, libido, and clarity respond on different timelines and it helps to know which one matters most to you."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then we sit down for half an hour, look at where you are, and decide whether we are testing first or starting low and watching closely."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "Estradiol and progesterone",
+        "why": "The starting point, timed to your cycle if you still have one."
+      },
+      {
+        "name": "Total and free testosterone",
+        "why": "Relevant for women at small doses, and often the piece that returns energy and libido."
+      },
+      {
+        "name": "FSH and LH",
+        "why": "Tells us where you are in the transition, which changes what we expect from treatment."
+      },
+      {
+        "name": "DHEA-S and four point cortisol",
+        "why": "Stress hormones compete for the same raw material. Ignoring them stalls the plan."
+      },
+      {
+        "name": "Full thyroid panel",
+        "why": "Thyroid and sex hormones affect each other constantly. Both get read together."
+      },
+      {
+        "name": "Lipids, metabolic panel, and personal history",
+        "why": "Safety first. Family history and clotting risk shape both the route and the dose."
+      }
+    ],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/feed-a4.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "Two women with the same symptoms can need doses that differ threefold. Titration is the treatment."
+      },
+      {
+        "n": "02",
+        "text": "Progesterone comes with estrogen for anyone with a uterus, and it helps sleep besides."
+      },
+      {
+        "n": "03",
+        "text": "Testosterone belongs in the conversation for women, at much smaller doses than most assume."
+      },
+      {
+        "n": "04",
+        "text": "Six weeks, retest, adjust. Feeling well at a lower dose beats hitting a textbook number."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Menopause and perimenopause",
+        "href": "/conditions/menopause",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Hormonal problems",
+        "href": "/conditions/hormones",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Hormone restoration",
+        "href": "/treatments/hormone-restoration",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "DUTCH hormone testing",
+        "href": "/treatments/dutch-test",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "Perimenopause, and what changes when you treat it early",
+        "href": "/blog/perimenopause-treated-early",
+        "fmt": "Guide",
+        "meta": "11 min",
+        "img": "/images/turn-perimenopause.png",
+        "fmtColor": "#8a6a3a"
+      },
+      {
+        "title": "Inside a DUTCH test result",
+        "href": "/blog/inside-a-dutch-test-result",
+        "fmt": "Watch",
+        "meta": "11 min",
+        "img": "/images/home-media/feed-a4.webp",
+        "fmtColor": "#4a6340"
+      },
+      {
+        "title": "The four hormones we test when your cycle goes sideways",
+        "href": "/blog/four-hormones-we-test-cycle",
+        "fmt": "Read",
+        "meta": "7 min",
+        "img": "/images/turn-perimenopause.png",
+        "fmtColor": "#B5572F"
+      }
+    ],
+    "cta": {
+      "title": "Get a dose that fits you",
+      "body": "Bring your hormone labs and what you want back most. In half an hour we will know whether to test first or start low.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "IV Drip",
+    "slug": "iv-drip-in-your-plan",
+    "format": "Read",
+    "title": "How an IV drip earns its place in your plan",
+    "dek": "What your labs have to show before we put anything in a bag.",
+    "description": "An IV is a delivery method, not a treatment plan. Dr. Nina Ross, ND PhD in Atlanta explains what has to show up on your labs before a drip is worth doing, and what goes in it.",
+    "datePublished": "2026-05-26",
+    "dateLabel": "May 26, 2026",
+    "articleSection": "IV Therapy",
+    "topicHref": "/blog/topic/iv-therapy",
+    "topicLabel": "IV Therapy",
+    "timeRequired": "PT6M",
+    "wordCount": 1150,
+    "readTime": "6 min read",
+    "hero": {
+      "src": "/images/home-media/procA-6.webp",
+      "alt": "An IV therapy session at the Atlanta studio",
+      "caption": "Forty minutes in a chair, aimed at something specific."
+    },
+    "shortAnswer": "An IV is a delivery route rather than a treatment. It earns its place when your labs show a real deficiency and your gut cannot absorb the oral version fast enough to matter.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Drips are everywhere now, sold by the menu and named after hangovers. That version is fine and mostly harmless, and it is a different thing from what happens here."
+      },
+      {
+        "type": "paragraph",
+        "text": "The question we ask before anyone sits in the chair is simple: what is low, why is it low, and is there a reason your gut cannot fix this with a capsule. If those three have answers, an IV is genuinely useful."
+      },
+      {
+        "type": "heading",
+        "text": "The question we ask first"
+      },
+      {
+        "type": "paragraph",
+        "text": "Swallowing a nutrient and absorbing it are two different events. Between them sit stomach acid, bile, enzymes, an intestinal lining, and a bacterial population that may or may not be cooperating."
+      },
+      {
+        "type": "paragraph",
+        "text": "When any of that is compromised, oral doses go in and come out. That is the real argument for intravenous delivery: it skips a step that is not currently working, while we spend the rest of the plan repairing it."
+      },
+      {
+        "type": "pullQuote",
+        "text": "An IV is a delivery route. What matters is whether anything on your panel needed delivering."
+      },
+      {
+        "type": "paragraph",
+        "text": "An IV is a delivery route. What matters is whether anything on your panel needed delivering."
+      },
+      {
+        "type": "heading",
+        "text": "What we read before a drip"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before anyone sits in the chair, we want these on the table:"
+      },
+      {
+        "type": "panelList"
+      },
+      {
+        "type": "paragraph",
+        "text": "Read together, these tell us whether a drip is the right tool and what should be in it."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/toolDV-1.webp",
+        "alt": "A nutrient and iron panel being reviewed before treatment",
+        "caption": "The panel decides the blend. There is no menu on the wall."
+      },
+      {
+        "type": "heading",
+        "text": "Why absorption is the real argument"
+      },
+      {
+        "type": "paragraph",
+        "text": "What goes in the bag is decided by the panel rather than by a menu. Low ferritin with poor absorption gets iron. Genuine depletion after months of illness gets magnesium, B vitamins, and vitamin C at doses you cannot reach by mouth."
+      },
+      {
+        "type": "paragraph",
+        "text": "The blend is written after we read your results, which is also why nobody here can tell you the price of a drip before we know what you need. If your gut is the bottleneck, the gut panel usually explains why nothing oral has held.",
+        "html": "The blend is written after we read your results, which is also why nobody here can tell you the price of a drip before we know what you need. If your gut is the bottleneck, the <a href=\"/blog/your-gut-map-marker-by-marker\">gut panel</a> usually explains why nothing oral has held."
+      },
+      {
+        "type": "aside",
+        "text": "A drip on its own does not change anything for long. It buys you a few weeks of feeling human while the slower work goes on underneath, and that is the honest way to describe it.\nThe slower work is the gut, the food, the sleep, and whatever was draining you in the first place. When we get that right, most people need fewer drips over time rather than more."
+      },
+      {
+        "type": "heading",
+        "text": "What a drip cannot do"
+      },
+      {
+        "type": "paragraph",
+        "text": "A drip on its own does not change anything for long. It buys you a few weeks of feeling human while the slower work goes on underneath, and that is the honest way to describe it."
+      },
+      {
+        "type": "paragraph",
+        "text": "The slower work is the gut, the food, the sleep, and whatever was draining you in the first place. When we get that right, most people need fewer drips over time rather than more."
+      },
+      {
+        "type": "figure",
+        "src": "/images/clinic-bg.png",
+        "alt": "The Nina Ross Functional Medicine studio in Atlanta",
+        "caption": "Physician-led, which means somebody is watching the whole plan rather than the bag."
+      },
+      {
+        "type": "heading",
+        "text": "What changes when we work this way"
+      },
+      {
+        "type": "paragraph",
+        "text": "Used this way, an IV becomes a tool inside a plan with a beginning and an end. You know why you are having it, what is in it, and what has to change so you stop needing it."
+      },
+      {
+        "type": "paragraph",
+        "text": "We retest at ninety days, and the honest measure of success is that your oral supplements start holding on their own."
+      },
+      {
+        "type": "heading",
+        "text": "Where to start"
+      },
+      {
+        "type": "paragraph",
+        "text": "Bring any labs you have, especially iron studies and B12. If they are older than six months we will draw again, but the trend across both is more useful than either one alone."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then we sit down for half an hour, decide whether a drip is actually the shortest route for you, and write what would go in it."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "Ferritin and full iron studies",
+        "why": "The most common genuine indication, and the one where oral iron most often fails to hold."
+      },
+      {
+        "name": "Vitamin B12 and folate",
+        "why": "Low with normal-looking blood counts is common, and absorption is usually the reason."
+      },
+      {
+        "name": "Magnesium and vitamin D",
+        "why": "Both commonly depleted after a long stretch of stress or illness."
+      },
+      {
+        "name": "Comprehensive metabolic panel",
+        "why": "Kidney and liver function decide what doses are safe. This is not optional."
+      },
+      {
+        "name": "Inflammation markers",
+        "why": "High inflammation changes both what we give and how your body will use it."
+      },
+      {
+        "name": "A gut assessment",
+        "why": "If absorption is the bottleneck, that is the thing to treat rather than to work around forever."
+      }
+    ],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/clinic-bg.png",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "An IV is a delivery route. The question is whether anything on your panel needed delivering."
+      },
+      {
+        "n": "02",
+        "text": "The blend gets written from your results, which is why nobody can price it in advance."
+      },
+      {
+        "n": "03",
+        "text": "A kidney and liver panel comes first. Dose safety is not something to assume."
+      },
+      {
+        "n": "04",
+        "text": "Success looks like needing fewer drips over time, because the oral version finally holds."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Chronic fatigue",
+        "href": "/conditions/chronic-fatigue",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Gut health and digestion",
+        "href": "/conditions/gut-digestion",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "IV therapy in Atlanta",
+        "href": "/treatments/iv-therapy",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Vitamin injections",
+        "href": "/treatments/vitamin-injections",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "Reading ferritin the way we read it",
+        "href": "/blog/reading-ferritin",
+        "fmt": "Read",
+        "meta": "5 min",
+        "img": "/images/home-media/toolDV-1.webp",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "The gut work that comes before everything else",
+        "href": "/blog/gut-work-comes-first",
+        "fmt": "Read",
+        "meta": "8 min",
+        "img": "/images/turn-eat.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "Why we retest every 90 days",
+        "href": "/blog/why-we-retest-every-90-days",
+        "fmt": "Listen",
+        "meta": "7 min",
+        "img": "/images/clinic-bg.png",
+        "fmtColor": "#B08A3E"
+      }
+    ],
+    "cta": {
+      "title": "Find out if a drip is the shortest route",
+      "body": "Bring your iron studies and B12 if you have them. In half an hour we will know whether an IV belongs in your plan.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "PCOS Guide",
+    "slug": "pcos-without-birth-control",
+    "format": "Guide",
+    "title": "PCOS, and what we do in place of birth control",
+    "dek": "A full walk through the testing, the food, and the plan that moves PCOS at the root.",
+    "description": "Birth control masks PCOS symptoms without treating the insulin and androgen drivers underneath. Dr. Nina Ross, ND PhD in Atlanta explains the testing and the plan we use instead.",
+    "datePublished": "2026-07-14",
+    "dateLabel": "July 14, 2026",
+    "articleSection": "PCOS",
+    "topicHref": "",
+    "topicLabel": "PCOS",
+    "timeRequired": "PT12M",
+    "wordCount": 2040,
+    "readTime": "12 min read · Six chapters · PCOS",
+    "hero": {
+      "src": "/images/patients/priya.png",
+      "alt": "A woman managing PCOS with root-cause functional medicine care",
+      "caption": "PCOS is a metabolic condition wearing a reproductive costume."
+    },
+    "shortAnswer": "PCOS is driven by insulin and androgens far more often than by anything reproductive. Birth control quiets the symptoms while both drivers continue, which is why symptoms return the month you stop.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Most women arrive with the same story. Irregular cycles, weight that will not move, hair where they do not want it and thinning where they do. They were handed a prescription for the pill and told to come back when they wanted a baby."
+      },
+      {
+        "type": "heading",
+        "text": "What PCOS actually is",
+        "id": "what",
+        "chapterLabel": "Chapter one"
+      },
+      {
+        "type": "paragraph",
+        "text": "PCOS gets filed as a reproductive condition because of where the symptoms show up. Underneath, it behaves like a metabolic one: insulin resistance drives androgen production, and androgens interrupt ovulation."
+      },
+      {
+        "type": "paragraph",
+        "text": "That order matters enormously, because it means the leverage is metabolic. Treating the ovaries while insulin runs high is working at the wrong end of the chain."
+      },
+      {
+        "type": "pullQuote",
+        "text": "PCOS is a metabolic condition that shows up in your cycle. Treat the metabolism and the cycle follows."
+      },
+      {
+        "type": "paragraph",
+        "text": "PCOS is a metabolic condition that shows up in your cycle. Treat the metabolism and the cycle follows."
+      },
+      {
+        "type": "heading",
+        "text": "The testing we run first",
+        "id": "testing",
+        "chapterLabel": "Chapter two"
+      },
+      {
+        "type": "paragraph",
+        "text": "Diagnosis usually happens on symptoms and an ultrasound, which is a start rather than a finish. What we want is the mechanism, because the mechanism differs between women who share the same label."
+      },
+      {
+        "type": "paragraph",
+        "text": "Fasting insulin is the number most often missing, and it is frequently the whole story. Ask for it by name, because a normal glucose alongside high insulin is the classic PCOS pattern."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/toolDV-1.webp",
+        "alt": "A PCOS panel including fasting insulin and androgens",
+        "caption": "Fasting insulin is the line most PCOS workups leave out and the one we start from."
+      },
+      {
+        "type": "heading",
+        "text": "Insulin is usually the engine",
+        "id": "insulin",
+        "chapterLabel": "Chapter three"
+      },
+      {
+        "type": "paragraph",
+        "text": "When insulin is high, your ovaries produce more testosterone. That is direct, well established, and it explains the acne, the hair, and the cycles that stopped arriving on schedule."
+      },
+      {
+        "type": "paragraph",
+        "text": "It also explains why weight loss feels impossible here rather than merely hard. High insulin blocks release, so effort produces very little, and the conclusion people draw is about themselves rather than about their physiology. The insulin explainer covers the mechanism in six minutes.",
+        "html": "It also explains why weight loss feels impossible here rather than merely hard. High insulin blocks release, so effort produces very little, and the conclusion people draw is about themselves rather than about their physiology. The <a href=\"/blog/insulin-resistance-explained\">insulin explainer</a> covers the mechanism in six minutes."
+      },
+      {
+        "type": "heading",
+        "text": "What we change about food",
+        "id": "food",
+        "chapterLabel": "Chapter four"
+      },
+      {
+        "type": "paragraph",
+        "text": "Food changes are the highest leverage thing available, and they are not a diet. Protein at every meal, carbohydrates paired rather than alone, and a genuine breakfast instead of coffee at eleven."
+      },
+      {
+        "type": "paragraph",
+        "text": "That combination lowers insulin within weeks, and lower insulin lowers androgens without a prescription. Most people notice skin and energy before their cycle changes."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-eat.png",
+        "alt": "A protein-forward meal built for insulin control",
+        "caption": "Pairing carbohydrates rather than removing them is what makes this sustainable."
+      },
+      {
+        "type": "heading",
+        "text": "The plan, in the order we build it",
+        "id": "plan",
+        "chapterLabel": "Chapter five"
+      },
+      {
+        "type": "paragraph",
+        "text": "From there the plan stacks in order: food and movement, then targeted supplementation like inositol and magnesium, then medication where it earns its place, and hormone support only if the picture calls for it."
+      },
+      {
+        "type": "paragraph",
+        "text": "Birth control still has a role for some people, and choosing it with the mechanism understood is completely different from being handed it as the only option."
+      },
+      {
+        "type": "heading",
+        "text": "What the first year looks like",
+        "id": "timeline",
+        "chapterLabel": "Chapter six"
+      },
+      {
+        "type": "paragraph",
+        "text": "Cycles usually take three to six months to become predictable, because a follicle needs about ninety days to develop. Skin and energy move sooner, often in the first six weeks."
+      },
+      {
+        "type": "timeline"
+      },
+      {
+        "type": "paragraph",
+        "text": "We retest at ninety days and track insulin, androgens, and cycle length together, because those three moving in the same direction is what tells us the root is actually shifting."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "Fasting insulin and HOMA-IR",
+        "why": "The most commonly missing number and often the entire mechanism."
+      },
+      {
+        "name": "Total and free testosterone, DHEA-S",
+        "why": "The androgens behind the acne, the hair growth, and the interrupted ovulation."
+      },
+      {
+        "name": "LH and FSH",
+        "why": "A raised LH to FSH ratio is a classic pattern and tells us ovulation is being blocked."
+      },
+      {
+        "name": "Anti-Mullerian hormone",
+        "why": "Often high in PCOS. Useful for confirming the picture rather than diagnosing alone."
+      },
+      {
+        "name": "Full thyroid panel and prolactin",
+        "why": "Both mimic PCOS closely enough that they get ruled out before we commit."
+      },
+      {
+        "name": "Lipids, A1c and vitamin D",
+        "why": "The long-term risk markers we are actually trying to move over years."
+      }
+    ],
+    "markers": [],
+    "timeline": [
+      {
+        "when": "Weeks 1 to 6",
+        "what": "Food and movement change. Skin, energy, and cravings usually shift first."
+      },
+      {
+        "when": "Month 3",
+        "what": "Insulin and androgens retested. This is where we see the root moving."
+      },
+      {
+        "when": "Months 3 to 6",
+        "what": "Cycles start becoming predictable, because a follicle takes about ninety days."
+      },
+      {
+        "when": "Month 12",
+        "what": "Regular ovulation for most people, with lipids and A1c heading the right way."
+      }
+    ],
+    "chapters": [
+      {
+        "n": "01",
+        "label": "What PCOS actually is",
+        "href": "#what"
+      },
+      {
+        "n": "02",
+        "label": "The testing we run first",
+        "href": "#testing"
+      },
+      {
+        "n": "03",
+        "label": "Insulin is usually the engine",
+        "href": "#insulin"
+      },
+      {
+        "n": "04",
+        "label": "What we change about food",
+        "href": "#food"
+      },
+      {
+        "n": "05",
+        "label": "The plan, in the order we build it",
+        "href": "#plan"
+      },
+      {
+        "n": "06",
+        "label": "What the first year looks like",
+        "href": "#timeline"
+      }
+    ],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/feed-v3.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "PCOS is driven by insulin and androgens far more often than by anything reproductive."
+      },
+      {
+        "n": "02",
+        "text": "Ask for fasting insulin by name. Normal glucose with high insulin is the classic pattern."
+      },
+      {
+        "n": "03",
+        "text": "Lowering insulin lowers androgens, which is why food is the highest leverage change."
+      },
+      {
+        "n": "04",
+        "text": "Cycles need three to six months, because a follicle takes about ninety days to develop."
+      },
+      {
+        "n": "05",
+        "text": "Birth control chosen with the mechanism understood is a different decision entirely."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "PCOS",
+        "href": "/conditions/pcos",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Weight that will not move",
+        "href": "/conditions/weight-loss",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Advanced lab testing",
+        "href": "/treatments/advanced-lab-testing",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Holistic nutrition",
+        "href": "/treatments/holistic-nutrition",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [],
+    "cta": {
+      "title": "Treat the driver, not the symptom",
+      "body": "Bring your labs, especially fasting insulin if you have it. In half an hour we will know which driver is yours.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 232,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "Peptides",
+    "slug": "peptides-explained",
+    "format": "Read",
+    "title": "Peptides, explained plainly",
+    "dek": "What they do in the body, who they suit, and how we dose them off your results.",
+    "description": "Peptides explained without the hype: what they are, who they suit, and how Dr. Nina Ross, ND PhD in Atlanta prescribes and monitors them off your own lab results.",
+    "datePublished": "2026-05-12",
+    "dateLabel": "May 12, 2026",
+    "articleSection": "Peptides",
+    "topicHref": "/blog/topic/peptides",
+    "topicLabel": "Peptides",
+    "timeRequired": "PT7M",
+    "wordCount": 1290,
+    "readTime": "7 min read",
+    "hero": {
+      "src": "/images/home-media/feed-a5.webp",
+      "alt": "Prescription peptide therapy prepared in clinic",
+      "caption": "A real prescription, from a licensed pharmacy, dosed off a panel."
+    },
+    "shortAnswer": "A peptide is a short chain of amino acids that carries one specific instruction. That precision is the appeal, and it is also why the right peptide depends entirely on what your labs say.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Peptides arrived in the wellness conversation sideways, mostly through forums and gym conversations, which has left a lot of people with strong opinions and very little information."
+      },
+      {
+        "type": "paragraph",
+        "text": "The underlying science is neither new nor exotic. Insulin is a peptide. So is the GLP-1 everyone is currently talking about. What is new is how many of them we can now prescribe for specific, narrow jobs."
+      },
+      {
+        "type": "heading",
+        "text": "What a peptide actually is"
+      },
+      {
+        "type": "paragraph",
+        "text": "Proteins are long chains of amino acids. Peptides are short ones, usually a few dozen at most, and being short makes them specific. Each one fits a particular receptor and delivers one message."
+      },
+      {
+        "type": "paragraph",
+        "text": "That message might be repair this tissue, calm this inflammation, release growth hormone in the pattern you had at thirty. The specificity is the point, and it is also the reason a peptide that helps one person does nothing for another."
+      },
+      {
+        "type": "pullQuote",
+        "text": "A peptide carries one instruction. The whole question is whether your body needed that particular instruction."
+      },
+      {
+        "type": "paragraph",
+        "text": "A peptide carries one instruction. The whole question is whether your body needed that particular instruction."
+      },
+      {
+        "type": "heading",
+        "text": "What we read before prescribing one"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before a peptide goes on a prescription pad, we want these in front of us:"
+      },
+      {
+        "type": "panelList"
+      },
+      {
+        "type": "paragraph",
+        "text": "Read together, these decide whether a peptide is appropriate and which one has a job to do."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/toolDV-1.webp",
+        "alt": "A hormone and metabolic panel reviewed before prescribing",
+        "caption": "The panel decides which peptide, and whether one is warranted at all."
+      },
+      {
+        "type": "heading",
+        "text": "The sourcing problem nobody mentions"
+      },
+      {
+        "type": "paragraph",
+        "text": "The honest problem in this category is sourcing. Plenty of what gets sold online is labelled for research use, unverified, unregulated, and dosed by the buyer off a forum thread."
+      },
+      {
+        "type": "paragraph",
+        "text": "What we prescribe comes from a licensed compounding pharmacy, arrives with a certificate of analysis, and gets dosed off your panel with a physician monitoring it. If weight is the goal, the GLP-1 conversation is a more direct route than most peptides.",
+        "html": "What we prescribe comes from a licensed compounding pharmacy, arrives with a certificate of analysis, and gets dosed off your panel with a physician monitoring it. If weight is the goal, the <a href=\"/blog/glp-1-with-muscle-in-mind\">GLP-1 conversation</a> is a more direct route than most peptides."
+      },
+      {
+        "type": "heading",
+        "text": "Why peptides come late in a plan"
+      },
+      {
+        "type": "paragraph",
+        "text": "A peptide is not a starting point. It sits fairly late in a plan, after sleep, protein, iron, thyroid, and gut have been dealt with, because those four determine whether it can do anything at all."
+      },
+      {
+        "type": "paragraph",
+        "text": "Running a repair peptide while someone sleeps five hours a night is spending money to fight your own physiology. We get the foundation right first, which sometimes removes the need entirely."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-weight.png",
+        "alt": "Strength training alongside peptide therapy",
+        "caption": "Sleep and strength work decide whether anything we prescribe can land."
+      },
+      {
+        "type": "heading",
+        "text": "What changes when we work this way"
+      },
+      {
+        "type": "paragraph",
+        "text": "Used properly, a peptide becomes a targeted addition with a defined course and a clear measure of whether it worked. You know what it is for, how long you are on it, and what we are watching."
+      },
+      {
+        "type": "paragraph",
+        "text": "We retest at ninety days, and cycling off is planned from the start rather than decided later."
+      },
+      {
+        "type": "heading",
+        "text": "Where to start"
+      },
+      {
+        "type": "paragraph",
+        "text": "Bring whatever you have already tried, including anything you bought online. I would rather know than not, and it genuinely changes what I would suggest next."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then we sit down for half an hour, look at whether a peptide has a job in your case, and if it does, which one and for how long."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "IGF-1",
+        "why": "The readout for growth hormone signalling, and the number we monitor on anything in that family."
+      },
+      {
+        "name": "Fasting insulin and A1c",
+        "why": "Several peptides move blood sugar. We want the starting point before, not after."
+      },
+      {
+        "name": "Full thyroid panel",
+        "why": "A slow thyroid mimics most of what people hope a peptide will fix."
+      },
+      {
+        "name": "Inflammation markers",
+        "why": "High inflammation changes both the choice of peptide and what to expect from it."
+      },
+      {
+        "name": "Comprehensive metabolic panel",
+        "why": "Kidney and liver function set the safe dose range. Non-negotiable."
+      },
+      {
+        "name": "Sleep, protein, iron and gut status",
+        "why": "Not a lab exactly, but these four decide whether any peptide can work."
+      }
+    ],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/feed-a5.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "Peptides are short amino acid chains that carry one specific instruction each."
+      },
+      {
+        "n": "02",
+        "text": "Sourcing is the real risk. A licensed pharmacy and a certificate of analysis are the baseline."
+      },
+      {
+        "n": "03",
+        "text": "They come late in a plan, after sleep, protein, iron, thyroid, and gut are handled."
+      },
+      {
+        "n": "04",
+        "text": "A defined course with a planned end is part of prescribing them properly."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Weight that will not move",
+        "href": "/conditions/weight-loss",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Chronic fatigue",
+        "href": "/conditions/chronic-fatigue",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Peptide therapy in Atlanta",
+        "href": "/treatments/peptide-therapy",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Hormone restoration",
+        "href": "/treatments/hormone-restoration",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "GLP-1 done with your muscle in mind",
+        "href": "/blog/glp-1-with-muscle-in-mind",
+        "fmt": "Read",
+        "meta": "7 min",
+        "img": "/images/turn-weight.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "Dr. Nina explains insulin resistance in six minutes",
+        "href": "/blog/insulin-resistance-explained",
+        "fmt": "Watch",
+        "meta": "6 min",
+        "img": "/images/home-media/feed-v3.webp",
+        "fmtColor": "#4a6340"
+      },
+      {
+        "title": "Sleep that finally holds through the night",
+        "href": "/blog/sleep-that-holds",
+        "fmt": "Read",
+        "meta": "6 min",
+        "img": "/images/turn-sleep.png",
+        "fmtColor": "#B5572F"
+      }
+    ],
+    "cta": {
+      "title": "Find out whether a peptide fits",
+      "body": "Bring your labs and anything you have already tried. In half an hour we will know whether a peptide has a job here.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "Perimenopause Guide",
+    "slug": "perimenopause-treated-early",
+    "format": "Guide",
+    "title": "Perimenopause, and what changes when you treat it early",
+    "dek": "The window where small changes hold the most ground, and what we watch during it.",
+    "description": "Perimenopause starts years before your last period and responds best when treated early. Dr. Nina Ross, ND PhD in Atlanta explains the timeline, the testing, and what to do first.",
+    "datePublished": "2026-06-02",
+    "dateLabel": "June 2, 2026",
+    "articleSection": "Menopause",
+    "topicHref": "",
+    "topicLabel": "Menopause",
+    "timeRequired": "PT11M",
+    "wordCount": 1920,
+    "readTime": "11 min read · Six chapters · Menopause",
+    "hero": {
+      "src": "/images/turn-perimenopause.png",
+      "alt": "A woman in her forties feeling steady through perimenopause",
+      "caption": "The transition takes years, which is exactly why there is time to work with."
+    },
+    "shortAnswer": "Perimenopause begins years before your last period, and the early part is when the least effort buys the most. Sleep, bone, muscle, and mood are all easier to protect than to rebuild.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Almost nobody arrives here saying the word perimenopause. They arrive because sleep stopped working, or their cycle got strange, or their patience left the building sometime last spring and has not written since."
+      },
+      {
+        "type": "heading",
+        "text": "When perimenopause actually starts",
+        "id": "when",
+        "chapterLabel": "Chapter one"
+      },
+      {
+        "type": "paragraph",
+        "text": "Perimenopause is the transition, not the destination. It commonly begins in the early forties and can start in the late thirties, and it runs for four to ten years before periods stop entirely."
+      },
+      {
+        "type": "paragraph",
+        "text": "That length is the important part. This is not an event to get through in a bad season, it is a decade-long shift, and the early years are when intervention is cheapest and most effective."
+      },
+      {
+        "type": "pullQuote",
+        "text": "Bone you keep is bone you never have to rebuild. That is the whole argument for starting early."
+      },
+      {
+        "type": "paragraph",
+        "text": "Bone you keep is bone you never have to rebuild. That is the whole argument for starting early."
+      },
+      {
+        "type": "heading",
+        "text": "The signs that arrive first",
+        "id": "signs",
+        "chapterLabel": "Chapter two"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sleep usually goes first, and it goes quietly. Progesterone is the calming hormone and the first to decline, so you fall asleep fine and wake at three, months or years before anything else changes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then cycles get shorter or heavier, the week before gets louder, and the word people use most often is that they do not feel like themselves. That sentence is a clinical finding as far as I am concerned."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/feed-a4.webp",
+        "alt": "A hormone panel reviewed across a full cycle",
+        "caption": "A month of data beats a single morning draw during a transition this variable."
+      },
+      {
+        "type": "heading",
+        "text": "What testing can and cannot tell you",
+        "id": "testing",
+        "chapterLabel": "Chapter three"
+      },
+      {
+        "type": "paragraph",
+        "text": "Testing in perimenopause is genuinely tricky, and anyone promising a clean answer from one blood draw is overselling it. Hormones swing wildly month to month during this window."
+      },
+      {
+        "type": "paragraph",
+        "text": "What testing does do is rule things in and out, establish where you are, and give us a baseline to titrate against. For a fuller picture across a whole month, the DUTCH panel is more useful than a single draw.",
+        "html": "What testing does do is rule things in and out, establish where you are, and give us a baseline to titrate against. For a fuller picture across a whole month, the <a href=\"/blog/thyroid-panel-normal-but-symptoms\">DUTCH panel</a> is more useful than a single draw."
+      },
+      {
+        "type": "heading",
+        "text": "Bone and muscle are the quiet stakes",
+        "id": "bone",
+        "chapterLabel": "Chapter four"
+      },
+      {
+        "type": "paragraph",
+        "text": "Bone loss accelerates sharply in the years around your final period, and most of it happens quietly. There is no symptom until something breaks, which is why we do not wait for one."
+      },
+      {
+        "type": "paragraph",
+        "text": "Muscle goes the same way, and losing it changes your metabolism, your blood sugar, and how well you age in every direction. Protecting both now is enormously easier than rebuilding either later."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-weight.png",
+        "alt": "A woman doing resistance training to protect bone and muscle",
+        "caption": "Twice a week under load is the intervention with the longest payoff here."
+      },
+      {
+        "type": "heading",
+        "text": "What we do in the early window",
+        "id": "treatment",
+        "chapterLabel": "Chapter five"
+      },
+      {
+        "type": "paragraph",
+        "text": "The early window is mostly unglamorous work: protein at every meal, resistance training twice a week, sleep treated as medical rather than optional, and hormone support if and when the picture calls for it."
+      },
+      {
+        "type": "paragraph",
+        "text": "What makes it worth doing early is compounding. Bone kept is bone you do not have to rebuild, and muscle kept is metabolism you do not have to fight for at sixty."
+      },
+      {
+        "type": "heading",
+        "text": "What the next ten years look like",
+        "id": "timeline",
+        "chapterLabel": "Chapter six"
+      },
+      {
+        "type": "paragraph",
+        "text": "Treated early, most people describe the next decade as an adjustment rather than a loss. Sleep holds, the cycle winds down without drama, and strength stays where it was."
+      },
+      {
+        "type": "timeline"
+      },
+      {
+        "type": "paragraph",
+        "text": "We monitor every ninety days at first and then annually, watching bone density, body composition, metabolic markers, and how you actually feel, adjusting as your body keeps changing."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "FSH and estradiol",
+        "why": "Where you are in the transition, understanding that both swing month to month."
+      },
+      {
+        "name": "Progesterone, timed",
+        "why": "The first hormone to decline, and the one most tied to how you are sleeping."
+      },
+      {
+        "name": "Total and free testosterone",
+        "why": "Falls through this window too, and often explains energy and libido."
+      },
+      {
+        "name": "Thyroid panel and ferritin",
+        "why": "Both mimic perimenopause almost exactly. Ruling them in or out comes first."
+      },
+      {
+        "name": "Fasting insulin, A1c and lipids",
+        "why": "Cardiometabolic risk shifts in these years. This is the baseline we track from."
+      },
+      {
+        "name": "Bone density and body composition",
+        "why": "The two things that change silently, and the two most worth protecting now."
+      }
+    ],
+    "markers": [],
+    "timeline": [
+      {
+        "when": "Early forties",
+        "what": "Sleep changes and cycles shorten. This is the cheapest window to intervene in."
+      },
+      {
+        "when": "Mid forties",
+        "what": "Cycles become unpredictable, symptoms broaden, and bone loss begins accelerating."
+      },
+      {
+        "when": "The final year",
+        "what": "The steepest bone and muscle loss of the whole transition happens around here."
+      },
+      {
+        "when": "After",
+        "what": "Symptoms settle. What you protected on the way through is what you get to keep."
+      }
+    ],
+    "chapters": [
+      {
+        "n": "01",
+        "label": "When perimenopause actually starts",
+        "href": "#when"
+      },
+      {
+        "n": "02",
+        "label": "The signs that arrive first",
+        "href": "#signs"
+      },
+      {
+        "n": "03",
+        "label": "What testing can and cannot tell you",
+        "href": "#testing"
+      },
+      {
+        "n": "04",
+        "label": "Bone and muscle are the quiet stakes",
+        "href": "#bone"
+      },
+      {
+        "n": "05",
+        "label": "What we do in the early window",
+        "href": "#treatment"
+      },
+      {
+        "n": "06",
+        "label": "What the next ten years look like",
+        "href": "#timeline"
+      }
+    ],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/feed-a4.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "Perimenopause runs four to ten years. It is a window to work in rather than an event."
+      },
+      {
+        "n": "02",
+        "text": "Sleep and progesterone usually change first, often years before the cycle does."
+      },
+      {
+        "n": "03",
+        "text": "One blood draw cannot capture this. Testing sets a baseline rather than giving a verdict."
+      },
+      {
+        "n": "04",
+        "text": "Bone and muscle change silently and are far easier to protect than to rebuild."
+      },
+      {
+        "n": "05",
+        "text": "Protein, load twice a week, and sleep treated as medical do most of the early work."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Menopause and perimenopause",
+        "href": "/conditions/menopause",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Hormonal problems",
+        "href": "/conditions/hormones",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Hormone restoration",
+        "href": "/treatments/hormone-restoration",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "DUTCH hormone testing",
+        "href": "/treatments/dutch-test",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [],
+    "cta": {
+      "title": "Start in the early window",
+      "body": "Bring your cycle history and any labs you have. In half an hour we will know where you are and what to protect first.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 232,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "Sleep That Holds",
+    "slug": "sleep-that-holds",
+    "format": "Read",
+    "title": "Sleep that finally holds through the night",
+    "dek": "Waking at 3am is a signal. Here is what it usually points to.",
+    "description": "Falling asleep fine and waking at 3am is a specific pattern with specific causes. Dr. Nina Ross, ND PhD in Atlanta explains what blood sugar, cortisol, and hormones do overnight.",
+    "datePublished": "2026-03-24",
+    "dateLabel": "March 24, 2026",
+    "articleSection": "Sleep",
+    "topicHref": "/blog/topic/sleep",
+    "topicLabel": "Sleep",
+    "timeRequired": "PT6M",
+    "wordCount": 1190,
+    "readTime": "6 min read",
+    "hero": {
+      "src": "/images/turn-sleep.png",
+      "alt": "A woman sleeping soundly through the night",
+      "caption": "Staying asleep and falling asleep are two different problems."
+    },
+    "shortAnswer": "Falling asleep easily and waking at three is a different problem from lying awake at eleven. The three in the morning version is usually blood sugar, cortisol, or falling progesterone.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "You fall asleep without trouble. Then at some point between two and four you are awake, alert in a way that feels almost chemical, and the next ninety minutes belong to your inbox and your worries."
+      },
+      {
+        "type": "paragraph",
+        "text": "That specific timing is useful information. Trouble falling asleep and trouble staying asleep have different causes, and the middle of the night version narrows things considerably."
+      },
+      {
+        "type": "heading",
+        "text": "Why the time you wake matters"
+      },
+      {
+        "type": "paragraph",
+        "text": "The most common driver is a blood sugar dip. If dinner was carbohydrate-heavy and early, glucose falls overnight, and your body wakes you with adrenaline to fix it."
+      },
+      {
+        "type": "paragraph",
+        "text": "The tell is waking with your heart going slightly faster than it should be, sometimes hungry, and settling if you eat something small. A protein-containing dinner often ends this within a week."
+      },
+      {
+        "type": "pullQuote",
+        "text": "Waking at three with your mind already running is a different problem from waking hungry. The difference is the diagnosis."
+      },
+      {
+        "type": "paragraph",
+        "text": "Waking at three with your mind already running is a different problem from waking hungry. The difference is the diagnosis."
+      },
+      {
+        "type": "heading",
+        "text": "What we read for overnight waking"
+      },
+      {
+        "type": "paragraph",
+        "text": "For someone who falls asleep fine and wakes in the small hours, we read these:"
+      },
+      {
+        "type": "panelList"
+      },
+      {
+        "type": "paragraph",
+        "text": "Read together, these tell us which of the overnight mechanisms is waking you."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-eat.png",
+        "alt": "A protein-containing dinner that holds blood sugar overnight",
+        "caption": "For the blood sugar version, the fix happens at dinner rather than at bedtime."
+      },
+      {
+        "type": "heading",
+        "text": "Cortisol arriving too early"
+      },
+      {
+        "type": "paragraph",
+        "text": "Cortisol should be at its lowest in the small hours. When the curve is disrupted, it climbs early, and you wake alert with your mind already running rather than groggy."
+      },
+      {
+        "type": "paragraph",
+        "text": "The distinguishing feature is mental rather than physical: thoughts arrive fully formed and urgent. Where this is the pattern, a four point cortisol panel shows the shape.",
+        "html": "The distinguishing feature is mental rather than physical: thoughts arrive fully formed and urgent. Where this is the pattern, a <a href=\"/blog/cortisol-curves-afternoon\">four point cortisol panel</a> shows the shape."
+      },
+      {
+        "type": "heading",
+        "text": "Progesterone and sleep that quietly stopped working"
+      },
+      {
+        "type": "paragraph",
+        "text": "For women in their forties, falling progesterone changes sleep architecture directly. Progesterone is calming and it is the first hormone to decline in perimenopause."
+      },
+      {
+        "type": "paragraph",
+        "text": "The pattern is recognisable: sleep that worked for twenty years quietly stopped working, often alongside a cycle that has become less predictable. Sleep is frequently the first perimenopausal symptom, and rarely the one people mention."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-perimenopause.png",
+        "alt": "A woman in her forties whose sleep changed with her cycle",
+        "caption": "Sleep is often the first perimenopausal symptom and the last one people mention."
+      },
+      {
+        "type": "heading",
+        "text": "What changes when we name the mechanism"
+      },
+      {
+        "type": "paragraph",
+        "text": "Naming the mechanism makes this fixable in weeks rather than years. The blood sugar version responds fastest, often within days of changing dinner."
+      },
+      {
+        "type": "paragraph",
+        "text": "We retest at ninety days, and honestly the better measure is that you have stopped knowing what your ceiling looks like at 3am."
+      },
+      {
+        "type": "heading",
+        "text": "Where to start"
+      },
+      {
+        "type": "paragraph",
+        "text": "Track two weeks of when you wake, what you ate for dinner, and how you felt on waking, alert or groggy or anxious. Those three details usually identify the mechanism before any test does."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then we sit down for half an hour, work out which one is yours, and start with dinner if that is where the evidence points."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "Four point cortisol",
+        "why": "The overnight and early morning values are the ones that explain alert waking."
+      },
+      {
+        "name": "Fasting glucose and insulin",
+        "why": "A big overnight dip usually starts with a big daytime swing."
+      },
+      {
+        "name": "Progesterone, timed",
+        "why": "Drawn in the second half of your cycle. Low progesterone changes sleep architecture directly."
+      },
+      {
+        "name": "Full thyroid panel",
+        "why": "An overactive thyroid wakes people, and a slow one makes them unrefreshed. Both matter."
+      },
+      {
+        "name": "Ferritin and magnesium",
+        "why": "Low iron drives restless legs, and low magnesium shortens deep sleep."
+      },
+      {
+        "name": "Alcohol and caffeine timing",
+        "why": "Not a lab, but alcohol reliably produces a three in the morning waking. Worth knowing first."
+      }
+    ],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "Trouble falling asleep and waking at three are different problems with different causes."
+      },
+      {
+        "n": "02",
+        "text": "Waking hungry with a fast heartbeat points at blood sugar. Waking alert points at cortisol."
+      },
+      {
+        "n": "03",
+        "text": "Falling progesterone changes sleep directly, and it is often the first perimenopausal sign."
+      },
+      {
+        "n": "04",
+        "text": "For the blood sugar version, the fix is at dinner rather than at bedtime."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Menopause and perimenopause",
+        "href": "/conditions/menopause",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Anxiety and mood",
+        "href": "/conditions/mood",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "DUTCH hormone testing",
+        "href": "/treatments/dutch-test",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Hormone restoration",
+        "href": "/treatments/hormone-restoration",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "Cortisol curves and why your afternoon matters",
+        "href": "/blog/cortisol-curves-afternoon",
+        "fmt": "Read",
+        "meta": "7 min",
+        "img": "/images/turn-anxiety.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "Perimenopause, and what changes when you treat it early",
+        "href": "/blog/perimenopause-treated-early",
+        "fmt": "Guide",
+        "meta": "11 min",
+        "img": "/images/turn-perimenopause.png",
+        "fmtColor": "#8a6a3a"
+      },
+      {
+        "title": "A morning protocol for steady energy",
+        "href": "/blog/morning-protocol-steady-energy",
+        "fmt": "Protocol",
+        "meta": "4 min",
+        "img": "/images/turn-empty.png",
+        "fmtColor": "#2E211B"
+      }
+    ],
+    "cta": {
+      "title": "Find out what is waking you",
+      "body": "Bring two weeks of notes on when you wake and what you ate. Half an hour is usually enough to name the mechanism.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": true
+  },
+  {
+    "sourceFile": "Weight Six Checks",
+    "slug": "weight-will-not-move-six-checks",
+    "format": "Read",
+    "title": "Weight that will not move, and the six things we check",
+    "dek": "When effort stops working, one of these six is usually holding the door shut.",
+    "description": "When diet and exercise stop working, something measurable is usually in the way. Dr. Nina Ross, ND PhD in Atlanta walks through the six things we check before adding effort.",
+    "datePublished": "2026-04-07",
+    "dateLabel": "April 7, 2026",
+    "articleSection": "Weight",
+    "topicHref": "/blog/topic/weight",
+    "topicLabel": "Weight",
+    "timeRequired": "PT9M",
+    "wordCount": 1420,
+    "readTime": "9 min read",
+    "hero": {
+      "src": "/images/turn-weight.png",
+      "alt": "A patient walking as part of a weight plan",
+      "caption": "Effort was never the missing ingredient for most of the people we see."
+    },
+    "shortAnswer": "When effort stops producing results, something measurable is usually in the way. Insulin, thyroid, cortisol, hormones, iron, and sleep account for nearly all of it, and none of them respond to trying harder.",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "The people who come to us about weight are, almost without exception, the ones who have tried hardest. They have counted, walked, fasted, and cut. It worked once and stopped working."
+      },
+      {
+        "type": "paragraph",
+        "text": "Being told to do more of it is both exhausting and beside the point. If effort worked, you would not be reading this. So the useful question is what is standing in the way, and that is a question with measurable answers."
+      },
+      {
+        "type": "heading",
+        "text": "Why effort stopped working"
+      },
+      {
+        "type": "paragraph",
+        "text": "High insulin is a storage signal. While it stays up, your body is not interested in releasing anything, regardless of how carefully you eat around it."
+      },
+      {
+        "type": "paragraph",
+        "text": "This is the most common finding on the list, and the one most often missed, because glucose can look perfect for years while insulin quietly climbs. It has to be asked for by name."
+      },
+      {
+        "type": "pullQuote",
+        "text": "If effort were the missing ingredient, the people in my office would be the thinnest people I know."
+      },
+      {
+        "type": "paragraph",
+        "text": "If effort were the missing ingredient, the people in my office would be the thinnest people I know."
+      },
+      {
+        "type": "heading",
+        "text": "The six we check"
+      },
+      {
+        "type": "paragraph",
+        "text": "When a plan stalls despite real effort, we work through these six:"
+      },
+      {
+        "type": "panelList"
+      },
+      {
+        "type": "paragraph",
+        "text": "Read together, these six explain nearly every stalled plan we see, and each one has a different first move."
+      },
+      {
+        "type": "figure",
+        "src": "/images/home-media/toolDV-1.webp",
+        "alt": "A metabolic panel including fasting insulin laid out for review",
+        "caption": "Fasting insulin is the line most panels leave out and the one we start from."
+      },
+      {
+        "type": "heading",
+        "text": "Thyroid and cortisol, the two quiet ones"
+      },
+      {
+        "type": "paragraph",
+        "text": "A slow thyroid lowers the rate at which you burn everything. Cortisol running high for a year holds fluid, drives cravings at night, and parks weight around the middle specifically."
+      },
+      {
+        "type": "paragraph",
+        "text": "Both of these are common in exactly the people who have been dieting hardest, because restriction and over-training are stressors themselves. Where the pattern points that way, the cortisol curve is where we look next.",
+        "html": "Both of these are common in exactly the people who have been dieting hardest, because restriction and over-training are stressors themselves. Where the pattern points that way, the <a href=\"/blog/cortisol-curves-afternoon\">cortisol curve</a> is where we look next."
+      },
+      {
+        "type": "heading",
+        "text": "Sleep and iron belong on this list"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sleep is the one nobody wants on the list. Under six hours shifts the hormones that govern hunger and fullness within a couple of nights, and no amount of discipline outvotes that."
+      },
+      {
+        "type": "paragraph",
+        "text": "Iron belongs here too, quietly. Low ferritin means less oxygen carried, which means workouts that cost more and deliver less, and an afternoon with nothing left in it."
+      },
+      {
+        "type": "figure",
+        "src": "/images/turn-sleep.png",
+        "alt": "A woman sleeping through the night",
+        "caption": "Two nights under six hours changes appetite chemistry more than most diets do."
+      },
+      {
+        "type": "heading",
+        "text": "What changes when we read it this way"
+      },
+      {
+        "type": "paragraph",
+        "text": "Naming which of the six is in your way usually replaces a year of guessing with one specific thing to correct. Insulin responds in weeks. Thyroid and cortisol take a couple of months. Iron takes a season."
+      },
+      {
+        "type": "paragraph",
+        "text": "We retest at ninety days, and the number on the scale is only one of the things we are watching. Waist, energy, and how your clothes fit often move first."
+      },
+      {
+        "type": "heading",
+        "text": "Where to start"
+      },
+      {
+        "type": "paragraph",
+        "text": "Bring your old labs, even ones you were told were fine, and write down what you have already tried and how long each attempt lasted. That history is genuinely diagnostic."
+      },
+      {
+        "type": "paragraph",
+        "text": "Then we sit down for half an hour, put it all next to each other, and decide which of the six we are addressing before anything else gets added."
+      }
+    ],
+    "panelItems": [
+      {
+        "name": "Fasting insulin and HOMA-IR",
+        "why": "The storage signal. High insulin blocks release no matter how carefully you eat."
+      },
+      {
+        "name": "Full thyroid panel",
+        "why": "Free T3 sets the burn rate. A normal TSH does not rule this out."
+      },
+      {
+        "name": "Four point cortisol",
+        "why": "A year of high cortisol holds fluid, drives night cravings, and targets your middle."
+      },
+      {
+        "name": "Sex hormones and DHEA-S",
+        "why": "Falling estrogen and raised androgens both change where and how you store."
+      },
+      {
+        "name": "Ferritin",
+        "why": "Low iron makes every workout cost more and return less, then flattens your afternoon."
+      },
+      {
+        "name": "Sleep, tracked honestly",
+        "why": "Under six hours moves hunger hormones within two nights. This is data, not a lecture."
+      }
+    ],
+    "markers": [],
+    "timeline": [],
+    "chapters": [],
+    "transcript": [],
+    "videoChapters": [],
+    "youtubeId": "",
+    "mediaPoster": "/images/home-media/feed-v3.webp",
+    "takeaways": [
+      {
+        "n": "01",
+        "text": "High insulin is a storage signal, and glucose can look perfect while it climbs for years."
+      },
+      {
+        "n": "02",
+        "text": "Restriction and over-training are stressors. They can be the reason cortisol is in the way."
+      },
+      {
+        "n": "03",
+        "text": "Under six hours of sleep changes appetite chemistry faster than any diet changes anything."
+      },
+      {
+        "n": "04",
+        "text": "Waist, energy, and clothes usually move before the scale does. Watch all four."
+      }
+    ],
+    "related": [
+      {
+        "kind": "Condition",
+        "label": "Weight that will not move",
+        "href": "/conditions/weight-loss",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Condition",
+        "label": "Metabolic health",
+        "href": "/conditions/metabolic-health",
+        "kindColor": "#B5572F",
+        "kindBg": "rgba(181,87,47,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "GLP-1 weight loss injections",
+        "href": "/treatments/glp-1-weight-loss",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      },
+      {
+        "kind": "Treatment",
+        "label": "Advanced lab testing",
+        "href": "/treatments/advanced-lab-testing",
+        "kindColor": "#4a6340",
+        "kindBg": "rgba(74,99,64,0.12)"
+      }
+    ],
+    "next": [
+      {
+        "title": "GLP-1 done with your muscle in mind",
+        "href": "/blog/glp-1-with-muscle-in-mind",
+        "fmt": "Read",
+        "meta": "7 min",
+        "img": "/images/turn-weight.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "Dr. Nina explains insulin resistance in six minutes",
+        "href": "/blog/insulin-resistance-explained",
+        "fmt": "Watch",
+        "meta": "6 min",
+        "img": "/images/home-media/feed-v3.webp",
+        "fmtColor": "#4a6340"
+      },
+      {
+        "title": "Sleep that finally holds through the night",
+        "href": "/blog/sleep-that-holds",
+        "fmt": "Read",
+        "meta": "6 min",
+        "img": "/images/turn-sleep.png",
+        "fmtColor": "#B5572F"
+      }
+    ],
+    "cta": {
+      "title": "Find out what is in your way",
+      "body": "Bring your old labs and a list of what you have tried. In half an hour we will know which of the six to address first.",
+      "href": "/book",
+      "ctaLabel": "Book a $99 consult"
+    },
+    "audioRecapSeconds": 192,
+    "showAudioRecap": true
+  }
+]

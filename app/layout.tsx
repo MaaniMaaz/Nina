@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import SiteMediaShell from "@/components/media/SiteMediaShell";
 import "./globals.css";
 
 // Load fonts via Google Fonts stylesheet rather than `next/font` so Vercel
@@ -35,9 +36,11 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-full flex-col bg-cream font-sans antialiased text-ink">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SiteMediaShell>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SiteMediaShell>
       </body>
     </html>
   );

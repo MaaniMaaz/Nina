@@ -6,19 +6,18 @@ import {
   getPageByTypeSlug,
   getPageById,
   cloneContentForNewPage,
+  ensureJournalPages,
 } from "@/lib/cms/pages";
 import { isMongoConfigured } from "@/lib/mongodb";
 import type { PageType } from "@/lib/cms/types";
 import { slugifyTitle } from "@/lib/cms/slug";
 import {
-  asBlogTemplate,
   asConditionTemplate,
   asTreatmentTemplate,
-  blogArticleToContent,
 } from "@/lib/cms/templates";
 import { getConditionBySlug } from "@/content/conditions";
 import { getTreatmentBySlug } from "@/content/treatments";
-import { BLOG_ARTICLES } from "@/content/blog";
+import { emptyJournalTemplate } from "@/content/journal";
 
 export async function GET(request: Request) {
   if (!(await isAdminAuthenticated())) {
@@ -29,6 +28,13 @@ export async function GET(request: Request) {
   }
   const { searchParams } = new URL(request.url);
   const type = searchParams.get("type") as PageType | null;
+  if (type === "blog") {
+    try {
+      await ensureJournalPages();
+    } catch {
+      // list what we can
+    }
+  }
   const pages = await listPages(type ?? undefined);
   return NextResponse.json({ pages });
 }
@@ -70,6 +76,12 @@ export async function POST(request: Request) {
   if (body.duplicateFromId) {
     const source = await getPageById(body.duplicateFromId);
     if (!source) return NextResponse.json({ error: "Source page not found" }, { status: 404 });
+    if (source.type === "home") {
+      return NextResponse.json(
+        { error: "The homepage cannot be duplicated." },
+        { status: 400 },
+      );
+    }
 
     const title = (body.title?.trim() || `${source.title} (copy)`).trim();
     const slug = await uniqueSlug(
@@ -107,6 +119,12 @@ export async function POST(request: Request) {
 
   // ---- Create from fixed template ----
   const type = body.type;
+  if (type === "home") {
+    return NextResponse.json(
+      { error: "Homepage already exists — open it from Admin → Home." },
+      { status: 400 },
+    );
+  }
   if (type !== "condition" && type !== "treatment" && type !== "blog") {
     return NextResponse.json({ error: "Invalid type" }, { status: 400 });
   }
@@ -129,8 +147,7 @@ export async function POST(request: Request) {
     if (!base) return NextResponse.json({ error: "Treatment template missing" }, { status: 500 });
     templateSource = asTreatmentTemplate(base);
   } else {
-    const first = BLOG_ARTICLES[0];
-    templateSource = asBlogTemplate(blogArticleToContent(first));
+    templateSource = emptyJournalTemplate({ slug, title });
   }
 
   const content = cloneContentForNewPage(type, templateSource, {

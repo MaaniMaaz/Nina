@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getPageByTypeSlug, blogFromCms } from "@/lib/cms/pages";
-import { resolveBlogPage } from "@/lib/cms/resolve";
+import { getPageByTypeSlug, blogFromCms, journalFromCms, ensureJournalPages } from "@/lib/cms/pages";
+import { resolveBlogPage, resolveJournalArticle } from "@/lib/cms/resolve";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
+import { isJournalContent } from "@/lib/cms/types";
+import JournalArticle from "@/components/blog/JournalArticle";
+import JsonLd from "@/components/seo/JsonLd";
+import type { JournalArticle as JournalArticleData } from "@/content/journal";
 
 export const dynamic = "force-dynamic";
 
@@ -21,7 +25,29 @@ export async function generateMetadata({
   const canonical = `https://www.ninarossfm.com/blog/${slug}`;
 
   if (preview) {
+    try {
+      await ensureJournalPages();
+    } catch {
+      // preview still attempts whatever is already in CMS
+    }
     const draft = await getPageByTypeSlug("blog", slug);
+    if (draft && isJournalContent(draft.content)) {
+      const j = journalFromCms(draft);
+      if (j) {
+        return {
+          title: draft.metaTitle || j.title,
+          description: draft.metaDescription || j.description || j.dek,
+          robots: { index: false, follow: false },
+          openGraph: {
+            title: draft.metaTitle || j.title,
+            description: draft.metaDescription || j.dek,
+            url: canonical,
+            type: "article",
+            ...(j.hero?.src ? { images: [{ url: j.hero.src }] } : {}),
+          },
+        };
+      }
+    }
     if (draft) {
       const content = blogFromCms(draft);
       return {
@@ -39,24 +65,42 @@ export async function generateMetadata({
     }
   }
 
-  const owned = await getPageByTypeSlug("blog", slug);
-  if (owned?.status === "published") {
-    const content = blogFromCms(owned);
+  const journal = await resolveJournalArticle(slug);
+  if (journal) {
     return {
-      title: owned.metaTitle,
-      description: owned.metaDescription,
+      title: journal.title,
+      description: journal.description || journal.dek,
       alternates: { canonical },
       openGraph: {
-        title: owned.metaTitle,
-        description: owned.metaDescription,
+        title: journal.title,
+        description: journal.dek,
         url: canonical,
         type: "article",
-        ...(content?.coverImageUrl ? { images: [{ url: content.coverImageUrl }] } : {}),
+        publishedTime: journal.datePublished,
+        ...(journal.hero?.src ? { images: [{ url: journal.hero.src }] } : {}),
       },
     };
   }
 
-  // CMS owns this slug as a draft — do not advertise it publicly.
+  const owned = await getPageByTypeSlug("blog", slug);
+  if (owned?.status === "published") {
+    const content = blogFromCms(owned);
+    if (content) {
+      return {
+        title: owned.metaTitle,
+        description: owned.metaDescription,
+        alternates: { canonical },
+        openGraph: {
+          title: owned.metaTitle,
+          description: owned.metaDescription,
+          url: canonical,
+          type: "article",
+          ...(content.coverImageUrl ? { images: [{ url: content.coverImageUrl }] } : {}),
+        },
+      };
+    }
+  }
+
   if (owned) {
     return { robots: { index: false, follow: false } };
   }
@@ -77,6 +121,33 @@ export async function generateMetadata({
   };
 }
 
+function journalJsonLd(a: JournalArticleData) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `https://www.ninarossfm.com/blog/${a.slug}#article`,
+        headline: a.title,
+        description: a.dek,
+        url: `https://www.ninarossfm.com/blog/${a.slug}`,
+        datePublished: a.datePublished,
+        dateModified: a.datePublished,
+        ...(a.wordCount ? { wordCount: a.wordCount } : {}),
+        ...(a.timeRequired ? { timeRequired: a.timeRequired } : {}),
+        articleSection: a.articleSection,
+        inLanguage: "en-US",
+        image: a.hero?.src
+          ? `https://www.ninarossfm.com${a.hero.src}`
+          : undefined,
+        author: { "@id": "https://www.ninarossfm.com/#nina" },
+        publisher: { "@id": "https://www.ninarossfm.com/#organization" },
+        isPartOf: { "@id": "https://www.ninarossfm.com/blog#blog" },
+      },
+    ],
+  };
+}
+
 export default async function BlogArticlePage({
   params,
   searchParams,
@@ -87,6 +158,36 @@ export default async function BlogArticlePage({
   const { slug } = await params;
   const sp = await searchParams;
   const preview = sp.preview === "1" && (await isAdminAuthenticated());
+
+  if (preview) {
+    try {
+      await ensureJournalPages();
+    } catch {
+      // preview still attempts whatever is already in CMS
+    }
+    const draft = await getPageByTypeSlug("blog", slug);
+    if (draft && isJournalContent(draft.content)) {
+      const j = journalFromCms(draft);
+      if (j) {
+        return (
+          <>
+            <JsonLd schema={journalJsonLd(j)} />
+            <JournalArticle article={j} />
+          </>
+        );
+      }
+    }
+  }
+
+  const journal = await resolveJournalArticle(slug);
+  if (journal) {
+    return (
+      <>
+        <JsonLd schema={journalJsonLd(journal)} />
+        <JournalArticle article={journal} />
+      </>
+    );
+  }
 
   let content = null;
   if (preview) {

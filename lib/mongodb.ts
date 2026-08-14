@@ -62,3 +62,9 @@ export async function pagesCollection(): Promise<Collection<CmsPageDocument>> {
   const db = await getDb();
   return db.collection<CmsPageDocument>("pages");
 }
+
+/** Singleton site photography overrides (images + wistia ids). */
+export async function siteMediaCollection(): Promise<Collection<Record<string, unknown>>> {
+  const db = await getDb();
+  return db.collection("site_media");
+}

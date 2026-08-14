@@ -44,8 +44,12 @@ export default function Footer({ variant }: { variant?: "home" | "shell" } = {})
   const isHome = variant === "home";
 
   // Layout footer stays off `/` until HomeInteractive mounts the home variant after unlock.
-  // Exact `/blog` owns the handoff page footer. Admin CMS renders its own chrome.
-  if ((pathname === "/" && !isHome) || pathname === "/blog" || pathname.startsWith("/nina/admin"))
+  // Journal hub + article pages own dark handoff footers. Topic pages keep the shell footer.
+  // Admin CMS renders its own chrome.
+  const isJournalHandoff =
+    pathname === "/blog" ||
+    (pathname.startsWith("/blog/") && !pathname.startsWith("/blog/topic/"));
+  if ((pathname === "/" && !isHome) || isJournalHandoff || pathname.startsWith("/nina/admin"))
     return null;
 
   const companyLinks = isHome ? HOME_EXPLORE : SHELL_COMPANY;

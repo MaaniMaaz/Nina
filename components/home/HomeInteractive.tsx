@@ -3,8 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { JOURNAL_PROMPTS, DEFAULT_TURN_IMAGE } from "@/content/home";
+import { DEFAULT_TURN_IMAGE } from "@/content/home";
 import { cleanEntry, dotsRead, learnTopicFor, slugify } from "@/lib/home-logic";
+import { pathToMediaKey } from "@/lib/cms/media";
+import { useSiteMedia, useSiteMediaMap } from "@/components/media/SiteMediaContext";
+import EditableText from "@/components/admin/EditableText";
 import ProcessSteps from "./ProcessSteps";
 import Toolkit from "./Toolkit";
 import ProgramSection from "./ProgramSection";
@@ -12,6 +15,7 @@ import PatientStories from "./PatientStories";
 import Consultation from "./Consultation";
 import LearnSection from "./LearnSection";
 import Footer from "@/components/layout/Footer";
+import { useHomeContent } from "./HomeContentContext";
 
 /**
  * Owns the journal entry text that gates the rest of the homepage, mirroring
@@ -22,7 +26,17 @@ export default function HomeInteractive() {
   const [entry, setEntry] = useState("");
   const clean = cleanEntry(entry);
   const hasEntry = clean.length > 0;
-  const turnImage = JOURNAL_PROMPTS.find((p) => slugify(p.label) === slugify(clean))?.turnImage ?? DEFAULT_TURN_IMAGE;
+  const media = useSiteMediaMap();
+  const drNina = useSiteMedia("dr-nina");
+  const content = useHomeContent();
+  const journal = content.journal;
+  const turn = content.turn;
+  const matched = journal.prompts.find((p) => slugify(p.label) === slugify(clean));
+  const turnKey = matched ? pathToMediaKey(matched.turnImage) : pathToMediaKey(DEFAULT_TURN_IMAGE);
+  const turnImage =
+    (turnKey && media.images[turnKey]) ||
+    media.images["turn-myself"] ||
+    DEFAULT_TURN_IMAGE;
   const mappedTopic = learnTopicFor(clean);
 
   return (
@@ -39,17 +53,19 @@ export default function HomeInteractive() {
             <span className="hidden h-[1.5px] w-7 bg-gold-deep md:block" />
             <span className="h-px w-7 bg-[#B08A3E]/70 md:hidden" />
             <span className="text-[9.5px] font-semibold uppercase tracking-[0.22em] text-terracotta md:text-xs md:tracking-[0.18em]">
-              The moment everything changes
+              <EditableText path="journal.eyebrow" value={journal.eyebrow} as="span" />
             </span>
             <span className="hidden h-[1.5px] w-7 bg-gold-deep md:block" />
           </div>
           <h2 className="mt-[18px] max-w-[17ch] font-display text-[33px] font-medium leading-[1.06] tracking-[-0.02em] text-ink md:mx-auto md:mt-6.5 md:text-[64px]">
-            &ldquo;I used to be able to do this. <span className="italic text-terracotta">Now I can&rsquo;t.</span>&rdquo;
+            &ldquo;<EditableText path="journal.headingLead" value={journal.headingLead} as="span" />{" "}
+            <span className="italic text-terracotta">
+              <EditableText path="journal.headingEmph" value={journal.headingEmph} as="span" />
+            </span>
+            &rdquo;
           </h2>
           <p className="mt-4 max-w-[60ch] text-sm leading-[1.62] text-body md:mx-auto md:mt-7 md:text-[19px]">
-            You&rsquo;re still functioning. Still showing up, still holding it together. But somewhere quiet, you already
-            know: recovery takes longer, your thinking feels foggier, and sleep comes harder than it used to. And the
-            scariest part runs deeper than the tiredness. It&rsquo;s wondering whether this is just who you are now.
+            <EditableText path="journal.body" value={journal.body} as="span" multiline />
           </p>
 
           <div className="relative mx-auto mt-7 max-w-[668px] rounded-lg border border-ink/[0.08] bg-cream px-[22px] py-[26px] shadow-[0_18px_38px_rgba(46,33,27,0.1)] md:mt-12.5 md:px-12 md:py-12">
@@ -57,23 +73,23 @@ export default function HomeInteractive() {
               &ldquo;
             </div>
             <div className="relative mb-[18px] text-[9.5px] font-semibold uppercase tracking-[0.2em] text-[#B08A3E]">
-              From the journal
+              <EditableText path="journal.cardLabel" value={journal.cardLabel} as="span" />
             </div>
             <div className="relative text-center font-hand text-[30px] leading-[1.45] text-ink">
-              I used to be able to
+              <EditableText path="journal.promptPrefix" value={journal.promptPrefix} as="span" />
               <br />
               <span className="inline-block border-b-2 border-terracotta/45 px-2 pb-0.5 text-terracotta">
                 {hasEntry ? clean : "\u2026"}
               </span>
               <br />
-              Now I can&rsquo;t.
+              <EditableText path="journal.promptSuffix" value={journal.promptSuffix} as="span" />
             </div>
 
             <div className="relative mt-[22px] flex flex-wrap items-center justify-center gap-[7px]">
               <span className="mb-0.5 w-full text-center text-[9.5px] font-semibold uppercase tracking-[0.14em] text-[#9a8b7a]">
-                Tap one to view more
+                <EditableText path="journal.chipHint" value={journal.chipHint} as="span" />
               </span>
-              {JOURNAL_PROMPTS.map((p) => {
+              {journal.prompts.map((p, i) => {
                 const isSelected = hasEntry && clean === p.label;
                 return (
                   <button
@@ -87,7 +103,7 @@ export default function HomeInteractive() {
                         : "border-ink/[0.14] bg-cream-deep text-body hover:border-terracotta hover:text-terracotta"
                     }`}
                   >
-                    {p.label}
+                    <EditableText path={`journal.prompts.${i}.label`} value={p.label} as="span" />
                   </button>
                 );
               })}
@@ -95,7 +111,7 @@ export default function HomeInteractive() {
 
             {!hasEntry && (
               <div className="relative mt-[22px] text-center text-xs italic text-[#8a7a6c]">
-                Say it plainly. Naming it is where the work begins.
+                <EditableText path="journal.emptyNudge" value={journal.emptyNudge} as="span" />
               </div>
             )}
 
@@ -114,19 +130,25 @@ export default function HomeInteractive() {
                   <div className="mb-3 flex items-center justify-center gap-[9px] md:hidden">
                     <span className="block h-[1.5px] w-4 bg-[#B08A3E]" />
                     <span className="text-[9.5px] font-semibold uppercase tracking-[0.16em] text-[#7C8A5E]">
-                      We connect the dots
+                      <EditableText path="journal.replyEyebrowMobile" value={journal.replyEyebrowMobile} as="span" />
                     </span>
                     <span className="block h-[1.5px] w-4 bg-[#B08A3E]" />
                   </div>
                   {/* Desktop reply chrome */}
                   <div className="mb-4.5 hidden flex-col items-center gap-3.5 md:flex">
                     <div className="relative h-21 w-21 overflow-hidden rounded-full border-[1.5px] border-gold-deep/60 shadow-[0_10px_26px_rgba(46,33,27,0.18)]">
-                      <Image src="/images/dr-nina.jpg" alt="" fill className="object-cover object-[50%_16%]" />
+                      <Image
+                        src={drNina}
+                        alt=""
+                        fill
+                        className="object-cover object-[50%_16%]"
+                        unoptimized={drNina.startsWith("http")}
+                      />
                     </div>
                     <div className="flex items-center justify-center gap-2.5">
                       <span className="block h-[1.5px] w-4.5 bg-gold-deep" />
                       <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#7C8A5E]">
-                        Dr. Nina connects the dots
+                        <EditableText path="journal.replyEyebrowDesktop" value={journal.replyEyebrowDesktop} as="span" />
                       </span>
                       <span className="block h-[1.5px] w-4.5 bg-gold-deep" />
                     </div>
@@ -134,7 +156,9 @@ export default function HomeInteractive() {
                   <p className="mx-auto max-w-[46ch] text-center font-display text-[18px] leading-[1.4] text-ink md:text-[23px]">
                     {dotsRead(clean)}
                   </p>
-                  <div className="mt-2 hidden font-hand text-2xl text-terracotta md:block">— Dr. Nina</div>
+                  <div className="mt-2 hidden font-hand text-2xl text-terracotta md:block">
+                    <EditableText path="journal.replySignoff" value={journal.replySignoff} as="span" />
+                  </div>
                   <Link
                     href="/start"
                     className="mt-[22px] block rounded-lg bg-terracotta py-3.5 text-center text-sm font-semibold text-cream no-underline shadow-[0_10px_24px_rgba(181,87,47,0.26)] hover:bg-terracotta-hover md:mt-6.5 md:inline-block md:rounded-md md:px-7 md:py-3.75 md:text-[15px]"
@@ -152,7 +176,13 @@ export default function HomeInteractive() {
         <>
           <section className="relative -mt-px flex min-h-[70svh] items-center overflow-hidden bg-olive px-9 py-16 text-center md:min-h-0 md:px-[clamp(40px,6vw,120px)] md:py-31">
             <div className="absolute inset-0 opacity-62">
-              <Image src={turnImage} alt="" fill className="object-cover object-[78%_center] md:object-center" />
+              <Image
+                src={turnImage}
+                alt=""
+                fill
+                className="object-cover object-[78%_center] md:object-center"
+                unoptimized={turnImage.startsWith("http")}
+              />
             </div>
             <div
               className="pointer-events-none absolute inset-0"
@@ -172,17 +202,16 @@ export default function HomeInteractive() {
                 style={{ background: "linear-gradient(180deg, rgba(207,168,90,0), #CFA85A)" }}
               />
               <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#b9c0a3] md:text-[11px] md:tracking-[0.24em]">
-                You said you used to be able to
+                <EditableText path="turn.eyebrow" value={turn.eyebrow} as="span" />
               </div>
               <div className="mt-3 font-display text-[30px] font-medium italic leading-[1.12] text-[#E9B45A] md:mt-3.5 md:text-[50px] md:leading-tight md:text-gold">
                 {clean}.
               </div>
               <h2 className="mt-5 font-display text-[42px] font-medium leading-[1.02] tracking-[-0.03em] text-cream-deep md:mt-6.5 md:text-[70px] md:tracking-tight">
-                Now, let&rsquo;s get it back.
+                <EditableText path="turn.heading" value={turn.heading} as="span" />
               </h2>
               <p className="mx-auto mt-[18px] max-w-[48ch] text-sm leading-[1.6] text-[#d8dcc8] md:mt-5.5 md:text-[18px] md:leading-relaxed">
-                We go way past naming what slipped. We find out why it happened, and walk you all the way back to
-                feeling like yourself.
+                <EditableText path="turn.body" value={turn.body} as="span" multiline />
               </p>
             </div>
           </section>

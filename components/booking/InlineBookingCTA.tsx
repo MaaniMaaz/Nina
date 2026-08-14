@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import ImageSlot from "@/components/ui/ImageSlot";
 import BookingDoorCard from "./BookingDoorCard";
 import EditableText from "@/components/admin/EditableText";
+import EditableImage from "@/components/admin/EditableImage";
 import { useEdit } from "@/components/admin/EditContext";
 
 type Door = "inperson" | "virtual" | null;
@@ -21,10 +23,16 @@ interface InlineBookingCTAProps {
   heading: string;
   intro: string;
   avatarSlotId?: string;
+  avatarUrl?: string;
 }
 
 /** Compact booking CTA at end of longform pages — doors match CLAUDE.md / Booking dumps. */
-export default function InlineBookingCTA({ heading, intro, avatarSlotId }: InlineBookingCTAProps) {
+export default function InlineBookingCTA({
+  heading,
+  intro,
+  avatarSlotId,
+  avatarUrl,
+}: InlineBookingCTAProps) {
   const [door, setDoor] = useState<Door>(null);
   const edit = useEdit();
   const E = edit?.enabled;
@@ -33,7 +41,23 @@ export default function InlineBookingCTA({ heading, intro, avatarSlotId }: Inlin
     <section className="relative overflow-hidden bg-ink px-6 py-[34px] md:px-10 md:py-30">
       <div className="grain-overlay opacity-25 mix-blend-overlay" />
       <div className="relative z-10 mx-auto max-w-[640px] text-center">
-        {/* Avatar removed by request: no circular photo above heading */}
+        {E ? (
+          <EditableImage
+            slotId={avatarSlotId}
+            urlPath="hero.bylineAvatarUrl"
+            alt="Dr. Nina Ross, ND PhD"
+            shape="circle"
+            className="mx-auto mb-4 h-[72px] w-[72px] shadow-[0_10px_26px_rgba(0,0,0,0.32)] outline outline-2 outline-offset-[3px] outline-gold/55 md:mb-5 md:h-[92px] md:w-[92px]"
+          />
+        ) : (
+          <ImageSlot
+            id={avatarSlotId}
+            src={avatarUrl}
+            alt="Dr. Nina Ross, ND PhD"
+            shape="circle"
+            className="mx-auto mb-4 h-[72px] w-[72px] shadow-[0_10px_26px_rgba(0,0,0,0.32)] outline outline-2 outline-offset-[3px] outline-gold/55 md:mb-5 md:h-[92px] md:w-[92px]"
+          />
+        )}
         <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold md:text-[11px]">Start here</div>
         <h2 className="mt-2.5 font-display text-[26px] font-medium leading-tight text-cream-deep md:mt-3 md:text-[42px]">
           {E ? (

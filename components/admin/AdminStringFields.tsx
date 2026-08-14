@@ -52,13 +52,16 @@ export default function AdminStringFields() {
     if (!edit?.content) return { textFields: [], linkFields: [] };
     const all = flattenStrings(edit.content).filter(
       (f) =>
+        f.path !== "kind" &&
         !f.path.endsWith(".slug") &&
         !f.path.includes("SlotId") &&
         // Image URLs are edited via the upload buttons, not as raw text.
         !f.path.includes("Url") &&
         !f.path.endsWith(".url") &&
         !f.path.endsWith(".fmt") &&
-        !f.path.endsWith(".date"),
+        !f.path.endsWith(".date") &&
+        // Stories managed in StoriesManager (avoid huge duplicate lists).
+        !f.path.startsWith("stories."),
     );
     const linkFields = all.filter((f) => isLinkPath(f.path));
     const linkSet = new Set(linkFields.map((f) => f.path));

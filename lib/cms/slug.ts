@@ -10,9 +10,10 @@ export function slugifyTitle(title: string): string {
 }
 
 export function defaultPathForType(
-  type: "condition" | "treatment" | "blog",
+  type: "condition" | "treatment" | "blog" | "home",
   title: string,
 ): string {
+  if (type === "home") return "/";
   const segment = slugifyTitle(title);
   if (type === "condition") return `/conditions/${segment}`;
   if (type === "treatment") return `/treatments/${segment}`;
@@ -20,9 +21,10 @@ export function defaultPathForType(
 }
 
 export function publicPath(
-  type: "condition" | "treatment" | "blog",
+  type: "condition" | "treatment" | "blog" | "home",
   slug: string,
 ): string {
+  if (type === "home") return "/";
   if (type === "condition") return `/conditions/${slug}`;
   if (type === "treatment") return `/treatments/${slug}`;
   return `/blog/${slug}`;

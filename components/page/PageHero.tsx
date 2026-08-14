@@ -175,6 +175,7 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
               ) : (
                 <ImageSlot
                   id={hero.bylineAvatarSlotId}
+                  src={hero.bylineAvatarUrl}
                   alt="Dr. Nina Ross, ND PhD"
                   shape="circle"
                   className="h-10 w-10 flex-none"
@@ -279,6 +280,7 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
             ) : (
               <ImageSlot
                 id={hero.imageSlotId}
+                src={hero.imageUrl}
                 alt={hero.imageAlt ?? hero.heading}
                 placeholder="Hero image"
                 className="h-[200px] w-full"

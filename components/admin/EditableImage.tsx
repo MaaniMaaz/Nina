@@ -12,6 +12,7 @@ import { getByPath, useEdit } from "./EditContext";
 export default function EditableImage({
   slotId,
   urlPath,
+  src: srcProp,
   alt,
   className = "",
   placeholder = "Photo",
@@ -20,6 +21,8 @@ export default function EditableImage({
   slotId?: string;
   /** Path in content JSON for a Cloudinary/absolute URL, e.g. hero.imageUrl */
   urlPath?: string;
+  /** Fallback URL when not editing (or when path is empty). */
+  src?: string;
   alt: string;
   className?: string;
   placeholder?: string;
@@ -36,7 +39,7 @@ export default function EditableImage({
       : undefined;
 
   const slotSrc = getSlotImage(slotId);
-  const src = urlFromContent || slotSrc;
+  const src = (urlFromContent || srcProp || slotSrc || "").trim() || undefined;
   const radius = shape === "circle" ? "rounded-full" : "";
 
   async function onFile(file: File) {

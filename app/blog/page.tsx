@@ -29,7 +29,7 @@ export default async function BlogPage() {
   const articles = await resolveBlogCards();
   return (
     <>
-      <JsonLd schema={buildBlogJsonLd()} />
+      <JsonLd schema={buildBlogJsonLd(articles)} />
       <BlogHome articles={articles} />
     </>
   );

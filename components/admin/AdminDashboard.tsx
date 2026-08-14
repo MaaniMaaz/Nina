@@ -4,29 +4,51 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import PageThumbnail from "./PageThumbnail";
+import AdminSiteMedia from "./AdminSiteMedia";
 import { slugifyTitle, defaultPathForType } from "@/lib/cms/slug";
 import type { CmsPage } from "@/lib/cms/pages";
 import type { PageType } from "@/lib/cms/types";
+
+type DashboardView = PageType | "media" | "home";
 
 export default function AdminDashboard({ authenticated }: { authenticated: boolean }) {
   const router = useRouter();
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [tab, setTab] = useState<PageType>("condition");
+  const [tab, setTab] = useState<DashboardView>("condition");
   const [pages, setPages] = useState<CmsPage[]>([]);
   const [listLoading, setListLoading] = useState(false);
   const [listError, setListError] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
   const [duplicatingId, setDuplicatingId] = useState<string | null>(null);
-  const [deletingId, setDeletingId] = useState<string | null>(null);
   const [newTitle, setNewTitle] = useState("");
 
+  const [openingHome, setOpeningHome] = useState(false);
+
+  const pageTab = tab === "media" || tab === "home" ? null : tab;
+
+  async function openHomeEditor() {
+    setOpeningHome(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/admin/home");
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to open homepage");
+      router.push(`/nina/admin/pages/${data.page.id}`);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to open homepage");
+    } finally {
+      setOpeningHome(false);
+    }
+  }
+
   async function load() {
+    if (!pageTab) return;
     setListLoading(true);
     setListError(null);
     try {
-      const res = await fetch(`/api/admin/pages?type=${tab}`);
+      const res = await fetch(`/api/admin/pages?type=${pageTab}`);
       if (res.status === 401) {
         router.refresh();
         return;
@@ -43,13 +65,13 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
   }
 
   useEffect(() => {
-    if (authenticated) void load();
+    if (authenticated && pageTab) void load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authenticated, tab]);
+  }, [authenticated, pageTab]);
 
   const defaultSlugHint = useMemo(
-    () => (newTitle ? defaultPathForType(tab, newTitle) : ""),
-    [newTitle, tab],
+    () => (newTitle && pageTab ? defaultPathForType(pageTab, newTitle) : ""),
+    [newTitle, pageTab],
   );
 
   async function login(e: React.FormEvent) {
@@ -78,7 +100,7 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
   }
 
   async function createPage() {
-    if (!newTitle.trim()) return;
+    if (!newTitle.trim() || !pageTab) return;
     setCreating(true);
     setError(null);
     try {
@@ -86,7 +108,7 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          type: tab,
+          type: pageTab,
           title: newTitle.trim(),
           slug: slugifyTitle(newTitle),
           metaTitle: newTitle.trim(),
@@ -119,24 +141,6 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
       setError(err instanceof Error ? err.message : "Duplicate failed");
     } finally {
       setDuplicatingId(null);
-    }
-  }
-
-  async function deletePage(id: string) {
-    const ok = window.confirm("Delete this page? This cannot be undone.");
-    if (!ok) return;
-    setDeletingId(id);
-    setError(null);
-    try {
-      const res = await fetch(`/api/admin/pages/${id}`, { method: "DELETE" });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Delete failed");
-      // reload list
-      await load();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Delete failed");
-    } finally {
-      setDeletingId(null);
     }
   }
 
@@ -185,6 +189,14 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
 
       <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
         <div className="flex gap-2 overflow-x-auto pb-1">
+          <button
+            type="button"
+            onClick={() => void openHomeEditor()}
+            disabled={openingHome}
+            className="shrink-0 rounded-full bg-terracotta px-4 py-1.5 text-[13px] font-semibold text-cream disabled:opacity-50"
+          >
+            {openingHome ? "Opening…" : "Home"}
+          </button>
           {(["condition", "treatment", "blog"] as PageType[]).map((t) => (
             <button
               key={t}
@@ -197,8 +209,27 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
               {t}s
             </button>
           ))}
+          <button
+            type="button"
+            onClick={() => setTab("media")}
+            className={`shrink-0 rounded-full px-4 py-1.5 text-[13px] font-semibold ${
+              tab === "media" ? "bg-ink text-cream" : "border border-ink/20"
+            }`}
+          >
+            Site media
+          </button>
         </div>
 
+        {error && tab !== "media" ? (
+          <p className="mt-4 text-[13px] text-red-700">{error}</p>
+        ) : null}
+
+        {tab === "media" ? (
+          <div className="mt-6">
+            <AdminSiteMedia onBack={() => setTab("condition")} />
+          </div>
+        ) : (
+          <>
         <div className="mt-6 rounded-xl border border-ink/10 bg-cream p-4">
           <h2 className="text-[14px] font-semibold">New {tab}</h2>
           <p className="mt-1 text-[12px] text-muted">
@@ -259,7 +290,7 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
                 >
                   <PageThumbnail src={`${publicPathLabel(p)}?preview=1`} />
                 </Link>
-                <div className="pt-6 px-3.5 pb-3.5">
+                <div className="p-3.5">
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
                       <div className="truncate text-[14px] font-semibold text-ink" title={p.title}>
@@ -300,19 +331,13 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
                     >
                       {duplicatingId === p.id ? "Copying…" : "Duplicate"}
                     </button>
-                    <button
-                      type="button"
-                      disabled={deletingId === p.id}
-                      onClick={() => void deletePage(p.id)}
-                      className="rounded border border-red-200 bg-red-50 px-3 py-1.5 text-[12px] font-semibold text-red-700 disabled:opacity-50"
-                    >
-                      {deletingId === p.id ? "Deleting…" : "Delete"}
-                    </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        )}
+          </>
         )}
       </div>
     </div>
@@ -320,6 +345,7 @@ export default function AdminDashboard({ authenticated }: { authenticated: boole
 }
 
 function publicPathLabel(p: CmsPage) {
+  if (p.type === "home") return "/";
   if (p.type === "condition") return `/conditions/${p.slug}`;
   if (p.type === "treatment") return `/treatments/${p.slug}`;
   return `/blog/${p.slug}`;

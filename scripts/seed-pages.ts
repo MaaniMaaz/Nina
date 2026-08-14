@@ -5,8 +5,9 @@
 import { MongoClient } from "mongodb";
 import { CONDITIONS, CONDITIONS_INDEX } from "../content/conditions";
 import { TREATMENTS, TREATMENTS_INDEX } from "../content/treatments";
-import { BLOG_ARTICLES } from "../content/blog";
-import { blogArticleToContent, toSeedDocument } from "../lib/cms/templates";
+import { DEFAULT_HOME_CONTENT } from "../content/home-page";
+import { JOURNAL_ARTICLES, asCmsJournal, journalToBlogCard } from "../content/journal";
+import { toSeedDocument } from "../lib/cms/templates";
 
 async function main() {
   const uri = process.env.MONGODB_URI;
@@ -54,21 +55,36 @@ async function main() {
     );
   }
 
-  for (const a of BLOG_ARTICLES) {
-    const content = blogArticleToContent(a);
+  for (const article of JOURNAL_ARTICLES) {
+    const content = asCmsJournal(article);
+    const card = journalToBlogCard(article);
     docs.push(
       toSeedDocument("blog", {
-        slug: a.id,
-        title: a.title,
-        metaTitle: a.title,
-        metaDescription: a.dek,
-        indexName: a.title,
-        indexTeaser: a.dek,
-        coverImageUrl: a.img,
+        slug: article.slug,
+        title: article.title,
+        metaTitle: article.title,
+        metaDescription: article.description || article.dek,
+        indexName: article.title,
+        indexTeaser: article.dek,
+        coverImageUrl: card.img,
         content,
       }),
     );
   }
+
+  docs.push(
+    toSeedDocument("home", {
+      slug: "home",
+      title: "Homepage",
+      metaTitle: "Nina Ross Functional Medicine, Atlanta",
+      metaDescription:
+        "Physician-led functional medicine in Atlanta and virtual care nationwide. Root-cause care with Dr. Nina Ross, ND PhD. Start with the $99 Symptom Consultation.",
+      indexName: "Homepage",
+      indexTeaser:
+        "Physician-led functional medicine in Atlanta and virtual care nationwide.",
+      content: structuredClone(DEFAULT_HOME_CONTENT),
+    }),
+  );
 
   let upserted = 0;
   for (const doc of docs) {

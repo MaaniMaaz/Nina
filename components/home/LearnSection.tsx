@@ -2,17 +2,19 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import { LEARN_ITEMS, LEARN_TOPICS } from "@/content/home";
+import { useSiteMediaMap } from "@/components/media/SiteMediaContext";
+import EditableText from "@/components/admin/EditableText";
+import { useHomeContent } from "./HomeContentContext";
 
 interface LearnSectionProps {
   nodPhrase: string;
   nodTopic: string | null;
 }
 
-const FEED_IMAGES: Record<string, string> = {
-  a4: "/images/home-media/feed-a4.webp",
-  a5: "/images/home-media/feed-a5.webp",
-  v3: "/images/home-media/feed-v3.webp",
+const FEED_MEDIA_KEYS: Record<string, string> = {
+  a4: "feed-a4",
+  a5: "feed-a5",
+  v3: "feed-v3",
 };
 
 /**
@@ -20,23 +22,32 @@ const FEED_IMAGES: Record<string, string> = {
  * stacked feed with compact article rows.
  */
 export default function LearnSection({ nodPhrase, nodTopic }: LearnSectionProps) {
-  const mappedIdx = nodTopic ? LEARN_TOPICS.indexOf(nodTopic as (typeof LEARN_TOPICS)[number]) : 0;
+  const learn = useHomeContent().learn;
+  const topics = learn.topics;
+  const items = learn.items;
+  const mappedIdx = nodTopic ? topics.indexOf(nodTopic) : 0;
   const [topicIdx, setTopicIdx] = useState<number | null>(null);
   const [query, setQuery] = useState("");
   const [openKey, setOpenKey] = useState("q1");
+  const media = useSiteMediaMap();
 
   const activeTopicIdx = topicIdx ?? Math.max(mappedIdx, 0);
   const showNod = nodPhrase.length > 0 && mappedIdx > 0 && activeTopicIdx === mappedIdx && topicIdx === null;
   const q = query.trim().toLowerCase();
 
+  function feedSrc(key: string): string | undefined {
+    const mediaKey = FEED_MEDIA_KEYS[key];
+    return mediaKey ? media.images[mediaKey] : undefined;
+  }
+
   const filtered = useMemo(() => {
     if (q) {
-      return LEARN_ITEMS.filter((it) =>
+      return items.filter((it) =>
         `${it.title} ${it.topic} ${it.answer ?? ""}`.toLowerCase().includes(q)
       );
     }
-    return LEARN_ITEMS.filter((it) => it.topic === LEARN_TOPICS[activeTopicIdx]);
-  }, [q, activeTopicIdx]);
+    return items.filter((it) => it.topic === topics[activeTopicIdx]);
+  }, [q, activeTopicIdx, items, topics]);
 
   const qas = filtered.filter((i) => i.kind === "qa");
   const articles = filtered.filter((i) => i.kind === "article");
@@ -56,16 +67,18 @@ export default function LearnSection({ nodPhrase, nodTopic }: LearnSectionProps)
             <span className="hidden font-display text-sm italic text-terracotta md:inline">08</span>
             <span className="hidden h-px w-9 bg-gold-deep md:block" />
             <span className="text-[9.5px] font-semibold uppercase tracking-[0.22em] text-terracotta md:text-xs md:tracking-[0.2em]">
-              Learn &amp; answers
+              <EditableText path="learn.eyebrow" value={learn.eyebrow} as="span" />
             </span>
             <span className="hidden h-px w-9 bg-gold-deep md:block" />
           </div>
           <h2 className="mt-[11px] max-w-[16ch] font-display text-[27px] font-medium leading-[1.04] tracking-[-0.02em] text-ink md:mx-auto md:mt-5.5 md:text-[62px] md:leading-[1.02] md:tracking-tight">
-            Start with a <span className="italic text-terracotta">question.</span>
+            <EditableText path="learn.headingLead" value={learn.headingLead} as="span" />{" "}
+            <span className="italic text-terracotta">
+              <EditableText path="learn.headingEmph" value={learn.headingEmph} as="span" />
+            </span>
           </h2>
           <p className="mx-auto mt-4 hidden max-w-[54ch] text-[18px] leading-relaxed text-body-soft md:mt-5 md:block">
-            Articles, videos, and quick answers, all in one place. Search it, or browse by topic, and pick how you want
-            to learn: read it, listen to it, or watch it.
+            <EditableText path="learn.body" value={learn.body} as="span" multiline />
           </p>
 
           {showNod && (
@@ -86,7 +99,7 @@ export default function LearnSection({ nodPhrase, nodTopic }: LearnSectionProps)
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search thyroid, gut, insurance…"
+              placeholder={learn.searchPlaceholder}
               className="min-w-0 flex-1 border-none bg-transparent text-[13px] text-ink outline-none md:text-[15px]"
             />
             {query.length > 0 && (
@@ -97,7 +110,7 @@ export default function LearnSection({ nodPhrase, nodTopic }: LearnSectionProps)
           </div>
 
           <div className="nr-rail mt-[11px] flex gap-[7px] overflow-x-auto pb-0.5 md:mt-4.5 md:flex-wrap md:justify-center md:gap-2.25 md:overflow-visible">
-            {LEARN_TOPICS.map((label, i) => (
+            {topics.map((label, i) => (
               <button
                 key={label}
                 type="button"
@@ -108,7 +121,7 @@ export default function LearnSection({ nodPhrase, nodTopic }: LearnSectionProps)
                     : "border-ink/20 bg-transparent text-body"
                 }`}
               >
-                {label}
+                <EditableText path={`learn.topics.${i}`} value={label} as="span" />
               </button>
             ))}
           </div>
@@ -126,23 +139,43 @@ export default function LearnSection({ nodPhrase, nodTopic }: LearnSectionProps)
               <div className="flex flex-col gap-2.5 md:gap-3.5">
                 {qas.map((f) => {
                   const open = openKey === f.key;
+                  const itemIndex = items.findIndex((it) => it.key === f.key);
                   return (
                     <div
                       key={f.key}
                       onClick={() => setOpenKey(open ? "" : f.key)}
                       className="cursor-pointer rounded-[14px] border border-ink/[0.08] bg-cream px-4 py-[15px] shadow-[0_3px_10px_rgba(46,33,27,0.05)] md:rounded-2xl md:p-5 md:shadow-[0_4px_14px_rgba(46,33,27,0.06)]"
                     >
-                      <div className="mb-[7px] text-[9.5px] text-[#9a8b7a] md:mb-2 md:text-[10px] md:text-muted">{f.topic}</div>
+                      <div className="mb-[7px] text-[9.5px] text-[#9a8b7a] md:mb-2 md:text-[10px] md:text-muted">
+                        {itemIndex >= 0 ? (
+                          <EditableText path={`learn.items.${itemIndex}.topic`} value={f.topic} as="span" />
+                        ) : (
+                          f.topic
+                        )}
+                      </div>
                       <div className="flex items-start justify-between gap-3">
                         <span className="flex-1 font-display text-base font-medium leading-[1.26] text-ink md:text-[18px] md:leading-snug">
-                          {f.title}
+                          {itemIndex >= 0 ? (
+                            <EditableText path={`learn.items.${itemIndex}.title`} value={f.title} as="span" />
+                          ) : (
+                            f.title
+                          )}
                         </span>
                         <span className="text-[17px] leading-none text-terracotta">{open ? "\u2013" : "+"}</span>
                       </div>
                       {open && (
                         <div>
                           <p className="mt-[11px] text-[13px] leading-[1.55] text-[#5a4d43] md:mt-3 md:text-sm md:leading-relaxed md:text-body">
-                            {f.answer}
+                            {itemIndex >= 0 && f.answer != null ? (
+                              <EditableText
+                                path={`learn.items.${itemIndex}.answer`}
+                                value={f.answer}
+                                as="span"
+                                multiline
+                              />
+                            ) : (
+                              f.answer
+                            )}
                           </p>
                           <div className="mt-[13px] flex flex-wrap gap-2 md:mt-3.75">
                             {f.readMin && (
@@ -179,37 +212,52 @@ export default function LearnSection({ nodPhrase, nodTopic }: LearnSectionProps)
                 <span className="text-[10px] text-[#9a8b7a] md:text-[11px] md:text-muted">{articles.length}</span>
               </div>
               <div className="flex flex-col gap-2.5 md:gap-3.5">
-                {articles.map((f) => (
-                  <div key={f.key}>
-                    {/* Mobile: horizontal row */}
-                    <a
-                      href="#"
-                      className="flex items-center gap-[13px] rounded-[14px] border border-ink/[0.08] bg-cream p-[11px] no-underline shadow-[0_3px_10px_rgba(46,33,27,0.05)] md:hidden"
-                    >
-                      <div className="relative h-[68px] w-[84px] flex-none overflow-hidden rounded-[10px] bg-sand-deep">
-                        {FEED_IMAGES[f.key] && <Image src={FEED_IMAGES[f.key]} alt={f.title} fill className="object-cover" />}
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="text-[9.5px] text-[#9a8b7a]">
-                          {f.topic} · {f.readMin} read
+                {articles.map((f) => {
+                  const itemIndex = items.findIndex((it) => it.key === f.key);
+                  return (
+                    <div key={f.key}>
+                      {/* Mobile: horizontal row */}
+                      <a
+                        href="#"
+                        className="flex items-center gap-[13px] rounded-[14px] border border-ink/[0.08] bg-cream p-[11px] no-underline shadow-[0_3px_10px_rgba(46,33,27,0.05)] md:hidden"
+                      >
+                        <div className="relative h-[68px] w-[84px] flex-none overflow-hidden rounded-[10px] bg-sand-deep">
+                          {(() => { const src = feedSrc(f.key); return src ? <Image src={src} alt={f.title} fill className="object-cover" unoptimized={src.startsWith("http")} /> : null; })()}
                         </div>
-                        <div className="mt-[5px] font-display text-[15px] font-medium leading-[1.2] text-ink">{f.title}</div>
-                      </div>
-                    </a>
-                    {/* Desktop: stacked card */}
-                    <div className="hidden overflow-hidden rounded-2xl border border-ink/[0.08] bg-cream shadow-[0_4px_14px_rgba(46,33,27,0.06)] md:block">
-                      <div className="relative h-42 bg-sand-deep">
-                        {FEED_IMAGES[f.key] && <Image src={FEED_IMAGES[f.key]} alt={f.title} fill className="object-cover" />}
-                      </div>
-                      <div className="p-4.5">
-                        <div className="text-[10px] text-muted">
-                          {f.topic} · {f.readMin} read
+                        <div className="min-w-0 flex-1">
+                          <div className="text-[9.5px] text-[#9a8b7a]">
+                            {f.topic} · {f.readMin} read
+                          </div>
+                          <div className="mt-[5px] font-display text-[15px] font-medium leading-[1.2] text-ink">
+                            {itemIndex >= 0 ? (
+                              <EditableText path={`learn.items.${itemIndex}.title`} value={f.title} as="span" />
+                            ) : (
+                              f.title
+                            )}
+                          </div>
                         </div>
-                        <div className="mt-1.5 font-display text-[18px] font-medium leading-snug text-ink">{f.title}</div>
+                      </a>
+                      {/* Desktop: stacked card */}
+                      <div className="hidden overflow-hidden rounded-2xl border border-ink/[0.08] bg-cream shadow-[0_4px_14px_rgba(46,33,27,0.06)] md:block">
+                        <div className="relative h-42 bg-sand-deep">
+                          {(() => { const src = feedSrc(f.key); return src ? <Image src={src} alt={f.title} fill className="object-cover" unoptimized={src.startsWith("http")} /> : null; })()}
+                        </div>
+                        <div className="p-4.5">
+                          <div className="text-[10px] text-muted">
+                            {f.topic} · {f.readMin} read
+                          </div>
+                          <div className="mt-1.5 font-display text-[18px] font-medium leading-snug text-ink">
+                            {itemIndex >= 0 ? (
+                              <EditableText path={`learn.items.${itemIndex}.title`} value={f.title} as="span" />
+                            ) : (
+                              f.title
+                            )}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
@@ -223,28 +271,37 @@ export default function LearnSection({ nodPhrase, nodTopic }: LearnSectionProps)
                 <span className="text-[10px] text-[#9a8b7a] md:text-[11px] md:text-muted">{videos.length}</span>
               </div>
               <div className="flex flex-col gap-2.5 md:gap-3.5">
-                {videos.map((f) => (
-                  <div
-                    key={f.key}
-                    className="relative h-[190px] overflow-hidden rounded-[14px] border border-ink/[0.08] bg-sand-deep shadow-[0_3px_10px_rgba(46,33,27,0.05)] md:h-47.5 md:rounded-2xl md:shadow-[0_4px_14px_rgba(46,33,27,0.06)]"
-                  >
-                    {FEED_IMAGES[f.key] && <Image src={FEED_IMAGES[f.key]} alt={f.title} fill className="object-cover" />}
+                {videos.map((f) => {
+                  const itemIndex = items.findIndex((it) => it.key === f.key);
+                  return (
                     <div
-                      className="pointer-events-none absolute inset-0"
-                      style={{ background: "linear-gradient(180deg, rgba(20,12,7,0) 42%, rgba(20,12,7,0.66))" }}
-                    />
-                    <div className="absolute left-3 top-3 rounded-full bg-gold-deep px-2.25 py-1 text-[8.5px] font-bold uppercase tracking-[0.1em] text-ink">
-                      {f.watchMin}
+                      key={f.key}
+                      className="relative h-[190px] overflow-hidden rounded-[14px] border border-ink/[0.08] bg-sand-deep shadow-[0_3px_10px_rgba(46,33,27,0.05)] md:h-47.5 md:rounded-2xl md:shadow-[0_4px_14px_rgba(46,33,27,0.06)]"
+                    >
+                      {(() => { const src = feedSrc(f.key); return src ? <Image src={src} alt={f.title} fill className="object-cover" unoptimized={src.startsWith("http")} /> : null; })()}
+                      <div
+                        className="pointer-events-none absolute inset-0"
+                        style={{ background: "linear-gradient(180deg, rgba(20,12,7,0) 42%, rgba(20,12,7,0.66))" }}
+                      />
+                      <div className="absolute left-3 top-3 rounded-full bg-gold-deep px-2.25 py-1 text-[8.5px] font-bold uppercase tracking-[0.1em] text-ink">
+                        {f.watchMin}
+                      </div>
+                      <div className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-terracotta/94 shadow-[0_12px_28px_rgba(20,12,7,0.45)]">
+                        <span className="ml-1 border-y-[10px] border-l-[16px] border-y-transparent border-l-cream" />
+                      </div>
+                      <div className="absolute inset-x-4 bottom-3.5">
+                        <span className="text-[10px] text-[#e0d4c5]">{f.topic}</span>
+                        <div className="mt-0.75 font-display text-[18px] font-medium leading-snug text-cream-deep">
+                          {itemIndex >= 0 ? (
+                            <EditableText path={`learn.items.${itemIndex}.title`} value={f.title} as="span" />
+                          ) : (
+                            f.title
+                          )}
+                        </div>
+                      </div>
                     </div>
-                    <div className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-terracotta/94 shadow-[0_12px_28px_rgba(20,12,7,0.45)]">
-                      <span className="ml-1 border-y-[10px] border-l-[16px] border-y-transparent border-l-cream" />
-                    </div>
-                    <div className="absolute inset-x-4 bottom-3.5">
-                      <span className="text-[10px] text-[#e0d4c5]">{f.topic}</span>
-                      <div className="mt-0.75 font-display text-[18px] font-medium leading-snug text-cream-deep">{f.title}</div>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}

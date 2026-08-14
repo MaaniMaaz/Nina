@@ -5,6 +5,8 @@ import Image from "next/image";
 import EditableText from "@/components/admin/EditableText";
 import { useEdit } from "@/components/admin/EditContext";
 import { TOOLKIT_ITEMS } from "@/content/home";
+import { pathToMediaKey } from "@/lib/cms/media";
+import { useSiteMedia, useSiteMediaMap } from "@/components/media/SiteMediaContext";
 
 /**
  * Positioning Care Plan Toolkit — dump §05.5 sticky image + Rx list.
@@ -28,6 +30,12 @@ export default function CarePlanToolkit({
   const base = `blocks.${blockIndex}`;
   const [selected, setSelected] = useState(0);
   const active = TOOLKIT_ITEMS[selected];
+  const media = useSiteMediaMap();
+  const drNina = useSiteMedia("dr-nina");
+  const mobileKey = active.imageMobile ? pathToMediaKey(active.imageMobile) : null;
+  const desktopKey = active.imageDesktop ? pathToMediaKey(active.imageDesktop) : null;
+  const imageMobile = (mobileKey && media.images[mobileKey]) || active.imageMobile || "";
+  const imageDesktop = (desktopKey && media.images[desktopKey]) || active.imageDesktop || "";
   const [lead, em] = heading.includes("beginning")
     ? ["Labs are just the ", "beginning."]
     : [heading, ""];
@@ -46,7 +54,13 @@ export default function CarePlanToolkit({
           <div className="flex items-center justify-between px-6 py-3">
             <div className="flex items-center gap-2.5">
               <div className="relative h-[30px] w-[30px] overflow-hidden rounded-full border border-[rgba(176,138,62,0.55)]">
-                <Image src="/images/dr-nina.jpg" alt="" fill className="object-cover object-[50%_18%]" />
+                <Image
+                  src={drNina}
+                  alt=""
+                  fill
+                  className="object-cover object-[50%_18%]"
+                  unoptimized={drNina.startsWith("http")}
+                />
               </div>
               <Image
                 src="/images/nina-ross-logo-dark.png"
@@ -85,9 +99,16 @@ export default function CarePlanToolkit({
             </div>
           </div>
           <div className="relative h-[220px] overflow-hidden bg-[#E7DCC9]">
-            {active.imageMobile && (
+            {imageMobile && (
               <div key={active.num} className="absolute inset-0 animate-nr-img">
-                <Image src={active.imageMobile} alt={active.name} fill className="object-cover" sizes="100vw" />
+                <Image
+                  src={imageMobile}
+                  alt={active.name}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  unoptimized={imageMobile.startsWith("http")}
+                />
               </div>
             )}
             <div
@@ -145,14 +166,15 @@ export default function CarePlanToolkit({
         <div className="grid grid-cols-[1.05fr_0.95fr] items-start gap-12">
           <div className="sticky top-24">
             <div className="relative aspect-[4/5] min-h-[380px] w-full overflow-hidden rounded-xl bg-[#E7DCC9] shadow-[0_18px_40px_rgba(46,33,27,0.14)]">
-              {active.imageDesktop && (
+              {imageDesktop && (
                 <div key={active.num} className="absolute inset-0 animate-nr-img">
                   <Image
-                    src={active.imageDesktop}
+                    src={imageDesktop}
                     alt={active.name}
                     fill
                     className="object-cover"
                     sizes="(min-width: 768px) 45vw, 100vw"
+                    unoptimized={imageDesktop.startsWith("http")}
                   />
                 </div>
               )}

@@ -1,15 +1,16 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { getPageById, updatePage, getPageByTypeSlug, deletePage } from "@/lib/cms/pages";
+import { getPageById, updatePage, getPageByTypeSlug } from "@/lib/cms/pages";
 import { isMongoConfigured } from "@/lib/mongodb";
 import { revalidatePath } from "next/cache";
 import { publicPath } from "@/lib/cms/slug";
 import type { PageType } from "@/lib/cms/types";
-import { isBlogContent, isLongformContent } from "@/lib/cms/types";
+import { isBlogContent, isHomeContent, isJournalContent, isLongformContent } from "@/lib/cms/types";
 
 type Ctx = { params: Promise<{ id: string }> };
 
 function indexPath(type: PageType): string {
+  if (type === "home") return "/";
   if (type === "blog") return "/blog";
   return `/${type}s`;
 }
@@ -20,6 +21,10 @@ function revalidateManaged(type: PageType, slug: string) {
   if (type === "blog") {
     revalidatePath("/blog/topic/[slug]", "page");
   }
+}
+
+function sameLen(a: unknown, b: unknown): boolean {
+  return Array.isArray(a) && Array.isArray(b) && a.length === b.length;
 }
 
 /** Reject content that changes section structure (block count / types / blog section shape). */
@@ -40,6 +45,43 @@ function structureMatches(previous: unknown, next: unknown): boolean {
     if (!Array.isArray(a.sections) || !Array.isArray(b.sections)) return false;
     if (a.sections.length !== b.sections.length) return false;
     return a.sections.every((s, i) => s.type === b.sections[i]?.type);
+  }
+  if (isJournalContent(previous) && isJournalContent(next)) {
+    const p = previous;
+    const n = next;
+    if (!Array.isArray(p.body) || !Array.isArray(n.body)) return false;
+    if (p.body.length !== n.body.length) return false;
+    if (!p.body.every((b, i) => b.type === n.body[i]?.type)) return false;
+    return (
+      sameLen(p.takeaways, n.takeaways) &&
+      sameLen(p.related, n.related) &&
+      sameLen(p.next, n.next) &&
+      sameLen(p.panelItems, n.panelItems) &&
+      sameLen(p.markers, n.markers) &&
+      sameLen(p.timeline, n.timeline) &&
+      sameLen(p.chapters, n.chapters) &&
+      sameLen(p.transcript, n.transcript)
+    );
+  }
+  if (isHomeContent(previous) && isHomeContent(next)) {
+    // stories[] length may change; other section arrays stay locked.
+    const p = previous;
+    const n = next;
+    return (
+      Array.isArray(n.stories) &&
+      sameLen(p.journal.prompts, n.journal.prompts) &&
+      sameLen(p.process.steps, n.process.steps) &&
+      sameLen(p.toolkit.items, n.toolkit.items) &&
+      sameLen(p.program.plans, n.program.plans) &&
+      sameLen(p.program.coverage, n.program.coverage) &&
+      sameLen(p.learn.items, n.learn.items) &&
+      sameLen(p.learn.topics, n.learn.topics) &&
+      sameLen(p.consultation.gives, n.consultation.gives) &&
+      sameLen(p.consultation.objections, n.consultation.objections) &&
+      sameLen(p.hero.tagsMobile, n.hero.tagsMobile) &&
+      sameLen(p.hero.tagsDesktop, n.hero.tagsDesktop) &&
+      sameLen(p.storiesChrome.tabs, n.storiesChrome.tabs)
+    );
   }
   return false;
 }
@@ -138,24 +180,4 @@ export async function PATCH(request: Request, ctx: Ctx) {
   }
 
   return NextResponse.json({ page });
-}
-
-export async function DELETE(_request: Request, ctx: Ctx) {
-  if (!(await isAdminAuthenticated())) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-  if (!isMongoConfigured()) {
-    return NextResponse.json({ error: "MongoDB not configured" }, { status: 503 });
-  }
-  const { id } = await ctx.params;
-  const existing = await getPageById(id);
-  if (!existing) return NextResponse.json({ error: "Not found" }, { status: 404 });
-
-  const ok = await deletePage(id);
-  if (!ok) return NextResponse.json({ error: "Delete failed" }, { status: 500 });
-
-  // Revalidate affected paths
-  revalidateManaged(existing.type, existing.slug);
-
-  return NextResponse.json({ ok: true });
 }

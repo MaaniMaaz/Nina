@@ -3,12 +3,21 @@
 import Link from "next/link";
 import ImageSlot from "@/components/ui/ImageSlot";
 import EditableText from "@/components/admin/EditableText";
+import EditableImage from "@/components/admin/EditableImage";
 import { useEdit } from "@/components/admin/EditContext";
 
 /**
  * E-E-A-T byline — matches Condition/Treatment dump §10.
  */
-export default function BylineBand({ note, avatarSlotId }: { note: string; avatarSlotId?: string }) {
+export default function BylineBand({
+  note,
+  avatarSlotId,
+  avatarUrl,
+}: {
+  note: string;
+  avatarSlotId?: string;
+  avatarUrl?: string;
+}) {
   const edit = useEdit();
   const E = edit?.enabled;
 
@@ -16,7 +25,23 @@ export default function BylineBand({ note, avatarSlotId }: { note: string; avata
     <section className="bg-[#1f1610] px-6 py-[26px] md:px-[clamp(40px,6vw,100px)] md:py-[34px] md:pb-11">
       <div className="mx-auto max-w-[1100px]">
         <div className="flex items-center gap-[15px]">
-          <ImageSlot id={avatarSlotId} alt="Dr. Nina Ross" shape="circle" className="h-14 w-14 flex-none" />
+          {E ? (
+            <EditableImage
+              slotId={avatarSlotId}
+              urlPath="hero.bylineAvatarUrl"
+              alt="Dr. Nina Ross"
+              shape="circle"
+              className="h-14 w-14 flex-none"
+            />
+          ) : (
+            <ImageSlot
+              id={avatarSlotId}
+              src={avatarUrl}
+              alt="Dr. Nina Ross"
+              shape="circle"
+              className="h-14 w-14 flex-none"
+            />
+          )}
           <div>
             <div className="text-[13.5px] leading-[1.45] text-[#cdbfae]">
               Medically reviewed by{" "}

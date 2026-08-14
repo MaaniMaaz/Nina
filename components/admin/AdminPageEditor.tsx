@@ -7,29 +7,49 @@ import { EditProvider, useEdit } from "./EditContext";
 import AdminStringFields from "./AdminStringFields";
 import BlogMetaFields from "./BlogMetaFields";
 import BlogEditable from "./BlogEditable";
+import JournalMetaFields from "./JournalMetaFields";
+import StoriesManager from "./StoriesManager";
 import DevicePreview, { type DeviceMode } from "./DevicePreview";
-import InlinePreview from "./InlinePreview";
 import LongformPage from "@/components/templates/LongformPage";
+import Hero from "@/components/home/Hero";
+import HomeInteractive from "@/components/home/HomeInteractive";
+import { HomeContentProvider } from "@/components/home/HomeContentContext";
+import JournalArticleView from "@/components/blog/JournalArticle";
 import type { CmsPage } from "@/lib/cms/pages";
-import { isLongformContent, isBlogContent } from "@/lib/cms/types";
-import type { BlogPageContent, ManagedPageContent } from "@/lib/cms/types";
+import {
+  isLongformContent,
+  isBlogContent,
+  isHomeContent,
+  isJournalContent,
+} from "@/lib/cms/types";
+import type {
+  BlogPageContent,
+  HomePageContent,
+  JournalArticle,
+  ManagedPageContent,
+} from "@/lib/cms/types";
 import { publicPath, slugifyTitle } from "@/lib/cms/slug";
 import type { LongformPageContent } from "@/content/types";
+import { DEFAULT_HOME_CONTENT } from "@/content/home-page";
 
 function EditorInner({ page: initial }: { page: CmsPage }) {
   const edit = useEdit()!;
   const router = useRouter();
+  const isHome = initial.type === "home";
   const [title, setTitle] = useState(initial.title);
   const [slug, setSlug] = useState(initial.slug);
   const [savedSlug, setSavedSlug] = useState(initial.slug);
   const [metaTitle, setMetaTitle] = useState(initial.metaTitle);
   const [metaDescription, setMetaDescription] = useState(initial.metaDescription);
+  const [coverImageUrl, setCoverImageUrl] = useState(initial.index.coverImageUrl ?? "");
   const [status, setStatus] = useState(initial.status);
   const [tab, setTab] = useState<"edit" | "preview">("edit");
   const [device, setDevice] = useState<DeviceMode>("desktop");
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [previewKey, setPreviewKey] = useState(0);
+  const [coverUploading, setCoverUploading] = useState(false);
+  const coverInputRef = useRef<HTMLInputElement>(null);
   const baselineRef = useRef("");
 
   useEffect(() => {
@@ -38,6 +58,7 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
       slug: initial.slug,
       metaTitle: initial.metaTitle,
       metaDescription: initial.metaDescription,
+      coverImageUrl: initial.index.coverImageUrl ?? "",
       content: initial.content,
     });
   }, [initial]);
@@ -48,10 +69,11 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
       slug,
       metaTitle,
       metaDescription,
+      coverImageUrl,
       content: edit.content,
     });
     return current !== baselineRef.current;
-  }, [title, slug, metaTitle, metaDescription, edit.content]);
+  }, [title, slug, metaTitle, metaDescription, coverImageUrl, edit.content]);
 
   // Warn before leaving with unsaved edits
   useEffect(() => {
@@ -76,16 +98,34 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
       const blogContent = isBlogContent(edit.content as ManagedPageContent)
         ? (edit.content as BlogPageContent)
         : null;
-      const effectiveTitle = blogContent ? blogContent.title || title : title;
-      const effectiveTeaser = blogContent
-        ? (blogContent.dek || metaDescription).slice(0, 160)
-        : metaDescription.slice(0, 160);
+      const journalContent = isJournalContent(edit.content)
+        ? (edit.content as JournalArticle)
+        : null;
+      const longformContent = isLongformContent(edit.content as ManagedPageContent)
+        ? (edit.content as ManagedPageContent & { hero?: { imageUrl?: string } })
+        : null;
+      const effectiveTitle = journalContent
+        ? journalContent.title || title
+        : blogContent
+          ? blogContent.title || title
+          : title;
+      const effectiveTeaser = journalContent
+        ? (journalContent.dek || metaDescription).slice(0, 160)
+        : blogContent
+          ? (blogContent.dek || metaDescription).slice(0, 160)
+          : metaDescription.slice(0, 160);
+      const coverFromHero =
+        longformContent && "hero" in longformContent
+          ? longformContent.hero?.imageUrl
+          : undefined;
+      const journalCover =
+        journalContent?.hero?.src || journalContent?.mediaPoster || undefined;
       const res = await fetch(`/api/admin/pages/${initial.id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           title: effectiveTitle,
-          slug,
+          slug: isHome ? "home" : slug,
           metaTitle,
           metaDescription,
           content: edit.content,
@@ -93,7 +133,13 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
           index: {
             name: effectiveTitle,
             teaser: effectiveTeaser,
-            coverImageUrl: blogContent ? blogContent.coverImageUrl : undefined,
+            coverImageUrl: isHome
+              ? undefined
+              : journalContent
+                ? journalCover || coverImageUrl || undefined
+                : blogContent
+                  ? blogContent.coverImageUrl
+                  : coverImageUrl || coverFromHero || undefined,
           },
         }),
       });
@@ -107,12 +153,14 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
       setSavedSlug(page.slug);
       setMetaTitle(page.metaTitle);
       setMetaDescription(page.metaDescription);
+      setCoverImageUrl(page.index.coverImageUrl ?? "");
       edit.setContent(page.content);
       baselineRef.current = JSON.stringify({
         title: page.title,
         slug: page.slug,
         metaTitle: page.metaTitle,
         metaDescription: page.metaDescription,
+        coverImageUrl: page.index.coverImageUrl ?? "",
         content: page.content,
       });
       setPreviewKey((k) => k + 1);
@@ -284,14 +332,11 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
         <div className="p-3 sm:p-4">
           {dirty ? (
             <p className="mb-3 rounded-lg border border-gold/40 bg-gold/20 px-3 py-2 text-[13px]">
-              Showing live edits. Uploads and inline changes appear immediately below.
+              Showing the <strong>last saved</strong> version. Save to refresh this preview with
+              your latest edits.
             </p>
           ) : null}
-          {dirty ? (
-            <InlinePreview mode={device} pageType={initial.type} previewHref={previewSrc} />
-          ) : (
-            <DevicePreview src={previewSrc} mode={device} />
-          )}
+          <DevicePreview src={previewSrc} mode={device} />
         </div>
       ) : (
         <div className="grid gap-4 p-3 sm:p-4 lg:grid-cols-[minmax(280px,340px)_1fr]">
@@ -306,7 +351,10 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
                 onChange={(e) => {
                   const v = e.target.value;
                   setTitle(v);
-                  if (slug === initial.slug || slug === slugifyTitle(title)) {
+                  if (
+                    !isHome &&
+                    (slug === initial.slug || slug === slugifyTitle(title))
+                  ) {
                     setSlug(slugifyTitle(v));
                   }
                 }}
@@ -314,21 +362,29 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
             </div>
             <div>
               <label className="text-[11px] font-semibold uppercase tracking-wide text-muted">
-                Slug
+                URL
               </label>
-              <div className="mt-1 flex flex-wrap items-center gap-1 text-[13px]">
-                <span className="text-muted">
-                  /{initial.type === "blog" ? "blog" : `${initial.type}s`}/
-                </span>
-                <input
-                  className="min-w-0 flex-1 rounded border border-ink/15 px-2 py-1.5"
-                  value={slug}
-                  onChange={(e) => setSlug(e.target.value.replace(/^\/+/, ""))}
-                />
-              </div>
-              <p className="mt-1 text-[11px] text-muted">
-                Default from title: {publicPath(initial.type, slugifyTitle(title))}
-              </p>
+              {isHome ? (
+                <p className="mt-1 rounded border border-ink/10 bg-cream-deep px-3 py-2 text-[13px]">
+                  /
+                </p>
+              ) : (
+                <>
+                  <div className="mt-1 flex flex-wrap items-center gap-1 text-[13px]">
+                    <span className="text-muted">
+                      /{initial.type === "blog" ? "blog" : `${initial.type}s`}/
+                    </span>
+                    <input
+                      className="min-w-0 flex-1 rounded border border-ink/15 px-2 py-1.5"
+                      value={slug}
+                      onChange={(e) => setSlug(e.target.value.replace(/^\/+/, ""))}
+                    />
+                  </div>
+                  <p className="mt-1 text-[11px] text-muted">
+                    Default from title: {publicPath(initial.type, slugifyTitle(title))}
+                  </p>
+                </>
+              )}
             </div>
             <div>
               <label className="text-[11px] font-semibold uppercase tracking-wide text-muted">
@@ -351,18 +407,111 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
                 onChange={(e) => setMetaDescription(e.target.value)}
               />
             </div>
-            {initial.type === "blog" ? (
+            {isHome ? (
               <>
                 <hr className="border-ink/10" />
-                <BlogMetaFields />
+                <StoriesManager />
+                <hr className="border-ink/10" />
+                <AdminStringFields />
               </>
-            ) : null}
-            <hr className="border-ink/10" />
-            <AdminStringFields />
+            ) : initial.type === "blog" ? (
+              <>
+                <hr className="border-ink/10" />
+                {isJournalContent(edit.content) ? (
+                  <JournalMetaFields />
+                ) : (
+                  <BlogMetaFields />
+                )}
+                <hr className="border-ink/10" />
+                <AdminStringFields />
+              </>
+            ) : (
+              <>
+                <hr className="border-ink/10" />
+                <div>
+                  <label className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+                    Index card cover
+                  </label>
+                  <p className="mt-1 text-[11px] text-muted">
+                    Shown on /{initial.type}s. Defaults to the hero image when empty.
+                  </p>
+                  <div className="relative mt-2 h-28 overflow-hidden rounded-lg border border-ink/10 bg-cream-deep">
+                    {coverImageUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={coverImageUrl} alt="" className="h-full w-full object-cover" />
+                    ) : (
+                      <div className="flex h-full items-center justify-center text-[12px] text-muted">
+                        No cover yet
+                      </div>
+                    )}
+                  </div>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      disabled={coverUploading}
+                      onClick={() => coverInputRef.current?.click()}
+                      className="rounded bg-ink px-2.5 py-1.5 text-[12px] font-semibold text-cream disabled:opacity-50"
+                    >
+                      {coverUploading ? "Uploading…" : "Upload cover"}
+                    </button>
+                    {coverImageUrl ? (
+                      <button
+                        type="button"
+                        onClick={() => setCoverImageUrl("")}
+                        className="rounded border border-ink/20 px-2.5 py-1.5 text-[12px] font-semibold"
+                      >
+                        Clear
+                      </button>
+                    ) : null}
+                  </div>
+                  <input
+                    ref={coverInputRef}
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      e.target.value = "";
+                      if (!file) return;
+                      void (async () => {
+                        setCoverUploading(true);
+                        setError(null);
+                        try {
+                          const fd = new FormData();
+                          fd.set("file", file);
+                          const res = await fetch("/api/admin/upload", {
+                            method: "POST",
+                            body: fd,
+                          });
+                          const data = await res.json();
+                          if (!res.ok) throw new Error(data.error || "Upload failed");
+                          setCoverImageUrl(data.url as string);
+                        } catch (err) {
+                          setError(err instanceof Error ? err.message : "Upload failed");
+                        } finally {
+                          setCoverUploading(false);
+                        }
+                      })();
+                    }}
+                  />
+                </div>
+                <hr className="border-ink/10" />
+                <AdminStringFields />
+              </>
+            )}
           </aside>
 
           <div className="order-1 overflow-hidden rounded-xl border border-ink/10 bg-cream lg:order-2">
-            {isLongformContent(edit.content as ManagedPageContent) ? (
+            {isHomeContent(edit.content) ? (
+              <HomeContentProvider
+                content={(edit.content as HomePageContent) ?? DEFAULT_HOME_CONTENT}
+              >
+                <Hero />
+                <HomeInteractive />
+              </HomeContentProvider>
+            ) : isJournalContent(edit.content) ? (
+              <JournalArticleView article={edit.content as JournalArticle} />
+            ) : isLongformContent(edit.content as ManagedPageContent) ? (
               <LongformPage content={edit.content as LongformPageContent} />
             ) : isBlogContent(edit.content as ManagedPageContent) ? (
               <BlogEditable />

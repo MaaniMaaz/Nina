@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Eyebrow from "@/components/ui/Eyebrow";
+import { resolveMedia } from "@/lib/cms/media";
 
 export const metadata: Metadata = {
   title: "Dr. Nina Ross, ND PhD",
@@ -17,18 +18,20 @@ const CREDENTIALS = [
   "NPI #1164884078 \u00B7 Atlanta, GA",
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const portrait = await resolveMedia("dr-nina");
   return (
     <>
       <section className="bg-cream px-6 py-12 md:px-10 md:py-28">
         <div className="mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-2 md:gap-16">
           <div className="relative h-[240px] w-full overflow-hidden rounded-[18px] shadow-[0_24px_50px_rgba(46,33,27,0.14)] md:h-[420px] md:rounded-[22px]">
             <Image
-              src="/images/dr-nina.jpg"
+              src={portrait}
               alt="Dr. Nina Ross, ND PhD"
               fill
               priority
               className="object-cover object-[50%_20%]"
+              unoptimized={portrait.startsWith("http")}
             />
           </div>
           <div>

@@ -34,7 +34,7 @@ export default async function TreatmentsIndexPage() {
         </div>
       </section>
 
-      <section className="bg-sand px-6 pb-14 md:px-[clamp(40px,6vw,100px)] md:pb-28">
+      <section className="bg-sand px-6 pb-14 pt-8 md:px-[clamp(40px,6vw,100px)] md:pb-28 md:pt-14">
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
           {items.map((t) => (
             <Link

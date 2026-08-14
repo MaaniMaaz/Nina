@@ -5,14 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   BLOG_ARTICLES,
-  FORMAT_FILTERS,
   SHELF_DEFS,
-  blogTopicSlug,
-  buildBlogTopics,
+  FORMAT_FILTERS,
   filterBlogArticles,
+  buildBlogTopics,
+  blogTopicSlug,
   type BlogArticle,
   type BlogFormat,
 } from "@/content/blog";
+import { useSiteMedia } from "@/components/media/SiteMediaContext";
 
 function PlayDisc({ size }: { size: number }) {
   return (
@@ -53,7 +54,14 @@ function ArticleThumb({
 }) {
   return (
     <div className={`relative overflow-hidden bg-[#E7DCC9] ${className}`}>
-      <Image src={article.img} alt={article.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+      <Image
+          src={article.img}
+          alt={article.alt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          unoptimized={article.img.startsWith("http")}
+        />
       {article.isPlay && playSize ? <PlayDisc size={playSize} /> : null}
     </div>
   );
@@ -66,6 +74,7 @@ function ArticleThumb({
 export default function BlogHome({ articles = BLOG_ARTICLES }: { articles?: BlogArticle[] }) {
   const [fmt, setFmt] = useState<"All" | BlogFormat>("All");
   const [q, setQ] = useState("");
+  const drNina = useSiteMedia("dr-nina");
 
   const pool = useMemo(() => filterBlogArticles(fmt, q, articles), [fmt, q, articles]);
   const feat = pool[0] ?? null;
@@ -236,7 +245,7 @@ export default function BlogHome({ articles = BLOG_ARTICLES }: { articles?: Blog
                     </p>
                     <div className="mt-4 flex items-center gap-2.5 md:mt-5">
                       <div className="relative h-6 w-6 overflow-hidden rounded-full md:h-[34px] md:w-[34px]">
-                        <Image src="/images/dr-nina.jpg" alt="" fill className="object-cover object-[50%_20%]" />
+                        <Image src={drNina} alt="" fill className="object-cover object-[50%_20%]" unoptimized={drNina.startsWith("http")} />
                       </div>
                       <span className="text-[12px] tracking-[0.05em] text-[#8a7a68] md:text-[12.5px]">
                         <span className="hidden md:inline">Dr. Nina Ross, ND; Ph.D · </span>
@@ -256,7 +265,7 @@ export default function BlogHome({ articles = BLOG_ARTICLES }: { articles?: Blog
                     <Link
                       key={r.id}
                       href={r.href}
-                      className={`flex items-center gap-3.5 no-underline transition-colors md:mb-3.5 md:rounded-[14px] md:border md:border-[rgba(46,33,27,0.09)] md:bg-cream md:px-[18px] md:py-4 md:hover:bg-[#F6EEE1] ${
+                      className={`flex items-center gap-3.5 no-underline transition-colors md:mb-3.5 md:rounded-[14px] md:border md:border-[rgba(46,33,27,0.09)] md:bg-cream md:px-[18px] md:py-4 md:hover:bg-cream-deep ${
                         i > 0 ? "border-t border-[rgba(46,33,27,0.08)] md:border" : ""
                       } px-3.5 py-3`}
                     >
@@ -360,7 +369,7 @@ export default function BlogHome({ articles = BLOG_ARTICLES }: { articles?: Blog
           <section className="mx-auto max-w-[1240px] px-[22px] pt-[30px] md:px-[clamp(28px,4vw,56px)] md:pt-[clamp(48px,5vw,76px)]">
             <div className="flex flex-col items-center gap-5 rounded-[18px] bg-[#E7DCC9] px-6 py-8 text-center md:flex-row md:items-center md:gap-7 md:px-8 md:py-8 md:text-left">
               <div className="relative h-[58px] w-[58px] shrink-0 overflow-hidden rounded-full border-2 border-[rgba(46,33,27,0.12)] md:h-[92px] md:w-[92px]">
-                <Image src="/images/dr-nina.jpg" alt="Dr. Nina Ross" fill className="object-cover object-[50%_20%]" />
+                <Image src={drNina} alt="Dr. Nina Ross" fill className="object-cover object-[50%_20%]" unoptimized={drNina.startsWith("http")} />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="font-display text-[23px] leading-[1.1] font-medium tracking-[-0.015em] text-ink md:text-[clamp(26px,2.4vw,34px)]">

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useSiteMedia } from "@/components/media/SiteMediaContext";
 
 interface BookingDoorCardProps {
   kind: "inperson" | "virtual";
@@ -13,7 +14,7 @@ const COPY = {
     title: "In-Person",
     descMobile: "Our Atlanta studio, 8735 Dunwoody Place. Sit down with us face to face.",
     descDesktop: "Our Atlanta studio at 8735 Dunwoody Place. Sit down with us face to face and walk out with a plan.",
-    bg: "/images/clinic-bg.png",
+    mediaKey: "clinic-bg",
     opacity: "opacity-85",
   },
   virtual: {
@@ -21,7 +22,7 @@ const COPY = {
     title: "Virtual",
     descMobile: "Secure video from anywhere in the country. Same care, your couch.",
     descDesktop: "Secure video from anywhere in the country. The same half hour, the same care, from your couch.",
-    bg: "/images/virtual-bg.png",
+    mediaKey: "virtual-bg",
     opacity: "opacity-95",
   },
 } as const;
@@ -37,6 +38,7 @@ export default function BookingDoorCard({
   mediaHeightClassName = "h-[110px] md:h-[220px]",
 }: BookingDoorCardProps) {
   const copy = COPY[kind];
+  const bg = useSiteMedia(copy.mediaKey);
 
   return (
     <button
@@ -49,7 +51,13 @@ export default function BookingDoorCard({
       }`}
     >
       <div className={`relative bg-ink ${mediaHeightClassName}`}>
-        <Image src={copy.bg} alt="" fill className={`object-cover ${copy.opacity}`} />
+        <Image
+          src={bg}
+          alt=""
+          fill
+          className={`object-cover ${copy.opacity}`}
+          unoptimized={bg.startsWith("http")}
+        />
         <div
           className="absolute inset-0"
           style={{

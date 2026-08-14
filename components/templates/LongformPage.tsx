@@ -43,10 +43,12 @@ export default function LongformPage({ content }: { content: LongformPageContent
         heading={live.startHere.heading}
         intro={live.startHere.intro}
         avatarSlotId={live.hero.bylineAvatarSlotId?.replace("byline-av", "start-av")}
+        avatarUrl={live.hero.bylineAvatarUrl}
       />
       <BylineBand
         note={live.bylineNote}
         avatarSlotId={live.hero.bylineAvatarSlotId?.replace("byline-av", "review-av")}
+        avatarUrl={live.hero.bylineAvatarUrl}
       />
     </>
   );
