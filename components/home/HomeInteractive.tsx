@@ -8,6 +8,7 @@ import { cleanEntry, dotsRead, learnTopicFor, slugify } from "@/lib/home-logic";
 import { pathToMediaKey } from "@/lib/cms/media-catalog";
 import { useSiteMedia, useSiteMediaMap } from "@/components/media/SiteMediaContext";
 import EditableText from "@/components/admin/EditableText";
+import { useEdit } from "@/components/admin/EditContext";
 import ProcessSteps from "./ProcessSteps";
 import Toolkit from "./Toolkit";
 import ProgramSection from "./ProgramSection";
@@ -21,11 +22,14 @@ import { useHomeContent } from "./HomeContentContext";
  * Owns the journal entry text that gates the rest of the homepage, mirroring
  * the source design's `unlocked` state (everything from The Turn onward stays
  * hidden until the visitor taps or types what they used to be able to do).
+ * In admin edit mode the gate is open so editors can reach Patient Stories.
  */
 export default function HomeInteractive() {
   const [entry, setEntry] = useState("");
   const clean = cleanEntry(entry);
   const hasEntry = clean.length > 0;
+  const edit = useEdit();
+  const unlocked = hasEntry || !!edit?.enabled;
   const media = useSiteMediaMap();
   const drNina = useSiteMedia("dr-nina");
   const content = useHomeContent();
@@ -172,7 +176,7 @@ export default function HomeInteractive() {
         </div>
       </section>
 
-      {hasEntry && (
+      {unlocked && (
         <>
           <section className="relative -mt-px flex min-h-[70svh] items-center overflow-hidden bg-olive px-9 py-16 text-center md:min-h-0 md:px-[clamp(40px,6vw,120px)] md:py-31">
             <div className="absolute inset-0 opacity-62">
@@ -205,7 +209,7 @@ export default function HomeInteractive() {
                 <EditableText path="turn.eyebrow" value={turn.eyebrow} as="span" />
               </div>
               <div className="mt-3 font-display text-[30px] font-medium italic leading-[1.12] text-[#E9B45A] md:mt-3.5 md:text-[50px] md:leading-tight md:text-gold">
-                {clean}.
+                {clean || "…"}
               </div>
               <h2 className="mt-5 font-display text-[42px] font-medium leading-[1.02] tracking-[-0.03em] text-cream-deep md:mt-6.5 md:text-[70px] md:tracking-tight">
                 <EditableText path="turn.heading" value={turn.heading} as="span" />

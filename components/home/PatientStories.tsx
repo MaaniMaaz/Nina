@@ -4,12 +4,89 @@ import { useState } from "react";
 import Image from "next/image";
 import { useSiteMedia, useSiteMediaMap } from "@/components/media/SiteMediaContext";
 import EditableText from "@/components/admin/EditableText";
+import { useEdit } from "@/components/admin/EditContext";
+import {
+  emptyPatientStory,
+  type HomePageContent,
+  type PatientStory,
+} from "@/content/home-page";
+import { isHomeContent } from "@/lib/cms/types";
 import { useHomeContent } from "./HomeContentContext";
+
+function StoriesEditBar({
+  stories,
+  activeIndex,
+  onSelect,
+}: {
+  stories: PatientStory[];
+  activeIndex: number;
+  onSelect: (i: number) => void;
+}) {
+  const edit = useEdit();
+  if (!edit?.enabled || !isHomeContent(edit.content)) return null;
+
+  function setStories(updater: (prev: PatientStory[]) => PatientStory[]) {
+    edit!.setContent((prev: unknown) => {
+      if (!isHomeContent(prev)) return prev;
+      return { ...prev, stories: updater(prev.stories) };
+    });
+  }
+
+  function add() {
+    setStories((list) => {
+      const next = [...list, emptyPatientStory(list.length)];
+      onSelect(next.length - 1);
+      return next;
+    });
+  }
+
+  function remove(i: number) {
+    if (stories.length <= 1) {
+      window.alert("Keep at least one patient story.");
+      return;
+    }
+    const name = stories[i]?.name || "this story";
+    if (!window.confirm(`Remove “${name}”?`)) return;
+    setStories((list) => {
+      const next = list.filter((_, idx) => idx !== i);
+      onSelect(Math.min(i, next.length - 1));
+      return next;
+    });
+  }
+
+  return (
+    <div className="relative z-[5] mb-4 flex flex-wrap items-center gap-2 rounded-xl border border-gold/40 bg-[#1f2618] px-3 py-2.5 md:mb-6 md:px-4">
+      <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-gold">
+        Edit stories
+      </span>
+      <span className="text-[11px] text-[#b9c0a3]">
+        {stories.length} review{stories.length === 1 ? "" : "s"}
+      </span>
+      <div className="ml-auto flex flex-wrap gap-2">
+        <button
+          type="button"
+          onClick={add}
+          className="rounded-md bg-gold px-3 py-1.5 text-[11px] font-semibold text-ink hover:bg-[#f0c273]"
+        >
+          + Add review
+        </button>
+        <button
+          type="button"
+          onClick={() => remove(activeIndex)}
+          className="rounded-md border border-red-400/50 px-3 py-1.5 text-[11px] font-semibold text-[#f0c0b0] hover:border-red-300 hover:text-cream"
+        >
+          Remove current
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function PatientStories() {
   const [storyIndex, setStoryIndex] = useState(0);
   const [tab, setTab] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const edit = useEdit();
   const media = useSiteMediaMap();
   const drNina = useSiteMedia("dr-nina");
   const content = useHomeContent();
@@ -33,11 +110,44 @@ export default function PatientStories() {
     setPlaying(false);
   }
 
-  if (!story) return null;
+  if (!story) {
+    if (edit?.enabled && isHomeContent(edit.content)) {
+      return (
+        <section id="patient-stories" className="relative overflow-hidden bg-olive px-6 py-16 md:px-[clamp(40px,6vw,110px)] md:py-24">
+          <div className="relative z-[1] mx-auto max-w-[720px] text-center">
+            <p className="font-display text-2xl text-cream-deep">No patient stories yet.</p>
+            <button
+              type="button"
+              className="mt-4 rounded-md bg-gold px-4 py-2 text-sm font-semibold text-ink"
+              onClick={() => {
+                edit.setContent((prev: unknown) => {
+                  if (!isHomeContent(prev)) return prev;
+                  return {
+                    ...prev,
+                    stories: [emptyPatientStory(0)],
+                  } satisfies HomePageContent;
+                });
+              }}
+            >
+              + Add the first review
+            </button>
+          </div>
+        </section>
+      );
+    }
+    return null;
+  }
 
   return (
     <section id="patient-stories" className="relative overflow-hidden bg-olive md:px-[clamp(40px,6vw,110px)] md:py-38">
       <div className="pointer-events-none absolute inset-0 bg-[#2c3524]/95" />
+      <div className="relative z-[1] mx-auto max-w-[1240px] px-4 pt-8 md:px-0 md:pt-0">
+        <StoriesEditBar
+          stories={stories}
+          activeIndex={safeIndex}
+          onSelect={go}
+        />
+      </div>
       <div className="grain-overlay pointer-events-none opacity-50 mix-blend-overlay" />
       <div
         className="pointer-events-none absolute -top-40 -right-20 hidden h-180 w-180 rounded-full md:block"

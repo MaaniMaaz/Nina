@@ -22,33 +22,43 @@ export default function StoriesManager() {
   const content = edit.content as HomePageContent;
   const stories = content.stories;
 
-  function setStories(next: PatientStory[]) {
-    edit!.setContent({ ...content, stories: next });
+  function setStories(next: PatientStory[] | ((prev: PatientStory[]) => PatientStory[])) {
+    edit!.setContent((prev: unknown) => {
+      if (!isHomeContent(prev)) return prev;
+      const stories = typeof next === "function" ? next(prev.stories) : next;
+      return { ...prev, stories };
+    });
   }
 
   function updateStory(i: number, patch: Partial<PatientStory>) {
-    setStories(stories.map((s, idx) => (idx === i ? { ...s, ...patch } : s)));
+    setStories((stories) =>
+      stories.map((s, idx) => (idx === i ? { ...s, ...patch } : s)),
+    );
   }
 
   function move(i: number, dir: -1 | 1) {
     const j = i + dir;
     if (j < 0 || j >= stories.length) return;
-    const next = [...stories];
-    [next[i], next[j]] = [next[j], next[i]];
-    setStories(next);
+    setStories((list) => {
+      const next = [...list];
+      [next[i], next[j]] = [next[j], next[i]];
+      return next;
+    });
     setOpenIndex(j);
   }
 
   function duplicate(i: number) {
-    const src = stories[i];
-    const copy: PatientStory = {
-      ...structuredClone(src),
-      key: `story-${Date.now().toString(36)}`,
-      name: `${src.name} (copy)`,
-    };
-    const next = [...stories];
-    next.splice(i + 1, 0, copy);
-    setStories(next);
+    setStories((list) => {
+      const src = list[i];
+      const copy: PatientStory = {
+        ...structuredClone(src),
+        key: `story-${Date.now().toString(36)}`,
+        name: `${src.name} (copy)`,
+      };
+      const next = [...list];
+      next.splice(i + 1, 0, copy);
+      return next;
+    });
     setOpenIndex(i + 1);
   }
 
@@ -58,15 +68,17 @@ export default function StoriesManager() {
       return;
     }
     if (!window.confirm(`Remove “${stories[i].name}”?`)) return;
-    const next = stories.filter((_, idx) => idx !== i);
-    setStories(next);
-    setOpenIndex(Math.min(i, next.length - 1));
+    setStories((list) => list.filter((_, idx) => idx !== i));
+    setOpenIndex((cur) => {
+      const nextLen = stories.length - 1;
+      if (cur == null) return 0;
+      return Math.min(cur > i ? cur - 1 : cur, nextLen - 1);
+    });
   }
 
   function add() {
-    const next = [...stories, emptyPatientStory(stories.length)];
-    setStories(next);
-    setOpenIndex(next.length - 1);
+    setStories((list) => [...list, emptyPatientStory(list.length)]);
+    setOpenIndex(stories.length);
   }
 
   function updateList(i: number, field: "symptoms" | "actions", list: string[]) {
@@ -105,12 +117,12 @@ export default function StoriesManager() {
           onClick={add}
           className="rounded bg-ink px-2.5 py-1 text-[11px] font-semibold text-cream"
         >
-          Add story
+          + Add story
         </button>
       </div>
       <p className="text-[11px] leading-snug text-muted">
-        Add, remove, or reorder reviews. Clear Wistia ID to hide the video player.
-        Captions stay in Wistia.
+        Add or remove patient reviews for “Real people. Real labs.” Use Delete on a
+        row, or manage from the section preview. Clear Wistia ID to hide video.
       </p>
 
       <ul className="space-y-2">
@@ -143,6 +155,14 @@ export default function StoriesManager() {
                   className="rounded border border-ink/15 px-1.5 py-0.5 text-[11px] disabled:opacity-30"
                 >
                   ↓
+                </button>
+                <button
+                  type="button"
+                  aria-label={`Delete ${s.name || "story"}`}
+                  onClick={() => remove(i)}
+                  className="rounded border border-red-300 px-1.5 py-0.5 text-[11px] font-semibold text-red-800"
+                >
+                  ✕
                 </button>
               </div>
 
@@ -295,6 +315,14 @@ export default function StoriesManager() {
           );
         })}
       </ul>
+
+      <button
+        type="button"
+        onClick={add}
+        className="w-full rounded-lg border border-dashed border-ink/25 bg-cream px-3 py-2.5 text-[12px] font-semibold text-ink hover:border-ink/50"
+      >
+        + Add another patient story
+      </button>
 
       <input
         ref={fileRef}

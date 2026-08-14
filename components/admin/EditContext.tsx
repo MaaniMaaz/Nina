@@ -6,7 +6,9 @@ import {
   useContext,
   useMemo,
   useState,
+  type Dispatch,
   type ReactNode,
+  type SetStateAction,
 } from "react";
 import { TOOLKIT_TREATMENTS } from "@/content/care-toolkit";
 
@@ -14,7 +16,7 @@ type EditContextValue = {
   enabled: boolean;
   pageId: string;
   content: unknown;
-  setContent: (next: unknown) => void;
+  setContent: Dispatch<SetStateAction<unknown>>;
   patchPath: (path: string, value: unknown) => void;
   saving: boolean;
   setSaving: (v: boolean) => void;
