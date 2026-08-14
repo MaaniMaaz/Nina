@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { pathToMediaKey } from "@/lib/cms/media";
+import { pathToMediaKey } from "@/lib/cms/media-catalog";
 import { useSiteMedia, useSiteMediaMap } from "@/components/media/SiteMediaContext";
 import EditableText from "@/components/admin/EditableText";
 import { useHomeContent } from "./HomeContentContext";

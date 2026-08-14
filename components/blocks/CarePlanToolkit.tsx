@@ -5,7 +5,7 @@ import Image from "next/image";
 import EditableText from "@/components/admin/EditableText";
 import { useEdit } from "@/components/admin/EditContext";
 import { TOOLKIT_ITEMS } from "@/content/home";
-import { pathToMediaKey } from "@/lib/cms/media";
+import { pathToMediaKey } from "@/lib/cms/media-catalog";
 import { useSiteMedia, useSiteMediaMap } from "@/components/media/SiteMediaContext";
 
 /**

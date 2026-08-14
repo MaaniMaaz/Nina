@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext } from "react";
-import { SITE_MEDIA_FALLBACKS, DEFAULT_WISTIA } from "@/lib/cms/media";
+import { SITE_MEDIA_FALLBACKS, DEFAULT_WISTIA } from "@/lib/cms/media-catalog";
 
 type SiteMediaValue = {
   images: Record<string, string>;

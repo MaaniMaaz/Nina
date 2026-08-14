@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { SiteMediaEntry } from "@/lib/cms/media";
+import type { SiteMediaEntry } from "@/lib/cms/media-catalog";
 
 type SiteMediaPayload = {
   catalog: SiteMediaEntry[];

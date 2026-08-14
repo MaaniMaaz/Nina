@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { DEFAULT_TURN_IMAGE } from "@/content/home";
 import { cleanEntry, dotsRead, learnTopicFor, slugify } from "@/lib/home-logic";
-import { pathToMediaKey } from "@/lib/cms/media";
+import { pathToMediaKey } from "@/lib/cms/media-catalog";
 import { useSiteMedia, useSiteMediaMap } from "@/components/media/SiteMediaContext";
 import EditableText from "@/components/admin/EditableText";
 import ProcessSteps from "./ProcessSteps";
