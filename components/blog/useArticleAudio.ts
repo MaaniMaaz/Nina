@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export const DEFAULT_WAVE = [
   14, 22, 31, 26, 38, 44, 33, 47, 39, 28, 35, 46, 52, 41, 30, 24, 33, 42, 49, 44,
@@ -14,13 +14,31 @@ function mmss(s: number): string {
   return `${m}:${r < 10 ? "0" : ""}${r}`;
 }
 
-/** Prefer local `/audio/…`, fall back to production CDN on the same path. */
-export function resolveAudioCandidates(src?: string | null): string[] {
-  if (!src?.trim()) return [];
-  const raw = src.trim();
-  if (raw.startsWith("http")) return [raw];
-  const path = raw.startsWith("/") ? raw : `/${raw}`;
-  return [path, `https://ninarossfm.com${path}`, `https://www.ninarossfm.com${path}`];
+/** Prefer local `/audio/…`, then production CDN mirrors. */
+export function resolveAudioCandidates(
+  src?: string | null,
+  slug?: string | null,
+): string[] {
+  const out: string[] = [];
+  const push = (raw?: string | null) => {
+    if (!raw?.trim()) return;
+    const v = raw.trim();
+    if (v.startsWith("http")) {
+      out.push(v);
+      return;
+    }
+    const path = v.startsWith("/") ? v : `/${v}`;
+    out.push(path, `https://ninarossfm.com${path}`, `https://www.ninarossfm.com${path}`);
+  };
+
+  push(src);
+  if (slug?.trim()) {
+    const s = slug.trim();
+    push(`/audio/${s}.mp3`);
+    push(`/audio/${s}-recap.mp3`);
+  }
+
+  return [...new Set(out)];
 }
 
 export type ArticleAudioControls = {
@@ -41,11 +59,13 @@ export type ArticleAudioControls = {
 };
 
 /**
- * Real HTMLAudioElement when a source loads; otherwise the same deterministic
- * setInterval player the Articles HTML handoff used.
+ * Plays a real MP3 when available. Otherwise advances a timed UI and, when
+ * `speakText` is provided (Read/Guide recaps), speaks that text via the browser.
  */
 export function useArticleAudio(opts: {
   src?: string | null;
+  slug?: string | null;
+  speakText?: string | null;
   duration: number;
   rates?: number[];
   labels?: string[];
@@ -53,79 +73,139 @@ export function useArticleAudio(opts: {
   const rates = opts.rates ?? [1, 1.5, 2];
   const labels = opts.labels ?? ["1x", "1.5x", "2x"];
   const duration = Math.max(1, opts.duration || 1);
-  const candidates = resolveAudioCandidates(opts.src);
+  const candidatesKey = resolveAudioCandidates(opts.src, opts.slug).join("|");
+  const candidates = candidatesKey ? candidatesKey.split("|") : [];
+  const speakText = opts.speakText?.trim() || "";
 
   const [playing, setPlaying] = useState(false);
   const [t, setT] = useState(0);
   const [speedIx, setSpeedIx] = useState(0);
   const [usingMedia, setUsingMedia] = useState(false);
-  const [candidateIx, setCandidateIx] = useState(0);
 
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const playingRef = useRef(false);
   const speedIxRef = useRef(0);
   const usingMediaRef = useRef(false);
   const durationRef = useRef(duration);
+  const ratesRef = useRef(rates);
+  const speakTextRef = useRef(speakText);
 
+  playingRef.current = playing;
   speedIxRef.current = speedIx;
   usingMediaRef.current = usingMedia;
   durationRef.current = duration;
+  ratesRef.current = rates;
+  speakTextRef.current = speakText;
 
-  const clearTimer = () => {
+  const clearTimer = useCallback(() => {
     if (timer.current) {
       clearInterval(timer.current);
       timer.current = null;
     }
-  };
+  }, []);
+
+  const stopSpeech = useCallback(() => {
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+  }, []);
+
+  const startSpeech = useCallback(() => {
+    stopSpeech();
+    const text = speakTextRef.current;
+    if (!text || typeof window === "undefined" || !("speechSynthesis" in window)) {
+      return false;
+    }
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = ratesRef.current[speedIxRef.current] ?? 1;
+    u.onend = () => {
+      playingRef.current = false;
+      setPlaying(false);
+      clearTimer();
+      setT(durationRef.current);
+    };
+    u.onerror = () => {
+      /* timer keeps running as visual fallback */
+    };
+    window.speechSynthesis.speak(u);
+    return true;
+  }, [clearTimer, stopSpeech]);
+
+  const runTimer = useCallback(() => {
+    clearTimer();
+    const rate = ratesRef.current[speedIxRef.current] ?? 1;
+    timer.current = setInterval(() => {
+      setT((prev) => {
+        const n = prev + rate;
+        if (n >= durationRef.current) {
+          clearTimer();
+          playingRef.current = false;
+          setPlaying(false);
+          stopSpeech();
+          return durationRef.current;
+        }
+        return n;
+      });
+    }, 1000);
+  }, [clearTimer, stopSpeech]);
 
   // Mount / swap media element when source candidates change.
   useEffect(() => {
     clearTimer();
+    stopSpeech();
     setPlaying(false);
+    playingRef.current = false;
     setT(0);
     setUsingMedia(false);
     usingMediaRef.current = false;
-    setCandidateIx(0);
 
     if (audioRef.current) {
       audioRef.current.pause();
-      audioRef.current.src = "";
+      audioRef.current.removeAttribute("src");
+      audioRef.current.load();
       audioRef.current = null;
     }
 
     if (!candidates.length) return;
 
+    let cancelled = false;
+    let ix = 0;
     const el = new Audio();
     el.preload = "metadata";
     audioRef.current = el;
 
     const onTime = () => setT(el.currentTime || 0);
     const onEnded = () => {
+      playingRef.current = false;
       setPlaying(false);
       setT(el.duration || durationRef.current);
     };
-    const onPlay = () => setPlaying(true);
-    const onPause = () => setPlaying(false);
+    const onPlay = () => {
+      playingRef.current = true;
+      setPlaying(true);
+    };
+    const onPause = () => {
+      playingRef.current = false;
+      setPlaying(false);
+    };
     const onMeta = () => {
+      if (cancelled) return;
       setUsingMedia(true);
       usingMediaRef.current = true;
-      if (Number.isFinite(el.duration) && el.duration > 0) {
-        // Prefer declared article duration for UI consistency with HTML.
+    };
+    const tryNext = () => {
+      ix += 1;
+      if (cancelled) return;
+      if (ix < candidates.length) {
+        el.src = candidates[ix];
+        el.load();
+        return;
       }
+      setUsingMedia(false);
+      usingMediaRef.current = false;
     };
-    const onError = () => {
-      setCandidateIx((i) => {
-        const next = i + 1;
-        if (next < candidates.length && audioRef.current) {
-          audioRef.current.src = candidates[next];
-          audioRef.current.load();
-          return next;
-        }
-        setUsingMedia(false);
-        usingMediaRef.current = false;
-        return i;
-      });
-    };
+    const onError = () => tryNext();
 
     el.addEventListener("timeupdate", onTime);
     el.addEventListener("ended", onEnded);
@@ -137,7 +217,9 @@ export function useArticleAudio(opts: {
     el.load();
 
     return () => {
+      cancelled = true;
       clearTimer();
+      stopSpeech();
       el.pause();
       el.removeEventListener("timeupdate", onTime);
       el.removeEventListener("ended", onEnded);
@@ -145,55 +227,47 @@ export function useArticleAudio(opts: {
       el.removeEventListener("pause", onPause);
       el.removeEventListener("loadedmetadata", onMeta);
       el.removeEventListener("error", onError);
-      el.src = "";
+      el.removeAttribute("src");
+      el.load();
       if (audioRef.current === el) audioRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [candidates.join("|")]);
+  }, [candidatesKey, clearTimer, stopSpeech]);
 
-  const runTimer = () => {
-    clearTimer();
-    const rate = rates[speedIxRef.current] ?? 1;
-    timer.current = setInterval(() => {
-      setT((prev) => {
-        const n = prev + rate;
-        if (n >= durationRef.current) {
-          clearTimer();
-          setPlaying(false);
-          return durationRef.current;
+  const seek = useCallback(
+    (seconds: number) => {
+      const clamped = Math.max(0, Math.min(durationRef.current, seconds));
+      setT(clamped);
+      const el = audioRef.current;
+      if (el && usingMediaRef.current) {
+        try {
+          el.currentTime = clamped;
+        } catch {
+          /* ignore */
         }
-        return n;
-      });
-    }, 1000);
-  };
-
-  const seek = (seconds: number) => {
-    const clamped = Math.max(0, Math.min(durationRef.current, seconds));
-    setT(clamped);
-    const el = audioRef.current;
-    if (el && usingMediaRef.current) {
-      try {
-        el.currentTime = clamped;
-      } catch {
-        /* ignore seek errors before ready */
       }
-    }
-  };
+    },
+    [],
+  );
 
-  const togglePlay = () => {
+  const togglePlay = useCallback(() => {
     const el = audioRef.current;
+
+    // Real MP3 path
     if (el && usingMediaRef.current) {
-      el.playbackRate = rates[speedIxRef.current] ?? 1;
+      el.playbackRate = ratesRef.current[speedIxRef.current] ?? 1;
       if (el.paused) {
         if (el.currentTime >= (el.duration || durationRef.current) - 0.25) {
           el.currentTime = 0;
+          setT(0);
         }
         void el.play().catch(() => {
-          // Media blocked / missing → fall back to timer.
           setUsingMedia(false);
           usingMediaRef.current = false;
+          playingRef.current = true;
           setPlaying(true);
           runTimer();
+          startSpeech();
         });
       } else {
         el.pause();
@@ -201,33 +275,46 @@ export function useArticleAudio(opts: {
       return;
     }
 
-    const next = !playing;
+    // Timed UI + optional spoken recap (Read/Guide without an MP3)
+    const next = !playingRef.current;
     clearTimer();
+    stopSpeech();
     if (next) {
       setT((prev) => (prev >= durationRef.current ? 0 : prev));
+      playingRef.current = true;
       setPlaying(true);
       runTimer();
+      startSpeech();
     } else {
+      playingRef.current = false;
       setPlaying(false);
     }
-  };
+  }, [clearTimer, runTimer, startSpeech, stopSpeech]);
 
-  const cycleSpeed = () => {
-    const ix = (speedIx + 1) % labels.length;
+  const cycleSpeed = useCallback(() => {
+    const ix = (speedIxRef.current + 1) % labels.length;
     setSpeedIx(ix);
     speedIxRef.current = ix;
     const el = audioRef.current;
     if (el && usingMediaRef.current) {
-      el.playbackRate = rates[ix] ?? 1;
+      el.playbackRate = ratesRef.current[ix] ?? 1;
       return;
     }
-    if (playing) {
+    if (playingRef.current) {
+      // Restart speech at new rate; keep timer in sync
+      stopSpeech();
+      startSpeech();
       clearTimer();
       runTimer();
     }
-  };
+  }, [clearTimer, labels.length, runTimer, startSpeech, stopSpeech]);
 
-  const skip = (delta: number) => seek(t + delta);
+  const skip = useCallback((delta: number) => seek(t + delta), [seek, t]);
+
+  useEffect(() => () => {
+    clearTimer();
+    stopSpeech();
+  }, [clearTimer, stopSpeech]);
 
   return {
     playing,

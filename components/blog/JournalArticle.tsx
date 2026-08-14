@@ -129,9 +129,15 @@ function NinaAvatar({
   );
 }
 
-function useFakeAudio(duration: number, src?: string | null) {
+function useFakeAudio(
+  duration: number,
+  src?: string | null,
+  opts?: { slug?: string | null; speakText?: string | null },
+) {
   return useArticleAudio({
     src,
+    slug: opts?.slug,
+    speakText: opts?.speakText,
     duration,
     rates: [...SPEED_RATES],
     labels: [...SPEEDS],
@@ -334,14 +340,18 @@ function DarkAudioRecap({
   eyebrow = "Short on time",
   compact = false,
   src,
+  slug,
+  speakText,
 }: {
   duration: number;
   title: string;
   eyebrow?: string;
   compact?: boolean;
   src?: string | null;
+  slug?: string | null;
+  speakText?: string | null;
 }) {
-  const audio = useFakeAudio(duration, src);
+  const audio = useFakeAudio(duration, src, { slug, speakText });
   const btn = compact ? 48 : 52;
   const playSize = compact ? 14 : 15;
 
@@ -1765,6 +1775,12 @@ function ReadSidebar({
             title={`Hear Dr. Nina's ${mmss(dur)} recap`}
             eyebrow={article.audioRecapEyebrow || "Short on time"}
             src={article.audioUrl}
+            slug={article.slug}
+            speakText={
+              article.shortAnswer
+                ? `${article.title}. ${article.shortAnswer}`
+                : article.title
+            }
           />
         )
       ) : null}
@@ -1799,6 +1815,7 @@ export default function JournalArticle({
 
   const listenAudio = useArticleAudio({
     src: isListen ? live.audioUrl : null,
+    slug: isListen ? live.slug : null,
     duration: live.audioSeconds || live.audioRecapSeconds || 500,
     rates: [...LISTEN_RATES],
     labels: [...LISTEN_SPEEDS],
@@ -1973,6 +1990,12 @@ export default function JournalArticle({
                     eyebrow={live.audioRecapEyebrow || "Short on time"}
                     compact
                     src={live.audioUrl}
+                    slug={live.slug}
+                    speakText={
+                      live.shortAnswer
+                        ? `${live.title}. ${live.shortAnswer}`
+                        : live.title
+                    }
                   />
                 ) : null}
               </div>
