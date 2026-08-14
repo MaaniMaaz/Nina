@@ -18,6 +18,7 @@ import {
 import {
   JOURNAL_ARTICLES,
   asCmsJournal,
+  getJournalArticle,
   type JournalArticle,
 } from "@/content/journal";
 import { journalToBlogCard } from "@/content/journal";
@@ -238,6 +239,33 @@ export function journalFromCms(page: CmsPage): JournalArticle | null {
   c.slug = page.slug;
   c.title = page.title || c.title;
   if (page.metaDescription) c.description = page.metaDescription;
+
+  // Fill gaps from the bundled Articles translation so older CMS docs still
+  // get audio URLs, waveforms, transcripts, and Listen causes after regenerates.
+  const bundled = getJournalArticle(page.slug);
+  if (bundled) {
+    if (!c.audioUrl && bundled.audioUrl) c.audioUrl = bundled.audioUrl;
+    if (c.audioSeconds == null && bundled.audioSeconds != null) {
+      c.audioSeconds = bundled.audioSeconds;
+    }
+    if (!c.audioRecapEyebrow && bundled.audioRecapEyebrow) {
+      c.audioRecapEyebrow = bundled.audioRecapEyebrow;
+    }
+    if (!c.footerCta && bundled.footerCta) c.footerCta = bundled.footerCta;
+    if (!c.wave?.length && bundled.wave?.length) c.wave = bundled.wave;
+    if (!c.transcript?.length && bundled.transcript?.length) {
+      c.transcript = bundled.transcript;
+    }
+    if (!c.videoChapters?.length && bundled.videoChapters?.length) {
+      c.videoChapters = bundled.videoChapters;
+    }
+    if (!c.panelItems?.length && bundled.panelItems?.length) {
+      c.panelItems = bundled.panelItems;
+    }
+    if (!c.next?.length && bundled.next?.length) c.next = bundled.next;
+    if (!c.body?.length && bundled.body?.length) c.body = bundled.body;
+  }
+
   return c;
 }
 

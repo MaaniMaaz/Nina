@@ -65,6 +65,14 @@ function imgPath(src) {
   return `/images/${src}`;
 }
 
+function localAudioPath(url) {
+  if (!url) return "";
+  const m = String(url).match(/\/audio\/[^?\s"'#]+\.mp3/i);
+  if (m) return m[0];
+  if (String(url).startsWith("/audio/")) return String(url).split(/[?#]/)[0];
+  return "";
+}
+
 function slugify(text) {
   return String(text)
     .toLowerCase()
@@ -73,8 +81,9 @@ function slugify(text) {
 }
 
 function mmss(s) {
-  const m = Math.floor(s / 60);
-  const r = Math.floor(s % 60);
+  const n = Number(s) || 0;
+  const m = Math.floor(n / 60);
+  const r = Math.floor(n % 60);
   return m + ":" + (r < 10 ? "0" : "") + r;
 }
 
@@ -98,17 +107,56 @@ function extractLd(html) {
   }
 }
 
-function extractArrayLiteral(js, name) {
-  const re = new RegExp(`const ${name} = (\\[[\\s\\S]*?\\]);`);
-  const m = js.match(re);
-  if (!m) return [];
-  try {
-    // eslint-disable-next-line no-new-func
-    return Function(`"use strict"; return (${m[1]});`)();
-  } catch (e) {
-    console.warn(`Failed to parse ${name}:`, e.message);
-    return [];
+/** Find a top-level `[...]` array after `name =` / `const name =`, with balanced brackets. */
+function extractBalancedArray(js, name) {
+  const re = new RegExp(
+    `(?:(?:const|let|var)\\s+)?(?:this\\.)?${name}\\s*=\\s*\\[`,
+  );
+  const m = re.exec(js);
+  if (!m) return null;
+  const start = m.index + m[0].length - 1;
+  let depth = 0;
+  let inStr = null;
+  let escape = false;
+  for (let i = start; i < js.length; i++) {
+    const ch = js[i];
+    if (inStr) {
+      if (escape) {
+        escape = false;
+        continue;
+      }
+      if (ch === "\\") {
+        escape = true;
+        continue;
+      }
+      if (ch === inStr) inStr = null;
+      continue;
+    }
+    if (ch === '"' || ch === "'" || ch === "`") {
+      inStr = ch;
+      continue;
+    }
+    if (ch === "[") depth++;
+    else if (ch === "]") {
+      depth--;
+      if (depth === 0) {
+        const lit = js.slice(start, i + 1);
+        try {
+          // eslint-disable-next-line no-new-func
+          return Function(`"use strict"; return (${lit});`)();
+        } catch (e) {
+          console.warn(`Failed to parse ${name}:`, e.message);
+          return null;
+        }
+      }
+    }
   }
+  return null;
+}
+
+function extractArrayLiteral(js, name) {
+  const v = extractBalancedArray(js, name);
+  return Array.isArray(v) ? v : [];
 }
 
 function detectFormat(html) {
@@ -156,7 +204,6 @@ function extractShortAnswer(html) {
 }
 
 function extractHero(html) {
-  // First figure after article head / byline
   const m = html.match(
     /<figure[^>]*>[\s\S]*?(?:src|data-nrimg)="([^"]+)"[^>]*alt="([^"]*)"[\s\S]*?<figcaption[^>]*>([\s\S]*?)<\/figcaption>/,
   );
@@ -177,6 +224,36 @@ function extractHero(html) {
   };
 }
 
+function injectPanelList(body) {
+  if (body.some((b) => b.type === "panelList")) return body;
+  const coverIdx = body.findIndex(
+    (b) => b.type === "heading" && /What Dr\.?\s*Nina covers/i.test(b.text),
+  );
+  let insertAt;
+  if (coverIdx >= 0) {
+    insertAt = coverIdx + 1;
+    while (insertAt < body.length && body[insertAt].type === "paragraph") {
+      insertAt++;
+    }
+  } else {
+    insertAt = 0;
+    while (insertAt < body.length && body[insertAt].type === "paragraph") {
+      insertAt++;
+    }
+    if (insertAt === 0 && body[0]?.type === "heading") {
+      insertAt = 1;
+      while (insertAt < body.length && body[insertAt].type === "paragraph") {
+        insertAt++;
+      }
+    }
+  }
+  return [
+    ...body.slice(0, insertAt),
+    { type: "panelList" },
+    ...body.slice(insertAt),
+  ];
+}
+
 /** Parse body into sequential blocks from Desktop HTML (order-preserving). */
 function extractBodyBlocks(html) {
   const bodyStart = html.search(/data-screen-label="Body"/);
@@ -185,12 +262,6 @@ function extractBodyBlocks(html) {
   const end = takeawaysStart > bodyStart ? takeawaysStart : html.length;
   const region = html.slice(bodyStart, end);
   const blocks = [];
-
-  // Match atomic content tags only — avoid greedy generic <div> wrappers.
-  const tokenRe =
-    /<(h2)\b[^>]*>([\s\S]*?)<\/h2>|<(blockquote)\b[^>]*>([\s\S]*?)<\/blockquote>|<(figure)\b[^>]*>([\s\S]*?)<\/figure>|<sc-for\s+list="\{\{\s*(panelItems|markers|timeline)\s*\}\}"[^>]*>[\s\S]*?<\/sc-for>|<(p)\b[^>]*>([\s\S]*?)<\/p>|<div[^>]*Caveat[^>]*>[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>[\s\S]*?Nina Ross[\s\S]*?<\/div>|<p[^>]*Caveat[^>]*>([\s\S]*?)<\/p>/gi;
-
-  // Simpler multi-pass with positions
   const events = [];
 
   for (const m of region.matchAll(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi)) {
@@ -201,7 +272,6 @@ function extractBodyBlocks(html) {
     );
     let text = "";
     if (spans.length >= 2) {
-      // Guide: "Chapter one" + real title
       text = spans[spans.length - 1];
     } else if (spans.length === 1) {
       text = spans[0];
@@ -235,37 +305,50 @@ function extractBodyBlocks(html) {
     }
   }
   for (const m of region.matchAll(
-    /<sc-for\s+list="\{\{\s*(panelItems|markers|timeline)\s*\}\}"/gi,
+    /<sc-for\s+list="\{\{\s*(panelItems|markers|timeline|causes)\s*\}\}"/gi,
   )) {
     const kind = m[1];
     events.push({
       i: m.index,
       type:
-        kind === "panelItems"
+        kind === "panelItems" || kind === "causes"
           ? "panelList"
           : kind === "markers"
             ? "markerList"
             : "timeline",
     });
   }
-  // Dr Nina Caveat asides
+
+  // Caveat asides — prefer Caveat on the <p> itself (First Consult / Listen),
+  // or an outer non-<p> wrapper that nests a quote <p> before "Nina Ross".
+  const asideSeen = new Set();
   for (const m of region.matchAll(
-    /font-family:\s*'Caveat'[^>]*>[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>[\s\S]{0,400}?Nina Ross/gi,
+    /<p\b([^>]*font-family:\s*'Caveat'[^>]*)>([\s\S]*?)<\/p>/gi,
   )) {
-    const quote = stripTags(m[1]);
-    if (quote) events.push({ i: m.index, type: "aside", text: quote });
+    const quote = stripTags(m[2]);
+    if (!quote || asideSeen.has(quote)) continue;
+    const after = region.slice(m.index, m.index + m[0].length + 280);
+    if (!/Nina Ross,\s*ND/i.test(after)) continue;
+    asideSeen.add(quote);
+    events.push({ i: m.index, type: "aside", text: quote });
   }
-  // Paragraphs — skip those inside blockquote/figure/aside/sc-for
+  for (const m of region.matchAll(
+    /<(div|span)\b([^>]*font-family:\s*'Caveat'[^>]*)>[\s\S]*?<p\b[^>]*>([\s\S]*?)<\/p>[\s\S]{0,280}?Nina Ross,\s*ND/gi,
+  )) {
+    const quote = stripTags(m[3]);
+    if (quote && !asideSeen.has(quote)) {
+      asideSeen.add(quote);
+      events.push({ i: m.index, type: "aside", text: quote });
+    }
+  }
+
   for (const m of region.matchAll(/<p\b([^>]*)>([\s\S]*?)<\/p>/gi)) {
     const attrs = m[1] || "";
     const inner = m[2];
     const text = stripTags(inner);
     if (!text || text.includes("{{")) continue;
-    // skip Caveat font paragraphs (handled as aside)
     if (/Caveat/i.test(attrs)) continue;
-    // skip very short labels
     if (text.length < 12 && !/<a\b/i.test(inner)) continue;
-    // skip if this p sits inside a figure or blockquote we already captured
     const before = region.slice(Math.max(0, m.index - 80), m.index);
     if (/<(figure|blockquote|figcaption)\b[^>]*$/i.test(before.replace(/\n/g, " ")))
       continue;
@@ -289,7 +372,6 @@ function extractBodyBlocks(html) {
 
   events.sort((a, b) => a.i - b.i);
 
-  // Deduplicate asides that also matched as paragraphs
   const asideTexts = new Set(
     events.filter((e) => e.type === "aside").map((e) => e.text),
   );
@@ -345,7 +427,6 @@ function extractChapters(html) {
       label: stripTags(x[3]),
     });
   }
-  // fallback simpler
   if (!chapters.length) {
     const re2 = /href="(#[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
     let y;
@@ -360,13 +441,121 @@ function extractChapters(html) {
   return chapters;
 }
 
-function extractTranscript(html) {
-  const m = html.match(
-    /data-screen-label="Transcript"([\s\S]*?)data-screen-label="Takeaways"/,
-  );
-  if (!m) return [];
-  // from JS const transcript = [...]
+function extractTranscript(js) {
+  const data = extractArrayLiteral(js, "transcriptData");
+  if (data.length && data.some((row) => row && (row.text || row.t != null || row.s != null))) {
+    return data.map((row) => {
+      const s = typeof row.s === "number" ? row.s : Number(row.t) || 0;
+      return {
+        time: row.time || mmss(s),
+        t: s,
+        text: String(row.text || "").trim(),
+      };
+    }).filter((row) => row.text);
+  }
+
+  const raw = extractArrayLiteral(js, "transcript");
+  if (raw.length && raw.some((row) => row && typeof row === "object" && row.text)) {
+    return raw.map((row) => {
+      const s =
+        typeof row.s === "number"
+          ? row.s
+          : typeof row.t === "number"
+            ? row.t
+            : typeof row.time === "string" && /^\d+:\d+/.test(row.time)
+              ? (() => {
+                  const [a, b] = row.time.split(":").map(Number);
+                  return a * 60 + b;
+                })()
+              : 0;
+      return {
+        time: row.time || mmss(s),
+        t: s,
+        text: String(row.text || "").trim(),
+      };
+    }).filter((row) => row.text);
+  }
+
   return [];
+}
+
+function extractAudioUrl(html, ld) {
+  const audioNode =
+    ld?.["@graph"]?.find((n) => n["@type"] === "AudioObject") ||
+    (ld?.["@type"] === "AudioObject" ? ld : null);
+  const fromLd = localAudioPath(audioNode?.contentUrl || "");
+  if (fromLd) return fromLd;
+
+  const download = html.match(
+    /<a[^>]+href="([^"]*\/audio\/[^"]+\.mp3)"[^>]*>\s*Download\s*<\/a>/i,
+  );
+  if (download) return localAudioPath(download[1]);
+
+  const any = html.match(/href="([^"]*\/audio\/[^"]+\.mp3)"/i);
+  return any ? localAudioPath(any[1]) : "";
+}
+
+function extractAudioSeconds(html, js) {
+  const fromProps = Number(
+    (html.match(/"audioSeconds"[^}]*"default"\s*:\s*(\d+)/) || [])[1],
+  );
+  if (fromProps) return fromProps;
+  const fromJs = Number(
+    (js.match(/this\.props\.audioSeconds\s*\?\?\s*(\d+)/) || [])[1],
+  );
+  return fromJs || undefined;
+}
+
+function extractRecapSeconds(html, js) {
+  const fromProps = Number(
+    (html.match(/"recapSeconds"[^}]*"default"\s*:\s*(\d+)/) || [])[1],
+  );
+  if (fromProps) return fromProps;
+  const fromJs = Number(
+    (js.match(/this\.props\.recapSeconds\s*\?\?\s*(\d+)/) ||
+      js.match(/recapSeconds[^\d]*(\d+)/) ||
+      [])[1],
+  );
+  return fromJs || 192;
+}
+
+function extractFooterCta(html) {
+  const block =
+    (html.match(/data-screen-label="Footer"([\s\S]*?)(?:<\/x-dc>|$)/) ||
+      [])[1] || "";
+  if (!block) return undefined;
+
+  const title = stripTags(
+    (block.match(
+      /<div[^>]*font-family:\s*'Fraunces'[^>]*>([\s\S]*?)<\/div>/,
+    ) || [])[1] || "",
+  );
+  const body = stripTags((block.match(/<p[^>]*>([\s\S]*?)<\/p>/) || [])[1] || "");
+  const cta =
+    block.match(
+      /<a\s+href="([^"]+)"[^>]*background:\s*#E9B45A[^>]*>([\s\S]*?)<\/a>/i,
+    ) ||
+    block.match(
+      /<a\s+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i,
+    );
+  if (!title && !cta) return undefined;
+  return {
+    title,
+    body,
+    href: cta?.[1] || "",
+    ctaLabel: stripTags(cta?.[2] || ""),
+  };
+}
+
+function extractAudioRecapEyebrow(html, format) {
+  const m = html.match(
+    /data-screen-label="Audio recap"[\s\S]{0,500}?<span[^>]*color:\s*#CFA85A[^>]*>([^<]+)</i,
+  );
+  const text = m ? stripTags(m[1]) : "";
+  if (!text) return "";
+  // Guide specials like "Twelve minutes is a lot"; skip default "Short on time"
+  if (format === "Guide" && /is a lot/i.test(text)) return text;
+  return "";
 }
 
 function extractCta(html) {
@@ -408,6 +597,14 @@ function extractDateLabel(html) {
   return m ? m[1] : "";
 }
 
+function firstNextChain(js) {
+  for (const name of ["nextItems", "nextReads", "watchNext", "listenNext", "readNext"]) {
+    const rows = extractArrayLiteral(js, name);
+    if (rows.length) return rows;
+  }
+  return [];
+}
+
 function processFile(filePath) {
   const html = fs.readFileSync(filePath, "utf8");
   const base = path.basename(filePath).replace(" (Desktop).dc.html", "");
@@ -417,7 +614,6 @@ function processFile(filePath) {
   const js = scriptM ? scriptM[1] : "";
 
   let slug = extractCanonicalSlug(html);
-  // Fix known duplicate slug for 3pm Crash
   if (base === "3pm Crash" && slug === "cortisol-curves-afternoon") {
     slug = "3pm-crash-cause";
   }
@@ -430,28 +626,29 @@ function processFile(filePath) {
   const head = extractHead(html);
   const hero = extractHero(html);
 
-  const panelItems =
+  let panelItems =
     extractArrayLiteral(js, "panelItems").length
       ? extractArrayLiteral(js, "panelItems")
       : extractArrayLiteral(js, "ironLabs");
+  const causes = extractArrayLiteral(js, "causes");
+  if ((!panelItems || !panelItems.length) && causes.length) {
+    panelItems = causes.map((c) => ({
+      name: c.name || c.label || "",
+      why: c.why || c.note || c.text || "",
+    }));
+  }
+
   const takeaways = extractArrayLiteral(js, "takeaways");
   const related = extractArrayLiteral(js, "related");
-  const nextReads =
-    extractArrayLiteral(js, "nextReads").length
-      ? extractArrayLiteral(js, "nextReads")
-      : extractArrayLiteral(js, "watchNext").length
-        ? extractArrayLiteral(js, "watchNext")
-        : extractArrayLiteral(js, "listenNext").length
-          ? extractArrayLiteral(js, "listenNext")
-          : extractArrayLiteral(js, "readNext");
+  const nextReads = firstNextChain(js);
   const markers = extractArrayLiteral(js, "markers");
   const timeline = extractArrayLiteral(js, "timeline");
   const chapterDefs = extractArrayLiteral(js, "chapterDefs");
   const chapterData = extractArrayLiteral(js, "chapterData");
   const chaptersJs = extractArrayLiteral(js, "chapters");
-  const transcript = extractArrayLiteral(js, "transcript");
+  const transcript = extractTranscript(js);
+  const wave = extractArrayLiteral(js, "WAVE");
 
-  // Guide chapter ids: this.IDS = ['a','b',...]
   const idsMatch = js.match(/IDS\s*=\s*(\[[\s\S]*?\])/);
   let guideIds = [];
   if (idsMatch) {
@@ -491,28 +688,40 @@ function processFile(filePath) {
     "";
 
   let mediaPoster = "";
-  const theater = html.match(
-    /data-screen-label="(?:Video theater|Player)"[\s\S]{0,1200}?(?:src|data-nrimg)="([^"]+)"/,
-  );
-  if (theater) mediaPoster = imgPath(theater[1]);
-  if (!mediaPoster) {
-    const dep = html.match(
-      /ext-resource-dependency" content="((?:home-media|clinic|virtual)[^"]+)"/,
+  if (format === "Listen") {
+    const cover = html.match(
+      /data-screen-label="Player"[\s\S]{0,2000}?(?:src|data-nrimg)="(dr-nina\.png|[^"]*dr-nina[^"]*)"/i,
     );
-    if (dep) mediaPoster = imgPath(dep[1]);
+    if (cover) mediaPoster = imgPath(cover[1]);
+    if (!mediaPoster) mediaPoster = "/images/dr-nina.png";
+  } else {
+    const theater = html.match(
+      /data-screen-label="(?:Video theater|Player)"[\s\S]{0,1200}?(?:src|data-nrimg)="([^"]+)"/,
+    );
+    if (theater) mediaPoster = imgPath(theater[1]);
+    if (!mediaPoster) {
+      const dep = html.match(
+        /ext-resource-dependency" content="((?:home-media|clinic|virtual)[^"]+)"/,
+      );
+      if (dep) mediaPoster = imgPath(dep[1]);
+    }
   }
 
-  // Normalize image paths in nextReads
   const next = (nextReads || []).map((n) => ({
     ...n,
     img: imgPath(n.img),
   }));
 
-  const recapMatch = js.match(/recapSeconds[^\d]*(\d+)/);
-  const recapDefault =
-    Number(
-      (html.match(/"recapSeconds"[^}]*"default"\s*:\s*(\d+)/) || [])[1],
-    ) || Number(recapMatch?.[1]) || 192;
+  const audioUrl = extractAudioUrl(html, ld);
+  const audioSeconds = extractAudioSeconds(html, js);
+  const audioRecapSeconds = extractRecapSeconds(html, js);
+  const footerCta = extractFooterCta(html);
+  const audioRecapEyebrow = extractAudioRecapEyebrow(html, format);
+
+  let body = extractBodyBlocks(html);
+  if (causes.length) body = injectPanelList(body);
+
+  const isListen = format === "Listen";
 
   return {
     sourceFile: base,
@@ -535,7 +744,7 @@ function processFile(filePath) {
     readTime: head.readTime,
     hero,
     shortAnswer: extractShortAnswer(html),
-    body: extractBodyBlocks(html),
+    body,
     panelItems,
     markers,
     timeline,
@@ -548,8 +757,13 @@ function processFile(filePath) {
     related,
     next,
     cta: extractCta(html),
-    audioRecapSeconds: recapDefault,
-    showAudioRecap: !/data-screen-label="Player"/i.test(html),
+    audioUrl: audioUrl || undefined,
+    audioSeconds: audioSeconds || undefined,
+    audioRecapSeconds,
+    audioRecapEyebrow,
+    footerCta,
+    wave: wave.length ? wave : undefined,
+    showAudioRecap: isListen ? false : !/data-screen-label="Player"/i.test(html),
   };
 }
 
@@ -562,7 +776,23 @@ const articles = files.map(processFile);
 fs.writeFileSync(OUT, JSON.stringify(articles, null, 2));
 console.log(`Wrote ${articles.length} articles → ${OUT}`);
 for (const a of articles) {
+  const types = {};
+  for (const b of a.body || []) types[b.type] = (types[b.type] || 0) + 1;
+  const typeStr = Object.entries(types)
+    .map(([k, v]) => `${k}:${v}`)
+    .join(",");
   console.log(
-    `  ${a.slug.padEnd(40)} ${a.format.padEnd(8)} body:${a.body.length} takeaways:${a.takeaways.length}`,
+    [
+      a.slug,
+      a.format,
+      `audioUrl=${a.audioUrl || ""}`,
+      `audioSeconds=${a.audioSeconds ?? ""}`,
+      `audioRecapSeconds=${a.audioRecapSeconds}`,
+      `transcript=${(a.transcript || []).length}`,
+      `panelItems=${(a.panelItems || []).length}`,
+      `next=${(a.next || []).length}`,
+      `footerCta=${a.footerCta?.title || ""}`,
+      `bodyTypes={${typeStr}}`,
+    ].join(" | "),
   );
 }

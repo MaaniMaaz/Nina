@@ -43,7 +43,7 @@ export type JournalArticle = {
   markers: { name?: string; label?: string; why?: string; note?: string }[];
   timeline: { n?: string; label?: string; text?: string; title?: string }[];
   chapters: { href: string; n: string; label: string }[];
-  transcript: { time?: string; t?: string; text: string }[];
+  transcript: { time?: string; t?: number | string; text: string }[];
   videoChapters: {
     time?: string;
     label?: string;
@@ -69,7 +69,12 @@ export type JournalArticle = {
     fmtColor?: string;
   }[];
   cta: { title: string; body: string; href: string; ctaLabel: string };
+  audioUrl?: string;
+  audioSeconds?: number;
   audioRecapSeconds: number;
+  audioRecapEyebrow?: string;
+  footerCta?: { title: string; body: string; href: string; ctaLabel: string };
+  wave?: number[];
   showAudioRecap: boolean;
 };
 
@@ -163,7 +168,12 @@ export function emptyJournalTemplate(opts: {
       href: "/start",
       ctaLabel: "Book the consult →",
     },
+    audioUrl: undefined,
+    audioSeconds: undefined,
     audioRecapSeconds: 180,
+    audioRecapEyebrow: "",
+    footerCta: undefined,
+    wave: undefined,
     showAudioRecap: true,
   };
 }

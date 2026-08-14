@@ -84,6 +84,10 @@
         "html": "A single morning cortisol misses this entirely, because the shape is the finding rather than the value. We read it at four points, and where the pattern stays unclear we move to a <a href=\"/blog/cortisol-curves-afternoon\">full cortisol panel</a> that maps the whole day at once."
       },
       {
+        "type": "aside",
+        "text": "Four days of writing down what you ate and when you faded will tell me more than most panels do."
+      },
+      {
         "type": "heading",
         "text": "Iron sits underneath both"
       },
@@ -240,6 +244,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Quick question instead?",
+      "body": "Learn & Answers holds the short ones, answered in a sentence or two by Dr. Nina and the team.",
+      "href": "/learn",
+      "ctaLabel": "Go to Learn & Answers"
+    },
     "showAudioRecap": true
   },
   {
@@ -277,6 +288,9 @@
         "text": "In this one Dr. Nina explains why ninety days is the honest interval, what actually moves in that window, what does not, and how retesting changes a plan rather than just grading it."
       },
       {
+        "type": "panelList"
+      },
+      {
         "type": "pullQuote",
         "text": "Ninety days is long enough for the numbers to tell the truth and short enough to change course."
       },
@@ -291,16 +305,71 @@
         "caption": "Ninety days is long enough for a plan to prove itself and short enough to correct."
       },
       {
+        "type": "aside",
+        "text": "Retesting is not a report card. It is how we find out which part of the plan was doing the work."
+      },
+      {
         "type": "paragraph",
         "text": ",the first consult sets the baseline everything gets measured against.",
         "html": ",<a href=\"/blog/what-a-first-consult-sounds-like\">the first consult</a> sets the baseline everything gets measured against."
       }
     ],
-    "panelItems": [],
+    "panelItems": [
+      {
+        "name": "Red blood cells turn over in about ninety days",
+        "why": "Which is why hemoglobin A1c reads as a three month average and cannot move faster than that honestly."
+      },
+      {
+        "name": "Iron stores rebuild slowly",
+        "why": "Ferritin climbs over months. A six week ferritin often shows almost nothing and is discouraging for no good reason."
+      },
+      {
+        "name": "Thyroid dosing needs six to eight weeks to settle",
+        "why": "Retesting sooner measures the adjustment period rather than the result of it."
+      },
+      {
+        "name": "A follicle takes about ninety days to develop",
+        "why": "For cycles and for hair, this is the floor. No plan beats the biology of a growth cycle."
+      },
+      {
+        "name": "Cortisol patterns take weeks to reshape",
+        "why": "The curve responds, but it responds to sustained change rather than to a good fortnight."
+      },
+      {
+        "name": "Symptoms move before numbers do",
+        "why": "Which is why we track both. How you feel at week four is real data, just not lab data."
+      }
+    ],
     "markers": [],
     "timeline": [],
     "chapters": [],
-    "transcript": [],
+    "transcript": [
+      {
+        "time": "0:00",
+        "t": 0,
+        "text": "Everybody wants to retest early, and I get it. You have done the work, you feel different, and you want the labs to agree with you. Usually they are just not ready yet."
+      },
+      {
+        "time": "1:18",
+        "t": 78,
+        "text": "Ninety days is not a number I made up. A red blood cell lives about that long, which is why A1c is a three month average. A follicle takes about that long to develop. Thyroid dosing takes six to eight weeks just to settle."
+      },
+      {
+        "time": "2:48",
+        "t": 168,
+        "text": "Some things do move fast. Insulin responds in weeks. Inflammation can drop quickly. Ferritin is the slow one, and if we check it at six weeks you will be disappointed for no good reason."
+      },
+      {
+        "time": "4:36",
+        "t": 276,
+        "text": "Here is the part that matters. A retest is not a grade. It tells me which piece of the plan was carrying the result, which means the next ninety days can be simpler than the last."
+      },
+      {
+        "time": "6:12",
+        "t": 372,
+        "text": "And if nothing moved, that is information too. Either something is in the way that we have not found, or the plan was not actually happening, and both of those are fixable conversations."
+      }
+    ],
     "videoChapters": [
       {
         "start": 0,
@@ -329,7 +398,7 @@
       }
     ],
     "youtubeId": "",
-    "mediaPoster": "/images/clinic-bg.png",
+    "mediaPoster": "/images/dr-nina.png",
     "takeaways": [
       {
         "n": "01",
@@ -378,14 +447,96 @@
         "kindBg": "rgba(74,99,64,0.12)"
       }
     ],
-    "next": [],
+    "next": [
+      {
+        "title": "What a first consult actually sounds like",
+        "href": "/blog/what-a-first-consult-sounds-like",
+        "fmt": "Listen",
+        "meta": "8 min",
+        "img": "/images/virtual-bg.png",
+        "fmtColor": "#B08A3E"
+      },
+      {
+        "title": "Reading ferritin the way we read it",
+        "href": "/blog/reading-ferritin",
+        "fmt": "Read",
+        "meta": "5 min",
+        "img": "/images/home-media/toolDV-1.webp",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "Why your thyroid panel came back normal",
+        "href": "/blog/thyroid-panel-normal-but-symptoms",
+        "fmt": "Read",
+        "meta": "8 min",
+        "img": "/images/turn-myself.png",
+        "fmtColor": "#B5572F"
+      }
+    ],
     "cta": {
       "title": "Find out which one is yours",
       "body": "A half hour with our team, and we will know which of the four we are testing for first.",
       "href": "/book",
       "ctaLabel": "Book a $99 consult"
     },
+    "audioUrl": "/audio/why-we-retest-every-90-days.mp3",
+    "audioSeconds": 432,
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Every recording in one place",
+      "body": "Short answers from Dr. Nina and the team, made for your commute, with transcripts for everything.",
+      "href": "/blog/format/listen",
+      "ctaLabel": "All audio"
+    },
+    "wave": [
+      14,
+      22,
+      31,
+      26,
+      38,
+      44,
+      33,
+      47,
+      39,
+      28,
+      35,
+      46,
+      52,
+      41,
+      30,
+      24,
+      33,
+      42,
+      49,
+      44,
+      36,
+      27,
+      21,
+      30,
+      40,
+      47,
+      51,
+      43,
+      34,
+      25,
+      32,
+      41,
+      48,
+      38,
+      29,
+      23,
+      31,
+      39,
+      45,
+      50,
+      42,
+      33,
+      26,
+      20,
+      28,
+      36
+    ],
     "showAudioRecap": false
   },
   {
@@ -471,6 +622,10 @@
         "type": "paragraph",
         "text": "The reversed curve is harder to live with. Low in the morning, climbing in the evening, which is the physiology behind being exhausted all day and wide awake at eleven. Where sleep is the main complaint, the three in the morning pattern is worth reading alongside this.",
         "html": "The reversed curve is harder to live with. Low in the morning, climbing in the evening, which is the physiology behind being exhausted all day and wide awake at eleven. Where sleep is the main complaint, the <a href=\"/blog/sleep-that-holds\">three in the morning pattern</a> is worth reading alongside this."
+      },
+      {
+        "type": "aside",
+        "text": "Tell me how the first thirty minutes of your day feel and I can usually guess the shape before we test."
       },
       {
         "type": "heading",
@@ -629,6 +784,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Quick question instead?",
+      "body": "Learn & Answers holds the short ones, answered in a sentence or two by Dr. Nina and the team.",
+      "href": "/learn",
+      "ctaLabel": "Go to Learn & Answers"
+    },
     "showAudioRecap": true
   },
   {
@@ -677,6 +839,10 @@
         "type": "markerList"
       },
       {
+        "type": "aside",
+        "text": "Once you can read your own panel, you stop needing anyone to translate your body for you."
+      },
+      {
         "type": "paragraph",
         "text": ",timed blood panel is the simpler starting point.",
         "html": ",<a href=\"/blog/four-hormones-we-test-cycle\">timed blood panel</a> is the simpler starting point."
@@ -714,22 +880,27 @@
     "transcript": [
       {
         "time": "0:00",
+        "t": 0,
         "text": "This is a real panel, with the name taken off, and she gave me permission to read it. I want to do this because hormone results are where most people decide their own health is above their pay grade."
       },
       {
         "time": "1:36",
+        "t": 96,
         "text": "We start at cortisol, because it is at the front of the report and because it sets up everything after it. Look at the shape here. Low in the morning, still climbing at bedtime. That is her sleep complaint, right there on paper."
       },
       {
         "time": "4:04",
+        "t": 244,
         "text": "Now estrogen. This number on its own is unremarkable. But look down here at how she is clearing it. She is running most of it down a pathway I would rather she used less of, and that is something we can actually change."
       },
       {
         "time": "6:36",
+        "t": 396,
         "text": "Progesterone in the second half is low, which fits everything she told me about the week before her period. On a blood draw we caught this once and it looked borderline. Across a full day it is clear."
       },
       {
         "time": "8:48",
+        "t": 528,
         "text": "So three lines changed her plan. The cortisol shape, the estrogen pathway, and the low luteal progesterone. Everything else on these twelve pages was context."
       }
     ],
@@ -846,6 +1017,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 664,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "More on the channel",
+      "body": "Every explainer Dr. Nina has recorded, gathered in one place with chapters and transcripts.",
+      "href": "/blog/format/watch",
+      "ctaLabel": "All videos"
+    },
     "showAudioRecap": true
   },
   {
@@ -931,6 +1109,10 @@
         "type": "paragraph",
         "text": "That is why a single number gets read alongside the rest rather than acted on by itself, and why we look at inflammation markers in the same draw. If your gut is part of the reason, the gut panel usually explains it.",
         "html": "That is why a single number gets read alongside the rest rather than acted on by itself, and why we look at inflammation markers in the same draw. If your gut is part of the reason, the <a href=\"/blog/your-gut-map-marker-by-marker\">gut panel</a> usually explains it."
+      },
+      {
+        "type": "aside",
+        "text": "A ferritin of eighteen is not a normal result. It is a warning somebody decided to round up."
       },
       {
         "type": "heading",
@@ -1089,6 +1271,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Quick question instead?",
+      "body": "Learn & Answers holds the short ones, answered in a sentence or two by Dr. Nina and the team.",
+      "href": "/learn",
+      "ctaLabel": "Go to Learn & Answers"
+    },
     "showAudioRecap": true
   },
   {
@@ -1126,6 +1315,9 @@
         "text": "In this one Dr. Nina walks through the half hour end to end: what she asks first, what she does with the results you bring, what she will and will not promise, and what you actually leave holding."
       },
       {
+        "type": "panelList"
+      },
+      {
         "type": "pullQuote",
         "text": "Most of the first half hour is you talking. That is not politeness, it is where the diagnosis usually is."
       },
@@ -1140,16 +1332,71 @@
         "caption": "In person in Atlanta or on a call from anywhere in Georgia."
       },
       {
+        "type": "aside",
+        "text": "Bring the labs you were told not to worry about. Those are frequently the interesting ones."
+      },
+      {
         "type": "paragraph",
         "text": ",why we retest at ninety days explains what happens after.",
         "html": ",<a href=\"/blog/why-we-retest-every-90-days\">why we retest at ninety days</a> explains what happens after."
       }
     ],
-    "panelItems": [],
+    "panelItems": [
+      {
+        "name": "The whole story, uninterrupted",
+        "why": "When it started, what changed, what you have already tried. This takes longer than most appointments allow and it is where the pattern lives."
+      },
+      {
+        "name": "Every symptom, including the small ones",
+        "why": "Cold hands, afternoon fog, hair in the drain. Individually dismissible, and together usually a picture."
+      },
+      {
+        "name": "Your old labs, read out loud",
+        "why": "Including the ones called normal. Three years of a number drifting is a finding nobody flagged."
+      },
+      {
+        "name": "What you actually want back",
+        "why": "Sleep, energy, your cycle, your patience. It changes which thing we chase first."
+      },
+      {
+        "name": "An honest first read",
+        "why": "What we think is driving this, said plainly, including when we are not yet sure."
+      },
+      {
+        "name": "What working together looks like",
+        "why": "The testing, the timeline, and the cost, before you decide anything."
+      }
+    ],
     "markers": [],
     "timeline": [],
     "chapters": [],
-    "transcript": [],
+    "transcript": [
+      {
+        "time": "0:00",
+        "t": 0,
+        "text": "Most people come into a first consult braced. They have a mental timer running, because they have had a lot of ten minute appointments that ended with a shrug."
+      },
+      {
+        "time": "1:24",
+        "t": 84,
+        "text": "So I start by asking when you last felt like yourself, and then I stop talking. That pause is deliberate. The answer is almost never one thing, and the order things come out in tells me a lot."
+      },
+      {
+        "time": "3:16",
+        "t": 196,
+        "text": "Then we go through whatever you brought. Out loud, line by line. And I will often stop on something from two years ago that was inside the range and still moving in a direction nobody mentioned."
+      },
+      {
+        "time": "5:12",
+        "t": 312,
+        "text": "By the end I will tell you what I think is driving this. Sometimes that is specific. Sometimes it is two possibilities and the test that separates them. I would rather say that than invent certainty."
+      },
+      {
+        "time": "7:04",
+        "t": 424,
+        "text": "You leave with that read, what testing I would run, roughly how long this takes, and what it costs. You do not decide anything in the room. That is on purpose."
+      }
+    ],
     "videoChapters": [
       {
         "start": 0,
@@ -1178,7 +1425,7 @@
       }
     ],
     "youtubeId": "",
-    "mediaPoster": "/images/clinic-bg.png",
+    "mediaPoster": "/images/dr-nina.png",
     "takeaways": [
       {
         "n": "01",
@@ -1227,14 +1474,96 @@
         "kindBg": "rgba(74,99,64,0.12)"
       }
     ],
-    "next": [],
+    "next": [
+      {
+        "title": "Why we retest every 90 days",
+        "href": "/blog/why-we-retest-every-90-days",
+        "fmt": "Listen",
+        "meta": "7 min",
+        "img": "/images/clinic-bg.png",
+        "fmtColor": "#B08A3E"
+      },
+      {
+        "title": "Why your thyroid panel came back normal",
+        "href": "/blog/thyroid-panel-normal-but-symptoms",
+        "fmt": "Read",
+        "meta": "8 min",
+        "img": "/images/turn-myself.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "Reading ferritin the way we read it",
+        "href": "/blog/reading-ferritin",
+        "fmt": "Read",
+        "meta": "5 min",
+        "img": "/images/home-media/toolDV-1.webp",
+        "fmtColor": "#B5572F"
+      }
+    ],
     "cta": {
       "title": "Find out which one is yours",
       "body": "A half hour with our team, and we will know which of the four we are testing for first.",
       "href": "/book",
       "ctaLabel": "Book a $99 consult"
     },
+    "audioUrl": "/audio/what-a-first-consult-sounds-like.mp3",
+    "audioSeconds": 500,
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Every recording in one place",
+      "body": "Short answers from Dr. Nina and the team, made for your commute, with transcripts for everything.",
+      "href": "/blog/format/listen",
+      "ctaLabel": "All audio"
+    },
+    "wave": [
+      14,
+      22,
+      31,
+      26,
+      38,
+      44,
+      33,
+      47,
+      39,
+      28,
+      35,
+      46,
+      52,
+      41,
+      30,
+      24,
+      33,
+      42,
+      49,
+      44,
+      36,
+      27,
+      21,
+      30,
+      40,
+      47,
+      51,
+      43,
+      34,
+      25,
+      32,
+      41,
+      48,
+      38,
+      29,
+      23,
+      31,
+      39,
+      45,
+      50,
+      42,
+      33,
+      26,
+      20,
+      28,
+      36
+    ],
     "showAudioRecap": false
   },
   {
@@ -1320,6 +1649,10 @@
         "type": "paragraph",
         "text": "That single correction changes results more often than any supplement. Before we treat anything, we make sure we tested when your body had something to show us, and where cycles are too irregular to time we use a urine panel instead that reads a whole month at once.",
         "html": "That single correction changes results more often than any supplement. Before we treat anything, we make sure we tested when your body had something to show us, and where cycles are too irregular to time we use a <a href=\"/blog/inside-a-dutch-test-result\">urine panel instead</a> that reads a whole month at once."
+      },
+      {
+        "type": "aside",
+        "text": "Bring me two months of scribbled dates and I can usually tell you what we are looking for before the blood draw."
       },
       {
         "type": "heading",
@@ -1478,6 +1811,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Quick question instead?",
+      "body": "Learn & Answers holds the short ones, answered in a sentence or two by Dr. Nina and the team.",
+      "href": "/learn",
+      "ctaLabel": "Go to Learn & Answers"
+    },
     "showAudioRecap": true
   },
   {
@@ -1563,6 +1903,10 @@
         "type": "paragraph",
         "text": "That difficulty is the actual work of the program, and it is why we plan meals rather than hope. Where insulin resistance is the driver underneath, the insulin picture is worth understanding first.",
         "html": "That difficulty is the actual work of the program, and it is why we plan meals rather than hope. Where insulin resistance is the driver underneath, the <a href=\"/blog/insulin-resistance-explained\">insulin picture</a> is worth understanding first."
+      },
+      {
+        "type": "aside",
+        "text": "Losing weight is the easy half now. Keeping the muscle while you do it is the part that needs a plan."
       },
       {
         "type": "heading",
@@ -1721,6 +2065,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Quick question instead?",
+      "body": "Learn & Answers holds the short ones, answered in a sentence or two by Dr. Nina and the team.",
+      "href": "/learn",
+      "ctaLabel": "Go to Learn & Answers"
+    },
     "showAudioRecap": true
   },
   {
@@ -1825,6 +2176,10 @@
         "src": "/images/turn-perimenopause.png",
         "alt": "A woman whose cycle settled once her gut was treated",
         "caption": "The estrogen recycling marker is where gut work and hormone work meet."
+      },
+      {
+        "type": "aside",
+        "text": "Please do not read your own report at midnight. Everything looks like a parasite at midnight."
       },
       {
         "type": "heading",
@@ -1991,7 +2346,32 @@
         "kindBg": "rgba(74,99,64,0.12)"
       }
     ],
-    "next": [],
+    "next": [
+      {
+        "title": "What bloating is actually telling you",
+        "href": "/blog/what-bloating-is-telling-you",
+        "fmt": "Listen",
+        "meta": "9 min",
+        "img": "/images/turn-eat.png",
+        "fmtColor": "#B08A3E"
+      },
+      {
+        "title": "The gut work that comes before everything else",
+        "href": "/blog/gut-work-comes-first",
+        "fmt": "Read",
+        "meta": "8 min",
+        "img": "/images/turn-eat.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "The four hormones we test when your cycle goes sideways",
+        "href": "/blog/four-hormones-we-test-cycle",
+        "fmt": "Read",
+        "meta": "7 min",
+        "img": "/images/turn-perimenopause.png",
+        "fmtColor": "#B5572F"
+      }
+    ],
     "cta": {
       "title": "Have your panel read properly",
       "body": "Bring a panel you already had run, even an old one. In half an hour we will know which markers matter for you.",
@@ -1999,6 +2379,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 232,
+    "audioRecapEyebrow": "Thirteen minutes is a lot",
+    "footerCta": {
+      "title": "Every guide in one place",
+      "body": "The long reads, chaptered so you can take them a piece at a time and come back where you left off.",
+      "href": "/blog/format/guides",
+      "ctaLabel": "All guides"
+    },
     "showAudioRecap": true
   },
   {
@@ -2084,6 +2471,10 @@
         "type": "paragraph",
         "text": "That recycling is a real mechanism behind heavy cycles and tender breasts, and it is invisible on a blood hormone panel. If your cycle is the main complaint, the DUTCH panel shows this clearly.",
         "html": "That recycling is a real mechanism behind heavy cycles and tender breasts, and it is invisible on a blood hormone panel. If your cycle is the main complaint, the <a href=\"/blog/inside-a-dutch-test-result\">DUTCH panel</a> shows this clearly."
+      },
+      {
+        "type": "aside",
+        "text": "Eating in the car counts as a digestive problem. I say that gently, and I say it often."
       },
       {
         "type": "heading",
@@ -2242,6 +2633,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Quick question instead?",
+      "body": "Learn & Answers holds the short ones, answered in a sentence or two by Dr. Nina and the team.",
+      "href": "/learn",
+      "ctaLabel": "Go to Learn & Answers"
+    },
     "showAudioRecap": true
   },
   {
@@ -2327,6 +2725,10 @@
         "type": "paragraph",
         "text": "Testosterone belongs in this conversation for women too, at doses far smaller than most people assume, and it is often the piece that returns energy and libido. Where the whole picture needs mapping, the urine hormone panel gives us the fullest view.",
         "html": "Testosterone belongs in this conversation for women too, at doses far smaller than most people assume, and it is often the piece that returns energy and libido. Where the whole picture needs mapping, the <a href=\"/blog/inside-a-dutch-test-result\">urine hormone panel</a> gives us the fullest view."
+      },
+      {
+        "type": "aside",
+        "text": "Feeling well on a lower dose beats a textbook number every single time. Your experience is data."
       },
       {
         "type": "heading",
@@ -2485,6 +2887,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Quick question instead?",
+      "body": "Learn & Answers holds the short ones, answered in a sentence or two by Dr. Nina and the team.",
+      "href": "/learn",
+      "ctaLabel": "Go to Learn & Answers"
+    },
     "showAudioRecap": true
   },
   {
@@ -2573,7 +2982,7 @@
       },
       {
         "type": "aside",
-        "text": "A drip on its own does not change anything for long. It buys you a few weeks of feeling human while the slower work goes on underneath, and that is the honest way to describe it.\nThe slower work is the gut, the food, the sleep, and whatever was draining you in the first place. When we get that right, most people need fewer drips over time rather than more."
+        "text": "If I cannot tell you why you are having a drip, you should not be having it."
       },
       {
         "type": "heading",
@@ -2732,6 +3141,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Quick question instead?",
+      "body": "Learn & Answers holds the short ones, answered in a sentence or two by Dr. Nina and the team.",
+      "href": "/learn",
+      "ctaLabel": "Go to Learn & Answers"
+    },
     "showAudioRecap": true
   },
   {
@@ -2836,6 +3252,10 @@
         "src": "/images/turn-eat.png",
         "alt": "A protein-forward meal built for insulin control",
         "caption": "Pairing carbohydrates rather than removing them is what makes this sustainable."
+      },
+      {
+        "type": "aside",
+        "text": "You were not failing at weight loss. High insulin was holding the door shut the whole time."
       },
       {
         "type": "heading",
@@ -3002,7 +3422,32 @@
         "kindBg": "rgba(74,99,64,0.12)"
       }
     ],
-    "next": [],
+    "next": [
+      {
+        "title": "Dr. Nina explains insulin resistance in six minutes",
+        "href": "/blog/insulin-resistance-explained",
+        "fmt": "Watch",
+        "meta": "6 min",
+        "img": "/images/home-media/feed-v3.webp",
+        "fmtColor": "#4a6340"
+      },
+      {
+        "title": "The four hormones we test when your cycle goes sideways",
+        "href": "/blog/four-hormones-we-test-cycle",
+        "fmt": "Read",
+        "meta": "7 min",
+        "img": "/images/turn-perimenopause.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "Weight that will not move, and the six things we check",
+        "href": "/blog/weight-will-not-move-six-checks",
+        "fmt": "Read",
+        "meta": "9 min",
+        "img": "/images/turn-weight.png",
+        "fmtColor": "#B5572F"
+      }
+    ],
     "cta": {
       "title": "Treat the driver, not the symptom",
       "body": "Bring your labs, especially fasting insulin if you have it. In half an hour we will know which driver is yours.",
@@ -3010,6 +3455,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 232,
+    "audioRecapEyebrow": "Twelve minutes is a lot",
+    "footerCta": {
+      "title": "Every guide in one place",
+      "body": "The long reads, chaptered so you can take them a piece at a time and come back where you left off.",
+      "href": "/blog/format/guides",
+      "ctaLabel": "All guides"
+    },
     "showAudioRecap": true
   },
   {
@@ -3095,6 +3547,10 @@
         "type": "paragraph",
         "text": "What we prescribe comes from a licensed compounding pharmacy, arrives with a certificate of analysis, and gets dosed off your panel with a physician monitoring it. If weight is the goal, the GLP-1 conversation is a more direct route than most peptides.",
         "html": "What we prescribe comes from a licensed compounding pharmacy, arrives with a certificate of analysis, and gets dosed off your panel with a physician monitoring it. If weight is the goal, the <a href=\"/blog/glp-1-with-muscle-in-mind\">GLP-1 conversation</a> is a more direct route than most peptides."
+      },
+      {
+        "type": "aside",
+        "text": "Tell me what you already bought online. I am not here to judge it, I am here to make the next part safe."
       },
       {
         "type": "heading",
@@ -3253,6 +3709,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Quick question instead?",
+      "body": "Learn & Answers holds the short ones, answered in a sentence or two by Dr. Nina and the team.",
+      "href": "/learn",
+      "ctaLabel": "Go to Learn & Answers"
+    },
     "showAudioRecap": true
   },
   {
@@ -3357,6 +3820,10 @@
         "src": "/images/turn-weight.png",
         "alt": "A woman doing resistance training to protect bone and muscle",
         "caption": "Twice a week under load is the intervention with the longest payoff here."
+      },
+      {
+        "type": "aside",
+        "text": "Nobody comes in saying perimenopause. They come in saying they do not feel like themselves, which is the same sentence."
       },
       {
         "type": "heading",
@@ -3523,7 +3990,32 @@
         "kindBg": "rgba(74,99,64,0.12)"
       }
     ],
-    "next": [],
+    "next": [
+      {
+        "title": "Hormone restoration, titrated to you",
+        "href": "/blog/hormone-restoration-titrated",
+        "fmt": "Read",
+        "meta": "8 min",
+        "img": "/images/turn-worry.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "Sleep that finally holds through the night",
+        "href": "/blog/sleep-that-holds",
+        "fmt": "Read",
+        "meta": "6 min",
+        "img": "/images/turn-sleep.png",
+        "fmtColor": "#B5572F"
+      },
+      {
+        "title": "The four hormones we test when your cycle goes sideways",
+        "href": "/blog/four-hormones-we-test-cycle",
+        "fmt": "Read",
+        "meta": "7 min",
+        "img": "/images/turn-perimenopause.png",
+        "fmtColor": "#B5572F"
+      }
+    ],
     "cta": {
       "title": "Start in the early window",
       "body": "Bring your cycle history and any labs you have. In half an hour we will know where you are and what to protect first.",
@@ -3531,6 +4023,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 232,
+    "audioRecapEyebrow": "Eleven minutes is a lot",
+    "footerCta": {
+      "title": "Every guide in one place",
+      "body": "The long reads, chaptered so you can take them a piece at a time and come back where you left off.",
+      "href": "/blog/format/guides",
+      "ctaLabel": "All guides"
+    },
     "showAudioRecap": true
   },
   {
@@ -3616,6 +4115,10 @@
         "type": "paragraph",
         "text": "The distinguishing feature is mental rather than physical: thoughts arrive fully formed and urgent. Where this is the pattern, a four point cortisol panel shows the shape.",
         "html": "The distinguishing feature is mental rather than physical: thoughts arrive fully formed and urgent. Where this is the pattern, a <a href=\"/blog/cortisol-curves-afternoon\">four point cortisol panel</a> shows the shape."
+      },
+      {
+        "type": "aside",
+        "text": "Two weeks of noting when you woke and what you ate for dinner will usually tell me which one this is."
       },
       {
         "type": "heading",
@@ -3774,6 +4277,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Quick question instead?",
+      "body": "Learn & Answers holds the short ones, answered in a sentence or two by Dr. Nina and the team.",
+      "href": "/learn",
+      "ctaLabel": "Go to Learn & Answers"
+    },
     "showAudioRecap": true
   },
   {
@@ -3859,6 +4369,10 @@
         "type": "paragraph",
         "text": "Both of these are common in exactly the people who have been dieting hardest, because restriction and over-training are stressors themselves. Where the pattern points that way, the cortisol curve is where we look next.",
         "html": "Both of these are common in exactly the people who have been dieting hardest, because restriction and over-training are stressors themselves. Where the pattern points that way, the <a href=\"/blog/cortisol-curves-afternoon\">cortisol curve</a> is where we look next."
+      },
+      {
+        "type": "aside",
+        "text": "You did not fail at this. Something measurable got in the way, and measurable things can be moved."
       },
       {
         "type": "heading",
@@ -4017,6 +4531,13 @@
       "ctaLabel": "Book a $99 consult"
     },
     "audioRecapSeconds": 192,
+    "audioRecapEyebrow": "",
+    "footerCta": {
+      "title": "Quick question instead?",
+      "body": "Learn & Answers holds the short ones, answered in a sentence or two by Dr. Nina and the team.",
+      "href": "/learn",
+      "ctaLabel": "Go to Learn & Answers"
+    },
     "showAudioRecap": true
   }
 ]

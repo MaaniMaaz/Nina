@@ -14,6 +14,11 @@ import {
   type JournalBodyBlock,
   type JournalFormat,
 } from "@/content/journal";
+import {
+  DEFAULT_WAVE,
+  useArticleAudio,
+  type ArticleAudioControls,
+} from "@/components/blog/useArticleAudio";
 
 export function slugifyHeading(text: string): string {
   return text
@@ -29,6 +34,8 @@ type Props = {
 
 const SPEEDS = ["1x", "1.5x", "2x"] as const;
 const SPEED_RATES = [1, 1.5, 2];
+const LISTEN_SPEEDS = ["1x", "1.25x", "1.5x", "2x"] as const;
+const LISTEN_RATES = [1, 1.25, 1.5, 2];
 
 const FORMAT_BADGE: Record<JournalFormat, { bg: string; fg: string }> = {
   Read: { bg: "var(--color-terracotta)", fg: "var(--color-cream)" },
@@ -122,80 +129,13 @@ function NinaAvatar({
   );
 }
 
-function useFakeAudio(duration: number) {
-  const [playing, setPlaying] = useState(false);
-  const [t, setT] = useState(0);
-  const [speedIx, setSpeedIx] = useState(0);
-  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (timer.current) clearInterval(timer.current);
-    };
-  }, []);
-
-  const clear = () => {
-    if (timer.current) {
-      clearInterval(timer.current);
-      timer.current = null;
-    }
-  };
-
-  const togglePlay = () => {
-    const next = !playing;
-    clear();
-    if (next) {
-      const rate = SPEED_RATES[speedIx];
-      timer.current = setInterval(() => {
-        setT((prev) => {
-          const n = prev + rate;
-          if (n >= duration) {
-            clear();
-            setPlaying(false);
-            return duration;
-          }
-          return n;
-        });
-      }, 1000);
-    }
-    setPlaying(next);
-    setT((prev) => (prev >= duration ? 0 : prev));
-  };
-
-  const cycleSpeed = () => {
-    const ix = (speedIx + 1) % SPEEDS.length;
-    setSpeedIx(ix);
-    if (playing) {
-      clear();
-      setPlaying(false);
-      setTimeout(() => {
-        setPlaying(true);
-        const rate = SPEED_RATES[ix];
-        timer.current = setInterval(() => {
-          setT((prev) => {
-            const n = prev + rate;
-            if (n >= duration) {
-              clear();
-              setPlaying(false);
-              return duration;
-            }
-            return n;
-          });
-        }, 1000);
-      }, 0);
-    }
-  };
-
-  return {
-    playing,
-    t,
-    speedLabel: SPEEDS[speedIx],
-    togglePlay,
-    cycleSpeed,
-    pct: duration > 0 ? Math.min(100, (t / duration) * 100) : 0,
-    elapsed: mmss(t),
-    total: mmss(duration),
-  };
+function useFakeAudio(duration: number, src?: string | null) {
+  return useArticleAudio({
+    src,
+    duration,
+    rates: [...SPEED_RATES],
+    labels: [...SPEEDS],
+  });
 }
 
 function SharePills({ compact = false }: { compact?: boolean }) {
@@ -393,13 +333,15 @@ function DarkAudioRecap({
   title,
   eyebrow = "Short on time",
   compact = false,
+  src,
 }: {
   duration: number;
   title: string;
   eyebrow?: string;
   compact?: boolean;
+  src?: string | null;
 }) {
-  const audio = useFakeAudio(duration);
+  const audio = useFakeAudio(duration, src);
   const btn = compact ? 48 : 52;
   const playSize = compact ? 14 : 15;
 
@@ -783,11 +725,26 @@ function AuthorCard() {
 
 function TranscriptAccordion({
   transcript,
+  onSeek,
 }: {
   transcript: JournalArticleData["transcript"];
+  onSeek?: (seconds: number) => void;
 }) {
   const [open, setOpen] = useState(false);
   if (!transcript?.length) return null;
+
+  const seekSeconds = (tr: JournalArticleData["transcript"][number]) => {
+    if (typeof tr.t === "number") return tr.t;
+    if (typeof tr.t === "string" && tr.t.includes(":")) {
+      const [m, s] = tr.t.split(":").map(Number);
+      return (m || 0) * 60 + (s || 0);
+    }
+    if (tr.time && tr.time.includes(":")) {
+      const [m, s] = tr.time.split(":").map(Number);
+      return (m || 0) * 60 + (s || 0);
+    }
+    return 0;
+  };
 
   return (
     <div className="mt-[clamp(34px,3.4vw,48px)]">
@@ -813,9 +770,16 @@ function TranscriptAccordion({
       {open ? (
         <div className="-mt-2 rounded-b-2xl border border-t-0 border-[rgba(46,33,27,0.1)] bg-cream px-[22px] py-6 pb-[26px]">
           {transcript.map((tr, i) => (
-            <div
-              key={(tr.time || tr.t || "") + i}
-              className="flex items-start gap-[18px] pb-[18px]"
+            <button
+              key={(tr.time || String(tr.t) || "") + i}
+              type="button"
+              onClick={() => onSeek?.(seekSeconds(tr))}
+              disabled={!onSeek}
+              className={`mb-1.5 flex w-full items-start gap-[18px] rounded-lg border-0 bg-transparent p-2 text-left ${
+                onSeek
+                  ? "cursor-pointer transition-colors duration-[180ms] hover:bg-cream-deep"
+                  : "cursor-default"
+              }`}
             >
               <span className="w-10 flex-none font-newsreader text-sm text-terracotta">
                 {tr.time || tr.t || ""}
@@ -823,7 +787,7 @@ function TranscriptAccordion({
               <p className="m-0 max-w-[64ch] min-w-0 flex-1 font-sans text-base leading-[1.72] text-[#3d332b]">
                 {tr.text}
               </p>
-            </div>
+            </button>
           ))}
         </div>
       ) : null}
@@ -1207,23 +1171,68 @@ function GuideCtaBand({ article }: { article: JournalArticleData }) {
 }
 
 function DarkFooterCta({ article }: { article: JournalArticleData }) {
+  const band = article.footerCta || article.cta;
+  const pathPrefix =
+    article.footerCta ? "footerCta" : "cta";
   return (
     <div className="mt-[clamp(56px,5.6vw,88px)] bg-ink">
-      <div className="mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-8 px-[clamp(24px,6vw,100px)] py-[clamp(40px,4.4vw,64px)] pb-[clamp(34px,3.6vw,52px)] md:flex-row md:items-center">
-        <div className="max-w-[52ch]">
+      <div className="mx-auto grid max-w-[1240px] grid-cols-1 items-start gap-[clamp(30px,4vw,72px)] px-[clamp(24px,6vw,100px)] py-[clamp(40px,4.4vw,64px)] pb-[clamp(34px,3.6vw,52px)] md:grid-cols-[1.2fr_1fr]">
+        <div>
           <div className="font-display text-[clamp(26px,2.4vw,34px)] font-medium leading-[1.1] tracking-[-0.015em] text-cream-deep">
-            <EditableText path="cta.title" value={article.cta.title} as="span" />
+            <EditableText
+              path={`${pathPrefix}.title`}
+              value={band.title}
+              as="span"
+            />
           </div>
-          <p className="mt-3 font-sans text-base leading-[1.62] text-[#b09a7d]">
-            <EditableText path="cta.body" value={article.cta.body} as="span" multiline />
+          <p className="mt-3 max-w-[52ch] font-sans text-base leading-[1.62] text-[#b09a7d]">
+            <EditableText
+              path={`${pathPrefix}.body`}
+              value={band.body}
+              as="span"
+              multiline
+            />
           </p>
+          <Link
+            href={resolveCtaHref(band.href)}
+            className="mt-5 inline-block rounded-lg bg-gold px-6 py-3.5 font-sans text-[14.5px] font-semibold text-ink no-underline transition-colors duration-[180ms] hover:bg-[#f0c273]"
+          >
+            <EditableText
+              path={`${pathPrefix}.ctaLabel`}
+              value={band.ctaLabel}
+              as="span"
+            />
+          </Link>
         </div>
-        <Link
-          href={resolveCtaHref(article.cta.href)}
-          className="inline-block flex-none rounded-lg bg-gold px-6 py-3.5 font-sans text-[14.5px] font-semibold text-ink no-underline transition-colors duration-[180ms] hover:bg-[#f0c273]"
-        >
-          <EditableText path="cta.ctaLabel" value={article.cta.ctaLabel} as="span" />
-        </Link>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-3 self-center">
+          {[
+            { href: "/blog", label: "The Journal" },
+            { href: "/conditions", label: "Conditions" },
+            { href: "/treatments", label: "Treatments" },
+            { href: "/start", label: "Start · $99" },
+            { href: "/about", label: "Dr. Nina" },
+            { href: "/#patient-stories", label: "Patient stories" },
+          ].map((l) => (
+            <Link
+              key={l.href + l.label}
+              href={l.href}
+              className="font-sans text-[14.5px] text-[#d8cab8] no-underline transition-colors hover:text-cream-deep"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-6 border-t border-[rgba(246,238,225,0.12)] px-[clamp(24px,6vw,100px)] py-8">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/nina-ross-logo-cream.png"
+          alt="Nina Ross Functional Medicine, Atlanta"
+          className="block h-[clamp(50px,5vw,62px)] w-auto"
+        />
+        <p className="m-0 font-sans text-[12px] tracking-[0.04em] text-[#8a7a68]">
+          Atlanta · Virtual care nationwide
+        </p>
       </div>
     </div>
   );
@@ -1383,7 +1392,7 @@ function VideoTheater({
                 ))}
               </div>
               <Link
-                href="/blog"
+                href="/blog?fmt=Watch"
                 className="mt-[18px] inline-block font-sans text-[12.5px] font-semibold text-gold no-underline hover:text-[#f0c273]"
               >
                 All videos →
@@ -1401,7 +1410,7 @@ function VideoTheater({
                 <EditableText path="dek" value={article.dek} as="span" multiline />
               </p>
               <Link
-                href="/blog"
+                href="/blog?fmt=Watch"
                 className="mt-[18px] inline-block font-sans text-[12.5px] font-semibold text-gold no-underline hover:text-[#f0c273]"
               >
                 All videos →
@@ -1416,14 +1425,22 @@ function VideoTheater({
 
 function ListenHero({
   article,
-  duration,
+  audio,
 }: {
   article: JournalArticleData;
-  duration: number;
+  audio: ArticleAudioControls;
 }) {
-  const audio = useFakeAudio(duration || 192);
   const poster =
     article.mediaPoster || article.hero?.src || "/images/dr-nina.png";
+  const wave = article.wave?.length ? article.wave : DEFAULT_WAVE;
+  const playedBars = (audio.t / audio.duration) * wave.length;
+  const downloadHref = article.audioUrl || undefined;
+
+  let activeChapter = 0;
+  (article.videoChapters || []).forEach((c, i) => {
+    const start = c.start ?? 0;
+    if (audio.t >= start) activeChapter = i;
+  });
 
   return (
     <div className="relative overflow-hidden bg-ink">
@@ -1449,7 +1466,7 @@ function ListenHero({
           />
         </div>
 
-        <div className="grid items-start gap-[clamp(28px,3vw,48px)] md:grid-cols-[210px_minmax(0,1fr)]">
+        <div className="grid items-start gap-[clamp(28px,3vw,48px)] md:grid-cols-[210px_minmax(0,1fr)] xl:grid-cols-[210px_minmax(0,1fr)_300px]">
           <div>
             <div className="relative aspect-square w-full overflow-hidden rounded-[18px] bg-[#43312a] shadow-[0_18px_44px_rgba(0,0,0,0.38)]">
               <ArticleImg
@@ -1487,7 +1504,42 @@ function ListenHero({
               ) : null}
             </div>
 
-            <div className="mt-[clamp(22px,2.4vw,32px)] flex items-center gap-3.5">
+            {/* Waveform — matches Articles HTML WAVE bars */}
+            <div className="mt-[clamp(22px,2.4vw,32px)] flex h-[88px] items-center gap-[3px]">
+              {wave.map((h, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Seek to ${mmss(Math.round((i / wave.length) * audio.duration))}`}
+                  onClick={() =>
+                    audio.seek(Math.round((i / wave.length) * audio.duration))
+                  }
+                  className="flex h-[88px] min-w-0 flex-1 cursor-pointer items-center justify-center border-0 bg-transparent p-0"
+                >
+                  <span
+                    className="block w-full rounded-[3px]"
+                    style={{
+                      height: Math.round(h * 1.6),
+                      background:
+                        i <= playedBars
+                          ? "#E9B45A"
+                          : "rgba(246,238,225,0.24)",
+                    }}
+                  />
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-2 flex items-center justify-between">
+              <span className="font-newsreader text-sm text-gold-deep">
+                {audio.elapsed}
+              </span>
+              <span className="font-newsreader text-sm text-[#8a7a68]">
+                {audio.remaining}
+              </span>
+            </div>
+
+            <div className="mt-[clamp(18px,2vw,26px)] flex flex-wrap items-center gap-3 md:gap-5">
               <button
                 type="button"
                 onClick={audio.togglePlay}
@@ -1512,29 +1564,128 @@ function ListenHero({
                   />
                 )}
               </button>
-              <div className="min-w-0 flex-1">
-                <div className="h-[5px] rounded-[3px] bg-[rgba(246,238,225,0.22)]">
-                  <div
-                    className="h-[5px] rounded-[3px] bg-gold"
-                    style={{ width: `${audio.pct}%` }}
-                  />
-                </div>
-                <div className="mt-2 flex items-center justify-between">
-                  <span className="font-newsreader text-sm text-gold-deep">
-                    {audio.elapsed}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={audio.cycleSpeed}
-                    className="cursor-pointer rounded-full border border-[rgba(207,168,90,0.4)] bg-transparent px-[17px] py-[11px] font-sans text-xs font-semibold tracking-[0.06em] text-gold-deep transition-[border-color] duration-[180ms] hover:border-[rgba(233,180,90,0.9)]"
-                  >
-                    {audio.speedLabel}
-                  </button>
-                </div>
-              </div>
+
+              <button
+                type="button"
+                onClick={() => audio.skip(-15)}
+                className="flex cursor-pointer items-center gap-[7px] rounded-full border border-[rgba(246,238,225,0.24)] bg-transparent px-4 py-2.5 transition-[border-color] duration-[180ms] hover:border-[rgba(233,180,90,0.7)]"
+              >
+                <span className="font-sans text-base leading-none text-cream-deep">
+                  ↺
+                </span>
+                <span className="font-sans text-xs font-semibold tracking-[0.06em] text-[#d9ccbe]">
+                  15s
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => audio.skip(30)}
+                className="flex cursor-pointer items-center gap-[7px] rounded-full border border-[rgba(246,238,225,0.24)] bg-transparent px-4 py-2.5 transition-[border-color] duration-[180ms] hover:border-[rgba(233,180,90,0.7)]"
+              >
+                <span className="font-sans text-base leading-none text-cream-deep">
+                  ↻
+                </span>
+                <span className="font-sans text-xs font-semibold tracking-[0.06em] text-[#d9ccbe]">
+                  30s
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={audio.cycleSpeed}
+                className="cursor-pointer rounded-full border border-[rgba(207,168,90,0.4)] bg-transparent px-[17px] py-[11px] font-sans text-xs font-semibold tracking-[0.06em] text-gold-deep transition-[border-color] duration-[180ms] hover:border-[rgba(233,180,90,0.9)]"
+              >
+                {audio.speedLabel}
+              </button>
+
+              {downloadHref ? (
+                <a
+                  href={downloadHref}
+                  download
+                  className="font-sans text-xs font-semibold tracking-[0.06em] text-[#b09a7d] no-underline transition-colors hover:text-cream-deep"
+                >
+                  Download
+                </a>
+              ) : null}
             </div>
           </div>
+
+          {article.videoChapters?.length ? (
+            <div className="hidden xl:block">
+              <div className="font-sans text-[9.5px] font-bold uppercase tracking-[0.2em] text-gold-deep">
+                Chapters
+              </div>
+              <div className="mt-3.5 flex flex-col">
+                {article.videoChapters.map((c, i) => {
+                  const active = i === activeChapter;
+                  return (
+                    <button
+                      key={(c.time || "") + i}
+                      type="button"
+                      onClick={() => audio.seek(c.start ?? 0)}
+                      className="flex cursor-pointer items-baseline gap-3 border-0 border-b border-[rgba(246,238,225,0.12)] bg-transparent px-1.5 py-3 text-left transition-colors duration-[180ms] hover:bg-[rgba(246,238,225,0.07)]"
+                    >
+                      <span
+                        className="w-[34px] flex-none font-newsreader text-[13.5px]"
+                        style={{ color: active ? "#E9B45A" : "#b09a7d" }}
+                      >
+                        {c.time || ""}
+                      </span>
+                      <span
+                        className="flex-1 font-sans text-[13.5px] leading-[1.4]"
+                        style={{
+                          color: active ? "#E9B45A" : "#F6EEE1",
+                          fontWeight: active ? 600 : 500,
+                        }}
+                      >
+                        {c.label || ""}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
         </div>
+
+        {/* Mobile / tablet chapters under transport */}
+        {article.videoChapters?.length ? (
+          <div className="mt-8 xl:hidden">
+            <div className="font-sans text-[9.5px] font-bold uppercase tracking-[0.2em] text-gold-deep">
+              Chapters
+            </div>
+            <div className="mt-3 flex flex-col">
+              {article.videoChapters.map((c, i) => {
+                const active = i === activeChapter;
+                return (
+                  <button
+                    key={`m-${(c.time || "") + i}`}
+                    type="button"
+                    onClick={() => audio.seek(c.start ?? 0)}
+                    className="flex cursor-pointer items-baseline gap-3 border-0 border-b border-[rgba(246,238,225,0.12)] bg-transparent px-1.5 py-3 text-left"
+                  >
+                    <span
+                      className="w-[34px] flex-none font-newsreader text-[13.5px]"
+                      style={{ color: active ? "#E9B45A" : "#b09a7d" }}
+                    >
+                      {c.time || ""}
+                    </span>
+                    <span
+                      className="flex-1 font-sans text-[13.5px] leading-[1.4]"
+                      style={{
+                        color: active ? "#E9B45A" : "#F6EEE1",
+                        fontWeight: active ? 600 : 500,
+                      }}
+                    >
+                      {c.label || ""}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );
@@ -1612,6 +1763,8 @@ function ReadSidebar({
           <DarkAudioRecap
             duration={dur}
             title={`Hear Dr. Nina's ${mmss(dur)} recap`}
+            eyebrow={article.audioRecapEyebrow || "Short on time"}
+            src={article.audioUrl}
           />
         )
       ) : null}
@@ -1637,22 +1790,42 @@ export default function JournalArticle({
       : article;
   const accent = FORMAT_ACCENT[live.format] || FORMAT_ACCENT.Read;
   const [progress, setProgress] = useState(0);
+  const [activeChapterHref, setActiveChapterHref] = useState("");
   const format = live.format;
   const isGuide = format === "Guide";
   const isWatch = format === "Watch";
   const isListen = format === "Listen";
   const chapters = isGuide ? deriveChapters(live) : [];
 
+  const listenAudio = useArticleAudio({
+    src: isListen ? live.audioUrl : null,
+    duration: live.audioSeconds || live.audioRecapSeconds || 500,
+    rates: [...LISTEN_RATES],
+    labels: [...LISTEN_SPEEDS],
+  });
+
   useEffect(() => {
     const onScroll = () => {
       const el = document.documentElement;
       const max = el.scrollHeight - el.clientHeight;
       setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+
+      if (isGuide && chapters.length) {
+        let current = chapters[0]?.href || "";
+        for (const ch of chapters) {
+          const id = ch.href.replace(/^#/, "");
+          const node = document.getElementById(id);
+          if (node && node.getBoundingClientRect().top <= 140) {
+            current = ch.href;
+          }
+        }
+        setActiveChapterHref(current);
+      }
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isGuide, chapters]);
 
   const shortBorder =
     isGuide || isWatch || isListen ? accent : "#B08A3E";
@@ -1690,12 +1863,7 @@ export default function JournalArticle({
       </div>
 
       {isWatch ? <VideoTheater article={live} accent={accent} /> : null}
-      {isListen ? (
-        <ListenHero
-          article={live}
-          duration={live.audioRecapSeconds || 192}
-        />
-      ) : null}
+      {isListen ? <ListenHero article={live} audio={listenAudio} /> : null}
 
       {!isWatch && !isListen ? (
         <ArticleHead article={live} accent={accent} />
@@ -1719,22 +1887,35 @@ export default function JournalArticle({
                   {Math.round(progress * 100)}% read
                 </div>
                 <div className="mt-[18px] flex flex-col">
-                  {chapters.map((ch) => (
-                    <a
-                      key={ch.href}
-                      href={ch.href}
-                      className="-ml-8 flex items-baseline gap-3 border-l-2 border-transparent py-[11px] pr-2.5 pb-3 pl-[30px] no-underline transition-[border-color] duration-200 hover:border-[rgba(138,106,58,0.4)]"
-                    >
-                      <span
-                        className="w-5 flex-none font-display text-[13px] font-medium text-[#b5a795]"
+                  {chapters.map((ch) => {
+                    const active = activeChapterHref === ch.href;
+                    return (
+                      <a
+                        key={ch.href}
+                        href={ch.href}
+                        className="-ml-8 flex items-baseline gap-3 border-l-2 py-[11px] pr-2.5 pb-3 pl-[30px] no-underline transition-[border-color,color] duration-200"
+                        style={{
+                          borderLeftColor: active ? accent : "transparent",
+                        }}
                       >
-                        {ch.n}
-                      </span>
-                      <span className="flex-1 font-sans text-sm font-medium leading-[1.38] text-[#7d6f60]">
-                        {ch.label}
-                      </span>
-                    </a>
-                  ))}
+                        <span
+                          className="w-5 flex-none font-display text-[13px] font-medium"
+                          style={{ color: active ? accent : "#b5a795" }}
+                        >
+                          {ch.n}
+                        </span>
+                        <span
+                          className="flex-1 font-sans text-sm leading-[1.38]"
+                          style={{
+                            color: active ? "#2E211B" : "#7d6f60",
+                            fontWeight: active ? 600 : 500,
+                          }}
+                        >
+                          {ch.label}
+                        </span>
+                      </a>
+                    );
+                  })}
                 </div>
                 <div className="mt-[22px] flex items-center gap-2 border-t border-[rgba(46,33,27,0.12)] pt-[18px]">
                   <SharePills compact />
@@ -1789,8 +1970,9 @@ export default function JournalArticle({
                   <DarkAudioRecap
                     duration={live.audioRecapSeconds || 232}
                     title={`Hear the ${mmss(live.audioRecapSeconds || 232)} version`}
-                    eyebrow="Short on time"
+                    eyebrow={live.audioRecapEyebrow || "Short on time"}
                     compact
+                    src={live.audioUrl}
                   />
                 ) : null}
               </div>
@@ -1857,7 +2039,10 @@ export default function JournalArticle({
               <BodyBlocks article={live} accent={accent} />
 
               {(isWatch || isListen) && live.transcript?.length ? (
-                <TranscriptAccordion transcript={live.transcript} />
+                <TranscriptAccordion
+                  transcript={live.transcript}
+                  onSeek={isListen ? listenAudio.seek : undefined}
+                />
               ) : null}
 
               <Takeaways items={live.takeaways} />

@@ -159,6 +159,26 @@ export default function JournalMetaFields() {
         />
       </div>
       <div>
+        <label className={labelCls}>Audio file URL (Listen)</label>
+        <input
+          className={inputCls}
+          value={content.audioUrl || ""}
+          placeholder="/audio/your-episode.mp3"
+          onChange={(e) => edit.patchPath("audioUrl", e.target.value)}
+        />
+      </div>
+      <div>
+        <label className={labelCls}>Audio duration (seconds)</label>
+        <input
+          type="number"
+          className={inputCls}
+          value={content.audioSeconds ?? content.audioRecapSeconds ?? 0}
+          onChange={(e) =>
+            edit.patchPath("audioSeconds", Number(e.target.value) || 0)
+          }
+        />
+      </div>
+      <div>
         <label className={labelCls}>Audio recap seconds</label>
         <input
           type="number"
@@ -167,6 +187,15 @@ export default function JournalMetaFields() {
           onChange={(e) =>
             edit.patchPath("audioRecapSeconds", Number(e.target.value) || 0)
           }
+        />
+      </div>
+      <div>
+        <label className={labelCls}>Audio recap eyebrow</label>
+        <input
+          className={inputCls}
+          value={content.audioRecapEyebrow || ""}
+          placeholder='e.g. "Twelve minutes is a lot"'
+          onChange={(e) => edit.patchPath("audioRecapEyebrow", e.target.value)}
         />
       </div>
       <label className="flex items-center gap-2 text-[13px]">
