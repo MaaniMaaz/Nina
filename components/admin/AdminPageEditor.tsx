@@ -10,6 +10,7 @@ import BlogEditable from "./BlogEditable";
 import JournalMetaFields from "./JournalMetaFields";
 import StoriesManager from "./StoriesManager";
 import DevicePreview, { type DeviceMode } from "./DevicePreview";
+import EditDeviceFrame from "./EditDeviceFrame";
 import LongformPage from "@/components/templates/LongformPage";
 import Hero from "@/components/home/Hero";
 import HomeInteractive from "@/components/home/HomeInteractive";
@@ -181,8 +182,7 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
     }
   }
 
-  async function goPreview(mode?: DeviceMode) {
-    if (mode) setDevice(mode);
+  async function goPreview() {
     if (dirty) {
       const ok = window.confirm(
         "You have unsaved changes. Save them so preview shows the latest content?",
@@ -190,8 +190,6 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
       if (ok) {
         const saved = await save();
         if (!saved) return;
-      } else {
-        // Still open preview of last saved version
       }
     }
     setTab("preview");
@@ -269,10 +267,10 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
                 <button
                   key={d}
                   type="button"
-                  title={`Preview in ${d}`}
-                  onClick={() => void goPreview(d)}
+                  title={`Show ${d} layout in edit & preview`}
+                  onClick={() => setDevice(d)}
                   className={`px-3 py-1.5 text-[12px] font-semibold capitalize ${
-                    tab === "preview" && device === d ? "bg-ink text-cream" : "text-ink"
+                    device === d ? "bg-ink text-cream" : "text-ink"
                   }`}
                 >
                   {d}
@@ -339,7 +337,7 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
           <DevicePreview src={previewSrc} mode={device} />
         </div>
       ) : (
-        <div className="grid gap-4 p-3 sm:p-4 lg:grid-cols-[minmax(280px,340px)_1fr]">
+        <div className="grid gap-4 p-3 sm:p-4 lg:grid-cols-[minmax(280px,340px)_minmax(0,1fr)]">
           <aside className="order-2 space-y-4 rounded-xl border border-ink/10 bg-cream p-4 lg:order-1 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto">
             <div>
               <label className="text-[11px] font-semibold uppercase tracking-wide text-muted">
@@ -501,21 +499,23 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
             )}
           </aside>
 
-          <div className="order-1 overflow-hidden rounded-xl border border-ink/10 bg-cream lg:order-2">
-            {isHomeContent(edit.content) ? (
-              <HomeContentProvider
-                content={(edit.content as HomePageContent) ?? DEFAULT_HOME_CONTENT}
-              >
-                <Hero />
-                <HomeInteractive />
-              </HomeContentProvider>
-            ) : isJournalContent(edit.content) ? (
-              <JournalArticleView article={edit.content as JournalArticle} />
-            ) : isLongformContent(edit.content as ManagedPageContent) ? (
-              <LongformPage content={edit.content as LongformPageContent} />
-            ) : isBlogContent(edit.content as ManagedPageContent) ? (
-              <BlogEditable />
-            ) : null}
+          <div className="order-1 min-h-[70vh] overflow-hidden rounded-xl border border-ink/10 bg-cream lg:order-2 lg:min-h-[calc(100vh-7rem)]">
+            <EditDeviceFrame mode={device}>
+              {isHomeContent(edit.content) ? (
+                <HomeContentProvider
+                  content={(edit.content as HomePageContent) ?? DEFAULT_HOME_CONTENT}
+                >
+                  <Hero />
+                  <HomeInteractive />
+                </HomeContentProvider>
+              ) : isJournalContent(edit.content) ? (
+                <JournalArticleView article={edit.content as JournalArticle} />
+              ) : isLongformContent(edit.content as ManagedPageContent) ? (
+                <LongformPage content={edit.content as LongformPageContent} />
+              ) : isBlogContent(edit.content as ManagedPageContent) ? (
+                <BlogEditable />
+              ) : null}
+            </EditDeviceFrame>
           </div>
         </div>
       )}
