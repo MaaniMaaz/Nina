@@ -1,4 +1,7 @@
+"use client";
+
 import Image, { type ImageProps } from "next/image";
+import { useHomeImageWarm } from "@/components/home/HomeImageWarmContext";
 
 type SmartImageProps = Omit<ImageProps, "loading"> & {
   /** Defaults to lazy unless `priority` is set (LCP / above-the-fold only). */
@@ -12,6 +15,7 @@ const DEFAULT_FILL_SIZES =
 /**
  * Site-wide image primitive: lazy-loads by default, async decode, and
  * requires an explicit `priority` for above-the-fold / LCP images.
+ * Home warm-up can force eager so chip unlock feels instant.
  */
 export default function SmartImage({
   priority = false,
@@ -22,7 +26,9 @@ export default function SmartImage({
   alt,
   ...rest
 }: SmartImageProps) {
-  const resolvedLoading = priority ? "eager" : (loading ?? "lazy");
+  const warm = useHomeImageWarm();
+  const resolvedLoading =
+    priority || warm ? "eager" : (loading ?? "lazy");
   const resolvedSizes = fill ? (sizes ?? DEFAULT_FILL_SIZES) : sizes;
 
   return (

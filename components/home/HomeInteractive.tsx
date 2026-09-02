@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import SmartImage from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { DEFAULT_TURN_IMAGE } from "@/content/home";
 import { cleanEntry, dotsRead, learnTopicFor, slugify } from "@/lib/home-logic";
 import { pathToMediaKey } from "@/lib/cms/media-catalog";
+import { shouldUnoptimizeImage } from "@/lib/images";
 import { useSiteMedia, useSiteMediaMap } from "@/components/media/SiteMediaContext";
 import EditableText from "@/components/admin/EditableText";
 import { useEdit } from "@/components/admin/EditContext";
@@ -17,15 +18,28 @@ import Consultation from "./Consultation";
 import LearnSection from "./LearnSection";
 import Footer from "@/components/layout/Footer";
 import { useHomeContent } from "./HomeContentContext";
+import { HomeImageWarmProvider } from "./HomeImageWarmContext";
+
+function resolveTurnSrc(
+  turnImagePath: string,
+  mediaImages: Record<string, string>,
+): string {
+  const key = pathToMediaKey(turnImagePath);
+  return (key && mediaImages[key]) || turnImagePath || DEFAULT_TURN_IMAGE;
+}
 
 /**
  * Owns the journal entry text that gates the rest of the homepage, mirroring
  * the source design's `unlocked` state (everything from The Turn onward stays
  * hidden until the visitor taps or types what they used to be able to do).
  * In admin edit mode the gate is open so editors can reach Patient Stories.
+ *
+ * After first paint we warm-mount the gated sections off-screen and eager-load
+ * their images so chip selection + scroll feels instant.
  */
 export default function HomeInteractive() {
   const [entry, setEntry] = useState("");
+  const [warm, setWarm] = useState(false);
   const clean = cleanEntry(entry);
   const hasEntry = clean.length > 0;
   const edit = useEdit();
@@ -36,15 +50,58 @@ export default function HomeInteractive() {
   const journal = content.journal;
   const turn = content.turn;
   const matched = journal.prompts.find((p) => slugify(p.label) === slugify(clean));
-  const turnKey = matched ? pathToMediaKey(matched.turnImage) : pathToMediaKey(DEFAULT_TURN_IMAGE);
-  const turnImage =
-    (turnKey && media.images[turnKey]) ||
-    media.images["turn-myself"] ||
-    DEFAULT_TURN_IMAGE;
+  const activeTurnSrc = resolveTurnSrc(
+    matched?.turnImage || DEFAULT_TURN_IMAGE,
+    media.images,
+  );
   const mappedTopic = learnTopicFor(clean);
+
+  const turnSources = useMemo(() => {
+    const urls = journal.prompts.map((p) => resolveTurnSrc(p.turnImage, media.images));
+    urls.push(resolveTurnSrc(DEFAULT_TURN_IMAGE, media.images));
+    urls.push(drNina);
+    return Array.from(new Set(urls.filter(Boolean)));
+  }, [journal.prompts, media.images, drNina]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const startWarm = () => {
+      if (!cancelled) setWarm(true);
+    };
+    const ric = window.requestIdleCallback?.(startWarm, { timeout: 1200 });
+    const t = window.setTimeout(startWarm, 500);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(t);
+      if (ric != null && window.cancelIdleCallback) window.cancelIdleCallback(ric);
+    };
+  }, []);
+
+  const showGated = unlocked || warm;
+  const warmingOnly = warm && !unlocked;
 
   return (
     <>
+      {/* Eager Next/Image decode for every journal turn + avatar before unlock */}
+      <div
+        className="pointer-events-none fixed left-0 top-0 -z-50 h-px w-px overflow-hidden opacity-0"
+        aria-hidden
+      >
+        {turnSources.map((src) => (
+          <div key={src} className="relative mb-1 h-[180px] w-[280px]">
+            <SmartImage
+              src={src}
+              alt=""
+              fill
+              sizes="280px"
+              loading="eager"
+              className="object-cover"
+              unoptimized={shouldUnoptimizeImage(src)}
+            />
+          </div>
+        ))}
+      </div>
+
       <section className="relative overflow-hidden bg-cream-deep px-6 py-[30px] md:px-[clamp(40px,6vw,120px)] md:py-32">
         <div className="grain-overlay opacity-45 mix-blend-multiply" style={{ backgroundSize: "180px" }} />
         <div
@@ -130,7 +187,6 @@ export default function HomeInteractive() {
                   </span>
                 </div>
                 <div className="relative mt-6 border-t border-ink/10 pt-[22px]">
-                  {/* Mobile dump reply — no portrait */}
                   <div className="mb-3 flex items-center justify-center gap-[9px] md:hidden">
                     <span className="block h-[1.5px] w-4 bg-[#B08A3E]" />
                     <span className="text-[9.5px] font-semibold uppercase tracking-[0.16em] text-[#7C8A5E]">
@@ -138,15 +194,16 @@ export default function HomeInteractive() {
                     </span>
                     <span className="block h-[1.5px] w-4 bg-[#B08A3E]" />
                   </div>
-                  {/* Desktop reply chrome */}
                   <div className="mb-4.5 hidden flex-col items-center gap-3.5 md:flex">
                     <div className="relative h-21 w-21 overflow-hidden rounded-full border-[1.5px] border-gold-deep/60 shadow-[0_10px_26px_rgba(46,33,27,0.18)]">
                       <SmartImage
                         src={drNina}
                         alt=""
                         fill
+                        sizes="84px"
+                        loading="eager"
                         className="object-cover object-[50%_16%]"
-                        unoptimized={drNina.startsWith("http")}
+                        unoptimized={shouldUnoptimizeImage(drNina)}
                       />
                     </div>
                     <div className="flex items-center justify-center gap-2.5">
@@ -176,59 +233,86 @@ export default function HomeInteractive() {
         </div>
       </section>
 
-      {unlocked && (
-        <>
-          <section className="relative -mt-px flex min-h-[70svh] items-center overflow-hidden bg-olive px-9 py-16 text-center md:min-h-0 md:px-[clamp(40px,6vw,120px)] md:py-31">
-            <div className="absolute inset-0 opacity-62">
-              <SmartImage
-                src={turnImage}
-                alt=""
-                fill
-                className="object-cover object-[78%_center] md:object-center"
-                unoptimized={turnImage.startsWith("http")}
-              />
-            </div>
-            <div
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(165deg, rgba(44,54,36,0.95) 0%, rgba(44,54,36,0.8) 44%, rgba(44,54,36,0.5) 100%)",
-              }}
-            />
-            <div className="grain-overlay pointer-events-none opacity-50 mix-blend-overlay" style={{ backgroundSize: "180px" }} />
-            <div
-              className="pointer-events-none absolute left-1/2 top-1/2 h-[320px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full md:h-[440px] md:w-[760px]"
-              style={{ background: "radial-gradient(circle, rgba(207,168,90,0.16), rgba(207,168,90,0) 68%)" }}
-            />
-            <div className="relative z-[1] mx-auto max-w-[760px]">
-              <span
-                className="mx-auto mb-5 block h-10 w-px md:mb-5.5 md:h-11"
-                style={{ background: "linear-gradient(180deg, rgba(207,168,90,0), #CFA85A)" }}
-              />
-              <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#b9c0a3] md:text-[11px] md:tracking-[0.24em]">
-                <EditableText path="turn.eyebrow" value={turn.eyebrow} as="span" />
+      {showGated ? (
+        <HomeImageWarmProvider warm={warmingOnly || unlocked}>
+          <div
+            className={
+              unlocked
+                ? undefined
+                : "pointer-events-none fixed left-0 top-0 z-[-1] h-px w-full max-w-[100vw] overflow-hidden opacity-0"
+            }
+            aria-hidden={!unlocked}
+            inert={warmingOnly ? true : undefined}
+          >
+            <section className="relative -mt-px flex min-h-[70svh] items-center overflow-hidden bg-olive px-9 py-16 text-center md:min-h-0 md:px-[clamp(40px,6vw,120px)] md:py-31">
+              <div className="absolute inset-0">
+                {turnSources
+                  .filter((src) => src !== drNina)
+                  .map((src) => {
+                    const active = src === activeTurnSrc;
+                    return (
+                      <div
+                        key={src}
+                        className={`absolute inset-0 transition-opacity duration-200 ${
+                          active ? "opacity-62" : "opacity-0"
+                        }`}
+                        aria-hidden={!active}
+                      >
+                        <SmartImage
+                          src={src}
+                          alt=""
+                          fill
+                          sizes="100vw"
+                          loading="eager"
+                          className="object-cover object-[78%_center] md:object-center"
+                          unoptimized={shouldUnoptimizeImage(src)}
+                        />
+                      </div>
+                    );
+                  })}
               </div>
-              <div className="mt-3 font-display text-[30px] font-medium italic leading-[1.12] text-[#E9B45A] md:mt-3.5 md:text-[50px] md:leading-tight md:text-gold">
-                {clean || "…"}
+              <div
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(165deg, rgba(44,54,36,0.95) 0%, rgba(44,54,36,0.8) 44%, rgba(44,54,36,0.5) 100%)",
+                }}
+              />
+              <div className="grain-overlay pointer-events-none opacity-50 mix-blend-overlay" style={{ backgroundSize: "180px" }} />
+              <div
+                className="pointer-events-none absolute left-1/2 top-1/2 h-[320px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full md:h-[440px] md:w-[760px]"
+                style={{ background: "radial-gradient(circle, rgba(207,168,90,0.16), rgba(207,168,90,0) 68%)" }}
+              />
+              <div className="relative z-[1] mx-auto max-w-[760px]">
+                <span
+                  className="mx-auto mb-5 block h-10 w-px md:mb-5.5 md:h-11"
+                  style={{ background: "linear-gradient(180deg, rgba(207,168,90,0), #CFA85A)" }}
+                />
+                <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#b9c0a3] md:text-[11px] md:tracking-[0.24em]">
+                  <EditableText path="turn.eyebrow" value={turn.eyebrow} as="span" />
+                </div>
+                <div className="mt-3 font-display text-[30px] font-medium italic leading-[1.12] text-[#E9B45A] md:mt-3.5 md:text-[50px] md:leading-tight md:text-gold">
+                  {clean || "…"}
+                </div>
+                <h2 className="mt-5 font-display text-[42px] font-medium leading-[1.02] tracking-[-0.03em] text-cream-deep md:mt-6.5 md:text-[70px] md:tracking-tight">
+                  <EditableText path="turn.heading" value={turn.heading} as="span" />
+                </h2>
+                <p className="mx-auto mt-[18px] max-w-[48ch] text-sm leading-[1.6] text-[#d8dcc8] md:mt-5.5 md:text-[18px] md:leading-relaxed">
+                  <EditableText path="turn.body" value={turn.body} as="span" multiline />
+                </p>
               </div>
-              <h2 className="mt-5 font-display text-[42px] font-medium leading-[1.02] tracking-[-0.03em] text-cream-deep md:mt-6.5 md:text-[70px] md:tracking-tight">
-                <EditableText path="turn.heading" value={turn.heading} as="span" />
-              </h2>
-              <p className="mx-auto mt-[18px] max-w-[48ch] text-sm leading-[1.6] text-[#d8dcc8] md:mt-5.5 md:text-[18px] md:leading-relaxed">
-                <EditableText path="turn.body" value={turn.body} as="span" multiline />
-              </p>
-            </div>
-          </section>
+            </section>
 
-          <ProcessSteps />
-          <Toolkit />
-          <ProgramSection />
-          <PatientStories />
-          <Consultation />
-          <LearnSection nodPhrase={clean} nodTopic={mappedTopic} />
-          <Footer variant="home" />
-        </>
-      )}
+            <ProcessSteps />
+            <Toolkit />
+            <ProgramSection />
+            <PatientStories />
+            <Consultation />
+            <LearnSection nodPhrase={clean} nodTopic={mappedTopic} />
+            <Footer variant="home" />
+          </div>
+        </HomeImageWarmProvider>
+      ) : null}
     </>
   );
 }
