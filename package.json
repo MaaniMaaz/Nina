@@ -8,6 +8,7 @@
     "start": "node .next/standalone/server.js",
     "lint": "eslint",
     "seed": "tsx scripts/seed-pages.ts",
+    "sitemap": "tsx scripts/generate-sitemap.ts",
     "qa:typecheck": "tsc --noEmit"
   },
   "dependencies": {
