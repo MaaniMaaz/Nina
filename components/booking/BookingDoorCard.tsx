@@ -1,4 +1,4 @@
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import { useSiteMedia } from "@/components/media/SiteMediaContext";
 
 interface BookingDoorCardProps {
@@ -51,7 +51,7 @@ export default function BookingDoorCard({
       }`}
     >
       <div className={`relative bg-ink ${mediaHeightClassName}`}>
-        <Image
+        <SmartImage
           src={bg}
           alt=""
           fill

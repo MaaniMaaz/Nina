@@ -213,6 +213,8 @@ export default function StoriesManager() {
                       <img
                         src={s.imageUrl}
                         alt=""
+                        loading="lazy"
+                        decoding="async"
                         className="mb-2 h-16 w-16 rounded object-cover"
                       />
                     ) : null}

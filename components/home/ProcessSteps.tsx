@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { pathToMediaKey } from "@/lib/cms/media-catalog";
 import { useSiteMedia, useSiteMediaMap } from "@/components/media/SiteMediaContext";
@@ -55,7 +55,7 @@ export default function ProcessSteps() {
         <div className="mt-6 overflow-hidden rounded-[14px] border border-ink/[0.08] bg-cream shadow-[0_6px_18px_rgba(46,33,27,0.1)]">
           <div className="relative h-[188px] border-t-[3px] border-t-terracotta bg-[#E7DCC9]">
             {stepImg && (
-              <Image
+              <SmartImage
                 src={stepImg}
                 alt={step.title}
                 fill
@@ -81,7 +81,7 @@ export default function ProcessSteps() {
             </p>
             <div className="mt-4 flex items-center gap-[9px]">
               <div className="relative h-[30px] w-[30px] overflow-hidden rounded-full border border-[rgba(176,138,62,0.5)]">
-                <Image
+                <SmartImage
                   src={drNina}
                   alt=""
                   fill
@@ -183,7 +183,7 @@ export default function ProcessSteps() {
         <div className="sticky top-12 flex min-h-125 flex-col rounded-xl border border-ink/[0.07] border-t-[3px] border-t-terracotta bg-cream p-7 pb-10 shadow-[0_22px_50px_rgba(46,33,27,0.14)]">
           <div className="relative h-70 w-full overflow-hidden rounded-lg bg-sand-deep">
             {stepImg && (
-              <Image
+              <SmartImage
                 src={stepImg}
                 alt={step.title}
                 fill
@@ -208,7 +208,7 @@ export default function ProcessSteps() {
           </p>
           <div className="mt-auto flex items-center gap-2.75 pt-6.5">
             <div className="relative h-9 w-9 overflow-hidden rounded-full border border-gold-deep/50">
-              <Image
+              <SmartImage
                   src={drNina}
                   alt=""
                   fill

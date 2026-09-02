@@ -1,4 +1,5 @@
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
+import { shouldUnoptimizeImage } from "@/lib/images";
 import { getSlotImage } from "@/lib/slot-images";
 
 interface ImageSlotProps {
@@ -9,7 +10,9 @@ interface ImageSlotProps {
   placeholder?: string;
   className?: string;
   shape?: "rect" | "circle";
+  /** Only for LCP / above-the-fold heroes — everything else lazy-loads. */
   priority?: boolean;
+  sizes?: string;
 }
 
 /**
@@ -25,6 +28,7 @@ export default function ImageSlot({
   className = "",
   shape = "rect",
   priority = false,
+  sizes,
 }: ImageSlotProps) {
   const src = srcProp || getSlotImage(id);
   const radius = shape === "circle" ? "rounded-full" : "";
@@ -41,13 +45,14 @@ export default function ImageSlot({
 
   return (
     <div className={`relative overflow-hidden ${radius} ${className}`}>
-      <Image
+      <SmartImage
         src={src}
         alt={alt}
         fill
         priority={priority}
+        sizes={sizes}
         className="object-cover"
-        unoptimized={src.startsWith("http")}
+        unoptimized={shouldUnoptimizeImage(src)}
       />
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import { useSiteMediaMap } from "@/components/media/SiteMediaContext";
 import EditableText from "@/components/admin/EditableText";
 import { useHomeContent } from "./HomeContentContext";
@@ -222,7 +222,7 @@ export default function LearnSection({ nodPhrase, nodTopic }: LearnSectionProps)
                         className="flex items-center gap-[13px] rounded-[14px] border border-ink/[0.08] bg-cream p-[11px] no-underline shadow-[0_3px_10px_rgba(46,33,27,0.05)] md:hidden"
                       >
                         <div className="relative h-[68px] w-[84px] flex-none overflow-hidden rounded-[10px] bg-sand-deep">
-                          {(() => { const src = feedSrc(f.key); return src ? <Image src={src} alt={f.title} fill className="object-cover" unoptimized={src.startsWith("http")} /> : null; })()}
+                          {(() => { const src = feedSrc(f.key); return src ? <SmartImage src={src} alt={f.title} fill className="object-cover" unoptimized={src.startsWith("http")} /> : null; })()}
                         </div>
                         <div className="min-w-0 flex-1">
                           <div className="text-[9.5px] text-[#9a8b7a]">
@@ -240,7 +240,7 @@ export default function LearnSection({ nodPhrase, nodTopic }: LearnSectionProps)
                       {/* Desktop: stacked card */}
                       <div className="hidden overflow-hidden rounded-2xl border border-ink/[0.08] bg-cream shadow-[0_4px_14px_rgba(46,33,27,0.06)] md:block">
                         <div className="relative h-42 bg-sand-deep">
-                          {(() => { const src = feedSrc(f.key); return src ? <Image src={src} alt={f.title} fill className="object-cover" unoptimized={src.startsWith("http")} /> : null; })()}
+                          {(() => { const src = feedSrc(f.key); return src ? <SmartImage src={src} alt={f.title} fill className="object-cover" unoptimized={src.startsWith("http")} /> : null; })()}
                         </div>
                         <div className="p-4.5">
                           <div className="text-[10px] text-muted">
@@ -278,7 +278,7 @@ export default function LearnSection({ nodPhrase, nodTopic }: LearnSectionProps)
                       key={f.key}
                       className="relative h-[190px] overflow-hidden rounded-[14px] border border-ink/[0.08] bg-sand-deep shadow-[0_3px_10px_rgba(46,33,27,0.05)] md:h-47.5 md:rounded-2xl md:shadow-[0_4px_14px_rgba(46,33,27,0.06)]"
                     >
-                      {(() => { const src = feedSrc(f.key); return src ? <Image src={src} alt={f.title} fill className="object-cover" unoptimized={src.startsWith("http")} /> : null; })()}
+                      {(() => { const src = feedSrc(f.key); return src ? <SmartImage src={src} alt={f.title} fill className="object-cover" unoptimized={src.startsWith("http")} /> : null; })()}
                       <div
                         className="pointer-events-none absolute inset-0"
                         style={{ background: "linear-gradient(180deg, rgba(20,12,7,0) 42%, rgba(20,12,7,0.66))" }}

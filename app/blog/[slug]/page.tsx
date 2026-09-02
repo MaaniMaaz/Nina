@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { getPageByTypeSlug, blogFromCms, journalFromCms, ensureJournalPages } from "@/lib/cms/pages";
 import { resolveBlogPage, resolveJournalArticle } from "@/lib/cms/resolve";
@@ -213,7 +213,7 @@ export default async function BlogArticlePage({
       <p className="mt-4 text-[17px] leading-relaxed text-body">{content.dek}</p>
       {content.coverImageUrl ? (
         <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl bg-sand">
-          <Image
+          <SmartImage
             src={content.coverImageUrl}
             alt={content.coverAlt}
             fill
@@ -229,7 +229,7 @@ export default async function BlogArticlePage({
             <p key={i}>{section.text}</p>
           ) : (
             <div key={i} className="relative aspect-[16/9] overflow-hidden rounded-xl bg-sand">
-              <Image
+              <SmartImage
                 src={section.url}
                 alt={section.alt}
                 fill

@@ -436,7 +436,7 @@ function EditorInner({ page: initial }: { page: CmsPage }) {
                   <div className="relative mt-2 h-28 overflow-hidden rounded-lg border border-ink/10 bg-cream-deep">
                     {coverImageUrl ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={coverImageUrl} alt="" className="h-full w-full object-cover" />
+                      <img src={coverImageUrl} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
                     ) : (
                       <div className="flex h-full items-center justify-center text-[12px] text-muted">
                         No cover yet

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import Link from "next/link";
 import MobileNavOverlay, { MobileMenuButton } from "@/components/layout/MobileNavOverlay";
 import MegaMenuPanel, { type MegaKey } from "@/components/layout/MegaMenuPanel";
@@ -27,7 +27,7 @@ export default function Hero() {
       {/* ─── MOBILE HERO (dump §01) ─── */}
       <section className="relative h-[100svh] min-h-[640px] overflow-hidden bg-ink font-sans md:hidden">
         <div className="absolute inset-0">
-          <Image
+          <SmartImage
             src={heroMobile}
             alt=""
             fill
@@ -51,7 +51,7 @@ export default function Hero() {
 
         {/* App bar — logo + hamburger only */}
         <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 pt-4">
-          <Image
+          <SmartImage
             src="/images/nina-ross-logo-cream.png"
             alt="Nina Ross Functional Medicine, Atlanta"
             width={160}
@@ -130,7 +130,7 @@ export default function Hero() {
       {/* ─── DESKTOP HERO ─── */}
       <section className="relative hidden min-h-screen bg-ink font-sans md:block">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <Image
+          <SmartImage
             src={heroDesktop}
             alt=""
             fill
@@ -174,7 +174,7 @@ export default function Hero() {
               }`}
             >
               <div className="relative shrink-0">
-                <Image
+                <SmartImage
                   src="/images/nina-ross-logo-cream.png"
                   alt="Nina Ross Functional Medicine, Atlanta"
                   width={220}
@@ -182,7 +182,7 @@ export default function Hero() {
                   className={`h-11 w-auto xl:h-[62px] ${mega ? "invisible absolute" : ""}`}
                   priority
                 />
-                <Image
+                <SmartImage
                   src="/images/nina-ross-logo-dark.png"
                   alt=""
                   aria-hidden
@@ -280,7 +280,7 @@ export default function Hero() {
         <div className="absolute bottom-10 right-14 z-[4] max-w-64 rounded-[4px] border border-[rgba(230,221,209,0.12)] border-t-2 border-t-gold bg-[rgba(28,19,14,0.55)] px-5.5 py-4.5 backdrop-blur-md">
           <div className="flex items-center gap-2.75">
             <div className="relative h-11.5 w-11.5 flex-none overflow-hidden rounded-full border border-[rgba(207,168,90,0.55)]">
-              <Image
+              <SmartImage
                 src={drNina}
                 alt=""
                 fill

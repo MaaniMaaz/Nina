@@ -1,0 +1,54 @@
+---
+description: Audit-first quality gate — code quality, industry standards, and tests before any fix or feature
+alwaysApply: true
+---
+
+# Quality gate (always)
+
+Do not start coding a fix or feature until the audit below is complete. Prefer finding root cause and matching existing patterns over quick patches.
+
+## 1. Audit before you change
+
+Before writing or editing code:
+
+1. Restate the goal and success criteria in one or two sentences.
+2. Locate the owning files, entry points, and nearest similar implementation.
+3. Trace current behavior (happy path + failure path) and list concrete gaps.
+4. Note side effects: routes, CMS content, admin edit canvas, booking/Acuity, SEO, deploy.
+5. Propose the smallest change that meets the goal. If unclear, ask — do not guess.
+
+Skip straight to edits only for trivial, unambiguous one-liners the user explicitly requested.
+
+## 2. Code quality
+
+- Match this repo’s patterns: Next.js App Router, TypeScript, Tailwind tokens, shared layout/blocks, CMS types.
+- Read `node_modules/next/dist/docs/` when touching Next APIs; do not rely on outdated Next habits.
+- No drive-by refactors, unused exports, speculative abstractions, or unrelated file churn.
+- Prefer clear names, small functions, typed boundaries, and reuse of existing components/helpers.
+- Keep secrets out of the client; validate inputs on API routes; fail with actionable errors.
+- Preserve accessibility and responsive behavior (phone / tablet / desktop) on public UI.
+
+## 3. Industry standards
+
+- Security: no auth bypass, no leaking credentials, sanitize/escape user-controlled HTML/URLs.
+- SEO/ops when relevant: metadata, canonical paths, sitemap/robots, sane 404s, no dead links.
+- Performance: use `next/image` where appropriate; avoid shipping server-only modules to the client.
+- Deploy awareness: production targets **Hostinger** (Node standalone); do not assume Cloudflare or Vercel unless the task is a host migration.
+- Logging and errors should help diagnose production issues without dumping sensitive data.
+
+## 4. Testing must pass
+
+After changes, verify before claiming done:
+
+1. Run the tightest relevant check (`tsc`, lint, targeted script, or build) for what you touched.
+2. Manually exercise the changed path (public page, admin edit/save, booking CTA, etc.).
+3. Confirm no regressions on shared chrome (Header/Footer/nav) and linked routes you touched.
+4. If a check fails, fix it — do not ship “known broken” or skip verification with excuses.
+5. Summarize what was audited, what changed, and what was verified.
+
+## Refusal patterns
+
+- ❌ “Quick fix” without reading the surrounding code
+- ❌ New feature duplicated beside an existing helper/component
+- ❌ “Should work” without running or describing verification
+- ❌ Broad rewrites when a focused patch solves the request

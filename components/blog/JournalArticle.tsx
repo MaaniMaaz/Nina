@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import SmartImage from "@/components/ui/SmartImage";
+import { shouldUnoptimizeImage } from "@/lib/images";
 import { useEdit } from "@/components/admin/EditContext";
 import EditableText from "@/components/admin/EditableText";
 import EditableImage from "@/components/admin/EditableImage";
@@ -71,7 +72,7 @@ function hexToRgba(hex: string, alpha: number): string {
 }
 
 function isRemote(src: string): boolean {
-  return /^https?:\/\//i.test(src);
+  return shouldUnoptimizeImage(src);
 }
 
 function ArticleImg({
@@ -90,7 +91,7 @@ function ArticleImg({
   priority?: boolean;
 }) {
   return (
-    <Image
+    <SmartImage
       src={src}
       alt={alt}
       fill={fill}
@@ -117,7 +118,7 @@ function NinaAvatar({
       className={`relative block overflow-hidden rounded-full bg-[#E7DCC9] ${className}`}
       style={{ width: size, height: size }}
     >
-      <Image
+      <SmartImage
         src={src}
         alt="Dr. Nina Ross, ND; Ph.D"
         fill
@@ -1234,10 +1235,11 @@ function DarkFooterCta({ article }: { article: JournalArticleData }) {
         </div>
       </div>
       <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-6 border-t border-[rgba(246,238,225,0.12)] px-[clamp(24px,6vw,100px)] py-8">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <SmartImage
           src="/images/nina-ross-logo-cream.png"
           alt="Nina Ross Functional Medicine, Atlanta"
+          width={180}
+          height={56}
           className="block h-[clamp(50px,5vw,62px)] w-auto"
         />
         <p className="m-0 font-sans text-[12px] tracking-[0.04em] text-[#8a7a68]">

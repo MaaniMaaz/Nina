@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogTopicSlug } from "@/content/blog";
@@ -62,7 +62,7 @@ export default async function BlogTopicPage({ params }: Props) {
             className="overflow-hidden rounded-2xl border border-[rgba(46,33,27,0.09)] bg-cream no-underline"
           >
             <div className="relative h-[160px] bg-[#E7DCC9] md:h-[186px]">
-              <Image src={it.img} alt={it.alt} fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
+              <SmartImage src={it.img} alt={it.alt} fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
               <span
                 className="absolute top-[13px] left-[13px] rounded-full px-[11px] py-[5px] text-[8.5px] font-bold tracking-[0.14em] text-cream uppercase"
                 style={{ background: it.fmtColor }}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import { useSiteMedia } from "@/components/media/SiteMediaContext";
 import EditableText from "@/components/admin/EditableText";
 import { useHomeContent } from "./HomeContentContext";
@@ -140,7 +140,7 @@ export default function ProgramSection() {
 
         <div className="mt-4 flex items-start gap-[13px] rounded-[14px] border border-[#7C8A5E]/32 bg-cream px-[17px] py-4 md:mx-auto md:mt-7 md:max-w-165 md:items-center md:justify-center md:gap-4 md:border-0 md:bg-transparent md:px-0 md:py-0">
           <div className="relative h-[42px] w-[42px] flex-none overflow-hidden rounded-full border border-gold-deep/50 md:h-13 md:w-13">
-            <Image
+            <SmartImage
               src={drNina}
               alt=""
               fill

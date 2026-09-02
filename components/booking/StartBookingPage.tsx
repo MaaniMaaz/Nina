@@ -3,11 +3,13 @@
 import { useState } from "react";
 import BookingDoorCard from "@/components/booking/BookingDoorCard";
 
+import { acuitySrc } from "@/lib/booking";
+
 type Door = "inperson" | "virtual" | null;
 
 const SCHEDULER_SRC: Record<"inperson" | "virtual", string> = {
-  inperson: "https://app.acuityscheduling.com/schedule.php?owner=12622771&appointmentType=36940894",
-  virtual: "https://app.acuityscheduling.com/schedule.php?owner=12622771&appointmentType=42808083",
+  inperson: acuitySrc("inperson"),
+  virtual: acuitySrc("virtual"),
 };
 
 const DOOR_LABEL: Record<"inperson" | "virtual", string> = {

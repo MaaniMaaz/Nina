@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { DEFAULT_TURN_IMAGE } from "@/content/home";
 import { cleanEntry, dotsRead, learnTopicFor, slugify } from "@/lib/home-logic";
@@ -141,7 +141,7 @@ export default function HomeInteractive() {
                   {/* Desktop reply chrome */}
                   <div className="mb-4.5 hidden flex-col items-center gap-3.5 md:flex">
                     <div className="relative h-21 w-21 overflow-hidden rounded-full border-[1.5px] border-gold-deep/60 shadow-[0_10px_26px_rgba(46,33,27,0.18)]">
-                      <Image
+                      <SmartImage
                         src={drNina}
                         alt=""
                         fill
@@ -180,7 +180,7 @@ export default function HomeInteractive() {
         <>
           <section className="relative -mt-px flex min-h-[70svh] items-center overflow-hidden bg-olive px-9 py-16 text-center md:min-h-0 md:px-[clamp(40px,6vw,120px)] md:py-31">
             <div className="absolute inset-0 opacity-62">
-              <Image
+              <SmartImage
                 src={turnImage}
                 alt=""
                 fill

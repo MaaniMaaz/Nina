@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import EditableText from "@/components/admin/EditableText";
 import { useEdit } from "@/components/admin/EditContext";
 import { TOOLKIT_ITEMS } from "@/content/home";
@@ -54,7 +54,7 @@ export default function CarePlanToolkit({
           <div className="flex items-center justify-between px-6 py-3">
             <div className="flex items-center gap-2.5">
               <div className="relative h-[30px] w-[30px] overflow-hidden rounded-full border border-[rgba(176,138,62,0.55)]">
-                <Image
+                <SmartImage
                   src={drNina}
                   alt=""
                   fill
@@ -62,7 +62,7 @@ export default function CarePlanToolkit({
                   unoptimized={drNina.startsWith("http")}
                 />
               </div>
-              <Image
+              <SmartImage
                 src="/images/nina-ross-logo-dark.png"
                 alt="Nina Ross Functional Medicine, Atlanta"
                 width={140}
@@ -101,7 +101,7 @@ export default function CarePlanToolkit({
           <div className="relative h-[220px] overflow-hidden bg-[#E7DCC9]">
             {imageMobile && (
               <div key={active.num} className="absolute inset-0 animate-nr-img">
-                <Image
+                <SmartImage
                   src={imageMobile}
                   alt={active.name}
                   fill
@@ -168,7 +168,7 @@ export default function CarePlanToolkit({
             <div className="relative aspect-[4/5] min-h-[380px] w-full overflow-hidden rounded-xl bg-[#E7DCC9] shadow-[0_18px_40px_rgba(46,33,27,0.14)]">
               {imageDesktop && (
                 <div key={active.num} className="absolute inset-0 animate-nr-img">
-                  <Image
+                  <SmartImage
                     src={imageDesktop}
                     alt={active.name}
                     fill

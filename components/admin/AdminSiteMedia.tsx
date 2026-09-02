@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { SiteMediaEntry } from "@/lib/cms/media-catalog";
 
@@ -164,7 +164,7 @@ export default function AdminSiteMedia({ onBack }: { onBack: () => void }) {
                       className="overflow-hidden rounded-xl border border-ink/10 bg-cream"
                     >
                       <div className="relative aspect-[4/3] bg-cream-deep">
-                        <Image
+                        <SmartImage
                           src={src}
                           alt={entry.label}
                           fill

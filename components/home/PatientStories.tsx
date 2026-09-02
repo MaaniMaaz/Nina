@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import { useSiteMedia, useSiteMediaMap } from "@/components/media/SiteMediaContext";
 import EditableText from "@/components/admin/EditableText";
 import { useEdit } from "@/components/admin/EditContext";
@@ -175,7 +175,7 @@ export default function PatientStories() {
         <div className="grid overflow-hidden md:grid-cols-[0.82fr_1fr] md:rounded-[22px] md:shadow-[0_40px_90px_rgba(20,12,7,0.45)]">
           {/* Editorial hero — dump mobile height ~290px */}
           <div className="relative h-[290px] flex-none bg-[#2a3322] md:min-h-140 md:h-auto">
-            <Image
+            <SmartImage
               src={storySrc}
               alt={story.name}
               fill
@@ -295,7 +295,7 @@ export default function PatientStories() {
                     </p>
                     <div className="mt-3.5 flex items-center gap-2.5 md:mt-5 md:gap-3">
                       <div className="relative h-[38px] w-[38px] flex-none overflow-hidden rounded-full border border-gold-deep/55 md:h-11.5 md:w-11.5">
-                        <Image
+                        <SmartImage
                           src={drNina}
                           alt=""
                           fill
@@ -431,7 +431,7 @@ export default function PatientStories() {
                             aria-label={`Play ${story.first}'s story`}
                             className="absolute inset-0"
                           >
-                            <Image
+                            <SmartImage
                               src={storySrc}
                               alt={story.name}
                               fill
@@ -514,7 +514,7 @@ export default function PatientStories() {
                     }}
                   >
                     <span className="relative block h-full w-full">
-                      <Image
+                      <SmartImage
                         src={thumb}
                         alt={c.first}
                         fill

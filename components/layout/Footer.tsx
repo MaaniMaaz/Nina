@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SocialIcons from "@/components/layout/SocialIcons";
@@ -70,7 +70,7 @@ export default function Footer({ variant }: { variant?: "home" | "shell" } = {})
       <div className="relative mx-auto max-w-6xl">
         {/* Mobile */}
         <div className="md:hidden">
-          <Image
+          <SmartImage
             src="/images/nina-ross-logo-cream.png"
             alt="Nina Ross Functional Medicine, Atlanta"
             height={32}
@@ -173,7 +173,7 @@ export default function Footer({ variant }: { variant?: "home" | "shell" } = {})
         <div className="hidden md:block">
           <div className="grid grid-cols-[1.4fr_1fr_1fr_1.1fr] gap-14">
             <div>
-              <Image
+              <SmartImage
                 src="/images/nina-ross-logo-cream.png"
                 alt="Nina Ross Functional Medicine, Atlanta"
                 height={54}

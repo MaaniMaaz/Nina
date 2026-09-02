@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { useSiteMedia } from "@/components/media/SiteMediaContext";
 import EditableText from "@/components/admin/EditableText";
@@ -25,7 +25,7 @@ export default function Consultation() {
       <div className="relative z-[1] mx-auto max-w-295 px-[22px] pb-[120px] pt-[26px] md:px-[clamp(40px,6vw,120px)] md:pb-39 md:pt-39">
         <div className="mx-auto max-w-205 text-center">
           <div className="relative mx-auto mb-3.5 h-[76px] w-[76px] overflow-hidden rounded-full border border-gold-deep/60 shadow-[0_10px_24px_rgba(46,33,27,0.16)] md:mb-5.5 md:h-23 md:w-23">
-            <Image
+            <SmartImage
               src={drNina}
               alt="Dr. Nina Ross, ND PhD"
               fill

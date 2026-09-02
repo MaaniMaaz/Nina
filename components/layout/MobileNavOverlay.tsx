@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import Link from "next/link";
 
 const MOST_SEARCHED = [
@@ -100,7 +100,7 @@ export default function MobileNavOverlay({
 
       <div className="relative z-[1] flex flex-1 flex-col px-6 pb-8 pt-5">
         <div className="mb-5 flex items-center justify-between">
-          <Image
+          <SmartImage
             src="/images/nina-ross-logo-cream.png"
             alt="Nina Ross Functional Medicine, Atlanta"
             height={28}

@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { useRef, useState } from "react";
+import SmartImage from "@/components/ui/SmartImage";
+import { shouldUnoptimizeImage } from "@/lib/images";
 import { getSlotImage } from "@/lib/slot-images";
 import { getByPath, useEdit } from "./EditContext";
 
@@ -17,6 +18,8 @@ export default function EditableImage({
   className = "",
   placeholder = "Photo",
   shape = "rect",
+  priority = false,
+  sizes,
 }: {
   slotId?: string;
   /** Path in content JSON for a Cloudinary/absolute URL, e.g. hero.imageUrl */
@@ -27,6 +30,9 @@ export default function EditableImage({
   className?: string;
   placeholder?: string;
   shape?: "rect" | "circle";
+  /** Only for LCP / above-the-fold heroes. */
+  priority?: boolean;
+  sizes?: string;
 }) {
   const edit = useEdit();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -68,12 +74,14 @@ export default function EditableImage({
     </div>
   ) : (
     <div className={`relative overflow-hidden ${radius} ${className}`}>
-      <Image
+      <SmartImage
         src={src}
         alt={alt}
         fill
+        priority={priority}
+        sizes={sizes}
         className="object-cover"
-        unoptimized={src.startsWith("http")}
+        unoptimized={shouldUnoptimizeImage(src)}
       />
     </div>
   );

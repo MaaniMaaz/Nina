@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 
 const NAV_ITEMS = [
   { label: "Our Approach", href: "/approach" },
@@ -14,7 +14,7 @@ const ROUTES = [
     title: "Start here",
     body: "A half hour with our team. Bring the whole story and whatever labs you already have.",
     cta: "Book a $99 consult",
-    href: "/book",
+    href: "/start",
     edge: "#B5572F",
   },
   {
@@ -41,12 +41,12 @@ const ROUTES = [
 ];
 
 const CONDITIONS = [
-  { label: "Hormonal problems", href: "/conditions/hormones" },
+  { label: "Hormonal problems", href: "/conditions/hormone-imbalance" },
   { label: "PCOS", href: "/conditions/pcos" },
   { label: "Perimenopause", href: "/conditions/menopause" },
-  { label: "Thyroid", href: "/conditions/thyroid" },
+  { label: "Insulin resistance", href: "/conditions/insulin-resistance" },
   { label: "Chronic fatigue", href: "/conditions/chronic-fatigue" },
-  { label: "Gut and digestion", href: "/conditions/gut-digestion" },
+  { label: "Gut health", href: "/conditions/gut-health" },
   { label: "Weight that will not move", href: "/conditions/weight-loss" },
   { label: "Hair loss", href: "/conditions/hair-loss" },
 ];
@@ -66,9 +66,9 @@ const FOOTER_LINKS = [
   { label: "The Journal", href: "/blog" },
   { label: "Conditions", href: "/conditions" },
   { label: "Treatments", href: "/treatments" },
-  { label: "Patient Stories", href: "/patient-stories" },
+  { label: "Patient Stories", href: "/#patient-stories" },
   { label: "About Dr. Nina", href: "/about" },
-  { label: "Book a Consult", href: "/book" },
+  { label: "Book a Consult", href: "/start" },
 ];
 
 export const metadata = {
@@ -79,11 +79,11 @@ export const metadata = {
 export default function NotFoundPage() {
   return (
     <div className="min-h-screen bg-[#F6EEE1] text-ink">
-      <header className="bg-[#FBF6EC] border-b border-ink/10">
+      <header className="border-b border-ink/10 bg-[#FBF6EC]">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
           <Link href="/" className="block">
-            <Image
-              src="/nina-ross-logo-dark.png"
+            <SmartImage
+              src="/images/nina-ross-logo-dark.png"
               alt="Nina Ross Functional Medicine"
               width={176}
               height={44}
@@ -98,7 +98,10 @@ export default function NotFoundPage() {
                 {item.label}
               </Link>
             ))}
-            <Link href="/book" className="inline-flex rounded bg-terracotta px-3 py-2 text-[13px] font-semibold text-cream">
+            <Link
+              href="/start"
+              className="inline-flex rounded bg-terracotta px-3 py-2 text-[13px] font-semibold text-cream"
+            >
               Start · $99
             </Link>
           </nav>
@@ -111,14 +114,19 @@ export default function NotFoundPage() {
             <div className="flex flex-wrap items-center gap-3">
               <span className="font-serif text-2xl">℞</span>
               <span className="h-px w-6 bg-[#B08A3E]" />
-              <span className="text-[11px] uppercase tracking-[0.28em] text-[#CFA85A]">Error 404 · page not found</span>
+              <span className="text-[11px] uppercase tracking-[0.28em] text-[#CFA85A]">
+                Error 404 · page not found
+              </span>
             </div>
             <h1 className="mt-6 font-display text-[34px] leading-tight text-[#2E211B] sm:text-[40px] md:text-[56px]">
               This page went looking for answers too.
             </h1>
-            <p className="mt-4 text-[18px] italic text-[#E9B45A]">It didn&apos;t find any. Let&apos;s get you somewhere useful.</p>
+            <p className="mt-4 text-[18px] italic text-[#E9B45A]">
+              It didn&apos;t find any. Let&apos;s get you somewhere useful.
+            </p>
             <p className="mt-4 max-w-2xl text-[15px] text-[#6b6054]">
-              The page you were after has moved or no longer exists. Search below, or pick up from one of the places most people are heading.
+              The page you were after has moved or no longer exists. Search below, or pick up from one of
+              the places most people are heading.
             </p>
 
             <form action="/search" method="get" className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -147,7 +155,7 @@ export default function NotFoundPage() {
                 Back to the homepage
               </Link>
               <Link
-                href="/book"
+                href="/start"
                 className="rounded-lg border border-[#E9B45A] px-4 py-3 text-sm font-semibold text-[#E9B45A] transition hover:bg-[#FBF6EC]"
               >
                 Book a $99 consult
@@ -156,29 +164,29 @@ export default function NotFoundPage() {
           </section>
 
           <aside className="rounded-[28px] border border-ink/10 bg-[#FBF6EC] p-6 shadow-sm sm:p-8">
-            <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-[#43312a] sm:h-32 sm:w-32">
-              <Image
-                src="/dr-nina.png"
+            <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full bg-[#43312a] sm:h-32 sm:w-32">
+              <SmartImage
+                src="/images/dr-nina.png"
                 alt="Dr. Nina Ross, ND; Ph.D"
-                width={116}
-                height={116}
-                className="h-full w-full rounded-full object-cover"
+                fill
+                sizes="128px"
+                className="object-cover"
               />
             </div>
-            <p className="mt-6 text-[22px] font-cursive leading-snug text-[#E9B45A]">A dead end is still information. Try one of these instead.</p>
+            <p className="mt-6 text-[22px] font-hand leading-snug text-[#E9B45A]">
+              A dead end is still information. Try one of these instead.
+            </p>
             <div className="mt-6 grid gap-3">
-              <Link href="/book" className="block rounded-2xl bg-[#FBF6EC] border-l-4 border-[#B5572F] px-5 py-4 text-sm font-semibold text-[#2E211B] transition hover:bg-white">
-                Start here · Book a $99 consult
-              </Link>
-              <Link href="/conditions" className="block rounded-2xl bg-[#FBF6EC] border-l-4 border-[#B5572F] px-5 py-4 text-sm font-semibold text-[#2E211B] transition hover:bg-white">
-                Conditions · See all conditions
-              </Link>
-              <Link href="/treatments" className="block rounded-2xl bg-[#FBF6EC] border-l-4 border-[#4a6340] px-5 py-4 text-sm font-semibold text-[#2E211B] transition hover:bg-white">
-                Treatments · See all treatments
-              </Link>
-              <Link href="/blog" className="block rounded-2xl bg-[#FBF6EC] border-l-4 border-[#8a6a3a] px-5 py-4 text-sm font-semibold text-[#2E211B] transition hover:bg-white">
-                The Journal · Browse the library
-              </Link>
+              {ROUTES.map((route) => (
+                <Link
+                  key={route.href}
+                  href={route.href}
+                  className="block rounded-2xl border-l-4 border-[#B5572F] bg-[#FBF6EC] px-5 py-4 text-sm font-semibold text-[#2E211B] transition hover:bg-white"
+                  style={{ borderLeftColor: route.edge }}
+                >
+                  {route.title} · {route.cta}
+                </Link>
+              ))}
             </div>
           </aside>
         </div>
@@ -195,7 +203,7 @@ export default function NotFoundPage() {
               <Link
                 key={route.href}
                 href={route.href}
-                className="group rounded-[18px] border border-ink/10 bg-[#FBF6EC] p-6 transition hover:border-ink/20 hover:bg-white"
+                className="group rounded-[18px] border border-ink/10 border-l-4 bg-[#FBF6EC] p-6 transition hover:border-ink/20 hover:bg-white"
                 style={{ borderLeftColor: route.edge }}
               >
                 <span className="block text-[18px] text-[#2E211B]">℞</span>
@@ -208,7 +216,9 @@ export default function NotFoundPage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             <div>
-              <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#9a8b7a]">Looked-for conditions</div>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#9a8b7a]">
+                Looked-for conditions
+              </div>
               <div className="mt-4 flex flex-wrap gap-3">
                 {CONDITIONS.map((item) => (
                   <Link
@@ -222,7 +232,9 @@ export default function NotFoundPage() {
               </div>
             </div>
             <div>
-              <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#9a8b7a]">Looked-for treatments</div>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#9a8b7a]">
+                Looked-for treatments
+              </div>
               <div className="mt-4 flex flex-wrap gap-3">
                 {TREATMENTS.map((item) => (
                   <Link
@@ -242,13 +254,12 @@ export default function NotFoundPage() {
       <footer className="bg-[#2E211B] text-[#d8cab8]">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10 md:flex-row md:items-center md:justify-between">
           <div>
-            <Image
-              src="/nina-ross-logo-cream.png"
+            <SmartImage
+              src="/images/nina-ross-logo-cream.png"
               alt="Nina Ross Functional Medicine, Atlanta"
               width={180}
               height={56}
               className="h-auto w-auto"
-              loading="eager"
             />
           </div>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">

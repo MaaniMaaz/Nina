@@ -107,6 +107,8 @@ export default function JournalMetaFields() {
           <img
             src={content.hero.src}
             alt=""
+            loading="lazy"
+            decoding="async"
             className="mt-2 h-28 w-full rounded-lg object-cover"
           />
         ) : null}

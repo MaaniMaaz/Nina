@@ -207,6 +207,8 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
                   alt={hero.imageAlt ?? hero.heading}
                   placeholder="Hero image"
                   className="h-[540px] w-full"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               ) : (
                 <ImageSlot
@@ -216,6 +218,7 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
                   placeholder="Hero image"
                   className="h-[540px] w-full"
                   priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               )}
               <div className="absolute bottom-4.5 left-4.5 inline-flex items-center gap-2 rounded-full bg-[#0d0b0a]/62 px-4 py-2.5 backdrop-blur-sm">
@@ -276,6 +279,8 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
                 alt={hero.imageAlt ?? hero.heading}
                 placeholder="Hero image"
                 className="h-[200px] w-full"
+                priority
+                sizes="100vw"
               />
             ) : (
               <ImageSlot
@@ -285,6 +290,7 @@ export default function PageHero({ hero }: { hero: HeroContent }) {
                 placeholder="Hero image"
                 className="h-[200px] w-full"
                 priority
+                sizes="100vw"
               />
             )}
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import { pathToMediaKey } from "@/lib/cms/media-catalog";
 import { useSiteMedia, useSiteMediaMap } from "@/components/media/SiteMediaContext";
 import EditableText from "@/components/admin/EditableText";
@@ -39,7 +39,7 @@ export default function Toolkit() {
           <div className="flex items-center justify-between border-b border-ink/[0.08] px-6 py-3">
             <div className="flex items-center gap-2.5">
               <div className="relative h-[30px] w-[30px] overflow-hidden rounded-full border border-[rgba(176,138,62,0.55)]">
-                <Image
+                <SmartImage
                   src={drNina}
                   alt=""
                   fill
@@ -47,7 +47,7 @@ export default function Toolkit() {
                   unoptimized={drNina.startsWith("http")}
                 />
               </div>
-              <Image
+              <SmartImage
                 src="/images/nina-ross-logo-dark.png"
                 alt="Nina Ross Functional Medicine, Atlanta"
                 width={140}
@@ -80,7 +80,7 @@ export default function Toolkit() {
           <div className="relative h-[268px] overflow-hidden bg-[#E7DCC9]">
             {imageMobile && (
               <div key={active.num} className="absolute inset-0 animate-nr-img">
-                <Image
+                <SmartImage
                   src={imageMobile}
                   alt={active.name}
                   fill
@@ -176,7 +176,7 @@ export default function Toolkit() {
           <div className="flex items-center justify-between gap-4 border-b border-ink/[0.12] px-11 py-6.5">
             <div className="flex items-center gap-4.25">
               <div className="relative h-15 w-15 flex-none overflow-hidden rounded-full border border-gold-deep/55">
-                <Image
+                <SmartImage
                   src={drNina}
                   alt=""
                   fill
@@ -184,7 +184,7 @@ export default function Toolkit() {
                   unoptimized={drNina.startsWith("http")}
                 />
               </div>
-              <Image
+              <SmartImage
                 src="/images/nina-ross-logo-dark.png"
                 alt="Nina Ross Functional Medicine, Atlanta"
                 width={220}
@@ -207,7 +207,7 @@ export default function Toolkit() {
               <div className="relative min-h-[380px] w-full flex-1 overflow-hidden rounded-xl bg-sand-deep shadow-[0_18px_40px_rgba(46,33,27,0.14)]">
                 {imageDesktop && (
                   <div key={active.num} className="absolute inset-0 animate-nr-img">
-                    <Image
+                    <SmartImage
                       src={imageDesktop}
                       alt={active.name}
                       fill

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import Link from "next/link";
 import Eyebrow from "@/components/ui/Eyebrow";
+import ContactForm from "@/components/forms/ContactForm";
 import { resolveMedia } from "@/lib/cms/media";
+import { shouldUnoptimizeImage } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Dr. Nina Ross, ND PhD",
@@ -25,13 +27,14 @@ export default async function AboutPage() {
       <section className="bg-cream px-6 py-12 md:px-10 md:py-28">
         <div className="mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-2 md:gap-16">
           <div className="relative h-[240px] w-full overflow-hidden rounded-[18px] shadow-[0_24px_50px_rgba(46,33,27,0.14)] md:h-[420px] md:rounded-[22px]">
-            <Image
+            <SmartImage
               src={portrait}
               alt="Dr. Nina Ross, ND PhD"
               fill
               priority
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover object-[50%_20%]"
-              unoptimized={portrait.startsWith("http")}
+              unoptimized={shouldUnoptimizeImage(portrait)}
             />
           </div>
           <div>
@@ -84,13 +87,39 @@ export default async function AboutPage() {
       <section className="bg-sand px-6 py-12 md:px-10 md:py-22">
         <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
           <Eyebrow number="02" label="In their words" align="center" />
-          <p className="mt-4 font-display text-[20px] leading-snug text-ink italic md:text-[26px]">
+          <p className="mt-4 font-display text-[20px] italic leading-snug text-ink md:text-[26px]">
             &ldquo;She was the first doctor who let me finish a sentence. For the first time I felt like a whole
             person in the room.&rdquo;
           </p>
           <p className="mt-4 text-[13.5px] font-semibold uppercase tracking-[0.14em] text-terracotta">
             Tasha M. &middot; Atlanta patient
           </p>
+        </div>
+      </section>
+
+      <section id="contact" className="bg-cream-deep px-6 py-12 md:px-10 md:py-20">
+        <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-2 md:items-start">
+          <div>
+            <Eyebrow number="03" label="Get in touch" />
+            <h2 className="mt-3.5 font-display text-[28px] font-medium leading-tight text-ink md:text-[36px]">
+              Prefer to write first?
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-body">
+              Send a note for general questions. For booking the $99 Symptom Consultation, use{" "}
+              <Link href="/start" className="font-semibold text-terracotta">
+                Start
+              </Link>{" "}
+              — Acuity handles the schedule.
+            </p>
+            <p className="mt-4 text-[14px] text-muted">
+              Or email{" "}
+              <a href="mailto:hello@ninarossfm.com" className="font-semibold text-ink">
+                hello@ninarossfm.com
+              </a>
+              .
+            </p>
+          </div>
+          <ContactForm className="rounded-2xl border border-ink/10 bg-cream p-5 shadow-[0_8px_24px_rgba(46,33,27,0.06)] md:p-6" />
         </div>
       </section>
     </>

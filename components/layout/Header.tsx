@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import SmartImage from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileNavOverlay, { MobileMenuButton } from "@/components/layout/MobileNavOverlay";
@@ -36,7 +36,7 @@ export default function Header() {
           }`}
         >
           <Link href="/" className="relative flex shrink-0 items-center" onClick={() => setOpen(false)}>
-            <Image
+            <SmartImage
               src="/images/nina-ross-logo-cream.png"
               alt="Nina Ross Functional Medicine, Atlanta"
               height={62}
@@ -44,7 +44,7 @@ export default function Header() {
               className={`h-11 w-auto xl:h-[62px] ${mega ? "invisible absolute" : ""}`}
               priority
             />
-            <Image
+            <SmartImage
               src="/images/nina-ross-logo-dark.png"
               alt=""
               aria-hidden
